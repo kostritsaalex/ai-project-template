@@ -64,6 +64,20 @@ on a real task.
 
 ---
 
+## A second tool
+
+The conditions call for the tool you actually work in. Running the same prompt in a tool from a
+different vendor is a separate check, and a stronger one, at the cost of a single session.
+
+The adapters exist because different tools look for different filenames. One reads `CLAUDE.md`,
+another reads `AGENTS.md`, and a run in one tool only proves the file that tool happened to open. A
+second tool that lands on the other adapter and still arrives at the entry point is evidence the
+pair works, rather than the assumption that it does.
+
+Question 5 is where this shows. If both runs cite the same adapter, the other one is still untested.
+
+---
+
 ## The stronger version
 
 Questions measure what the assistant says. A task measures what it does.

@@ -14,7 +14,11 @@ Header metadata. Example of a filled-in block:
     Repository Version:     1.0          (this document's own version, start at 1.0)
     Parent Project:         https://github.com/acme/northwind-project
     Parent Project Version: 2.0          (the PROJECT.md version this was written against)
-    Derived from:           Repository Blueprint 0.1.0
+
+The Parent Project line carries the address of the project scope, in whichever of the three forms
+applies. A synced-store scope reads "OneDrive, Projects/Northwind" instead of a URL. The local path
+does not belong in the header; it sits in the Parent Project section below.
+    Derived from:           Repository Blueprint 0.2.0
     Last Updated:           2026-08-09
     Document Owner:         Alex
 
@@ -32,7 +36,7 @@ rather than assumed.
 > Read this document before performing any task in this repository.
 >
 > **Repository Version:** <REPOSITORY_VERSION>  
-> **Parent Project:** <CANONICAL_PROJECT_REPOSITORY_URL>  
+> **Parent Project:** <CANONICAL_PROJECT_SCOPE_ADDRESS>  
 > **Parent Project Version:** <PARENT_PROJECT_VERSION>  
 > **Derived from:** Repository Blueprint <REPOSITORY_BLUEPRINT_VERSION>  
 > **Last Updated:** <YYYY-MM-DD>  
@@ -65,16 +69,18 @@ This document defines repository-specific guidance only.
 The two lines below are the reason this document works at all. Getting them wrong leaves the
 assistant knowing a parent project exists and unable to reach it.
 
-<CANONICAL_PROJECT_REPOSITORY_URL> is the repository that holds the canonical PROJECT.md. Write the
-full URL, scheme included:
+<CANONICAL_PROJECT_SCOPE_ADDRESS> is where the canonical PROJECT.md lives. Three forms qualify, and
+the right one depends on where the project scope is kept:
 
-    https://github.com/acme/northwind-project
+    https://github.com/acme/northwind-project     a repository, full URL, scheme included
+    OneDrive, Projects/Northwind                  a folder in a synced store, account-relative
+    ../                                           a folder that contains this one
 
 A private repository still gets its real URL. It identifies the parent even when it cannot be
 opened, and the fallback paragraph further down covers that case.
 
-<RECOMMENDED_LOCAL_CHECKOUT_PATH> is a hint, not a guarantee: where the checkout usually sits when
-someone already has one. Write it relative to the home folder:
+<PARENT_PROJECT_LOCAL_PATH> is a hint, not a guarantee: where the project scope usually sits on a
+machine that already has it. Write it relative to the home folder:
 
     ~/Repositories/northwind-project
 
@@ -90,15 +96,15 @@ All three name one person's machine, which is why the document carries the `~` f
 to one line, in the form the people working on this repository actually use.
 -->
 
-Canonical project repository:
+Canonical project scope:
 
-<CANONICAL_PROJECT_REPOSITORY_URL>
+<CANONICAL_PROJECT_SCOPE_ADDRESS>
 
-Recommended local checkout:
+Local path:
 
-`<RECOMMENDED_LOCAL_CHECKOUT_PATH>`
+`<PARENT_PROJECT_LOCAL_PATH>`
 
-The canonical `PROJECT.md` lives at the root of that repository.
+The canonical `PROJECT.md` lives at the root of that scope.
 
 Read it when a task depends on project-wide context: <PROJECT_WIDE_CONCERNS>. Purely technical work
 inside this repository does not require it.
@@ -266,7 +272,7 @@ Without that line the assistant treats the list as a set of existing files and r
 as if something were broken.
 -->
 
-Project-wide documentation belongs to the canonical project repository. Do not duplicate it here.
+Project-wide documentation belongs to the project scope. Do not duplicate it here.
 
 ---
 
@@ -275,6 +281,6 @@ Project-wide documentation belongs to the canonical project repository. Do not d
 Decisions affecting only this repository belong in `.docs/decisions/`.
 
 Decisions affecting multiple components, multiple workstreams or the <PROJECT_NAME> project as a
-whole belong to the canonical project repository.
+whole belong to the project scope.
 
 Avoid duplicating decisions across scopes.

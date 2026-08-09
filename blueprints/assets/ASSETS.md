@@ -13,7 +13,7 @@ Header metadata. Example of a filled-in block:
 
     Component Version:      1.0          (this document's own version, start at 1.0)
     Parent Project Version: 2.0          (the PROJECT.md version this was written against)
-    Derived from:           Assets Blueprint 0.1.1
+    Derived from:           Assets Blueprint 0.2.0
     Last Updated:           2026-08-09
     Document Owner:         Alex
 
@@ -73,16 +73,22 @@ This folder is **not** the canonical location for project-wide documentation or 
 The two lines below are the reason this document works at all. Getting them wrong leaves the
 assistant knowing a parent project exists and unable to reach it.
 
-<CANONICAL_PROJECT_REPOSITORY_URL> is the repository that holds the canonical PROJECT.md. Write the
-full URL, scheme included:
+<CANONICAL_PROJECT_SCOPE_ADDRESS> is where the canonical PROJECT.md lives. Three forms qualify, and
+the right one depends on where the project scope is kept:
 
-    https://github.com/acme/northwind-project
+    https://github.com/acme/northwind-project     a repository, full URL, scheme included
+    OneDrive, Projects/Northwind                  a folder in a synced store, account-relative
+    ../                                           a folder that contains this one
 
 A private repository still gets its real URL. It identifies the parent even when it cannot be
 opened, and the fallback paragraph further down covers that case.
 
-<RECOMMENDED_LOCAL_CHECKOUT_PATH> is a hint, not a guarantee: where the checkout usually sits when
-someone already has one. Write it relative to the home folder:
+If this component sits inside the project scope's own folder, use the relative form and delete the
+local path below. A relative path is already local, and a second line saying the same thing in a
+machine-specific way only adds a way to be wrong.
+
+<PARENT_PROJECT_LOCAL_PATH> is a hint, not a guarantee: where the project scope usually sits on a
+machine that already has it. Write it relative to the home folder:
 
     ~/Repositories/northwind-project
 
@@ -98,17 +104,31 @@ All three name one person's machine, which is why the document carries the `~` f
 to one line, in the form the people working on this component actually use.
 -->
 
-Canonical project repository:
+Canonical project scope:
 
-<CANONICAL_PROJECT_REPOSITORY_URL>
+<CANONICAL_PROJECT_SCOPE_ADDRESS>
 
-Recommended local checkout:
+Local path:
 
-`<RECOMMENDED_LOCAL_CHECKOUT_PATH>`
+`<PARENT_PROJECT_LOCAL_PATH>`
 
-Before performing tasks that require <PROJECT_NAME> project-wide context, read `PROJECT.md` from the canonical project repository.
+The canonical `PROJECT.md` lives at the root of that scope.
 
-If the canonical project context is unavailable, ask the user for access or the relevant context. Never infer or recreate project-wide requirements.
+<!--
+Replace <PROJECT_WIDE_CONCERNS> with the concerns that actually live above this component:
+
+    brand and tone of voice, conventions shared with other components, anything published
+    or visible to customers, decisions affecting more than this folder
+
+Both halves matter. Without the second one the assistant reaches upward before every task, and the
+trip becomes a habit rather than a decision.
+-->
+
+Read it when a task depends on project-wide context: <PROJECT_WIDE_CONCERNS>. Work that stays inside
+this folder does not require it: locating a file, describing an asset, or answering a question about
+what is here.
+
+If the canonical project context is needed but unavailable, ask the user for access or the relevant context. Never infer or recreate project-wide requirements.
 
 ---
 

@@ -3,10 +3,11 @@
 Reusable blueprint for a code repository that is one component of a larger project: a website, an
 application, a service, a library maintained alongside other components.
 
-**Blueprint Version:** 0.1.0  
-**Framework Version:** 0.1.0  
-**Status:** derived from a working implementation, reviewed, in use in one repository. Not yet
-validated in a second repository or on a second platform, so the contract is not considered stable.
+**Blueprint Version:** 0.2.0  
+**Framework Version:** 0.2.0  
+**Status:** derived from a working implementation, reviewed, in use in one repository, and verified
+there by both checks. Not yet validated in a second repository or on a second platform, so the
+contract is not considered stable.
 
 ---
 
@@ -43,8 +44,8 @@ Examples use a fictional `Northwind` project throughout.
 | `<REPOSITORY_NAME>` | Human-readable name of this repository. | `Northwind Storefront` |
 | `<REPOSITORY_PURPOSE>` | What the repository holds and what it produces, in one or two sentences. | `the Northwind storefront: the English-language shop at https://shop.northwind.example` |
 | `<PROJECT_NAME>` | Name of the parent project. | `Northwind` |
-| `<CANONICAL_PROJECT_REPOSITORY_URL>` | URL of the repository holding the canonical `PROJECT.md`. Full URL, scheme included. Private repositories still get their real URL. | `https://github.com/acme/northwind-project` |
-| `<RECOMMENDED_LOCAL_CHECKOUT_PATH>` | Where that checkout usually sits. A hint, not a guarantee. Relative to the home folder, never with a username spelled out. | `~/Repositories/northwind-project` |
+| `<CANONICAL_PROJECT_SCOPE_ADDRESS>` | Where the canonical `PROJECT.md` lives. A full repository URL, an account-relative location in a synced store, or a relative path if the project scope contains this repository. | `https://github.com/acme/northwind-project` |
+| `<PARENT_PROJECT_LOCAL_PATH>` | Where the project scope usually sits on a machine that has it. A hint, not a guarantee. Relative to the home folder, never with a username spelled out. | `~/Repositories/northwind-project` |
 | `<PROJECT_WIDE_CONCERNS>` | The concerns that live above this repository and justify reading the parent `PROJECT.md`. | `brand and tone of voice, conventions shared with other components, anything visible to end users` |
 | `<PLATFORM>` | Technology the repository is built on. | `Django + Wagtail` |
 | `<LOCAL_ENVIRONMENT>` | How the local environment runs. | `Docker Compose on WSL Ubuntu` |
@@ -54,7 +55,7 @@ Examples use a fictional `Northwind` project throughout.
 | `<PLATFORM_PRINCIPLES>` | Replaced by a fragment from `platforms/`, or by rules written for the platform in use. | contents of `platforms/wordpress.md` |
 | `<REPOSITORY_VERSION>` | Version of this repository's entry point. Start at `1.0`. | `1.0` |
 | `<PARENT_PROJECT_VERSION>` | Version of `PROJECT.md` this document was written against. Drift indicator. | `2.0` |
-| `<REPOSITORY_BLUEPRINT_VERSION>` | Blueprint version this repository was derived from. Currently `0.1.0`. | `0.1.0` |
+| `<REPOSITORY_BLUEPRINT_VERSION>` | Blueprint version this repository was derived from. Currently `0.2.0`. | `0.2.0` |
 | `<YYYY-MM-DD>` | Date of the last update. | `2026-08-09` |
 | `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 
@@ -80,7 +81,24 @@ All three name one person's machine, so none of them belong in the document. Wri
 one line, matching how the people working on this repository actually keep their checkouts.
 
 If the team works across several operating systems, still write one line. The path is a hint about
-where to look, and the URL above it is the address that always works.
+where to look, and the address above it is the one that always works.
+
+### Paths across a mount boundary
+
+A `~/` path can be true in one environment and false in another when the same folder is reached
+through a mount. A Windows OneDrive folder read from WSL is the case that turns up in practice:
+`~/OneDrive/Projects/northwind` resolves on Windows and not in WSL, where the folder sits under
+`/mnt/c/Users/`.
+
+Do not write both paths. Create a symlink at the written location, so one written form is true
+everywhere:
+
+```bash
+ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive
+```
+
+The document then carries one line. Whichever scope owns the address explains what makes it resolve,
+and this document points rather than repeats.
 
 ---
 
@@ -122,6 +140,11 @@ reviewing the result never sees it, while an AI tool reads the raw file and trea
    not exist yet.
 8. Move commands and setup procedures out of `REPOSITORY.md` into `.docs/development.md`.
 9. Work through every remaining comment and delete it.
+
+The adapters take nothing beyond what they arrive with. `AGENTS.md` and `CLAUDE.md` redirect and
+stop. Any rule added to an adapter restates something the entry point or the framework already says,
+which is the duplication the framework warns about, and the structure check reports it as content an
+adapter has no business carrying.
 
 Before committing, search the adopted files for `<!--` and for `<` followed by a capital letter.
 Both searches should return nothing.
@@ -176,14 +199,15 @@ to the project scope rather than restating project-wide rules.
 
 Five behaviours are deliberate and worth keeping when adapting:
 
-- **An addressed pointer upward.** The `Parent Project` section names a URL and a conventional
-  checkout path. Naming the parent project without an address leaves the assistant aware that
-  context exists and unable to reach it, which is what the earlier draft of this pattern did.
+- **An addressed pointer upward.** The `Parent Project` section names an address and a local path.
+  Naming the parent project without an address leaves the assistant aware that context exists and
+  unable to reach it, which is what the earlier draft of this pattern did. The address form follows
+  from where the project scope is kept, and a repository is one option among three.
 - **A stated escalation boundary.** The same section says which concerns justify reading the parent
   `PROJECT.md`. Without it, every change turns into a trip upward.
 - **Graceful fallback.** If project-wide context is unavailable, the assistant asks instead of
-  inventing requirements. Canonical project repositories are often private and unreachable by URL,
-  so this path fires in practice.
+  inventing requirements. A project scope is often private, or sits behind a sync client that is not
+  running, so this path fires in practice.
 - **Environment access is not assumed.** An assistant with a sandboxed shell will believe it has the
   development environment and work against nothing. The rule says a terminal is not the same as
   access to this machine.

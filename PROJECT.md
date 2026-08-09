@@ -6,7 +6,7 @@
 >
 > Read this document before performing project-level tasks.
 >
-> **Project Version:** 0.1.0  
+> **Project Version:** 0.2.0  
 > **Last Updated:** 2026-08-09  
 > **Document Owner:** Alex
 
@@ -95,12 +95,16 @@ Project-wide documentation explaining the framework architecture and philosophy.
 
 Reusable starting points for common project scopes.
 
-- Assets, available at version 0.1.1
-- Repository, available at version 0.1.0
-- Project, planned
+- Assets, available at version 0.2.0
+- Repository, available at version 0.2.0
+- Project, available at version 0.1.0
 
 A blueprint is added only after it has been derived from a working implementation. Planned
 blueprints have no placeholder directories.
+
+The three cover the scopes the framework has met so far. The Project Blueprint is the least settled:
+it was generalized from an implementation adopted the same week, so its contract has had no time to
+be tested by use.
 
 Blueprints should be adapted rather than copied verbatim.
 
@@ -173,6 +177,19 @@ another scope's entry point, even as a pointer. Two files with the same name in 
 make it ambiguous which one is canonical, and a tool entering the smaller scope finds the wrong one
 first.
 
+An entry point is named for the kind of scope it opens, not for its subject. The framework has three
+kinds and therefore three names:
+
+- `PROJECT.md` for the project scope.
+- `REPOSITORY.md` for a codebase.
+- `ASSETS.md` for everything else, meaning any component that holds material rather than code.
+
+A marketing folder, a sales folder and a photography folder differ in subject and not in kind. All
+three hold material, all three are read the same way, and all three carry `ASSETS.md` with their own
+contents inside it. Naming entry points after subjects would put topic into a slot that exists to
+say what sort of thing the reader has opened, and the set of names would grow with every new area of
+work.
+
 ---
 
 # Cross-Scope References
@@ -181,15 +198,24 @@ A reference to another scope must carry an address that can be resolved from ins
 scope. Naming the other scope without an address leaves the reader aware that context exists and
 unable to reach it.
 
-An address is resolvable when it does not depend on knowledge the reader has no way to obtain. A
-repository URL qualifies. A location on one person's machine does not.
+An address is resolvable when it does not depend on knowledge the reader has no way to obtain. Three
+forms qualify:
+
+- A repository URL, written in full with the scheme. A private repository still gets its real URL,
+  because it identifies the parent even when it cannot be opened.
+- An account-relative location in a synced store, written as `OneDrive, Projects/Northwind`. It
+  resolves on any machine signed in to the same account and names no username.
+- A relative path, when the referenced scope is a folder that contains the referring one.
+
+A location on one person's machine does not qualify.
 
 A local path may sit alongside the address as a hint about where a checkout usually lives. Write it
 relative to the home folder, as `~/parent-folder/name`, and never spell out a username. A username
 ties the path to one machine, and `~` already stands for the home folder that contains it.
 
-This constrains where a scope lives. A scope that other scopes reference has to be hosted somewhere
-addressable.
+This constrains where a scope lives. A scope that other scopes reference has to be reachable from
+outside the machine it sits on. A repository of its own is the usual answer and not the only one:
+see [decision 0001](.docs/decisions/0001-project-scope-need-not-be-a-repository.md).
 
 Blueprints carry a placeholder where the address belongs. The adopted instance replaces it with a
 real value. Independence from any particular environment is a property of the blueprint, and the

@@ -14,8 +14,18 @@ Any AI tool with access to the folder will do. The session that performed the ad
 
 1. Open the folder where the adopted files live.
 2. Paste the prompt below, replacing `<ENTRY_POINT>` with the canonical entry point's filename:
-   `REPOSITORY.md` for the Repository Blueprint, `ASSETS.md` for the Assets Blueprint.
+   `REPOSITORY.md` for the Repository Blueprint, `ASSETS.md` for the Assets Blueprint, `PROJECT.md`
+   for a project scope.
 3. Read the table. Fix what failed, then run it again.
+
+### On a project scope
+
+The checks are written for a component, and a component has a parent. A project scope has none, so
+questions 7, 9 and 10 do not apply and are answered `n/a`. Question 8 still applies: a project scope
+usually names local paths for the components below it.
+
+The other eight are worth running there, question 11 most of all. A project scope collects
+references to documents that do not exist yet faster than anything else in the framework.
 
 ---
 
@@ -48,10 +58,13 @@ Checks:
    own beyond that redirect. Quote the pointing line from each.
 5. Exactly one file in this folder declares itself a canonical entry point. Name it.
 6. No file is named after a different scope's entry point. List every filename in the folder root.
-7. The parent project's repository is given as a full URL including the scheme. Quote it.
-8. Any local checkout path is written relative to the home folder, starting with ~/ , with no
-   username after the tilde. Absolute paths such as /home/name/... or C:\Users\name\... fail this
-   check. Quote the path.
+7. The parent project scope is given as an address that resolves from outside this machine. A full
+   URL including the scheme, an account-relative location in a synced store such as
+   "OneDrive, Projects/Northwind", and a relative path to a containing folder all pass. A bare local
+   path fails. Quote it.
+8. Any local path is written relative to the home folder, starting with ~/ , with no username after
+   the tilde. Absolute paths such as /home/name/... or C:\Users\name\... fail this check. Quote the
+   path.
 9. The document states both when parent project context is required and when it is not. Quote both
    halves separately.
 10. The document states what to do when parent project context is required but unreachable. Quote

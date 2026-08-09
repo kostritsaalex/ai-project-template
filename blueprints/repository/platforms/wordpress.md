@@ -1,7 +1,7 @@
 # WordPress Platform Fragment
 
 **Fragment Version:** 0.1.0  
-**For:** Repository Blueprint `0.1.0`  
+**For:** Repository Blueprint `0.2.0`  
 **Applies to:** WordPress, with optional WooCommerce
 
 Copy the section below into `Platform Principles` in the adopted `REPOSITORY.md`, replacing the
