@@ -8,6 +8,20 @@
 
 ---
 
+<!--
+Header metadata. Example of a filled-in block:
+
+    Component Version:      1.0          (this document's own version, start at 1.0)
+    Parent Project Version: 2.0          (the PROJECT.md version this was written against)
+    Derived from:           Assets Blueprint 0.1.1
+    Last Updated:           2026-08-09
+    Document Owner:         Alex
+
+Parent Project Version is a drift indicator. When the parent PROJECT.md moves, compare the change
+against this document and update this line either way, so a match means compatibility was checked
+rather than assumed.
+-->
+
 # <PROJECT_NAME> Project Assets
 
 > **AI Asset Component Entry Point**
@@ -28,7 +42,19 @@ This folder contains <PROJECT_NAME> project assets and working files.
 
 Typical contents include:
 
-<!-- Adapt this list to the assets this component actually holds. -->
+<!--
+Adapt the list below to the assets this component actually holds. Drop the categories that are not
+here, add the ones that are. Example:
+
+    - Product photography
+    - Packaging and print files
+    - Logo and brand kit
+    - Supplier documents
+
+A list that names real categories tells the assistant what it is looking at. A generic one tells it
+nothing.
+-->
+
 
 - Photography
 - Video
@@ -42,6 +68,35 @@ This folder is **not** the canonical location for project-wide documentation or 
 ---
 
 # Parent Project
+
+<!--
+The two lines below are the reason this document works at all. Getting them wrong leaves the
+assistant knowing a parent project exists and unable to reach it.
+
+<CANONICAL_PROJECT_REPOSITORY_URL> is the repository that holds the canonical PROJECT.md. Write the
+full URL, scheme included:
+
+    https://github.com/acme/northwind-project
+
+A private repository still gets its real URL. It identifies the parent even when it cannot be
+opened, and the fallback paragraph further down covers that case.
+
+<RECOMMENDED_LOCAL_CHECKOUT_PATH> is a hint, not a guarantee: where the checkout usually sits when
+someone already has one. Write it relative to the home folder:
+
+    ~/Repositories/northwind-project
+
+`~` already stands for your home folder, which already contains your username. Writing
+`~/alex/Repositories/...` resolves to `/home/alex/alex/Repositories/...` and is the usual mistake
+here. The same location spelled out in full:
+
+    Linux, WSL    /home/alex/Repositories/northwind-project
+    macOS         /Users/alex/Repositories/northwind-project
+    Windows       C:\Users\alex\Repositories\northwind-project
+
+All three name one person's machine, which is why the document carries the `~` form instead. Keep it
+to one line, in the form the people working on this component actually use.
+-->
 
 Canonical project repository:
 

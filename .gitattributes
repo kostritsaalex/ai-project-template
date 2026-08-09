@@ -1,0 +1,2 @@
+# Normalize line endings so edits made on different platforms produce clean diffs.
+* text=auto eol=lf

@@ -58,7 +58,9 @@ These concepts form the foundation for organizing both documentation and AI inst
 
 The framework follows a few fundamental principles:
 
-- One canonical entry point per scope.
+- One canonical entry point per scope. Every other instruction document in that scope is an adapter.
+- A document name belongs to exactly one type of scope.
+- A reference to another scope carries an address that can be resolved from where the reference is read.
 - Documentation lives as close as practical to the scope it describes.
 - Information belongs to the smallest scope that fully covers everything it applies to.
 - Avoid duplication.
@@ -80,7 +82,9 @@ The framework follows a few fundamental principles:
 ├── .docs/
 │
 └── blueprints/
-    └── assets/
+    ├── assets/
+    ├── repository/
+    └── checks/
 ```
 
 `PROJECT.md` is the canonical entry point. `AGENTS.md` and `CLAUDE.md` are adapters that point AI
@@ -97,14 +101,18 @@ available one at a time.
 
 | Blueprint | Scope | Status |
 | --- | --- | --- |
-| **Assets** | Organization of non-code project resources. | Available, version 0.1.0 |
-| **Repository** | Repository-level AI instructions and technical documentation. | Planned |
+| **Assets** | Organization of non-code project resources. | Available, version 0.1.1 |
+| **Repository** | Repository-level AI instructions and technical documentation. | Available, version 0.1.0 |
 | **Project** | Project-wide AI entry point and documentation structure. | Planned |
 
 Planned blueprints have no placeholder directories. A blueprint appears once it has been derived
 from a working implementation.
 
 Blueprints are intended to be adapted rather than copied verbatim.
+
+`blueprints/checks/` holds two prompts for verifying an adoption: one for the mechanics of the files,
+one for whether an assistant opening the folder cold actually picks up the context. They apply to
+every blueprint.
 
 ---
 
