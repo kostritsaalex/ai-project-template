@@ -2,302 +2,77 @@
 
 > **AI Project Entry Point**
 >
-> Canonical project-wide context and instructions for the AI Project Template framework.
+> Read this before working anywhere in this project.
 >
-> Read this document before performing project-level tasks.
->
-> **Project Version:** 0.2.0  
-> **Last Updated:** 2026-08-09  
+> **Derived from:** Project Blueprint 0.5.0  
+> **Last Updated:** 2026-08-23  
 > **Document Owner:** Alex
 
 ---
 
-# Project Overview
+# What this project is
 
-## Purpose
+AI Project Template is an open framework for putting one roof over a project that lives in more than
+one place.
 
-AI Project Template is an open framework for organizing AI-assisted projects.
+A real project is rarely one folder. Code sits in a repository, material sits in a synced drive, a
+workstream sits somewhere else again, and none of them knows the others exist. The framework gives
+the project one entry point and one register of everything under it, so that an assistant working in
+any part can reach every other part.
 
-It provides a consistent architecture for project documentation, AI instructions and reusable blueprints.
+Two rules follow. Whatever is true of the whole project is written once, in that one document.
+Whatever is true of one part belongs to that part and nowhere else.
 
-The framework is technology-agnostic and is intended to support software projects as well as multidisciplinary initiatives.
+The framework is technology-agnostic. It suits software projects and equally suits work where
+software is one part of something larger.
 
----
-
-## Mission
-
-Make AI-assisted projects easier to organize, easier to maintain, and easier for both humans and AI to understand.
-
----
-
-# Project Scope
-
-The framework currently covers:
-
-- Project organization
-- Documentation architecture
-- AI entry points
-- Blueprint library
-- Documentation conventions
-- AI collaboration patterns
-
-Reference examples are a planned addition and do not exist yet.
-
-The framework does not prescribe:
-
-- Programming languages
-- Development methodologies
-- Technology stacks
-- Repository hosting platforms
-- Business processes
+This project does not currently cover programming languages, development methodologies, technology
+stacks, repository hosting, or business processes. It says where things live and how they are to be
+treated, and stops there.
 
 ---
 
-# Project Principles
+# Principles
 
-Before making significant changes:
-
-1. Understand the current architecture.
-2. Identify the affected scope.
-3. Read relevant documentation.
-4. Prefer improving existing patterns over introducing new ones.
-5. Keep the framework simple and internally consistent.
-6. Validate architectural ideas through practical usage whenever possible.
-7. Avoid speculative additions.
-8. Preserve backward compatibility where practical.
+1. One entry point per project, and every part of the project can reach it.
+2. A document carries what cannot be seen, and nothing that can.
+3. Information belongs to the smallest scope that fully covers everything it applies to.
+4. A reference to another scope carries an address that resolves from where the reference is read.
+5. Avoid duplication. A rule in two places is a rule that will disagree with itself.
+6. Evolve through real use. An idea earns its place by being run, not by being argued for.
+7. Cut before adding. Every release so far removed more than it added.
 
 ---
 
-# Design Philosophy
+# Where this project lives
 
-The framework is guided by several core principles:
-
-- One canonical entry point per scope. Every other instruction document in that scope is an adapter.
-- A document name belongs to exactly one type of scope.
-- A reference to another scope carries an address that can be resolved from where the reference is read.
-- Documentation lives as close as practical to the scope it describes.
-- Information belongs to the smallest scope that fully covers everything it applies to.
-- Avoid duplication.
-- Evolve through real-world usage.
-- Prefer simplicity over unnecessary flexibility.
-
----
-
-# Framework Structure
-
-The framework currently consists of:
-
-## Documentation
-
-Project-wide documentation explaining the framework architecture and philosophy.
-
-## Blueprints
-
-Reusable starting points for common project scopes.
-
-- Assets, available at version 0.2.0
-- Repository, available at version 0.2.0
-- Project, available at version 0.1.0
-
-A blueprint is added only after it has been derived from a working implementation. Planned
-blueprints have no placeholder directories.
-
-The three cover the scopes the framework has met so far. The Project Blueprint is the least settled:
-it was generalized from an implementation adopted the same week, so its contract has had no time to
-be tested by use.
-
-Blueprints should be adapted rather than copied verbatim.
-
-## Blueprint Comments
-
-Blueprint files mark every unresolved decision with an HTML comment. Text without a comment is
-ready to use as it stands.
-
-A comment addresses the person adopting the blueprint. It has no place in the adopted document.
-Adoption is finished when every comment has been worked through and removed, and the material it
-asked for has been written in its place.
-
-Anything that has to survive adoption belongs in visible text. A comment left in the file is read
-by AI tools as an instruction, because they see the raw file rather than the rendered one. A leftover
-`Replace this section` reads as a task, and a human reviewing the rendered document will not see it
-sitting there.
-
-## Adoption Checks
-
-An adoption is verified rather than assumed. `blueprints/checks/` holds two prompts that apply to
-every blueprint: a structural audit of the filled-in files, and a cold start check of whether an
-assistant opening the folder for the first time picks up the context and follows it.
-
-Both are built to return evidence rather than a verdict. The structural audit quotes a file and a
-line for every check and treats an unevidenced check as failed. The cold start check runs in a new
-session with no hints, because an assistant that already knows the answer from the conversation
-tells you nothing about the files.
-
----
-
-# Sources of Truth
-
-Sources of truth follow the framework hierarchy:
-
-- `PROJECT.md` defines project-wide context.
-- Blueprint documentation defines reusable architectural patterns.
-- Historical discussions provide context but may become outdated.
-
-When information conflicts, prefer the canonical documentation for the relevant scope.
-
----
-
-# Scope Ownership
-
-Information should live at the smallest scope that fully covers everything it applies to.
-
-- Framework-wide knowledge belongs at the project scope.
-- Blueprint-specific knowledge belongs with the corresponding blueprint.
-- Avoid duplicating the same guidance across scopes.
-
-Blueprints may specialize framework conventions but should not contradict project-wide principles.
-
----
-
-# Scope Entry Points
-
-Every scope has exactly one canonical entry point. It holds the full context and instructions for
-that scope.
-
-Every other instruction document inside the same scope is an adapter. An adapter points to the
-canonical entry point and holds no content of its own.
-
-Adapters exist because external tools look for fixed filenames the framework does not control, such
-as `AGENTS.md` and `CLAUDE.md`. Canonical entry point names are defined by the framework and are not
-discovery names, so a canonical entry point is reached through an adapter rather than found directly
-by a tool.
-
-A document name belongs to exactly one type of scope. A scope must not contain a file named after
-another scope's entry point, even as a pointer. Two files with the same name in different scopes
-make it ambiguous which one is canonical, and a tool entering the smaller scope finds the wrong one
-first.
-
-An entry point is named for the kind of scope it opens, not for its subject. The framework has three
-kinds and therefore three names:
-
-- `PROJECT.md` for the project scope.
-- `REPOSITORY.md` for a codebase.
-- `ASSETS.md` for everything else, meaning any component that holds material rather than code.
-
-A marketing folder, a sales folder and a photography folder differ in subject and not in kind. All
-three hold material, all three are read the same way, and all three carry `ASSETS.md` with their own
-contents inside it. Naming entry points after subjects would put topic into a slot that exists to
-say what sort of thing the reader has opened, and the set of names would grow with every new area of
-work.
-
----
-
-# Cross-Scope References
-
-A reference to another scope must carry an address that can be resolved from inside the referring
-scope. Naming the other scope without an address leaves the reader aware that context exists and
-unable to reach it.
-
-An address is resolvable when it does not depend on knowledge the reader has no way to obtain. Three
-forms qualify:
-
-- A repository URL, written in full with the scheme. A private repository still gets its real URL,
-  because it identifies the parent even when it cannot be opened.
-- An account-relative location in a synced store, written as `OneDrive, Projects/Northwind`. It
-  resolves on any machine signed in to the same account and names no username.
-- A relative path, when the referenced scope is a folder that contains the referring one.
-
-A location on one person's machine does not qualify.
-
-A local path may sit alongside the address as a hint about where a checkout usually lives. Write it
-relative to the home folder, as `~/parent-folder/name`, and never spell out a username. A username
-ties the path to one machine, and `~` already stands for the home folder that contains it.
-
-This constrains where a scope lives. A scope that other scopes reference has to be reachable from
-outside the machine it sits on. A repository of its own is the usual answer and not the only one:
-see [decision 0001](.docs/decisions/0001-project-scope-need-not-be-a-repository.md).
-
-Blueprints carry a placeholder where the address belongs. The adopted instance replaces it with a
-real value. Independence from any particular environment is a property of the blueprint, and the
-instance is free to name a specific address.
-
-A scope should also state when parent context is actually required. Without that boundary, work the
-scope fully covers on its own still sends the reader outward.
-
----
-
-# Blueprint Lifecycle
-
-Blueprints evolve through practical application.
-
-The preferred lifecycle is:
+Address:
 
 ```text
-Working Implementation
-        ↓
-Generalization
-        ↓
-Blueprint
-        ↓
-Reference Example
-        ↓
-Production Projects
+https://github.com/kostritsaalex/ai-project-template
 ```
 
-Architectural ideas should be validated in real-world usage before becoming part of a reusable blueprint.
-
----
-
-# Documentation
-
-`PROJECT.md` is the canonical entry point for this repository. `AGENTS.md` and `CLAUDE.md` are its adapters, as described in Scope Entry Points.
-
-Project-wide documentation lives in `.docs/`.
-
-Documentation should remain close to the scope it describes.
-
-Create documentation when it becomes useful rather than creating speculative documents.
-
----
-
-# Decisions
-
-Architectural decisions should be documented and evolve alongside the framework.
-
-Project-wide decisions belong in:
+Local path:
 
 ```text
-.docs/decisions/
+~/Repositories/ai-project-template
 ```
 
-Blueprint-specific decisions belong alongside the corresponding blueprint.
+---
 
-Avoid duplicating decisions across scopes.
+# Components
+
+This project has none. Everything lives in this one repository, so there is nothing for a registry
+to point at.
+
+The section stays because the blueprint has it and because the framework applies its own shape to
+itself. A project that grows a second place to work adds a block here and two stubs there.
 
 ---
 
-# Versioning
+# Documentation and decisions
 
-The framework follows Semantic Versioning where practical.
+`.docs/architecture.md` explains the scope model. `.docs/decisions/` holds the record of why the
+framework is shaped as it is, one file per decision, newest last.
 
-Framework releases describe the evolution of the overall architecture.
-
-Individual blueprints may evolve independently while remaining compatible with the current framework version.
-
----
-
-# Success Criteria
-
-The framework is considered successful when it:
-
-- Makes AI collaboration more predictable.
-- Reduces ambiguity across projects.
-- Encourages consistent documentation.
-- Scales from small to large projects.
-- Evolves through practical experience rather than theoretical design.
-
----
-
-# Long-Term Vision
-
-The goal is to build a practical, open framework for AI-assisted project organization that can be applied across different technologies, teams, and domains while remaining simple, maintainable, and easy to adopt.
+Blueprint-specific documentation lives beside its blueprint, in that folder's `README.md`.

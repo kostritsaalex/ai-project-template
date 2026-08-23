@@ -18,6 +18,12 @@ files.
 **No hints.** Do not say which file to read, do not paste file contents into the chat, do not
 mention the framework. Open the folder and ask.
 
+If the tool has no notion of an open folder and has to be told where to look, give it the path on a
+line of its own and nothing else. That line is where hints creep in: naming the files worth reading,
+or calling one of them the canonical entry point, answers question 5 inside the question. A tool
+that offers to continue from an earlier conversation is the same problem in another form, because
+the earlier conversation is where the files were already quoted.
+
 **The tool you actually use.** Different tools discover different files. A result from one says
 little about another, so test the one your work happens in.
 
@@ -26,7 +32,67 @@ guess, however plausible it reads.
 
 ---
 
-## Prompt
+## Two prompts
+
+A component and a project scope are asked different things, because they hold different things.
+
+A component carries almost nothing. Two stubs name it and say where the parent is, and everything
+else about the folder, including whether things get changed here or kept, is one line in the
+parent's registry. So the component prompt tests one chain end to end: stub, parent, the block in the
+registry that describes this folder.
+
+A project scope has no parent. Asking it those questions returns "not stated here" three times over
+and measures nothing. What it holds instead is the boundary of the project, the registry of
+everything below it, and the rules for where things get recorded. That is what it gets asked.
+
+Pick by whether `PROJECT.md` is in the folder. If it is, use the project scope prompt. If it is not,
+use the component prompt.
+
+---
+
+## Prompt for a component
+
+```text
+Answer the questions below about the folder you have open.
+
+Use only what you find in the files, including any file they send you to. For each answer, name the
+file it came from and quote the line. If the files do not tell you, answer "not stated here" instead
+of guessing or answering from general knowledge.
+
+1. Which project is this folder part of, and what is this component called?
+2. Where is that project's PROJECT.md? Give the address exactly as written.
+3. In this folder, are you expected to change things, or to find them and leave them as they are?
+   What told you?
+4. Name one rule that governs work in this folder, and say where it is written.
+5. Suppose PROJECT.md turns out to be unreachable. What do you do?
+
+Answer the five questions and stop. No summary.
+```
+
+### Reading the answers
+
+| Question | What a working chain looks like | What a break looks like |
+| --- | --- | --- |
+| 1 | Names both, cites a stub. The component name matches its heading in the parent registry. | "Not stated here", or a name inferred from the folder name. |
+| 2 | Repeats the address exactly. | Knows a parent exists, cannot say where. This is the failure the address rule exists to prevent. |
+| 3 | Says which, and cites the registry block in the parent. | Answers from what the folder contains. Code is not the same as permission to change it, and the answer has to come from the registry. |
+| 4 | Quotes a project principle, or a preserve rule, or a line from this folder's own override file. | Produces a general best practice. Nothing was read; the chain broke earlier and the answer is padding. |
+| 5 | Says it would stop and report. | Offers to proceed on reasonable assumptions. |
+
+Question 3 is the whole point of the check since `0.5.0`. The posture of the folder is the only thing
+a component is told about itself, it lives in the parent and nowhere else, and an assistant that
+answers it correctly has demonstrably walked the chain. An assistant that gets it right by looking at
+the files in the folder has not, so the second half of the question is not optional.
+
+Question 5 fails most often, and the failure is easy to miss because the answer sounds cooperative.
+An assistant that offers to fill the gaps itself will do exactly that, quietly, on a real task.
+
+Since `0.5.0` this is also the check that measures the accepted risk. A component cut off from its
+parent knows nothing at all, and question 5 is where you see whether it says so or carries on.
+
+---
+
+## Prompt for a project scope
 
 ```text
 Answer the questions below about the folder you have open.
@@ -35,32 +101,33 @@ Use only what you find in the files. For each answer, name the file it came from
 line. If the files do not tell you, answer "not stated here" instead of guessing or answering from
 general knowledge.
 
-1. Which project is this folder part of?
-2. Where is that project's canonical project-wide documentation? Give the address exactly as
-   written.
-3. Name one task you would carry out here without consulting that documentation, and one you would
-   not start without it.
-4. Suppose that documentation is unreachable. What do you do?
+1. What is this project, and is it only software or is software one part of something larger?
+2. Name something that falls inside this project and something that does not.
+3. Name a component of this project, say where it is reached, and say whether things get changed
+   there or kept. If any component is listed but not attached yet, say which.
+4. A decision has just been made that affects two components at once. Where is it recorded?
 5. Which single file here is the one to read first, and what made you pick it?
 
 Answer the five questions and stop. No summary.
 ```
 
----
-
-## Reading the answers
+### Reading the answers
 
 | Question | What a working chain looks like | What a break looks like |
 | --- | --- | --- |
-| 1 | Names the project, cites the entry point. | "Not stated here", or a name inferred from the folder name. |
-| 2 | Repeats the URL exactly. | Knows a parent exists, cannot say where. This is the failure the address rule exists to prevent. |
-| 3 | Two concrete tasks that match the boundary in the document. | Vague answers, or claims project context is needed for everything. |
-| 4 | Asks for access or for the missing context. | Offers to proceed on reasonable assumptions. |
-| 5 | Names the canonical entry point and explains it arrived there through `AGENTS.md` or `CLAUDE.md`. | Names `README.md`, or lists everything it read without a first step. |
+| 1 | Describes the project and answers the software question outright. | Calls it a software project when it is not, which makes an assistant treat everything else as out of scope. |
+| 2 | One item from each list. | Only the in-scope half. An assistant that cannot name what is excluded will propose work nobody asked for. |
+| 3 | Names a component, gives its address or path, gives its posture, and repeats any statement that one is listed but not attached. | Cannot name one, names this folder itself, or gives a component with no posture, which means the registry block is incomplete. |
+| 4 | Names the project decisions folder, or repeats the visible statement that it does not exist yet and says where decisions go meanwhile. | Invents a location, or reports the folder as missing without noticing the document already said so. |
+| 5 | Names `PROJECT.md` and explains it arrived there through `AGENTS.md` or `CLAUDE.md`. | Names `README.md`, or lists everything it read without a first step. |
 
-Question 4 is the one that fails most often, and the failure is easy to miss because the answer
-sounds cooperative. An assistant that offers to fill the gaps itself will do exactly that, quietly,
-on a real task.
+Question 5 has no counterpart in the component prompt any more. A component holds no entry point of
+its own: the stubs are the first and only thing to read there, and asking which file comes first
+answers itself.
+
+Question 3 is this scope's equivalent of question 4 in the component prompt. The registry is the one
+thing no other scope can hold, because it describes the others. A project scope that cannot produce
+it on request has failed at its only unique job.
 
 ---
 
@@ -69,12 +136,13 @@ on a real task.
 The conditions call for the tool you actually work in. Running the same prompt in a tool from a
 different vendor is a separate check, and a stronger one, at the cost of a single session.
 
-The adapters exist because different tools look for different filenames. One reads `CLAUDE.md`,
-another reads `AGENTS.md`, and a run in one tool only proves the file that tool happened to open. A
-second tool that lands on the other adapter and still arrives at the entry point is evidence the
-pair works, rather than the assumption that it does.
+The stubs exist because different tools look for different filenames. One reads `CLAUDE.md`, another
+reads `AGENTS.md`, and a run in one tool only proves the file that tool happened to open. A second
+tool that lands on the other stub and still reaches the parent is evidence the pair works, rather
+than the assumption that it does.
 
-Question 5 is where this shows. If both runs cite the same adapter, the other one is still untested.
+The sources named in the answers are where this shows. If both runs cite the same stub, the other one
+is still untested.
 
 ---
 

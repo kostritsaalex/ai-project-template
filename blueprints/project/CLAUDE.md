@@ -12,6 +12,6 @@
 
 Read and follow `PROJECT.md` before performing any task in this folder.
 
-If supported by the current environment:
+`PROJECT.md` is the canonical entry point for the <PROJECT_NAME> project.
 
 @PROJECT.md

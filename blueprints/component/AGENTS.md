@@ -8,7 +8,7 @@
 
 ---
 
-# Claude Instructions
+# AI Instructions
 
 This folder is the `<COMPONENT_NAME>` component of the <PROJECT_NAME> project.
 
@@ -25,7 +25,3 @@ treated.
 Usually on a machine that has it: `<PARENT_PROJECT_LOCAL_PATH>`
 
 If you cannot reach it, say so and stop. Do not proceed on guesses.
-
-This folder also sets rules of its own. Read `REPOSITORY.md` as well.
-
-@REPOSITORY.md

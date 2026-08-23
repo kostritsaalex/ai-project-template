@@ -29,6 +29,10 @@ a comfortable answer that means nothing.
 ## What neither check covers
 
 Whether the content is right. Both checks confirm the machinery works: the addresses resolve, the
-adapters point where they should, the assistant follows the chain. Whether the escalation boundary
-lists the right concerns, or the platform rules match how the team actually works, is a question for
-whoever owns the document.
+stubs point where they should, the assistant follows the chain. Whether a component was given the
+right posture, or the platform rules match how the team actually works, is a question for whoever
+owns the document.
+
+Neither sees a component that exists on disk and appears in no registry. The structure check reads
+one folder and the cold start check starts from one folder, so a folder nobody attached is invisible
+to both. A prompt that reads a project and its components together is the obvious gap.

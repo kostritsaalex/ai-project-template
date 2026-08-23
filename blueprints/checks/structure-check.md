@@ -2,7 +2,7 @@
 
 Run this after adopting any blueprint, once the files are in place and filled in.
 
-It checks the mechanics: leftovers, addresses, adapter wiring. It says nothing about whether an
+It checks the mechanics: leftovers, addresses, stub wiring. It says nothing about whether an
 assistant will actually pick up the context. That is what the [cold start check](cold-start-check.md)
 is for.
 
@@ -13,19 +13,14 @@ Any AI tool with access to the folder will do. The session that performed the ad
 ## How to run
 
 1. Open the folder where the adopted files live.
-2. Paste the prompt below, replacing `<ENTRY_POINT>` with the canonical entry point's filename:
-   `REPOSITORY.md` for the Repository Blueprint, `ASSETS.md` for the Assets Blueprint, `PROJECT.md`
-   for a project scope.
-3. Read the table. Fix what failed, then run it again.
+2. Copy the prompt below from this file's raw text rather than from a rendered view. A rendered view
+   eats angle brackets and backslashes, and the prompt contains both.
+3. Paste it. There is one thing to fill in, on its second line: whether this folder is a project
+   scope or a component.
+4. Read the table. Fix what failed, then run it again.
 
-### On a project scope
-
-The checks are written for a component, and a component has a parent. A project scope has none, so
-questions 7, 9 and 10 do not apply and are answered `n/a`. Question 8 still applies: a project scope
-usually names local paths for the components below it.
-
-The other eight are worth running there, question 11 most of all. A project scope collects
-references to documents that do not exist yet faster than anything else in the framework.
+The prompt carries everything else it needs, including what to skip in each case. Nothing on this
+page has to be open while it runs.
 
 ---
 
@@ -34,43 +29,85 @@ references to documents that do not exist yet faster than anything else in the f
 ```text
 You are auditing a folder where a document template has just been filled in.
 
-The canonical entry point of this folder is <ENTRY_POINT>.
+This folder is: A PROJECT SCOPE | A COMPONENT
+Delete the one that does not apply before answering.
 
-Read the files in the folder root: <ENTRY_POINT>, AGENTS.md, CLAUDE.md, and README.md if present.
-Do not read anything else. Do not modify any file.
+A project scope holds PROJECT.md and two stub files, AGENTS.md and CLAUDE.md.
+A component holds two stub files and nothing else, unless it has rules of its own, in which case it
+also holds REPOSITORY.md or ASSETS.md.
+
+Read the files in the folder root: PROJECT.md, REPOSITORY.md or ASSETS.md if present, AGENTS.md,
+CLAUDE.md, and README.md if present. Do not read anything else. Do not modify any file.
 
 Answer with one table and nothing else. Columns: Check, Result, Evidence.
 
-Result is pass, fail, or n/a.
+Result is pass, fail, or n/a. Where a check says it applies to only one of the two cases, n/a is the
+correct answer in the other, not a failure.
 
-Evidence is a filename, a line number, and the quoted line. A check without evidence is a failed
-check, including one that looks like it passed: if you cannot quote anything, write "no evidence"
-and mark it fail. Do not infer, do not assume, do not fill gaps from what such a document usually
-contains.
+Evidence depends on what the check asks.
+
+A check that asks whether something is present is evidenced by a filename, a line number, and the
+quoted line. If you cannot quote it, write "no evidence" and mark the check fail, including when it
+looks like it passed.
+
+A check that asks whether something is absent is evidenced by the search you ran and what it
+returned, for example: searched AGENTS.md, CLAUDE.md for an HTML comment opener, no match. A search
+that returns nothing is a pass, and passing it needs no quote. When the search does return
+something, quote the first match and mark the check fail.
+
+Do not infer, do not assume, do not fill gaps from what such a document usually contains.
 
 Checks:
 
-1. No HTML comment remains in any file. Quote the first one you find.
-2. No unfilled placeholder remains, meaning a token in angle brackets written in capitals. Quote
-   each one.
-3. No file still carries the template notice at the top.
-4. AGENTS.md and CLAUDE.md each point to <ENTRY_POINT> by name, and carry no instructions of their
-   own beyond that redirect. Quote the pointing line from each.
-5. Exactly one file in this folder declares itself a canonical entry point. Name it.
-6. No file is named after a different scope's entry point. List every filename in the folder root.
-7. The parent project scope is given as an address that resolves from outside this machine. A full
-   URL including the scheme, an account-relative location in a synced store such as
+1. No HTML comment remains in any file. Search for the opening sequence of an HTML comment.
+2. No unfilled placeholder remains. A placeholder is a run of capital letters and underscores
+   wrapped in angle brackets. Quote each one you find.
+3. No file still carries the blueprint notice. That notice begins with the words "BLUEPRINT FILE.
+   NOT ACTIVE INSTRUCTIONS." A document's own header, such as a line reading "AI Project Entry
+   Point" or "Local rules for this component", is not that notice and does not fail this check.
+4. AGENTS.md and CLAUDE.md carry the same text, apart from their first heading, apart from any line
+   beginning with the at sign, and ignoring blank lines. Report any other difference and fail the
+   check if there is one.
+5. Project scope only. PROJECT.md is present, and neither REPOSITORY.md nor ASSETS.md is in this
+   root. List every filename in the folder root.
+6. Component only. PROJECT.md is not in this folder. A component that holds one is a project scope
+   and has been set up as the wrong thing. List every filename in the folder root.
+7. Component only. Both stubs name which component this folder is, and both name the same one.
+   Quote the naming line from each.
+8. Component only. Both stubs give the parent as an address that resolves from outside this machine.
+   A full URL including the scheme, an account-relative location in a synced store such as
    "OneDrive, Projects/Northwind", and a relative path to a containing folder all pass. A bare local
-   path fails. Quote it.
-8. Any local path is written relative to the home folder, starting with ~/ , with no username after
-   the tilde. Absolute paths such as /home/name/... or C:\Users\name\... fail this check. Quote the
-   path.
-9. The document states both when parent project context is required and when it is not. Quote both
-   halves separately.
-10. The document states what to do when parent project context is required but unreachable. Quote
-    it.
-11. Every file or folder path the document refers to either exists, or the document says in visible
-    text that it does not exist yet. List each referenced path with which of the two applies.
+   path fails. Quote it from each file.
+9. Component only. Both stubs say what to do when the parent cannot be reached. Quote it.
+10. Component only. If REPOSITORY.md or ASSETS.md is present, both stubs point at it by name, and
+    that file carries no parent address and no claim about whether things are changed or kept here.
+    Both of those belong to the parent. If neither file is present, this check is n/a.
+11. Project scope only. Every block in the components registry carries a name, a line saying whether
+    the folder is Repository or Assets, and an address. Name any block missing one of the three.
+    The address says where that component is, read from this document. A block whose address is
+    ".." or "../" fails: that points out of this folder rather than into the component, and it is
+    the address the component writes in its own stubs to point back here.
+12. Any local path is written relative to the home folder, starting with ~/ , with no username after
+    the tilde. Absolute paths such as /home/name/... or C:\Users\name\... fail this check. Quote the
+    path. One exception: a command that creates a symlink so a ~/ path resolves across a mount
+    boundary has to name the absolute source, so a line such as
+    "ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive" passes, and so does the mount location named in the
+    sentence that explains it.
+13. This check covers the locations inside this scope that the documents point to: a documentation
+    folder, a decisions folder, a subfolder holding a component, any other file or folder they say
+    is here. Each one either exists, or the document says in visible text that it does not exist
+    yet. List each with which of the two applies.
+    Four things are outside this check and must not be listed. A filename given as an example of a
+    naming convention rather than as a location. A location belonging to another scope, including a
+    component's own local path written in the registry, which resolves on the machine and in the
+    environment that component lives in rather than this one. A path appearing only inside a symlink
+    command or the sentence explaining it. Anything that is a URL rather than a path.
+
+14. Project scope only. If the document says where to start a session, it also says what makes its
+    local path true from there: the symlink or mount that holds it up, and the command that creates
+    it on a machine that lacks it. A session note exists because components sit on different sides of
+    a mount boundary, and a path that spans one holds because of an arrangement no file shows. If
+    there is no session note, this check is n/a.
 
 After the table, write one line: "Failed checks: N".
 
@@ -81,16 +118,49 @@ Write nothing else. No summary, no overall verdict, no recommendations, no reass
 
 ## Reading the result
 
-A failed check is a fact, not an opinion, because every row carries a quote you can open and verify
-yourself.
+A failed check should be a fact rather than an opinion. A presence check carries a quote you can
+open. An absence check carries a search you can run yourself.
 
-Two rows are worth extra attention:
+Four rows are worth extra attention:
 
-Check 8 fails quietly. A path with a username in it works on the machine where it was written and
-nowhere else, so nothing looks broken until someone else opens the repository.
+Check 4 is new in `0.5.0`. The two stubs are one text under two filenames, and nothing stops someone
+editing one and forgetting the other. A difference between them is a rule that fires for one tool and
+not another.
 
-Check 11 catches the common case of a `.docs/` list copied from the blueprint and never adapted. The
-assistant then reports missing files as if something were wrong.
+Its first run produced a false positive. `CLAUDE.md` carried a sentence introducing the import, which
+is a real difference and an intended one, so the check failed a correct document. The sentence was
+removed rather than the check widened: whether a tool supports the import is a property of the tool,
+and the import fails silently anyway, so the warning bought nothing.
+
+Check 10 catches the override drifting back into an entry point. `REPOSITORY.md` and `ASSETS.md`
+used to carry the parent address and the posture of the folder. Both moved out, and a file that has
+picked them up again is stating something the registry also states.
+
+Check 11 catches two things. A registry block written without a posture leaves a folder with no rules
+at all, since that word is the only thing the component is ever told about itself. And a block
+addressed `../` sends a reader out of the project instead of into the component: the two directions
+carry different values, and the one belonging in the component's stubs was written here by mistake.
+
+Check 14 is the one that fails on a machine other than the one it was written on. A `~/` path under a
+synced store, read from another filesystem, resolves because somebody made a symlink once. Nothing in
+any file records that, so a document naming the path and not the arrangement is true where it was
+written and false everywhere else. This was observed twice: one setup run volunteered the symlink
+line, the next did not, from the same blueprint.
+
+Check 12 fails quietly in the other direction. A path with a username in it works on the machine
+where it was written and nowhere else, so nothing looks broken until someone else opens the
+repository.
 
 If the audit returns advice or a verdict despite the last line of the prompt, the tool is padding.
 Judge the table, not the commentary.
+
+---
+
+## What this check cannot see
+
+An address that is well formed and wrong. The prompt forbids reading anything outside the folder, so
+check 8 confirms the shape of a parent address and never resolves it. A component left pointing where
+its project scope used to be passes here, and fails only when somebody follows the address.
+
+It also cannot see a component that exists on disk and appears in no registry. Nothing in this folder
+knows what the parent lists. Whether a third check should read both scopes at once is open.

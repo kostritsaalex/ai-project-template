@@ -6,6 +6,200 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.5.0] - 2026-08-23
+
+A third cut, at the number of documents rather than their contents. **The registry carries the
+component; the component carries two stubs.** See
+[decision 0005](.docs/decisions/0005-the-registry-carries-the-component.md).
+
+### Added
+
+- `blueprints/component/`, the normal way a folder is attached to a project. Two stubs, `AGENTS.md`
+  and `CLAUDE.md`, identical apart from the heading. They name which component the folder is, carry
+  the parent's address, and stop.
+- A posture line in every registry block: `Repository` where things get changed, `Assets` where they
+  are kept, and for `Assets` the four preserve rules travel with the word. This is the only thing a
+  component is ever told about itself.
+- An instruction in the stubs to fail loudly. An assistant that cannot reach `PROJECT.md` says so and
+  stops, rather than working on whatever it can see.
+- One rule that ends a whole class of setup question: a folder that has not been declared a
+  component is not one. It is files, belonging to whichever component contains it and taking that
+  component's posture. Being a component is a decision written into the registry, not a property of
+  what sits on disk, so no tree gets surveyed for candidates.
+- `blueprints/setup/new-component.md`, one prompt for any component. Three questions: what it is
+  called, whether things get changed here or kept, and whether it has a rule of its own yet.
+- A rule for local paths at setup: resolve the path in the exact form you mean to write, and when it
+  holds only because of a symlink or mount, name that arrangement and the command that creates it. A
+  `~/` path under a synced store read from another filesystem is true on the machine it was written
+  on and false everywhere else, and nothing in any file records why. Observed twice: one setup run
+  volunteered the symlink line, the next did not, from the same blueprint.
+- Two checks. `structure-check` now verifies that the two stubs carry the same text, and that every
+  registry block names a posture.
+
+### Changed
+
+- `REPOSITORY.md` and `ASSETS.md` are demoted from the normal way to attach a component to the
+  override, for a folder that has rules of its own. Both keep `Local rules` and `Hazards` and nothing
+  else.
+- A registry address says where the component is, read from `PROJECT.md`. A component's stubs say
+  where the parent is, read from the component. The two point opposite ways and carry different
+  values, which the old component entry point hid by holding only one of them.
+- The registry is authoritative. Where an override and the registry disagree about a component, the
+  registry is right and the override is a bug.
+- The `@` import in `CLAUDE.md` is restricted to a file in the same folder. Across a mount boundary it
+  would state the parent's location a second time in a second format, and its failure mode is silent:
+  a declined approval disables it permanently without saying so again.
+- The cold start check for a component asks a different question. It now tests one chain end to end,
+  stub to parent to the registry block, by asking whether things are changed or kept in this folder
+  and what said so.
+
+### Removed
+
+- The component entry point as the normal case. A component holds no document of its own unless it
+  has something to say that is true of it alone.
+- The escalation boundary, `<PROJECT_WIDE_CONCERNS>`. It existed so a component would not walk up to
+  a long parent without cause, and the parent is 33 lines. Reading it every time costs nothing.
+- `Parent checked`, with the file that held it. A component holds no copy of anything in the parent
+  except the address, so nothing it holds can fall out of date on its own.
+- The parent address and the posture from `REPOSITORY.md` and `ASSETS.md`. Both are in the parent.
+- The four preserve rules from `ASSETS.md`. They follow from the word `Assets` rather than from any
+  particular folder, so they are written once in the registry.
+- `blueprints/setup/new-repository.md` and `blueprints/setup/new-assets.md`, replaced by the single
+  component prompt.
+
+A component falls from three files to two and from 32 shipped lines to 22. The larger change is that
+none of the 22 is a decision: two lines are the parent address and the rest are fixed text. Adding,
+renaming or moving a component becomes one edit in one file.
+
+**The accepted cost, stated plainly.** A component that cannot reach its parent now knows nothing at
+all. Copying the posture down into the stub was rejected because it puts one rule in two places. The
+stub fails loudly instead.
+
+### Documentation
+
+The framework's own documents were rebuilt to the shape they describe, having drifted three versions
+behind it.
+
+- `PROJECT.md` falls from 302 lines to 78 and follows the Project Blueprint. Gone with it: the
+  `Project Version` counter, `Scope Ownership`, `Scope Entry Points`, `Framework Structure`,
+  `Sources of Truth`, `Blueprint Lifecycle`, `Success Criteria` and `Long-Term Vision`, all of which
+  described machinery that no longer exists or restated what the README already said.
+- `README.md` falls from 238 lines to 130 and stops repeating `PROJECT.md`. It answers what the
+  framework is for and how to adopt one; `PROJECT.md` is the entry point for working on it.
+- `.docs/architecture.md` is rewritten for the current shape: why the registry cannot live anywhere
+  else, what a component is told, the two address directions, and what a path spanning a mount
+  boundary needs.
+- The purpose is stated once, at the top of both: one roof over a project that lives in more than one
+  place, one entry point holding the register, project-wide truth written once and each part
+  answerable only for itself.
+- Decision `0002` is marked superseded, and `0003`'s four jobs are marked as superseded by the single
+  test in `0004`. Neither file is deleted; the record of why something existed outlives it.
+
+---
+
+## [0.4.0] - 2026-08-23
+
+A second cut, deeper than `0.3.0` and made against a single rule instead of a list of jobs:
+**a document carries what cannot be seen, and nothing that can.** See
+[decision 0004](.docs/decisions/0004-documents-carry-what-cannot-be-seen.md).
+
+### Changed
+
+- The framework's purpose is stated as navigation. Working in one folder, an assistant reads the
+  registry and reaches another that may sit on a different disk or in a different filesystem. The
+  registry and the shared rules at the root are the feature; the rest supports them.
+- A registry entry carries what a move needs and nothing else: name, one line, address, local path,
+  entry point. Platform and production are gone from it.
+- A component's own rules become one free `Local rules` section that may be left empty. The
+  Repository Blueprint no longer prescribes what goes in it beyond the platform fragments.
+- `Hazards` narrows again: only what an assistant cannot find by looking. Whether a `.git` exists is
+  visible, so it no longer qualifies. Most components will delete the section.
+- Folder naming is documented in the root `README.md`, where somebody creating a project will read
+  it, rather than inside a blueprint comment. Hyphens or underscores; a space costs a pair of quotes
+  in every shell command forever.
+
+### Added
+
+- `<SESSION_NOTE>` in the project blueprint: where to start a session so every component in the
+  registry resolves, for projects whose components sit on different sides of a mount boundary. Not
+  visible in any file and not inferable from one.
+
+### Removed
+
+- Every description of contents, from all three blueprints. An assistant can look.
+- `Development Environment` and the platform, environment and URL fields with it.
+- `Scope Ownership`, `Workstreams`, and the separate `Project Overview` and `Project Scope` sections,
+  which merge into one short statement of what the project is and does not cover.
+- The `.docs/` inventory from the component blueprints.
+
+The text that ships into an adopted project falls from 166 lines to 88: a project scope of 33 lines,
+a repository component of 25, an asset component of 30. The setup procedure falls from 320 lines to
+145, because an interview cannot be longer than the fields it fills.
+
+---
+
+## [0.3.0] - 2026-08-22
+
+Version `0.3.0` removes more than it adds. The framework had grown for a week until its own author
+was reluctant to change it, and the cut brings it back to the four jobs it exists for. See
+[decision 0003](.docs/decisions/0003-cut-the-framework-to-four-jobs.md).
+
+### Added
+
+- `blueprints/setup/`: prompts that adopt a blueprint by interview instead of by hand. A shared
+  `procedure.md` and three thin entries, one per scope, each carrying the address of the framework
+  and of every folder involved. The same file attaches a component on day one and two years later.
+- `Environment hazards` in the Assets Blueprint, and a `Handling Rules` section that admits an
+  exception for a subfolder holding worked code.
+- A third state for the `Production` line: a component whose output somebody else deploys elsewhere.
+  It writes `none` and names the handoff without naming the destination, because an address in a
+  field called Production reads as a target however the prose around it is worded.
+- A rule against spaces in the folder names that make up a project's path, and a note that the
+  project's name and its folder need not match.
+- A project scope prompt in the cold start check. The component prompt asks about a parent, a
+  boundary and an unreachable parent, none of which exist at a project scope, so running it there
+  returned three non-answers and measured nothing.
+
+### Changed
+
+- The two component kinds are told apart by what an assistant will mostly do in the folder, change
+  things or find them and leave them as they are. The old rule sorted by content, "anything that is
+  not a codebase", and broke on the first folder of source kept without version control.
+- `<PROJECT_WIDE_CONCERNS>` now always opens with whether the request falls inside the project at
+  all. No component can answer that, and without it a request the project excludes arrives looking
+  like ordinary technical work. This is the one change in the release with a measured before and
+  after: the same task, refused after the edit and started before it.
+- Platform fragments are trimmed on adoption rather than copied in full. A rule survives if it can
+  fire on work done from this folder.
+- A component nested inside its project scope writes `../` and no local path at all.
+- The structure check no longer fails a check that asks whether something is absent. Its evidence is
+  the search that returned nothing.
+
+### Removed
+
+- All version counters. `Project Version`, `Repository Version`, `Component Version` and
+  `Parent Project Version` are gone, along with the obligatory sweep of every component whenever the
+  project document changed. A component now records `Parent checked`, the date it was last read
+  against the parent, and compares it with the parent's `Last Updated`.
+- `Sources of Truth` from both component blueprints, and most of `Project-Wide AI Principles` from
+  the project blueprint. Both restated behaviour a competent assistant already has.
+- Half of `Change Principles` and most of `Verification`. What survives is the part that is not a
+  default: change only what the task needs, remove only your own dead code, reproduce a bug before
+  fixing it.
+- `Environment access` from the Repository Blueprint. Two paragraphs that never changed an outcome.
+- `Development Environment` from the Repository Blueprint. Platform, environment and local URL are
+  read off the files, and the parent registry already records the platform and the deployed location
+  of every component. `Environment hazards` becomes `Hazards` and narrows to what no file shows and
+  no tool catches, which for most repositories is nothing at all.
+- `Change Principles` from the Repository Blueprint. The six lines that survived the first cut moved
+  up to `Decision Rules` in the project blueprint, under a subsection for components holding code, so
+  a new code component inherits them instead of carrying its own copy.
+
+The text that ships into an adopted project falls from 272 lines to 166, and a component entry
+point from 100 lines to 45.
+
+---
+
 ## [0.2.0] - 2026-08-09
 
 ### Added

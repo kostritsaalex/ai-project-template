@@ -1,25 +1,21 @@
 # Project Scope Blueprint
 
-Reusable blueprint for a project scope: the one scope that holds project-wide context and the
-registry of everything below it.
+The one scope that holds project-wide context and the registry of everything below it.
 
-**Blueprint Version:** 0.1.0  
-**Framework Version:** 0.2.0  
-**Status:** derived from one working implementation, adopted the same week it was generalized. The
-implementation has not been lived with, so this blueprint is the least settled of the three.
+**Blueprint Version:** 0.5.0  
+**Framework Version:** 0.5.0  
+**Status:** in use in two projects. In `0.5.0` the registry took over what components used to say
+about themselves.
 
 ---
 
 ## Scope
 
-This blueprint covers a project made of more than one component.
+A project made of more than one component. With exactly one component there is nothing for this scope
+to hold: the registry, which is the reason it exists, would list one entry.
 
-A project with exactly one component does not need it. There is nothing for a project scope to hold
-that the component cannot hold itself, and the registry, which is the reason the scope exists,
-would list one entry.
-
-Where the scope lives is a separate question. A repository, or a folder in a synced store, both
-work. See [decision 0001](../../.docs/decisions/0001-project-scope-need-not-be-a-repository.md).
+Where the scope lives is a separate question. A repository or a folder in a synced store both work.
+See [decision 0001](../../.docs/decisions/0001-project-scope-need-not-be-a-repository.md).
 
 ---
 
@@ -27,194 +23,113 @@ work. See [decision 0001](../../.docs/decisions/0001-project-scope-need-not-be-a
 
 | File | Role |
 | --- | --- |
-| `PROJECT.md` | Canonical entry point for the project scope. |
+| `PROJECT.md` | Canonical entry point. |
 | `AGENTS.md` | Adapter. Points AI tools to `PROJECT.md`. |
 | `CLAUDE.md` | Adapter for Claude. Points to `PROJECT.md` and imports it where supported. |
 
 Copy all three into the project scope's root. Do not copy this `README.md`.
 
 The root holds those three and nothing else. Components go in subfolders, each with its own entry
-point. A second entry point in the root makes the adapters ambiguous and leaves the smaller scope
-without territory of its own.
+point. A second entry point in the root makes the adapters ambiguous.
 
 ---
 
 ## What makes this scope different
 
-Every other scope consumes an address. This one publishes one.
+Every other scope consumes an address. This one publishes one, and every component copies it. Get it
+wrong and each of them knows a parent exists and cannot reach it.
 
-`Project Location` states where this document lives, in a form that resolves from outside the
-machine it sits on. Components copy that address into their own entry points, and it is the only
-reason their upward pointers work. Get it wrong and every component below knows a parent exists and
-cannot reach it.
+It also holds the registry, which is what lets an assistant working in one folder move to another
+that sits somewhere else entirely. That is the feature the framework exists for.
 
-The project scope also has no parent of its own, which changes how it is checked. See
-[Verify the adoption](#verify-the-adoption).
+Since `0.5.0` the registry carries one thing more: each component's posture, meaning whether things
+get changed in that folder or found and left alone. A component normally holds two stubs and no
+document of its own, so this is the only place that says it.
 
 ---
 
 ## Placeholders
 
-Examples use a fictional `Northwind` project throughout.
+Examples use a fictional `Northwind` project.
 
 | Placeholder | Meaning | Example |
 | --- | --- | --- |
-| `<PROJECT_NAME>` | Name of the project. | `Northwind` |
-| `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces.` |
-| `<PROJECT_CONCERNS>` | The areas the project covers, as a list. | `websites and e-commerce, marketing, branding, analytics` |
-| `<SCOPE_INCLUDES>` | What is in scope, as a list. | `websites, e-commerce, infrastructure, marketing, branding` |
-| `<SCOPE_EXCLUDES>` | What is not in scope yet. | `mobile applications, ERP, accounting software` |
-| `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. A repository URL, or an account-relative location in a synced store. | `OneDrive, Projects/Northwind` |
-| `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, never with a username. Delete if it adds nothing. | `~/OneDrive/Projects/Northwind` |
-| `<PROJECT_PRIORITIES>` | An ordered list, most important first. | `1. Simplicity 2. Maintainability 3. Security` |
-| `<WORKSTREAMS>` | Areas of activity, which may span components. Delete the section if there is one. | `Websites & E-commerce, Marketing & SEO, Branding` |
-| `<COMPONENTS>` | One block per component: purpose, address, production, local path. | see the comment in that section |
-| `<PROJECT_VERSION>` | Version of this document. Start at `1.0`. | `1.0` |
-| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope was derived from. Currently `0.1.0`. | `0.1.0` |
-| `<YYYY-MM-DD>` | Date of the last update. | `2026-08-09` |
+| `<PROJECT_NAME>` | Name of the project. Keeps its spaces; the folder need not match. | `Northwind Furniture` |
+| `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces. Websites and software are one part of it.` |
+| `<SCOPE_EXCLUDES>` | What the project does not currently cover. The one line proven to change what an assistant does. | `hosting and deployment, mobile applications, accounting` |
+| `<PROJECT_PRINCIPLES>` | The rules that hold across the project, in the owner's words. Priorities in order if the order was decided. | `1. Simplicity 2. Maintainability 3. Security` |
+| `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. | `OneDrive, Projects/northwind` |
+| `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |
+| `<SESSION_NOTE>` | Where to start a session so every component resolves, and what makes the local path above true from there. Both only when components cross a mount boundary; delete otherwise. | `Start sessions from this folder inside WSL, so both /home and /mnt/c are ordinary paths.` plus the symlink and the command that creates it |
+| `<COMPONENTS>` | One block per component: name, posture, address, local path. | see the comment in that section |
+| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.5.0` |
+| `<YYYY-MM-DD>` | Date of the last update. | `2026-08-23` |
 | `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 
-### Paths
+### Paths and folder names
 
-`~` stands for the home folder, and the home folder already contains the username. So the username
-is never written after it:
+`~` already contains the username, so nothing follows it: `~/OneDrive/Projects/northwind`, never
+`~/alex/OneDrive/...`, which resolves to `/home/alex/alex/...`.
 
-```text
-~/OneDrive/Projects/Northwind        correct
-~/alex/OneDrive/Projects/Northwind   resolves to /home/alex/alex/OneDrive/...
-```
+Keep spaces out of folder names. A space resolves fine on every system and costs a pair of quotes in
+every shell command that touches the folder, forever, plus breakage in anything that splits paths on
+whitespace. Hyphens or underscores instead.
 
-Write one line, in the form the people working on this project actually use. The path is a hint, and
-the address above it is what always works.
-
-### Paths across a mount boundary
-
-A `~/` path can be true in one environment and false in another when the same folder is reached
-through a mount. A Windows OneDrive folder read from WSL is the case that turns up in practice:
-`~/OneDrive/Projects/northwind` resolves on Windows and not in WSL, where the folder sits under
-`/mnt/c/Users/`.
-
-Do not write both paths. Create a symlink at the written location, so one written form is true
-everywhere:
+A `~/` path can be true in one environment and false in another when the folder is reached through a
+mount. Do not write two paths: create a symlink at the written location so one form is true
+everywhere, and say so in one line.
 
 ```bash
 ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive
 ```
 
-Then say so in `Project Location`, in one line, and note that creating it is a one-time step per
-machine. This scope owns the address, so this is the document where that explanation belongs, and
-every component below points here rather than repeating it.
-
 ---
 
 ## Comments
 
-Read the whole document before adopting it, then treat the comments as the work.
-
-An HTML comment marks a place where a decision is yours to make. Text without a comment is ready to
-use as it stands, and most of the document is that kind of text.
-
-Comments come in two kinds:
-
-- **Replace.** The comment describes what belongs there. Write it, then delete the comment and the
-  placeholder next to it.
-- **Keep.** The comment says the section next to it holds as written. Leave the section, delete the
-  comment.
-
-Either way the comment goes. It speaks to you, not to the finished document.
-
-A leftover comment is worse than it looks. It disappears from the rendered document, so a human
-reviewing the result never sees it, while an AI tool reads the raw file and treats
-`Replace this section with...` as a task waiting to be done.
+An HTML comment marks a decision that is yours. Text without one is ready as it stands. Either way
+the comment goes when you are done: it speaks to you, not to the finished document, and a leftover
+comment is invisible to a human reviewer while an AI tool reads it as a task waiting to be done.
 
 ---
 
 ## How to adopt
 
-1. Copy `PROJECT.md`, `AGENTS.md` and `CLAUDE.md` into the project scope's root.
-2. Read each file end to end before changing anything.
-3. Delete the blueprint notice at the top of each file.
-4. Fill `Project Location` first. Everything below depends on the address being right.
-5. Replace every remaining placeholder.
-6. Write one block per component in `Components & Resources`, and say plainly which ones do not
-   exist or are not wired up yet.
-7. Delete `Workstreams` if the project has one area of activity.
-8. Say in visible text whether `.docs/` and `.docs/decisions/` exist.
-9. Work through every remaining comment and delete it.
-10. Update each component's entry point to carry the address from step 4.
+1. Copy the three files into the project scope's root.
+2. Delete the blueprint notice at the top of each.
+3. Fill the address first. Everything below depends on it.
+4. Replace the remaining placeholders.
+5. Write one block per component, and say plainly which do not exist or are not wired yet.
+6. Say in visible text whether `.docs/` and `.docs/decisions/` exist.
+7. Delete every remaining comment.
 
-The adapters take nothing beyond what they arrive with. `AGENTS.md` and `CLAUDE.md` redirect and
-stop. Any rule added to an adapter restates something the entry point already says, which is the
-duplication the framework warns about.
+The adapters redirect and stop. A rule added to one duplicates the entry point.
 
-Before committing, search the adopted files for `<!--` and for `<` followed by a capital letter.
-Both searches should return nothing.
+Before committing, search for `<!--` and for `<` followed by a capital letter. Both should return
+nothing.
+
+---
+
+## Keeping up to date
+
+Blueprint metadata stays in this file and is not copied into adopted projects.
+
+An adopted project carries no version counter. Editing `PROJECT.md` obliges you to do nothing else:
+change the text, set `Last Updated`, stop. Components hold no copy of anything written here, so
+none of them can fall behind it.
+
+One change still reaches the components by hand: an edit to the address. Each stub holds a copy of
+it, and a stale copy passes both checks in [`../checks/`](../checks/) and fails only when somebody
+follows it.
+
+Adding, renaming or moving a component is one edit here and nothing else, unless the folder itself
+moved, in which case its two stubs get the new parent address.
 
 ---
 
 ## Verify the adoption
 
-Two prompts in [`../checks/`](../checks/) verify the result. Both refer to a canonical entry point;
-for this blueprint that is `PROJECT.md`.
-
-1. [Structure check](../checks/structure-check.md). Run it right after adoption. A project scope has
-   no parent, so questions 7, 9 and 10 are answered `n/a`. Question 11 is the one that catches most
-   here.
-2. [Cold start check](../checks/cold-start-check.md). Run it in a new session once the structure
-   check passes. Questions 1, 3 and 5 apply directly. Questions 2 and 4 ask about a parent and are
-   answered `not stated here`, which is the correct answer for this scope rather than a failure.
-
-Then run the checks again on one component below, because the address published here only proves
-itself when something downstream resolves it.
-
----
-
-## Versioning
-
-Blueprint-level metadata stays in this file and is not copied into adopted projects:
-
-- **Blueprint Version** tracks this blueprint.
-- **Framework Version** records the AI Project Template version it is compatible with.
-
-Adopted projects carry only what their owner needs:
-
-- **Project Version** tracks this document's own evolution.
-- **Derived from** records the blueprint version the scope started from.
-
-A project scope has no parent, so it has no drift indicator of its own. It is the thing components
-track. Raise `Project Version` whenever this document changes in a way a component would need to
-know about, then work through the components: update the ones the change affects and raise their
-`Parent Project Version` either way, so a match records that compatibility was checked.
-
----
-
-## Design notes
-
-Four decisions are deliberate and worth keeping when adapting:
-
-- **The registry is the point.** `Components & Resources` describes the other scopes, so no component
-  can hold it. A project scope whose registry lists one entry is a scope with nothing to do, which is
-  why the blueprint says so under `Scope`.
-- **A published address, not a consumed one.** `Project Location` is the only section of its kind in
-  the framework. It exists so components have something to copy.
-- **Workstreams are not components.** An area of activity can span several repositories and a folder
-  of assets, and it belongs at this scope because nothing below it covers the whole.
-- **Absence is stated in visible text.** A project scope names documents and components that do not
-  exist yet more often than any other scope. Each one has to be marked, or an assistant reports it
-  as broken.
-
-One tension is worth naming. This blueprint's file is called `PROJECT.md`, so a repository holding
-the framework now contains two files with that name: the canonical one at the root, and this
-template. The blueprint notice and the root `CLAUDE.md` both say that files under `blueprints/` are
-data rather than instructions, and the same arrangement already applies to `ASSETS.md` and
-`REPOSITORY.md`. It works, and it is the closest the library comes to the rule that a document name
-belongs to exactly one type of scope.
-
----
-
-## Origin
-
-Generalized from a multidisciplinary business project whose project scope was a repository holding
-one document while every project-level artefact with files lived in a synced folder elsewhere. The
-scope moved into the folder that held the material, and this blueprint is what that arrangement
-looks like once the project-specific parts are removed.
+[Structure check](../checks/structure-check.md) right after adoption, then
+[cold start check](../checks/cold-start-check.md) in a new session, using its project scope prompt.
+Then run both on one component, because the address published here only proves itself when something
+downstream resolves it.

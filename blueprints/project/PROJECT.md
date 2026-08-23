@@ -8,107 +8,81 @@
 
 ---
 
-<!--
-Header metadata. Example of a filled-in block:
-
-    Project Version:  1.0          (this document's own version, start at 1.0)
-    Derived from:     Project Blueprint 0.1.0
-    Last Updated:     2026-08-09
-    Document Owner:   Alex
-
-Project Version is what every component tracks as its Parent Project Version. Raise it whenever this
-document changes in a way a component would need to know about, so the drift indicator downstream
-means something.
--->
-
 # <PROJECT_NAME>
 
 > **AI Project Entry Point**
 >
-> Canonical project-wide context and instructions for <PROJECT_NAME>.
+> Read this before working anywhere in this project.
 >
-> Read this document before performing project-level tasks.
->
-> **Project Version:** <PROJECT_VERSION>  
 > **Derived from:** Project Blueprint <PROJECT_BLUEPRINT_VERSION>  
 > **Last Updated:** <YYYY-MM-DD>  
 > **Document Owner:** <DOCUMENT_OWNER>
 
 ---
 
-# Project Overview
+# What this project is
 
 <!--
-What the project is, in a few sentences. Write it for someone who has never heard of it.
+A few sentences. Say whether the project is only software or whether software is one part of
+something larger: an assistant that believes it is looking at a software project treats everything
+else as out of scope.
 
-Say whether the project is only software or whether software is one part of something larger. An
-assistant that believes it is looking at a software project will treat everything else as out of
-scope. Example:
+Then the boundary. The second half matters more than it looks, and it is the only rule in this
+framework proven to change what an assistant does: without it, a request the project excludes arrives
+looking like ordinary work and gets done. "Does not currently" is deliberate. It records a present
+boundary, not a permanent one.
 
-    Northwind is a furniture workshop selling restored mid-century pieces.
-
-    Northwind is a multidisciplinary business project. Websites and software matter, and they are
-    one part of the whole.
+Do not describe what the folders contain. An assistant can look.
 -->
 
 <PROJECT_PURPOSE>
 
-The project covers:
-
-<PROJECT_CONCERNS>
+This project does not currently cover <SCOPE_EXCLUDES>.
 
 ---
 
-# Project Scope
+# Principles
 
 <!--
-Two lists. The second one matters more than it looks: without it, every adjacent idea reads as
-in scope, and an assistant proposes work nobody asked for.
+The rules that hold across this whole project, in your own words. Priorities in order if the order
+has been decided, since a list everyone agrees with in any order decides nothing.
 
-    Includes: websites, e-commerce, marketing, branding, analytics, internal automation
-    Does not currently include: mobile applications, ERP, accounting software
-
-"Does not currently include" is deliberate wording. It records a present boundary rather than a
-permanent one.
+Anything that applies to one component only belongs in that component, not here.
 -->
 
-Includes:
-
-<SCOPE_INCLUDES>
-
-Does not currently include:
-
-<SCOPE_EXCLUDES>
+<PROJECT_PRINCIPLES>
 
 ---
 
-# Project Location
+# Where this project lives
 
 <!--
-This section is what makes every component below reachable, and it is the one thing a project scope
-publishes that no other scope does. Components copy the address from here into their own entry
-points.
-
-<PROJECT_SCOPE_ADDRESS> is where this document lives, in a form that resolves from outside the
-machine it sits on:
+This is the address every component copies. Get it wrong and each of them knows a parent exists and
+cannot reach it.
 
     https://github.com/acme/northwind-project     a repository, full URL, scheme included
-    OneDrive, Projects/Northwind                  a folder in a synced store, account-relative
+    OneDrive, Projects/northwind                  a folder in a synced store, account-relative
 
-<PROJECT_LOCAL_PATH> is a hint: where the scope usually sits on a machine that has it. Relative to
-the home folder, never with a username spelled out:
+Keep spaces out of the folder names. A space resolves fine on any system and costs a pair of quotes
+in every shell command that touches the folder, forever. Hyphens or underscores instead. The
+project's name keeps its spaces and is the title of this document; the folder does not have to match.
 
-    ~/Repositories/northwind-project
-    ~/OneDrive/Projects/Northwind
+If the components sit on different sides of a mount boundary, two things go here and neither is
+visible in any file.
 
-If the scope is a repository and the local path adds nothing, delete the local path lines.
+Where to start a session so that all of them resolve.
 
-If a written ~/ path crosses a mount boundary, say what makes it resolve. A Windows folder read from
-WSL is the case that comes up: create a symlink at the written location and state that doing so is a
-one-time step per machine. Do not write two paths.
+And what makes the local path above true from there. A path under a synced store, reached from
+another filesystem, usually holds because of a symlink somebody created once. Name it and give the
+command, so a machine that lacks it can be fixed instead of failing quietly:
+
+    `~/OneDrive` is a symlink to the Windows OneDrive folder, so the path above is true on both
+    sides. Create it once on a machine that lacks it:
+
+        ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive
+
+Delete all of this if there is no boundary to cross.
 -->
-
-This document is the canonical entry point for the <PROJECT_NAME> project scope.
 
 Address:
 
@@ -122,220 +96,66 @@ Local path:
 <PROJECT_LOCAL_PATH>
 ```
 
-Components outside this scope reference it by that address. Components inside it reference it by
-relative path.
+<SESSION_NOTE>
 
 ---
 
-# Project-Wide AI Principles
-
-<!-- Keep the list below as written. It holds regardless of project or technology. -->
-
-Before performing a task:
-
-1. Understand the relevant project context and current state.
-2. Identify the affected workstream or component.
-3. Read documentation relevant to the task.
-4. Ask for clarification when requirements are unclear. Never invent requirements.
-5. Change only what is necessary for the requested task.
-6. Prefer simple, maintainable solutions over unnecessary complexity.
-7. Explain meaningful trade-offs when multiple solutions exist.
-8. Define what successful completion means and verify the result.
-
-Do not modify unrelated work unless explicitly requested.
-
----
-
-# Project Priorities
+# Components
 
 <!--
-An ordered list, most important first. The order is the content: a list everyone agrees with in any
-order decides nothing. Example:
+The registry. This is why a project scope exists: no component can hold it, because it describes
+the others, and it is what lets an assistant move between folders that sit far apart.
 
-    1. Simplicity
-    2. Maintainability
-    3. Security
-    4. Performance
-    5. Accessibility
-    6. User Experience
-    7. Appearance
-
-Keep the closing paragraph. Without it the order is read as absolute and applied where it does not
-belong.
--->
-
-<PROJECT_PRIORITIES>
-
-Apply priorities in the context of the relevant task. Not every priority applies equally to every
-workstream.
-
----
-
-# Decision Rules
-
-<!-- Keep this section as written unless the project has a reason to decide differently. -->
-
-When multiple solutions exist:
-
-- Prefer native platform capabilities when appropriate.
-- Prefer fewer dependencies.
-- Prefer long-term maintainability.
-- Do not add speculative features, abstractions or configurability.
-- Avoid unnecessary complexity.
-- Explain meaningful advantages and disadvantages.
-
----
-
-# Sources of Truth
-
-<!-- Keep this section as written. Drop the lines that name things this project does not have. -->
-
-Sources of truth depend on the relevant scope:
-
-- Project documentation defines project-wide context, conventions and intended direction.
-- Component documentation defines component-specific context and conventions.
-- Repositories and configuration define technical implementation.
-- Production systems and published channels define currently deployed or published state.
-- Historical notes and discussions provide context but may be outdated.
-
-When sources conflict, investigate before proceeding. Ask for clarification when intended behavior
-cannot be determined confidently.
-
----
-
-# Scope Ownership
-
-<!-- Keep this section as written. It is the rule the whole arrangement rests on. -->
-
-Information should live at the smallest scope that fully covers everything it applies to.
-
-- Project-wide information belongs to the <PROJECT_NAME> project scope.
-- Information specific to one component belongs to that component.
-- Information spanning multiple components belongs at the project scope.
-- Avoid duplicating the same instruction or decision across scopes.
-
-Component-level instructions may specialize project-wide rules for their scope, but should not
-contradict project-wide principles unless explicitly authorized.
-
----
-
-# Workstreams
-
-<!--
-Areas of activity, which are not the same thing as components. A workstream can span several
-components, and several workstreams can run inside one. Example:
-
-    - Websites & E-commerce
-    - Marketing & SEO
-    - Branding
-    - Analytics & Customer Experience
-    - Internal Automation
-
-Delete this section if the project has one area of activity. Naming a single workstream adds a layer
-that decides nothing.
--->
-
-Current <PROJECT_NAME> workstreams include:
-
-<WORKSTREAMS>
-
-Workstreams describe areas of activity. They are independent from repositories and storage locations
-and may span multiple components.
-
-Workstream documentation that spans multiple components belongs in project-level documentation.
-Component-specific implementation details belong to the relevant component documentation.
-
----
-
-# Components & Resources
-
-## Component Conventions
-
-<!--
-Keep this subsection as written. It is repeated here rather than left to the framework because an
-assistant working in this project has no access to the framework documentation.
--->
-
-Each project component should have exactly one canonical AI entry point.
-
-The entry point should be named according to the nature of the component.
-
-Examples:
-
-- Project → `PROJECT.md`
-- Repository → `REPOSITORY.md`
-- Assets → `ASSETS.md`
-
-`AGENTS.md` and `CLAUDE.md` act as adapters and should always direct AI assistants to the
-component's canonical entry point.
-
-A component may live in its own repository or inside this scope's folder. A component inside this
-folder occupies its own subfolder and carries its entry point there. This scope's root holds
-`PROJECT.md` and its adapters and nothing else, so that a tool entering the root reaches the project
-and a tool entering a subfolder reaches that component.
-
-<!--
-Below, one block per component. This is the registry, and it is the reason a project scope exists at
-all: no component can hold it, because it describes the others. Give each one enough to be reached.
+One block each. Name, posture, address:
 
     ## Northwind Storefront
 
-    **Purpose:** English-language shop
-    **Platform:** Django + Wagtail
-    **Repository:** https://github.com/acme/northwind-storefront
-    **Production:** https://shop.northwind.example
-    **Local checkout:** `~/Repositories/northwind-storefront`
+    Repository. Things get changed here.
+    Address: https://github.com/acme/northwind-storefront
+    Local path: `~/Repositories/northwind-storefront`
 
-    Repository-specific instructions and technical documentation belong to that repository.
+    ## Northwind Brand Assets
 
-State plainly when something does not exist yet: a component with no repository, or one whose
-repository has never been wired to this scope. An assistant told nothing assumes the chain works.
+    Assets. Do not reorganize, rename or move anything here. Preserve the existing organization.
+    Address: assets/brand
 
-A second working copy of a repository is not a component. Record it inside the component it belongs
-to.
+The posture line is the whole of what a component is told about itself, so it belongs here and
+nowhere else. Repository means an assistant will mostly change things in that folder. Assets means
+it will mostly find them and leave them as they are, and the preserve rules travel with the word.
+
+The address says where the component is, read from this document. A component that sits inside this
+folder gets its path from here, written without a leading slash. The `../` it uses in its own stubs
+to point back at this document is the opposite direction and a different value; do not write that
+one here.
+
+The heading is the component's name, and the stubs inside the component repeat it. They have to
+match: it is how an assistant standing in a folder finds the block that describes it.
+
+No platform, no production URL, no description of contents. An assistant that arrives can look.
+
+Keep this to what reaching a component needs. Whatever an assistant needs in order to work inside
+one, rather than to get to it, belongs in that component. This registry is read by everyone, so a
+line put here is paid for by every reader.
+
+A folder that is not listed here is not a component. It is files, belonging to whichever component
+contains it and taking that component's posture. Being a component is a decision somebody made, not
+a property of what is on disk, so nothing gets promoted by being noticed.
+
+Say plainly when something does not exist yet, or has never been wired to this scope. Told nothing,
+an assistant assumes the chain works.
+
+A component normally holds two stubs and nothing else, and both point here. One that has rules of
+its own also holds `REPOSITORY.md` or `ASSETS.md`. Where such a file and this registry disagree,
+this registry is right.
 -->
 
 <COMPONENTS>
 
 ---
 
-# Documentation
+# Documentation and decisions
 
-`PROJECT.md` is the canonical project-wide AI entry point.
+Project-wide documentation and decisions belong here, in `.docs/` and `.docs/decisions/`. Anything
+affecting one component only belongs to that component.
 
-Detailed project documentation belongs in `.docs/`.
-
-Documentation should live as close as practical to the scope it describes:
-
-- Project-wide knowledge → project `.docs/`
-- Repository-specific knowledge → repository `.docs/`
-- Component-specific knowledge → component documentation
-
-Create documentation when it is needed rather than creating speculative empty documents.
-
-<!--
-If `.docs/` does not exist yet, say so here in one visible line:
-
-    A project `.docs/` folder does not exist yet. Create it when there is something to put in it.
-
-A project scope collects references to documents that do not exist faster than anything else in the
-framework, and an assistant reports each one as missing unless the document says otherwise.
--->
-
----
-
-# Decisions
-
-Decisions should be recorded at the smallest scope that fully covers everything they affect.
-
-- Decisions affecting <PROJECT_NAME> as a whole, multiple components or multiple workstreams belong
-  in project `.docs/decisions/`.
-- Decisions affecting only one component or repository belong in that scope's `.docs/decisions/`.
-
-Avoid duplicating the same decision across scopes.
-
-<!--
-If `.docs/decisions/` does not exist yet, keep a line saying where decisions go meanwhile:
-
-    Until project `.docs/decisions/` exists, project-wide decisions may be recorded in this document.
--->
+<!-- Say in one visible line if either folder does not exist yet, so nobody reports it as missing. -->
