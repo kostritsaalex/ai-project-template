@@ -4,7 +4,7 @@ The framework has one structural idea: a project is a set of places, and one of 
 
 ```text
 Project scope          PROJECT.md + AGENTS.md + CLAUDE.md
-│                      principles, boundaries, and the register of everything below
+│                      principles, boundaries, and the registry of everything below
 │
 ├── Component          AGENTS.md + CLAUDE.md
 ├── Component          AGENTS.md + CLAUDE.md
@@ -16,35 +16,43 @@ a repository of its own, on another drive, or in another filesystem entirely.
 
 ---
 
-## Why the register cannot live anywhere else
+## Why the registry cannot live anywhere else
 
 A folder does not know its siblings exist. Nothing an assistant can observe from inside one component
 tells it that another exists, where it is, or how it is to be treated.
 
 That is the one piece of knowledge no component can hold, because holding it would mean describing
-the others. So one scope holds it, and every component points back at that scope. This is the whole
-reason a project scope exists, and a project with no second place to work does not need one.
+the others. So one scope holds it, and every component points back at that scope. This is the one
+job only this scope can do.
+
+It has a second job as well. Since `0.5.0` a component holds no document of its own, so a project
+living in a single folder still comes here for anything it wants to record, and the registry sits
+empty while it does.
 
 ---
 
 ## What a component is told
 
-One word, written in the register beside its name.
+One word, written in the registry beside its name.
 
-`Repository` means an assistant will mostly change things in that folder. `Assets` means it will
-mostly find them and leave them as they are, and the four preserve rules travel with the word: do not
-reorganize, do not rename, do not move, preserve the existing organization.
+Being listed in the registry is what gives a component the project's principles. That is the floor,
+and it is the whole of `Assets`: the folder is live, material arrives and gets updated, and the task
+governs what happens in it.
 
-These are opposite postures rather than different subjects. A folder of photography and a folder of
-marketing material differ in topic and not in kind. A folder of source kept without version control
-takes `Repository`, because what it needs is rules for changing things safely.
+`Repository` adds one rule on top of that floor. Platform or framework core changes only through its
+own update mechanism, never by hand. The axis is ownership rather than immutability: core belongs to
+its updater, so an upgrade that replaces it wholesale is the owner doing its job, while a hand edit
+in the same files is silently undone by the next one.
+
+So the two are a floor and one layer, and the layer is where anything learned later will go. See
+[decision 0006](decisions/0006-the-postures-carry-one-rule-between-them.md).
 
 Everything else a component might have said about itself is either visible from inside it, and so
 belongs in no document, or true of the whole project, and so belongs in the project scope.
 
 A folder that has not been declared a component is not one. It is files, belonging to whichever
 component contains it and taking that component's posture. Being a component is a decision written
-into the register rather than a property of what sits on disk.
+into the registry rather than a property of what sits on disk.
 
 ---
 
@@ -71,12 +79,12 @@ for the home folder that contains it.
 
 ### The two directions
 
-The register says where the component is, read from `PROJECT.md`. The stubs say where the parent is,
+The registry says where the component is, read from `PROJECT.md`. The stubs say where the parent is,
 read from the component. For a component nested inside the project folder, that is `assets/brand` in
 one and `../` in the other.
 
 They are different values and writing one where the other belongs sends a reader out of the project.
-`structure-check` fails a register block addressed `../`.
+`structure-check` fails a registry block addressed `../`.
 
 ### When a path spans a mount boundary
 

@@ -1,10 +1,9 @@
 # Repository Override Blueprint
 
-The optional third file for a component where things get changed, when that folder has rules of its
-own.
+The optional third file for a `Repository` component, when that folder has rules of its own.
 
-**Blueprint Version:** 0.5.0  
-**Framework Version:** 0.5.0  
+**Blueprint Version:** 0.6.0  
+**Framework Version:** 0.6.0  
 **Status:** in use in two components. Demoted in `0.5.0` from the normal way to attach a component
 to the exception.
 
@@ -13,11 +12,12 @@ to the exception.
 ## When you need this
 
 You do not need it to attach a folder to a project. [`../component/`](../component/) does that with
-two stubs, and the parent registry says whether things get changed here.
+two stubs, and the parent registry carries the word `Repository` with the one rule that travels with
+it: platform or framework core changes only through its own update mechanism, never by hand.
 
 You need this file when the folder has rules that are its own and nowhere else: platform
-conventions, generated files that must never be edited in place, a verification step particular to
-this codebase.
+conventions, a vendored dependency or a generated directory that a tool rather than a person owns, a
+verification step particular to this codebase.
 
 If you cannot name such a rule, do not create the file. A component with nothing to say about itself
 says it in no file at all.
@@ -57,7 +57,7 @@ What is left is one thing, the folder's own rules, and the file exists only when
 | `<REPOSITORY_NAME>` | Name of this component. Must match its heading in the parent registry. | `Northwind Storefront` |
 | `<LOCAL_RULES>` | Whatever this component decides for itself. | contents of `platforms/wordpress.md`, trimmed |
 | `<HAZARDS>` | Only what an assistant cannot find by looking. Usually empty; delete the section then. | `The staging checkout shares a Git remote with this one.` |
-| `<REPOSITORY_BLUEPRINT_VERSION>` | Blueprint version this file started from. | `0.5.0` |
+| `<REPOSITORY_BLUEPRINT_VERSION>` | Blueprint version this file started from. | `0.6.0` |
 | `<YYYY-MM-DD>` | Date. | `2026-08-23` |
 | `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 
@@ -68,8 +68,8 @@ The stubs carry `<COMPONENT_NAME>`, `<PROJECT_NAME>`, `<CANONICAL_PROJECT_SCOPE_
 
 ## What does not go in
 
-The posture of the folder. The parent registry says whether things get changed here, and if this
-file disagreed with it, the registry would be right and this file a bug.
+The posture of the folder, and the rule that travels with it. The parent registry carries both, and
+if this file disagreed with it, the registry would be right and this file a bug.
 
 The platform, the local URL, what the folder contains, whether a `.git` exists, which tools are
 installed. All of it is visible to an assistant that opens the folder.

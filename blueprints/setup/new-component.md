@@ -56,16 +56,18 @@ is not covered: the parent is the only thing it is told about.
 **Attach the folder you were given and no other.** Subfolders inside it are not components and are
 not candidates. They are files, and they take this component's posture.
 
-**The interview is three questions.** What this component is called, which posture the folder has,
-and whether it has any rule of its own yet. The name and the address you already have from the
-prompt; confirm the name rather than asking for it blind.
+**The interview is two questions.** What this component is called, and whether it has any rule of its
+own yet. The name and the address you already have from the prompt; confirm the name rather than
+asking for it blind.
 
-**The posture question, asked plainly:** in this folder, will an assistant mostly change things, or
-mostly find them and leave them as they are. Change is `Repository`. Keep is `Assets`, and the
-preserve rules go into the registry block with it.
+**The posture is not asked, it is read.** Step 2 of the procedure has you establish one thing about
+the contents: whether the folder holds code that a platform or a framework updates. If it does, the
+posture is `Repository` and the rule about core goes into the registry block with it. If it does
+not, the posture is `Assets`, which adds nothing to the project's principles. Put the word in the
+summary table as settled, name what you saw, and let the person overturn it there.
 
-Do not ask what the folder contains, what platform it runs, or whether it is under version control.
-None of that decides the posture and all of it is visible.
+Do not ask what else the folder contains, what it runs, or whether it is under version control. None
+of that decides anything and all of it is visible.
 
 **A rule of its own is the exception, not the expectation.** Ask once. If the answer is no, which is
 usual, the component gets two stubs and nothing else, and you are done. If the answer is yes, add

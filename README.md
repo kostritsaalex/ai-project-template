@@ -11,7 +11,7 @@ workstream sits somewhere else again, and none of them knows the others exist. A
 working in one of them to go and do something in another and it has nowhere to look.
 
 This framework gives the project **one entry point**. One folder holds `PROJECT.md`, and that
-document holds the one thing no other folder can: the register of every part of the project, where
+document holds the one thing no other folder can: the registry of every part of the project, where
 each sits, and how each is to be treated. Work anywhere, reach everywhere.
 
 That entry point is also where project-wide truth lives, and the only place it lives. Whatever is
@@ -23,7 +23,7 @@ Everything a document says is measured against one test:
 > A document carries what cannot be seen, and nothing that can.
 
 An assistant can open a folder and look. The platform, the local URL, the file layout, what the
-folder holds: all visible, so none of it belongs in a document. What survives is the register, the
+folder holds: all visible, so none of it belongs in a document. What survives is the registry, the
 address of the parent, the owner's principles, and what the project does not do.
 
 ---
@@ -31,7 +31,7 @@ address of the parent, the owner's principles, and what the project does not do.
 ## How it fits together
 
 ```text
-PROJECT.md          the entry point: principles, boundaries, and the register
+PROJECT.md          the entry point: principles, boundaries, and the registry
    │
    ├── a component  two stubs naming it and pointing back here
    ├── a component  two stubs
@@ -42,19 +42,20 @@ A **component** is any folder belonging to the project: a codebase, a site, a fo
 the working material of a workstream. It carries `AGENTS.md` and `CLAUDE.md`, identical apart from
 the heading, saying which component the folder is and where the parent is. That is the whole file.
 
-What separates one component from another is one word in the register. `Repository` means an
-assistant will mostly change things there. `Assets` means it will mostly find them and leave them as
-they are, and four preserve rules travel with the word.
+What separates one component from another is one word in the registry. Both words inherit the
+project's principles and nothing else is shared. `Assets` adds nothing on top: the folder is live,
+material arrives and gets updated, and the task governs what happens in it. `Repository` adds a
+single rule, that platform or framework core changes only through its own update mechanism and never
+by hand.
 
-Those are opposite postures rather than different subjects. The folder's contents are a good hint and
-a poor rule: code is almost always worked on, so sorting by "code or not code" agrees most of the
-time and disagrees on the cases that matter, like source kept in a plain folder.
+So the two are a floor and one layer above it, and the layer is where anything learned later will
+go. A folder that needs more than its word gives it takes an override file of its own.
 
 A folder nobody declared a component is not one. It is files, belonging to whichever component
 contains it and taking that component's posture. Being a component is a decision written into the
-register, so no tree gets surveyed for candidates.
+registry, so no tree gets surveyed for candidates.
 
-The two addresses point opposite ways, and this is the thing most easily got wrong. The register says
+The two addresses point opposite ways, and this is the thing most easily got wrong. The registry says
 where the component is, read from `PROJECT.md`. The stubs say where the parent is, read from the
 component. A nested component is `assets/brand` in one and `../` in the other.
 
@@ -64,15 +65,15 @@ component. A nested component is `assets/brand` in one and `../` in the other.
 
 | Blueprint | What it is for | Version |
 | --- | --- | --- |
-| [project](blueprints/project/) | The entry point. Principles, boundaries, the register. One per project. | 0.5.0 |
-| [component](blueprints/component/) | Attaching a folder. Two stubs, nothing else. | 0.5.0 |
-| [repository](blueprints/repository/) | Override, for a component that has rules of its own and things get changed there. | 0.5.0 |
-| [assets](blueprints/assets/) | Override, for a component that has rules of its own and things are kept there. | 0.5.0 |
+| [project](blueprints/project/) | The entry point. Principles, boundaries, the registry. One per project. | 0.6.0 |
+| [component](blueprints/component/) | Attaching a folder. Two stubs, nothing else. | 0.6.0 |
+| [repository](blueprints/repository/) | Override, for a `Repository` component that has rules of its own. | 0.6.0 |
+| [assets](blueprints/assets/) | Override, for an `Assets` component that has rules of its own. | 0.6.0 |
 
 The first two do the ordinary work. The other two exist for a folder that needs to say something
-true of itself alone: platform conventions, generated files that must never be edited in place, a
-subfolder of worked code inside a folder of stored material. A component that cannot name such a rule
-gets no third file.
+true of itself alone: platform conventions, a directory a tool rather than a person owns, an
+arrangement that must not be rearranged. A component that cannot name such a rule gets no third
+file.
 
 Blueprints are derived from working implementations rather than designed up front, and are meant to
 be adapted rather than copied verbatim.
@@ -109,9 +110,10 @@ constrained, and nothing requires the two to match.
 
 Early development, and the contract is not stable.
 
-The architecture is in use in two real projects and changes through use. Versions `0.3.0`, `0.4.0`
-and `0.5.0` each removed more than they added. What ships into an adopted project is now 40 lines for
-the entry point and 22 for a component.
+The architecture is in use in two real projects and changes through use. Every release from `0.3.0`
+to `0.6.0` removed more than it added. What ships into an adopted project is now 40 non-blank lines
+for a project scope, 33 of them `PROJECT.md` and the rest its two adapters, and 22 for a component
+across its two stubs.
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed, and
 [`.docs/decisions/`](.docs/decisions/) for why.

@@ -40,9 +40,14 @@ raw files, and not at all for a private copy.
 **Entry point:** `PROJECT.md`  
 **Depends on:** nothing. Run this first.
 
-**Check the scope is needed.** A project with one component and no second one planned has nothing for
-a project scope to hold, because the registry is the reason it exists. Say so and offer the component
-blueprint alone.
+**Check which state the project is in.** A folder with nothing settled enough to write down needs no
+documents at all, and saying so is a better answer than an interview. A project that has settled on
+something and still lives in one folder takes this scope with an empty registry, and that is a
+finished setup rather than half of one. A project working in a second place takes this scope and a
+component for each place.
+
+Never offer the component blueprint instead of this one. A component with no parent is not covered,
+and `new-component.md` sends the person straight back here.
 
 **Fill the address first.** Every component copies it. Written wrong, each of them knows a parent
 exists and cannot reach it.
@@ -59,11 +64,12 @@ for candidates and do not offer any. A folder they did not name is files inside 
 contains it. This is also the answer to "should this folder be one component or several": neither,
 until they say.
 
-**Ask each component's posture while you are there.** One question per component: will an assistant
-mostly change things in that folder, or mostly find them and leave them alone. Change writes
-`Repository` into the block, keep writes `Assets` and the preserve rules with it. That word is the
-only thing the component will ever be told about itself, so it is not optional and it cannot be left
-for later.
+**Settle each component's posture while you are there.** A folder holding code that a platform or a
+framework updates takes `Repository`, and the rule about core goes into the block with it. Anything
+else takes `Assets`, which adds nothing to the project's principles. You cannot look inside a
+component you have not been given, so propose from what the person has told you and show the word in
+the summary table as settled, where it can be overturned in a sentence. That word is the only thing
+the component will ever be told about itself, so no block is written without one.
 
 **Ask about the session note only if the components cross a mount boundary.** Where to start a session
 so that every component in the registry resolves is invisible in any file and cannot be inferred. If

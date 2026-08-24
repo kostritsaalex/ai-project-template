@@ -6,6 +6,81 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.6.0] - 2026-08-24
+
+A cut at what the postures carry. **Both inherit the project's principles. `Assets` adds nothing.
+`Repository` adds one rule.** See
+[decision 0006](.docs/decisions/0006-the-postures-carry-one-rule-between-them.md).
+
+### Added
+
+- One rule travelling with the word `Repository`: platform or framework core changes only through
+  its own update mechanism, never by hand. The axis is ownership rather than immutability, so an
+  upgrade that replaces core wholesale is the owner doing its job and a hand edit in the same files
+  is not.
+- `structure-check` 11 now fails a `Repository` block written without that rule, since the rule is
+  the entire difference between the two words.
+- A sixth thing to establish at Step 2 of the setup procedure: whether the folder holds code a
+  platform or framework updates. It is the only reason to look at the contents, and it is what
+  settles the posture.
+
+### Changed
+
+- The postures stop being opposites. `0.5.0` described them as two directions, change against
+  preserve. They are a floor and one layer now, and one of them is empty.
+- An `Assets` registry block reads `Assets. Live material. Work here as the task requires.`
+- The component interview drops to two questions, the name and whether the folder has a rule of its
+  own. The posture is proposed from what was seen and shown in the summary table as settled, where
+  it can be overturned in a sentence.
+- Cold start question 3 changes axis. It asked whether things get changed here or found and left
+  alone. It now asks what limits what may be changed here and where that is written, which both
+  postures answer only by reaching the parent.
+- Cold start question 4 asks for the project boundary instead of any rule governing the folder.
+  Under `0.6.0` the old question had the same answer as question 3 for an assets component, and the
+  boundary is the one rule in the framework with a measured before and after.
+- The assets override changes purpose. It is now where something in a live folder gets held still.
+- `structure-check` 10 says what it means: an override may point at where the posture is stated and
+  may not state it. The blueprint headers were rewritten so a literal reading cannot fail a correct
+  file.
+
+### Removed
+
+- The four preserve rules: do not reorganize, do not rename, do not move, preserve the existing
+  organization. An assets folder is live, and a rule that ordinary work breaks every day teaches an
+  assistant that the document can be ignored.
+- The posture question from the component interview. Whether platform code sits in the folder is
+  visible, and `0004` forbids asking about what can be read.
+- The rule about `blueprints/` from this repository's own adapters. Every blueprint file carries a
+  visible notice at the top, so the rule described something already on screen, and
+  `blueprints/project/README.md` forbids adapters from carrying rules at all.
+
+**The accepted cost, stated plainly.** Nothing now stops an assistant rearranging a folder of
+material on its own initiative. The rules that would have stopped it were never run: the assets
+posture has not been used end to end on `0.5.0`. A folder that genuinely needs its arrangement held
+is what `ASSETS.md` is for, and that is now the first real case the assets override has had.
+
+**Closed.** Whether the two postures should collapse into one flag, and whether the pair should be
+renamed. Both stay. `Repository` carries a layer that is expected to grow, and a layer that grows
+needs somewhere to grow into.
+
+### Documentation
+
+- The project scope is described by the three states a project passes through: no documents, this
+  scope alone with an empty registry, this scope with components. A single folder that has grown
+  rules takes the scope on its own, and that is a finished setup rather than half of one. The old
+  rule sent such a project to the component blueprint, which sends it straight back.
+- `.docs/architecture.md` names the scope's second job: since `0.5.0` a component holds no document
+  of its own, so a one-folder project still comes here for anything it wants to record.
+- Both checks stop describing "a component that appears in no registry" as an uncovered gap. Under
+  `0.5.0` such a folder is not a component at all. What is uncovered is a component whose stubs and
+  registry block have drifted apart, and that needs a prompt reading both scopes at once.
+- `register` becomes `registry` in `README.md` and `.docs/architecture.md`, matching every blueprint.
+- The root of a project scope holds no second AI entry point, which is what the rule always meant.
+  It says nothing about a `README.md` or a `LICENSE`.
+- Step 2 of the setup procedure said four things and listed five.
+- The `Status` section records the metric behind its numbers: non-blank lines, summed across the
+  files of a scope.
+
 ## [0.5.0] - 2026-08-23
 
 A third cut, at the number of documents rather than their contents. **The registry carries the

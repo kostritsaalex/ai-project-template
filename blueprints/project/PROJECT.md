@@ -110,18 +110,21 @@ One block each. Name, posture, address:
 
     ## Northwind Storefront
 
-    Repository. Things get changed here.
+    Repository. Things get changed here. Platform or framework core changes only through its own
+    update mechanism, never by hand.
     Address: https://github.com/acme/northwind-storefront
     Local path: `~/Repositories/northwind-storefront`
 
     ## Northwind Brand Assets
 
-    Assets. Do not reorganize, rename or move anything here. Preserve the existing organization.
+    Assets. Live material. Work here as the task requires.
     Address: assets/brand
 
 The posture line is the whole of what a component is told about itself, so it belongs here and
-nowhere else. Repository means an assistant will mostly change things in that folder. Assets means
-it will mostly find them and leave them as they are, and the preserve rules travel with the word.
+nowhere else. Both postures inherit the principles above and nothing else is shared. Assets adds
+nothing to them: the folder is live and the task governs what happens in it. Repository adds one
+rule, the one written above, and it goes in word for word. A folder that needs more than its posture
+gives it takes an override.
 
 The address says where the component is, read from this document. A component that sits inside this
 folder gets its path from here, written without a leading slash. The `../` it uses in its own stubs

@@ -3,8 +3,8 @@
 How a folder is attached to a project. This is the normal way, and for most components it is the
 only thing that ever gets copied into them.
 
-**Blueprint Version:** 0.5.0  
-**Framework Version:** 0.5.0  
+**Blueprint Version:** 0.6.0  
+**Framework Version:** 0.6.0  
 **Status:** new in `0.5.0`. Replaces the default use of the Repository and Assets blueprints.
 
 ---
@@ -67,8 +67,9 @@ paid: the registry has always been the only map.
 
 ## Why there is no third file
 
-Everything a component used to say about itself is now one line in the parent registry. The posture
-of the folder, whether things get changed here or found and left alone, is what that line carries.
+Everything a component used to say about itself is now one line in the parent registry. That line
+carries the posture: `Assets`, which adds nothing to the project's principles, or `Repository`,
+which adds the one rule about platform and framework core.
 
 A component that says nothing about itself needs no file to say it in.
 
@@ -76,9 +77,9 @@ A component that says nothing about itself needs no file to say it in.
 
 ## What this costs
 
-A component cut off from its parent knows nothing at all. No principles, no posture, no preserve
-rules. This is accepted rather than mitigated: copying the posture down into the stub would put the
-same rule in two places, and two copies of a rule drift.
+A component cut off from its parent knows nothing at all: no principles and no posture. This is
+accepted rather than mitigated. Copying the posture down into the stub would put the same rule in
+two places, and two copies of a rule drift.
 
 The stub is told to fail loudly for exactly this reason. An assistant that cannot reach
 `PROJECT.md` is instructed to say so and stop, rather than work on whatever it can see.

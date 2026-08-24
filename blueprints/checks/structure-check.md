@@ -80,10 +80,13 @@ Checks:
    path fails. Quote it from each file.
 9. Component only. Both stubs say what to do when the parent cannot be reached. Quote it.
 10. Component only. If REPOSITORY.md or ASSETS.md is present, both stubs point at it by name, and
-    that file carries no parent address and no claim about whether things are changed or kept here.
-    Both of those belong to the parent. If neither file is present, this check is n/a.
-11. Project scope only. Every block in the components registry carries a name, a line saying whether
-    the folder is Repository or Assets, and an address. Name any block missing one of the three.
+    that file carries no parent address and does not state the folder's posture. Both of those
+    belong to the parent. A sentence saying where the posture is stated does not fail this check; a
+    sentence stating it does. If neither file is present, this check is n/a.
+11. Project scope only. Every block in the components registry carries a name, the word Repository
+    or the word Assets, and an address. Name any block missing one of the three. A block whose word
+    is Repository also carries the rule that travels with it, that platform or framework core
+    changes only through its own update mechanism and never by hand; quote it or fail the block.
     The address says where that component is, read from this document. A block whose address is
     ".." or "../" fails: that points out of this folder rather than into the component, and it is
     the address the component writes in its own stubs to point back here.
@@ -134,12 +137,16 @@ and the import fails silently anyway, so the warning bought nothing.
 
 Check 10 catches the override drifting back into an entry point. `REPOSITORY.md` and `ASSETS.md`
 used to carry the parent address and the posture of the folder. Both moved out, and a file that has
-picked them up again is stating something the registry also states.
+picked them up again is stating something the registry also states. The line between the two cases
+is worth holding: "how this folder is to be treated is in `PROJECT.md`" points, and passes.
+"Things get changed here" states, and fails.
 
-Check 11 catches two things. A registry block written without a posture leaves a folder with no rules
-at all, since that word is the only thing the component is ever told about itself. And a block
-addressed `../` sends a reader out of the project instead of into the component: the two directions
-carry different values, and the one belonging in the component's stubs was written here by mistake.
+Check 11 catches three things. A block written without a posture leaves a folder with no rules at
+all, since that word is the only thing the component is ever told about itself. A `Repository` block
+written without the rule about platform core leaves the word carrying nothing, because since `0.6.0`
+that rule is the entire difference between the two words. And a block addressed `../` sends a reader
+out of the project instead of into the component: the two directions carry different values, and the
+one belonging in the component's stubs was written here by mistake.
 
 Check 14 is the one that fails on a machine other than the one it was written on. A `~/` path under a
 synced store, read from another filesystem, resolves because somebody made a symlink once. Nothing in
@@ -162,5 +169,8 @@ An address that is well formed and wrong. The prompt forbids reading anything ou
 check 8 confirms the shape of a parent address and never resolves it. A component left pointing where
 its project scope used to be passes here, and fails only when somebody follows the address.
 
-It also cannot see a component that exists on disk and appears in no registry. Nothing in this folder
-knows what the parent lists. Whether a third check should read both scopes at once is open.
+It also cannot see whether the parent still lists this component, or lists it under this name.
+Nothing in this folder knows what the parent holds. A folder that appears in no registry is not a
+component at all, by the rule in
+[decision 0005](../../.docs/decisions/0005-the-registry-carries-the-component.md), so what is
+missing is a check that walks the registry and opens each component's stubs from there.

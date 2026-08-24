@@ -33,6 +33,11 @@ stubs point where they should, the assistant follows the chain. Whether a compon
 right posture, or the platform rules match how the team actually works, is a question for whoever
 owns the document.
 
-Neither sees a component that exists on disk and appears in no registry. The structure check reads
-one folder and the cold start check starts from one folder, so a folder nobody attached is invisible
-to both. A prompt that reads a project and its components together is the obvious gap.
+Neither compares a component against the registry that lists it. The structure check reads one
+folder and the cold start check starts from one folder, so a stub still pointing at a parent that
+has moved, or a component whose name no longer matches its registry heading, passes both. A prompt
+that walks the registry and opens each component's stubs is the obvious gap.
+
+A folder that appears in no registry is not one of these gaps. It is not a component at all, by the
+rule in [decision 0005](../../.docs/decisions/0005-the-registry-carries-the-component.md), so there
+is nothing for a check to find.

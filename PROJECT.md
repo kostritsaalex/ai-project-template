@@ -4,8 +4,8 @@
 >
 > Read this before working anywhere in this project.
 >
-> **Derived from:** Project Blueprint 0.5.0  
-> **Last Updated:** 2026-08-23  
+> **Derived from:** Project Blueprint 0.6.0  
+> **Last Updated:** 2026-08-24  
 > **Document Owner:** Alex
 
 ---

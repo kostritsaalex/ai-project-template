@@ -12,9 +12,9 @@
 
 > **Local rules for this component**
 >
-> The project's principles, and the fact that things get changed here, are in `PROJECT.md`.
-> `AGENTS.md` and `CLAUDE.md` say where that is. This file adds only what belongs to this folder
-> alone, and it exists only because there is something to add.
+> The project's principles, and how this folder is to be treated, are in `PROJECT.md`. `AGENTS.md`
+> and `CLAUDE.md` say where that is. This file adds only what belongs to this folder alone, and it
+> exists only because there is something to add.
 >
 > **Derived from:** Repository Blueprint <REPOSITORY_BLUEPRINT_VERSION>  
 > **Last Updated:** <YYYY-MM-DD>  
@@ -25,8 +25,12 @@
 # Local rules
 
 <!--
-Whatever this repository decides for itself, in your own words: platform conventions, what may never
-be edited in place, how work here is verified.
+Whatever this repository decides for itself, in your own words: platform conventions, what a tool
+rather than a person owns here, how work here is verified.
+
+The registry already carries the rule that platform and framework core changes only through its own
+update mechanism. Do not repeat it. What belongs here is anything else this folder owns differently:
+a vendored dependency, a generated directory, a build output that is written rather than edited.
 
 Ready-made platform fragments live in `platforms/`. Take one if it fits, and drop the lines that
 cannot fire on work done from here.

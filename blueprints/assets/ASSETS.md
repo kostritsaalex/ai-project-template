@@ -12,9 +12,9 @@
 
 > **Local rules for this component**
 >
-> The project's principles, and the fact that things are kept here rather than changed, are in
-> `PROJECT.md`. `AGENTS.md` and `CLAUDE.md` say where that is. This file adds only what belongs to
-> this folder alone, and it exists only because there is something to add.
+> The project's principles, and how this folder is to be treated, are in `PROJECT.md`. `AGENTS.md`
+> and `CLAUDE.md` say where that is. This file adds only what belongs to this folder alone, and it
+> exists only because there is something to add.
 >
 > **Derived from:** Assets Blueprint <ASSETS_BLUEPRINT_VERSION>  
 > **Last Updated:** <YYYY-MM-DD>  
@@ -27,11 +27,11 @@
 <!--
 How this folder is to be treated beyond what the parent registry already says, in your own words.
 
-The preserve rules are not repeated here. The registry entry carries them, because they follow from
-the word Assets and every component that keeps things needs the same four.
+The word `Assets` in the registry adds nothing to the project's principles: the folder is live and
+the task governs what happens in it. So what belongs here is whatever has to be held still.
 
-What belongs here is the exception: a subfolder that is worked code rather than stored material, a
-naming scheme that has to be followed, a tool that owns part of the folder.
+An arrangement that must not be rearranged, a naming scheme that has to be followed, a tool that
+owns part of the folder, a subfolder that is worked code rather than stored material.
 -->
 
 <LOCAL_RULES>

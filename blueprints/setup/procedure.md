@@ -38,7 +38,7 @@ an address from it; if it does not, say which prompt to run first.
 
 ## Step 2. Look
 
-Before asking anything, establish four things and report them in one short list.
+Before asking anything, establish six things and report them in one short list.
 
 1. Whether `PROJECT.md` is already here. A folder holding one is a project scope, not a component.
 2. If it is here and you were sent to attach a component, stop. A folder root holds one entry point;
@@ -53,6 +53,9 @@ Before asking anything, establish four things and report them in one short list.
    resolves only because of a symlink or a mount, name that arrangement and the command that creates
    it: it is invisible on a machine that lacks it, and without it the path in the document is simply
    false there. If it does not resolve at all, say so and do not write it.
+6. For a component only: whether the folder holds code belonging to a platform or framework, the
+   kind an updater replaces wholesale. One line, yes or no. It is the only thing you need in order
+   to propose the posture, and it is the only reason to look at the contents at all.
 
 That is all. Do not survey the contents to describe them; nothing in these documents describes
 contents. Do not survey them for components either. A folder is a component because somebody says so,
@@ -73,8 +76,10 @@ which version you read.
 
 Ask only what the files cannot answer. For a project scope that is roughly: what the project is,
 what it does not cover, the owner's principles, where it lives, and which components exist. For a
-component it is three questions: what it is called, whether things get changed here or kept, and
-whether it has a rule of its own yet. The blueprint's comments name the rest.
+component it is two questions: what it is called and whether it has a rule of its own yet. The
+posture is not one of them. Whether platform or framework code sits in the folder is visible, so
+propose the posture from what you saw, put it in the summary table as settled, and let it be
+overturned there. The blueprint's comments name the rest.
 
 Ask in one block, not one question at a time. Where you can draft an answer, show the draft and ask
 what is wrong with it rather than asking the person to compose from nothing.
@@ -147,7 +152,7 @@ that describes it. Then the posture, then the address, then the local path.
 
     ## Northwind Brand Assets
 
-    Assets. Do not reorganize, rename or move anything here. Preserve the existing organization.
+    Assets. Live material. Work here as the task requires.
     Address: assets/brand
 
 The two addresses point opposite ways and are different values. The registry says where the

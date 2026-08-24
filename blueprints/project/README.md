@@ -2,17 +2,29 @@
 
 The one scope that holds project-wide context and the registry of everything below it.
 
-**Blueprint Version:** 0.5.0  
-**Framework Version:** 0.5.0  
-**Status:** in use in two projects. In `0.5.0` the registry took over what components used to say
-about themselves.
+**Blueprint Version:** 0.6.0  
+**Framework Version:** 0.6.0  
+**Status:** in use in two projects. `0.5.0` moved what a component says about itself into the
+registry, and `0.6.0` cut that line down to one rule.
 
 ---
 
 ## Scope
 
-A project made of more than one component. With exactly one component there is nothing for this scope
-to hold: the registry, which is the reason it exists, would list one entry.
+A project passes through up to three states, and takes the documents of the state it is actually in.
+
+**No documents.** The project is still finding its shape and has no rule, boundary or principle
+settled enough to write down. Adopting anything here is premature.
+
+**This scope alone.** The project has settled on something worth recording and still lives in one
+folder. It takes `PROJECT.md` with `AGENTS.md` and `CLAUDE.md` beside it, and nothing else. The
+registry stays empty and says so in visible text. This is a finished setup rather than half of one.
+
+**This scope with components.** The project works in a second place. Every place gets two stubs of
+its own and one block in the registry, which is the one thing no other scope can hold.
+
+A project moves to the next state when it gets there, never in advance. Many never leave the second
+one.
 
 Where the scope lives is a separate question. A repository or a folder in a synced store both work.
 See [decision 0001](../../.docs/decisions/0001-project-scope-need-not-be-a-repository.md).
@@ -29,8 +41,12 @@ See [decision 0001](../../.docs/decisions/0001-project-scope-need-not-be-a-repos
 
 Copy all three into the project scope's root. Do not copy this `README.md`.
 
-The root holds those three and nothing else. Components go in subfolders, each with its own entry
-point. A second entry point in the root makes the adapters ambiguous.
+The root holds no second AI entry point. A component that sits inside this folder occupies its own
+subfolder and carries its two stubs there. A second entry point beside `PROJECT.md` makes the
+adapters ambiguous, because they name the one file to read first.
+
+Ordinary project files are none of this framework's business. A `README.md`, a `LICENSE`, a
+changelog: the rule above says nothing about them.
 
 ---
 
@@ -42,9 +58,10 @@ wrong and each of them knows a parent exists and cannot reach it.
 It also holds the registry, which is what lets an assistant working in one folder move to another
 that sits somewhere else entirely. That is the feature the framework exists for.
 
-Since `0.5.0` the registry carries one thing more: each component's posture, meaning whether things
-get changed in that folder or found and left alone. A component normally holds two stubs and no
-document of its own, so this is the only place that says it.
+Since `0.5.0` the registry carries one thing more: each component's posture. Since `0.6.0` that word
+carries the project's principles and, for `Repository`, one rule about platform and framework core.
+A component normally holds two stubs and no document of its own, so this is the only place that says
+it.
 
 ---
 
@@ -62,7 +79,7 @@ Examples use a fictional `Northwind` project.
 | `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |
 | `<SESSION_NOTE>` | Where to start a session so every component resolves, and what makes the local path above true from there. Both only when components cross a mount boundary; delete otherwise. | `Start sessions from this folder inside WSL, so both /home and /mnt/c are ordinary paths.` plus the symlink and the command that creates it |
 | `<COMPONENTS>` | One block per component: name, posture, address, local path. | see the comment in that section |
-| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.5.0` |
+| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.6.0` |
 | `<YYYY-MM-DD>` | Date of the last update. | `2026-08-23` |
 | `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 

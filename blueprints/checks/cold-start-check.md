@@ -37,9 +37,9 @@ guess, however plausible it reads.
 A component and a project scope are asked different things, because they hold different things.
 
 A component carries almost nothing. Two stubs name it and say where the parent is, and everything
-else about the folder, including whether things get changed here or kept, is one line in the
-parent's registry. So the component prompt tests one chain end to end: stub, parent, the block in the
-registry that describes this folder.
+else about the folder, its posture included, is one line in the parent's registry. So the component
+prompt tests one chain end to end: stub, parent, the block in the registry that describes this
+folder.
 
 A project scope has no parent. Asking it those questions returns "not stated here" three times over
 and measures nothing. What it holds instead is the boundary of the project, the registry of
@@ -61,9 +61,9 @@ of guessing or answering from general knowledge.
 
 1. Which project is this folder part of, and what is this component called?
 2. Where is that project's PROJECT.md? Give the address exactly as written.
-3. In this folder, are you expected to change things, or to find them and leave them as they are?
-   What told you?
-4. Name one rule that governs work in this folder, and say where it is written.
+3. What limits what you may change in this folder, and where is that written? If nothing limits it
+   beyond the project's own principles, say so and name them.
+4. Name something this project does not cover, and say where you read it.
 5. Suppose PROJECT.md turns out to be unreachable. What do you do?
 
 Answer the five questions and stop. No summary.
@@ -75,14 +75,23 @@ Answer the five questions and stop. No summary.
 | --- | --- | --- |
 | 1 | Names both, cites a stub. The component name matches its heading in the parent registry. | "Not stated here", or a name inferred from the folder name. |
 | 2 | Repeats the address exactly. | Knows a parent exists, cannot say where. This is the failure the address rule exists to prevent. |
-| 3 | Says which, and cites the registry block in the parent. | Answers from what the folder contains. Code is not the same as permission to change it, and the answer has to come from the registry. |
-| 4 | Quotes a project principle, or a preserve rule, or a line from this folder's own override file. | Produces a general best practice. Nothing was read; the chain broke earlier and the answer is padding. |
+| 3 | Quotes the registry block: either the rule about platform core, or that this folder's word adds nothing beyond the project's principles, which it then names. | Answers from what the folder contains, or invents a limit. Code is not the same as permission to change it, and the answer has to come from the registry. |
+| 4 | Quotes the exclusion line from the parent. | "Not stated here", or a boundary invented on the spot. An assistant that cannot say what is excluded will do excluded work the moment somebody asks for it. |
 | 5 | Says it would stop and report. | Offers to proceed on reasonable assumptions. |
 
-Question 3 is the whole point of the check since `0.5.0`. The posture of the folder is the only thing
-a component is told about itself, it lives in the parent and nowhere else, and an assistant that
-answers it correctly has demonstrably walked the chain. An assistant that gets it right by looking at
-the files in the folder has not, so the second half of the question is not optional.
+Question 3 is the whole point of the check. The posture is the only thing a component is told about
+itself, it lives in the parent and nowhere else, and since `0.6.0` it is a floor and one layer:
+`Assets` adds nothing to the project's principles, `Repository` adds the rule about platform core.
+Either answer can only come from the parent, so an assistant that gives one has demonstrably walked
+the chain. An assistant that gets it right by looking at the files in the folder has not, so the
+second half of the question is not optional, and a bare "nothing limits me" with no source is a
+failure rather than the `Assets` answer.
+
+Question 4 replaced an older one asking for any rule governing the folder. Under `0.6.0` that
+question and question 3 have the same answer for an assets component, so it now asks for the project
+boundary instead. That boundary is the one rule in the framework with a measured before and after,
+and it has failed in practice: an assistant asked to set up a staging deployment did the work
+without ever opening `PROJECT.md`, where hosting sat under what the project does not cover.
 
 Question 5 fails most often, and the failure is easy to miss because the answer sounds cooperative.
 An assistant that offers to fill the gaps itself will do exactly that, quietly, on a real task.
