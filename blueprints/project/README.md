@@ -2,8 +2,8 @@
 
 The one scope that holds project-wide context and the registry of everything below it.
 
-**Blueprint Version:** 0.6.0  
-**Framework Version:** 0.6.0  
+**Blueprint Version:** 0.7.0  
+**Framework Version:** 0.7.0  
 **Status:** in use in two projects. `0.5.0` moved what a component says about itself into the
 registry, and `0.6.0` cut that line down to one rule.
 
@@ -84,7 +84,7 @@ Examples use a fictional `Northwind` project.
 | `<PATH_NOTE>` | What makes the local path above true: the symlink or mount holding it up, and the command that creates it. Nothing to do with components; a single-folder project reached through a mount needs it too. Delete only when the path holds on its own. | a line naming the symlink, plus `ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive` |
 | `<SESSION_NOTE>` | Where to start a session so every component in the registry resolves. Depends on the components, so it is settled after they are named and revisited when one is added. Delete while every component sits on this folder's side. | `Start sessions inside WSL. From there both this folder and ~/wordpress-7 are ordinary paths.` |
 | `<COMPONENTS>` | One block per component: name, posture, address, local path. | see the comment in that section |
-| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.6.0` |
+| `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.7.0` |
 | `<YYYY-MM-DD>` | Date of the last update. | `2026-08-23` |
 | `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 

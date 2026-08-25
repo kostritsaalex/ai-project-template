@@ -99,21 +99,42 @@ They are different values and writing one where the other belongs sends a reader
 
 ### When a path spans a mount boundary
 
+**Most projects never meet any of this.** Everything in one filesystem means no boundary, no path
+note and no session note, and both lines are deleted at adoption. Which setups are affected, and what
+to do about each, is a table in the [README](../README.md#filesystem-boundaries). What follows here
+is why.
+
+A component that exists on one machine only is a different question, and it is answered under
+Addresses above.
+
+---
+
 A `~/` path under a synced store, read from another filesystem, holds because somebody made a symlink
 once. Nothing in any file records that, so a document naming the path and not the arrangement is true
 where it was written and false everywhere else.
 
 Two lines in the project scope answer that, and they answer different questions.
 
-What makes its own local path true: the arrangement holding it up and the command that creates it on
-a machine that lacks it. This has nothing to do with components. A project living in a single folder
-reached through a mount needs it just as much, and a scope adopted before it has any components will
-need it on its first day.
+**The path note:** what makes the scope's own local path true, the arrangement holding it up and the
+command that creates it on a machine that lacks it. This has nothing to do with components. A project
+living in a single folder reached through a mount needs it just as much, and a scope adopted before
+it has any components will need it on its first day.
 
-Where to start a session so that every component resolves. This one does depend on the components,
-so it cannot be settled before they are named and has to be revisited when one is added. A scope with
-no components carries no such line, correctly, and attaching one on the far side of a boundary is
-what brings it into existence.
+**The session note:** where to start a session so that every component resolves. This one does depend
+on the components, so it cannot be settled before they are named and has to be revisited when one is
+added. A scope with no components carries no such line, correctly, and attaching one on the far side
+of a boundary is what brings it into existence.
+
+The session note is a precondition rather than a preference. When a project spans a boundary, one
+side can usually reach both and the other cannot: from WSL, `/home` and `/mnt/c` are both ordinary
+paths, while from the Windows side the WSL filesystem needs a `\\wsl.localhost\...` form. Read from
+the wrong side, the local paths in the document are not inconvenient, they are false. And that
+crossing form is worse than useless off the machine: the name is a local alias, so on another
+computer it resolves to that computer's WSL and hands back a different folder rather than an error.
+
+**On the evidence.** Everything in this section comes from one project, one machine and one person,
+running Windows with WSL. A macOS setup with a network volume or an external disk is expected to have
+the same shape and has not been tried. Weigh it accordingly; the rest of this document rests on more.
 
 ---
 

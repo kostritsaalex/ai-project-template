@@ -98,6 +98,11 @@ revisited when one is added:
     Start sessions inside WSL. From there both this folder and `~/wordpress-7` are ordinary paths;
     from the Windows side `~/wordpress-7` does not resolve at all.
 
+Name the side that reaches every component, not the side you happen to prefer. When a project spans
+a boundary one side can usually reach both and the other cannot, and read from the wrong side the
+local paths in this document are false rather than merely awkward. This is a precondition, so write
+it as one.
+
 Delete it while every component sits on the same side as this folder.
 -->
 

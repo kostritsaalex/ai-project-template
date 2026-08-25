@@ -65,7 +65,7 @@ component. A nested component is `assets/brand` in one and `../` in the other.
 
 | Blueprint | What it is for | Version |
 | --- | --- | --- |
-| [project](blueprints/project/) | The entry point. Principles, boundaries, the registry. One per project. | 0.6.0 |
+| [project](blueprints/project/) | The entry point. Principles, boundaries, the registry. One per project. | 0.7.0 |
 | [component](blueprints/component/) | Attaching a folder. Two stubs, nothing else. | 0.6.0 |
 | [repository](blueprints/repository/) | Override, for a `Repository` component that has rules of its own. | 0.6.0 |
 | [assets](blueprints/assets/) | Override, for an `Assets` component that has rules of its own. | 0.6.0 |
@@ -103,6 +103,32 @@ not.
 
 The project's own name keeps its spaces and is the title of `PROJECT.md`. Only the folder is
 constrained, and nothing requires the two to match.
+
+---
+
+## Filesystem boundaries
+
+Find your setup in the first column. If it is the first row, this section is over and nothing here
+applies to you.
+
+| Your setup | Path note | Session note | What to do | What goes wrong if you skip it |
+| --- | --- | --- | --- | --- |
+| Everything in one filesystem. The scope and every component reached the same way, whatever the operating system. Windows only, macOS only, Linux only. | no | no | Nothing. | Nothing. Delete both lines at adoption and forget they exist. |
+| The scope's own folder is reached through a mount or a symlink, and every component sits with it. For example the scope in a synced store, opened from WSL. | yes | no | Work from the side that reaches both. On Windows with WSL that is WSL, where `/home` and `/mnt/c` are both ordinary paths. Make the symlink once so the `~/` form is true there. | The `~/` path is true on the machine that wrote it and false on the next one, with nothing recording why. |
+| Components sit on both sides of a boundary. For example the scope in a synced store on Windows and a component in the WSL home filesystem. | yes | yes | The same, and now write it down: the session note names that side. | A session started on the wrong side cannot resolve part of the registry at all, and the path form that does reach across is local to one machine. |
+
+**Pick the side that sees everything and start every session there, and the problem stops happening
+to you.** On Windows with WSL that side is WSL: from there the Linux filesystem and the Windows one
+are both ordinary paths, so nothing in the registry is out of reach. The two lines still get written,
+because the next person, the next machine and the next assistant do not know your habit.
+
+This is about where you work, not where files live. Code belongs in the WSL filesystem, where it is
+fast, and material in a synced store has to sit on the Windows side to sync at all. Neither has to
+move.
+
+Everything in this section comes from one project on one machine running Windows with WSL. A macOS
+setup with a network volume is expected to have the same shape and has not been tried. The reasoning
+is in [`.docs/architecture.md`](.docs/architecture.md).
 
 ---
 

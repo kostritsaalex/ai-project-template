@@ -87,9 +87,16 @@ Checks:
     or the word Assets, and an address. Name any block missing one of the three. A block whose word
     is Repository also carries the rule that travels with it, that platform or framework core
     changes only through its own update mechanism and never by hand; quote it or fail the block.
-    The address says where that component is, read from this document. A block whose address is
-    ".." or "../" fails: that points out of this folder rather than into the component, and it is
-    the address the component writes in its own stubs to point back here.
+    The address says where that component is, read from this document, and it takes one of four
+    forms. A full URL including the scheme. An account-relative location in a synced store, such as
+    "OneDrive, Projects/Northwind". A relative path into a folder this document's folder contains.
+    Or a plain statement that no address exists, together with the reason, such as "none. No copy of
+    this folder exists off this machine." Anything else fails, and a bare local path such as
+    "~/wordpress-7" written into the address is the case worth catching: it reads as an address,
+    resolves nowhere off this machine, and gives no sign that there was never anything to follow.
+    A block whose address is ".." or "../" fails too: that points out of this folder rather than into
+    the component, and it is the address the component writes in its own stubs to point back here.
+    A local path may sit on its own line beneath the address, and belongs there rather than in it.
     A registry holding no blocks at all is not a failure and is not n/a. It passes when the document
     says in visible text that no components are declared; quote that sentence. It fails when there
     are no blocks and no such sentence.
@@ -145,12 +152,18 @@ picked them up again is stating something the registry also states. The line bet
 is worth holding: "how this folder is to be treated is in `PROJECT.md`" points, and passes.
 "Things get changed here" states, and fails.
 
-Check 11 catches three things. A block written without a posture leaves a folder with no rules at
+Check 11 catches four things. A block written without a posture leaves a folder with no rules at
 all, since that word is the only thing the component is ever told about itself. A `Repository` block
 written without the rule about platform core leaves the word carrying nothing, because since `0.6.0`
-that rule is the entire difference between the two words. And a block addressed `../` sends a reader
-out of the project instead of into the component: the two directions carry different values, and the
-one belonging in the component's stubs was written here by mistake.
+that rule is the entire difference between the two words. A block addressed `../` sends a reader out
+of the project instead of into the component: the two directions carry different values, and the one
+belonging in the component's stubs was written here by mistake.
+
+And since `0.7.0` it knows what an address is. It used to ask for one without saying what made one
+valid, which let a machine-local path into the slot and certified it as a pass. Attaching the same
+component twice produced two different inventions for a folder that has no address at all, and the
+worse of the two read as an address and resolved nowhere. See
+[decision 0007](../../.docs/decisions/0007-a-component-with-no-address-says-so.md).
 
 Check 14 is the one that fails on a machine other than the one it was written on. A `~/` path under a
 synced store, read from another filesystem, resolves because somebody made a symlink once. Nothing in

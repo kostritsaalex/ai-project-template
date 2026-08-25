@@ -42,21 +42,15 @@ and the core rule stayed out of `Local rules`.
 
 ## Now
 
-One item, promoted from Release by the run.
+Empty. The address question was settled in `0.7.0` by
+[decision 0007](decisions/0007-a-component-with-no-address-says-so.md): a fourth form saying plainly
+that no address exists, a check that requires one of the four, and the session note raised to a
+precondition.
 
-**The address has no fourth form, and agents invent a different one each time.** Three forms qualify
-and none fits a folder that exists on one machine only. Two attaches of the same component produced
-two different repairs: `Address: Local only. No remote; this folder is not under version control.`
-with the local path beside it, and then `Address: ~/wordpress-7` with the local path line deleted as
-a duplicate. The second silently promotes a machine-local path to the status of an address, which is
-the failure the address rule exists to prevent.
-
-Nothing catches it. `structure-check` 11 asks a registry block for an address without saying what
-makes one valid, so it certified the first version as a pass. Check 8 defines validity but reads only
-the component's own folder, so it never sees the registry at all. A cold start agent quoted the
-`Address:` line back as though it were a rule limiting what may be changed.
-
-The framework's own note has carried this as an open question since before `0.5.0`.
+Not yet run against a live setup. Nothing in `0.7.0` has been through a structure check or a cold
+start, because `WordPress 7` was already in the shape it prescribes. The first real test is either a
+`structure-check` on that scope, which should now exercise the new check 11 wording against the
+Engine's `Address: none` block, or the next project adopted from scratch.
 
 ---
 
@@ -156,27 +150,16 @@ will remind them.
 
 ---
 
-## Plan for the next session
+## Plan for the session after this one
 
 `0.6.0` is merged to `main`, tagged and pushed. Two commits: the release, then "Fix eleven defects
 found validating 0.6.0". Working tree clean. Nothing is half-done.
 
-**Start here: the address, its fourth form.** The only item in Now, and it needs a decision rather
-than an edit. The question is narrow: what does a registry block write for a component that exists on
-one machine only, with no remote and nothing syncing it. Three candidate answers, none tested:
+**Start here: run `0.7.0` against something.** A structure check on the `WordPress 7` scope is the
+cheapest test: check 11 now has to accept `Address: none. No copy of this folder exists off this
+machine.` and would have to reject a bare local path in that slot. Nothing in `0.7.0` has been run.
 
-- Keep saying plainly that there is none, which is what `.docs/architecture.md` now tells people to
-  do meanwhile. Cheapest, and it leaves the reader with only a local path.
-- Add a fourth form that names the machine or the environment, along the lines of
-  `WSL on this machine, ~/wordpress-7`. Honest about being machine-bound, and gives something a
-  reader can act on.
-- Say such a folder cannot be a component until it has an address, which is the strictest reading of
-  principle 4 and would push `~/wordpress-7` out of the registry.
-
-Whatever is chosen, `structure-check` 11 has to learn what a valid registry address is; today it
-certifies anything.
-
-**Then, if there is appetite: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
+**Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that
 posture gets its second test and where the assets override may get its first real case. Expect the
 `Unsorted/` folder to be the interesting one.

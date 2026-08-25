@@ -6,6 +6,52 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.7.0] - 2026-08-25
+
+**A component with no address says so.** See
+[decision 0007](.docs/decisions/0007-a-component-with-no-address-says-so.md).
+
+### Added
+
+- A fourth address form: none, said plainly, with the reason.
+  `Address: none. No copy of this folder exists off this machine.` The criterion is a copy that
+  exists off the machine, not version control: `git init` changes nothing here, and only a remote,
+  a synced store or a containing folder that travels makes an address possible.
+- `structure-check` 11 now knows what an address is and requires one of the four forms. It used to
+  ask for one without saying what made one valid, which let a machine-local path into the slot and
+  certified it as a pass.
+- A table in the `README`, under **Filesystem boundaries**, answering "does any of this apply to me"
+  in one glance. Three rows, and the first is "everything in one filesystem, nothing to do". The
+  reasoning stays in `.docs/architecture.md`, which now points at the table rather than repeating it.
+
+### Changed
+
+- The session note is a precondition rather than a preference, and names the side from which every
+  local path in the document is read. When a project spans a boundary one side usually reaches both
+  and the other does not; read from the wrong side the paths are false rather than awkward.
+- `.docs/architecture.md` says out loud that everything it knows about filesystem boundaries comes
+  from one project, one machine and one person. A macOS setup with a network volume is expected to
+  behave the same way and has not been tried.
+- Blueprint versions now move only when that blueprint moves. `0.7.0` changed the project blueprint
+  alone; component, repository and assets stay at `0.6.0` and carry `Framework Version: 0.7.0`.
+
+### Rejected
+
+- Naming the machine in the address, as `Machine-local. WSL on some-laptop`. It reads as an address,
+  invites being followed, and becomes false the day the machine is replaced.
+- Refusing to register such a folder at all. Under that rule `~/wordpress-7` would carry no stubs and
+  no pointer to `PROJECT.md`, and the run where an assistant refused to set up a staging deployment
+  and routed the decision back could not have happened.
+- Reaching the WSL filesystem from Windows through `\\wsl.localhost\...` and calling that an address.
+  It resolves, which is the problem: the name is a local alias, so on another machine it returns a
+  different folder rather than an error.
+
+**The accepted cost, stated plainly.** A reader on another machine gets a component's name, its
+posture and a dead end. No wording produces a copy of a folder that exists in one place, and a
+document implying otherwise is worse than one that says so. The gap runs one way only: the
+component's own stubs still point upward with an address that resolves from anywhere, which is the
+direction the framework exists for.
+
 ## [0.6.0] - 2026-08-24
 
 A cut at what the postures carry. **Both inherit the project's principles. `Assets` adds nothing.
