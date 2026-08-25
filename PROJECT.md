@@ -5,7 +5,7 @@
 > Read this before working anywhere in this project.
 >
 > **Derived from:** Project Blueprint 0.6.0  
-> **Last Updated:** 2026-08-24  
+> **Last Updated:** 2026-08-25  
 > **Document Owner:** Alex
 
 ---
@@ -17,7 +17,7 @@ one place.
 
 A real project is rarely one folder. Code sits in a repository, material sits in a synced drive, a
 workstream sits somewhere else again, and none of them knows the others exist. The framework gives
-the project one entry point and one register of everything under it, so that an assistant working in
+the project one entry point and one registry of everything under it, so that an assistant working in
 any part can reach every other part.
 
 Two rules follow. Whatever is true of the whole project is written once, in that one document.
@@ -40,7 +40,7 @@ treated, and stops there.
 4. A reference to another scope carries an address that resolves from where the reference is read.
 5. Avoid duplication. A rule in two places is a rule that will disagree with itself.
 6. Evolve through real use. An idea earns its place by being run, not by being argued for.
-7. Cut before adding. Every release so far removed more than it added.
+7. Cut before adding. A release that adds something has to name what it removed in exchange.
 
 ---
 
@@ -56,6 +56,14 @@ Local path:
 
 ```text
 ~/Repositories/ai-project-template
+```
+
+That form holds on the Windows side, where `~` is the Windows home folder. Inside WSL the same
+checkout is `/mnt/c/Users/kostr/Repositories/ai-project-template`, and the `~/` form above does not
+resolve unless a symlink is made once:
+
+```bash
+ln -s /mnt/c/Users/kostr/Repositories ~/Repositories
 ```
 
 ---

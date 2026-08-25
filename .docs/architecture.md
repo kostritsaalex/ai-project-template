@@ -73,6 +73,17 @@ A location on one person's machine does not qualify. See
 [decision 0001](decisions/0001-project-scope-need-not-be-a-repository.md) for what this constrains
 about where a project scope may live.
 
+**No form covers a component that exists on one machine only,** with no remote and nothing syncing
+it. That case is real and unsettled. Attaching the same such component twice produced two different
+inventions: once an `Address:` line saying plainly that there is no remote, once the machine-local
+path written into the `Address:` slot as though it were one. No check caught either, because
+`structure-check` 11 asks a registry block for an address without saying what makes one valid, and
+check 8 defines validity but reads only the component's own folder.
+
+Until it is settled, write it the first way: say in the `Address:` line that the component has none
+and why, and give its local path on its own line beneath. That is honest, and it leaves the reader
+looking for a real address rather than following one that resolves nowhere.
+
 A local path may sit beside the address as a hint about where the folder usually is. Write it
 relative to the home folder, as `~/parent/name`, and never spell out a username: `~` already stands
 for the home folder that contains it.

@@ -143,14 +143,47 @@ the owner's reasoning for calling a theme folder `Assets` included "a repository
 of place here because we host this on OneDrive", the storage-based reading the names invite. If a
 second instance appears, reopen.
 
+**The framework's own local path had the defect check 14 exists to catch.** `PROJECT.md` gave
+`~/Repositories/ai-project-template` with nothing saying what holds it up. That form resolves on the
+Windows side and not inside WSL, which is why every prompt this session used
+`/mnt/c/Users/kostr/Repositories/...` instead. Fixed on 2026-08-25 by naming both forms. Check 14
+would not have caught it: it is `n/a` when a document says nothing about its path, so silence passes.
+
+**A platform fragment now carries a version tied to a blueprint version.**
+`platforms/wordpress.md` is the first file in the framework with `For: Repository Blueprint 0.6.0`
+in its header. If fragments multiply, somebody has to revisit them each release, and no mechanism
+will remind them.
+
 ---
 
-## Plan
+## Plan for the next session
 
-**1. Commit, tag and push `0.6.0`.** Nothing blocks it.
+`0.6.0` is merged to `main`, tagged and pushed. Two commits: the release, then "Fix eleven defects
+found validating 0.6.0". Working tree clean. Nothing is half-done.
 
-**2. The address, its fourth form.** The only Now item, and it needs a decision rather than an edit.
+**Start here: the address, its fourth form.** The only item in Now, and it needs a decision rather
+than an edit. The question is narrow: what does a registry block write for a component that exists on
+one machine only, with no remote and nothing syncing it. Three candidate answers, none tested:
 
-**3. ArtGlina.** Still on the pre-`0.5.0` shape and never migrated. It is the only project with a
-real `Assets` component holding material rather than code, so it is where the posture gets its second
-test and where the assets override might get its first real case.
+- Keep saying plainly that there is none, which is what `.docs/architecture.md` now tells people to
+  do meanwhile. Cheapest, and it leaves the reader with only a local path.
+- Add a fourth form that names the machine or the environment, along the lines of
+  `WSL on this machine, ~/wordpress-7`. Honest about being machine-bound, and gives something a
+  reader can act on.
+- Say such a folder cannot be a component until it has an address, which is the strictest reading of
+  principle 4 and would push `~/wordpress-7` out of the registry.
+
+Whatever is chosen, `structure-check` 11 has to learn what a valid registry address is; today it
+certifies anything.
+
+**Then, if there is appetite: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
+only project with a real `Assets` component holding material rather than code, so it is where that
+posture gets its second test and where the assets override may get its first real case. Expect the
+`Unsorted/` folder to be the interesting one.
+
+**Kept for when the mood is right: the second razor.** The Engine's `REPOSITORY.md` now holds nine
+bullets, eight of which any competent WordPress assistant follows unprompted. One task with the file
+and one without, judged by the work, settles whether rules need a razor of their own.
+
+**Do not start with:** a full framework re-read, or another validation run. `0.6.0` was validated
+end to end today and nothing in it is suspected.

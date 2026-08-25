@@ -111,9 +111,14 @@ constrained, and nothing requires the two to match.
 Early development, and the contract is not stable.
 
 The architecture is in use in two real projects and changes through use. Every release from `0.3.0`
-to `0.6.0` removed more than it added. What ships into an adopted project is now 40 non-blank lines
-for a project scope, 33 of them `PROJECT.md` and the rest its two adapters, and 22 for a component
-across its two stubs.
+to `0.5.0` removed more than it added. `0.6.0` was the first to spend a line: it cut four rules down
+to one and put that one where it fires. What ships into an adopted project is now 41 non-blank lines
+for a project scope, 34 of them `PROJECT.md` and the rest its two adapters, and 22 for a component
+across its two stubs. The metric is non-blank lines summed across the files of a scope.
+
+`0.6.0` was also the first release validated by resetting a real project to bare folders and
+adopting it again from scratch. Five structure checks, five cold starts, no failures, and eleven
+defects found and fixed on the way.
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed, and
 [`.docs/decisions/`](.docs/decisions/) for why.
