@@ -162,6 +162,15 @@ stubs. Writing `../` in the registry sends a reader out of the project.
 
 Check whether a block for this component already exists before adding a second one.
 
+**Then check the parent's session note, because attaching may have invalidated it.** That note says
+where to start a session so every component resolves, and it was written against the components that
+existed at the time. A scope set up with none has no note at all, correctly. Attaching one that sits
+on the far side of a mount boundary from the parent makes the note necessary where it was not before.
+Add it, or say why it is still unnecessary. Nothing else in the parent changes when a component is
+attached, which is why this is easy to miss.
+
+The path note beside it is a different line and does not depend on the components. Leave it alone.
+
 There are no version counters, no `Parent checked`, and no sweep. A component holds no copy of
 anything in the parent except the address, so nothing it holds can fall out of date on its own.
 

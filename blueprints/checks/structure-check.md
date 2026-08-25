@@ -90,6 +90,9 @@ Checks:
     The address says where that component is, read from this document. A block whose address is
     ".." or "../" fails: that points out of this folder rather than into the component, and it is
     the address the component writes in its own stubs to point back here.
+    A registry holding no blocks at all is not a failure and is not n/a. It passes when the document
+    says in visible text that no components are declared; quote that sentence. It fails when there
+    are no blocks and no such sentence.
 12. Any local path is written relative to the home folder, starting with ~/ , with no username after
     the tilde. Absolute paths such as /home/name/... or C:\Users\name\... fail this check. Quote the
     path. One exception: a command that creates a symlink so a ~/ path resolves across a mount
@@ -106,11 +109,12 @@ Checks:
     environment that component lives in rather than this one. A path appearing only inside a symlink
     command or the sentence explaining it. Anything that is a URL rather than a path.
 
-14. Project scope only. If the document says where to start a session, it also says what makes its
-    local path true from there: the symlink or mount that holds it up, and the command that creates
-    it on a machine that lacks it. A session note exists because components sit on different sides of
-    a mount boundary, and a path that spans one holds because of an arrangement no file shows. If
-    there is no session note, this check is n/a.
+14. Project scope only. If the document says what makes its local path true, it names both things
+    that take: the arrangement holding the path up, a symlink or a mount, and the command that
+    creates it on a machine that lacks it. Quote both. This is checked whether or not the document
+    also says where to start a session. Those are two separate lines answering different questions,
+    and a project living in one folder reached through a mount needs the first without the second.
+    If the document says nothing about what holds its local path up, this check is n/a.
 
 After the table, write one line: "Failed checks: N".
 
@@ -153,6 +157,11 @@ synced store, read from another filesystem, resolves because somebody made a sym
 any file records that, so a document naming the path and not the arrangement is true where it was
 written and false everywhere else. This was observed twice: one setup run volunteered the symlink
 line, the next did not, from the same blueprint.
+
+Until `0.6.0` the check was gated on the session note, and so it never ran: the first scope that
+carried a symlink line had no components yet, no boundary to cross and no session note, and the one
+line holding its path up went unverified. The two are separate questions and the check now follows
+the path note alone.
 
 Check 12 fails quietly in the other direction. A path with a username in it works on the machine
 where it was written and nowhere else, so nothing looks broken until someone else opens the

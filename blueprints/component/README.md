@@ -77,12 +77,19 @@ A component that says nothing about itself needs no file to say it in.
 
 ## What this costs
 
-A component cut off from its parent knows nothing at all: no principles and no posture. This is
-accepted rather than mitigated. Copying the posture down into the stub would put the same rule in
-two places, and two copies of a rule drift.
+A component cut off from its parent cannot read its posture or the project's principles. It is not
+left knowing nothing: it still has its own name, the name of the project, the parent's address, any
+local rules it carries, and, from the stub's line about the registry entry, the knowledge that a
+posture exists and where it lives. What it cannot do is act on it.
+
+This is accepted rather than mitigated. Copying the posture down into the stub would put the same
+rule in two places, and two copies of a rule drift.
 
 The stub is told to fail loudly for exactly this reason. An assistant that cannot reach
-`PROJECT.md` is instructed to say so and stop, rather than work on whatever it can see.
+`PROJECT.md` is instructed to say so and stop, rather than work on whatever it can see. Observed on
+`0.6.0`: with the parent folder moved away, a component reported the failure before answering
+anything, found the folder at its new path, refused to open it because following it would be the
+guess the stub forbids, and named what it could not know.
 
 ---
 

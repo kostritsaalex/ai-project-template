@@ -14,7 +14,11 @@ registry, and `0.6.0` cut that line down to one rule.
 A project passes through up to three states, and takes the documents of the state it is actually in.
 
 **No documents.** The project is still finding its shape and has no rule, boundary or principle
-settled enough to write down. Adopting anything here is premature.
+settled enough to write down, and no second place to work in sight. Adopting anything here is
+premature.
+
+A project that has nothing recorded yet but knows a second place is coming belongs in the next state
+rather than this one. The registry it is about to need is the thing only this scope can hold.
 
 **This scope alone.** The project has settled on something worth recording and still lives in one
 folder. It takes `PROJECT.md` with `AGENTS.md` and `CLAUDE.md` beside it, and nothing else. The
@@ -73,11 +77,12 @@ Examples use a fictional `Northwind` project.
 | --- | --- | --- |
 | `<PROJECT_NAME>` | Name of the project. Keeps its spaces; the folder need not match. | `Northwind Furniture` |
 | `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces. Websites and software are one part of it.` |
-| `<SCOPE_EXCLUDES>` | What the project does not currently cover. The one line proven to change what an assistant does. | `hosting and deployment, mobile applications, accounting` |
+| `<SCOPE_EXCLUDES>` | What the project does not currently cover. The one line proven to change what an assistant does. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. | `hosting and deployment, mobile applications, accounting` |
 | `<PROJECT_PRINCIPLES>` | The rules that hold across the project, in the owner's words. Priorities in order if the order was decided. | `1. Simplicity 2. Maintainability 3. Security` |
 | `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. | `OneDrive, Projects/northwind` |
 | `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |
-| `<SESSION_NOTE>` | Where to start a session so every component resolves, and what makes the local path above true from there. Both only when components cross a mount boundary; delete otherwise. | `Start sessions from this folder inside WSL, so both /home and /mnt/c are ordinary paths.` plus the symlink and the command that creates it |
+| `<PATH_NOTE>` | What makes the local path above true: the symlink or mount holding it up, and the command that creates it. Nothing to do with components; a single-folder project reached through a mount needs it too. Delete only when the path holds on its own. | a line naming the symlink, plus `ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive` |
+| `<SESSION_NOTE>` | Where to start a session so every component in the registry resolves. Depends on the components, so it is settled after they are named and revisited when one is added. Delete while every component sits on this folder's side. | `Start sessions inside WSL. From there both this folder and ~/wordpress-7 are ordinary paths.` |
 | `<COMPONENTS>` | One block per component: name, posture, address, local path. | see the comment in that section |
 | `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.6.0` |
 | `<YYYY-MM-DD>` | Date of the last update. | `2026-08-23` |

@@ -92,9 +92,17 @@ A `~/` path under a synced store, read from another filesystem, holds because so
 once. Nothing in any file records that, so a document naming the path and not the arrangement is true
 where it was written and false everywhere else.
 
-When components sit on different sides of such a boundary, the project scope says where to start a
-session so all of them resolve, and what makes its own local path true from there, with the command
-that creates it.
+Two lines in the project scope answer that, and they answer different questions.
+
+What makes its own local path true: the arrangement holding it up and the command that creates it on
+a machine that lacks it. This has nothing to do with components. A project living in a single folder
+reached through a mount needs it just as much, and a scope adopted before it has any components will
+need it on its first day.
+
+Where to start a session so that every component resolves. This one does depend on the components,
+so it cannot be settled before they are named and has to be revisited when one is added. A scope with
+no components carries no such line, correctly, and attaching one on the far side of a boundary is
+what brings it into existence.
 
 ---
 

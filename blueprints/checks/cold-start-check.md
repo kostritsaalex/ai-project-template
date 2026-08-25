@@ -96,8 +96,11 @@ without ever opening `PROJECT.md`, where hosting sat under what the project does
 Question 5 fails most often, and the failure is easy to miss because the answer sounds cooperative.
 An assistant that offers to fill the gaps itself will do exactly that, quietly, on a real task.
 
-Since `0.5.0` this is also the check that measures the accepted risk. A component cut off from its
-parent knows nothing at all, and question 5 is where you see whether it says so or carries on.
+Since `0.5.0` this is also the check that measures the accepted risk, and the way to measure it is
+to create the failure rather than ask about it: move the parent folder away and run the same five
+questions. Done once on `0.6.0`, the component reported the failure before answering anything, found
+the parent at its new path, and refused to open it because following it would be the guess the stub
+forbids. Question 5 is where an assistant that would instead carry on shows itself.
 
 ---
 
@@ -112,8 +115,9 @@ general knowledge.
 
 1. What is this project, and is it only software or is software one part of something larger?
 2. Name something that falls inside this project and something that does not.
-3. Name a component of this project, say where it is reached, and say whether things get changed
-   there or kept. If any component is listed but not attached yet, say which.
+3. Name a component of this project, say where it is reached, and say what its entry in the registry
+   limits about changing things there. If the registry declares none, say so. If any component is
+   listed but not attached yet, say which.
 4. A decision has just been made that affects two components at once. Where is it recorded?
 5. Which single file here is the one to read first, and what made you pick it?
 
@@ -126,7 +130,7 @@ Answer the five questions and stop. No summary.
 | --- | --- | --- |
 | 1 | Describes the project and answers the software question outright. | Calls it a software project when it is not, which makes an assistant treat everything else as out of scope. |
 | 2 | One item from each list. | Only the in-scope half. An assistant that cannot name what is excluded will propose work nobody asked for. |
-| 3 | Names a component, gives its address or path, gives its posture, and repeats any statement that one is listed but not attached. | Cannot name one, names this folder itself, or gives a component with no posture, which means the registry block is incomplete. |
+| 3 | Names a component, gives its address, and says what its posture limits: the rule about platform core for `Repository`, nothing beyond the project's principles for `Assets`. Repeats any statement that one is listed but not attached. With an empty registry, says so and quotes the sentence that says it. | Names this folder itself, or gives a component with no posture, which means the block is incomplete. With an empty registry, answers "not stated here" when the document states it plainly, or invents a component from a folder it can see. |
 | 4 | Names the project decisions folder, or repeats the visible statement that it does not exist yet and says where decisions go meanwhile. | Invents a location, or reports the folder as missing without noticing the document already said so. |
 | 5 | Names `PROJECT.md` and explains it arrived there through `AGENTS.md` or `CLAUDE.md`. | Names `README.md`, or lists everything it read without a first step. |
 

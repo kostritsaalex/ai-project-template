@@ -40,11 +40,12 @@ raw files, and not at all for a private copy.
 **Entry point:** `PROJECT.md`  
 **Depends on:** nothing. Run this first.
 
-**Check which state the project is in.** A folder with nothing settled enough to write down needs no
-documents at all, and saying so is a better answer than an interview. A project that has settled on
-something and still lives in one folder takes this scope with an empty registry, and that is a
-finished setup rather than half of one. A project working in a second place takes this scope and a
-component for each place.
+**Check which state the project is in.** A folder with nothing settled enough to write down and no
+second place in sight needs no documents at all, and saying so is a better answer than an interview.
+A project that has settled on something and still lives in one folder takes this scope with an empty
+registry, and that is a finished setup rather than half of one. So does a project that has recorded
+nothing yet and knows a second place is coming. A project already working in a second place takes
+this scope and a component for each place.
 
 Never offer the component blueprint instead of this one. A component with no parent is not covered,
 and `new-component.md` sends the person straight back here.
@@ -71,15 +72,18 @@ component you have not been given, so propose from what the person has told you 
 the summary table as settled, where it can be overturned in a sentence. That word is the only thing
 the component will ever be told about itself, so no block is written without one.
 
-**Ask about the session note only if the components cross a mount boundary.** Where to start a session
-so that every component in the registry resolves is invisible in any file and cannot be inferred. If
-everything sits on one side, delete the line.
+**Settle the path note whatever the components turn out to be.** Resolve the local path yourself
+first, in the form you mean to write. If it holds because of a symlink or a mount, name the
+arrangement and give the command that creates it. This has nothing to do with components: a project
+living in one folder reached through a mount needs the line just as much. A path that is true only on
+the machine it was written on is the failure the whole address rule exists to prevent, and it is the
+one form of it that survives every other check.
 
-**When there is a boundary, the note carries a second thing: what makes the local path true.** Resolve
-the path yourself first, in the form you mean to write. If it holds because of a symlink, name the
-symlink and give the command that creates it. A path that is true only on the machine it was written
-on is the failure this whole address rule exists to prevent, and it is the one form of it that
-survives every other check.
+**Ask about the session note only after the components are named,** and only if any of them sits on
+the far side of a mount boundary from this folder. Where to start a session so that every component
+resolves is invisible in any file and cannot be inferred, and it cannot be decided before you know
+what has to resolve. If everything sits on one side, delete the line and say that adding a component
+elsewhere brings it back.
 
 **Finish by saying what comes next.** List the components that are in the registry but not yet
 attached, and name `new-component.md` as the prompt for each. A registry block with no stubs in the

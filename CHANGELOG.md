@@ -150,6 +150,47 @@ renaming or moving a component becomes one edit in one file.
 all. Copying the posture down into the stub was rejected because it puts one rule in two places. The
 stub fails loudly instead.
 
+### Fixed after the validation run
+
+The whole of `0.6.0` was validated by resetting a real project to bare folders and re-adopting it:
+three scopes, three structure checks at 14/14, three cold starts at 5/5, plus two behavioural tests.
+These are what the run turned up.
+
+- `<SESSION_NOTE>` is split in two. `<PATH_NOTE>` says what makes the local path true and has nothing
+  to do with components; `<SESSION_NOTE>` says where to start a session and depends entirely on them.
+  A scope with no components needed the first and not the second, and one placeholder could not carry
+  that. Three separate agents split them by hand during the run.
+- Attaching a component now revisits the parent's session note. A scope adopted with no components
+  correctly has none, and attaching one across a mount boundary makes it necessary; step 7 of the
+  procedure covered only the stubs and the registry block, so nothing brought it back.
+- `structure-check` 11 answers the empty registry. Two tools ran the same prompt on the same folder
+  and disagreed, `n/a` against `pass`, because 11 is a presence check and the prompt tells a presence
+  check with nothing to quote to fail. No blocks now passes when the document says so in visible text.
+- `structure-check` 14 is no longer gated on the session note, so it can finally run. The first scope
+  to carry a symlink line had no components, no boundary and no note, which left the one line holding
+  its path up verified by nothing.
+- `<SCOPE_EXCLUDES>` carries the undecided case. The fixed sentence had no empty form, so an agent
+  improvised a replacement paragraph containing an instruction it invented. Measured on the way:
+  with the boundary written as "not decided yet", two tools independently answered the boundary
+  question by quoting a sentence about a component not being *attached*. An absent boundary is a
+  decoy rather than a hole.
+- The project-scope cold start catches up. Its question 3 still asked "changed there or kept", the
+  axis this release removed, and it assumed at least one component existed.
+- The three states make room for a project that has recorded nothing yet and knows a second place is
+  coming. The text this release replaced carried "and no second one planned".
+- "Knows nothing at all" is corrected. With its parent folder moved away, a component reported the
+  failure before answering anything, found the folder at its new path, refused to open it because
+  following it would be the guess the stub forbids, and named what it could not know. It is cut off
+  from the posture and the principles; it is not left knowing nothing.
+- The project blueprint says component state belongs to the registry alone. A sentence in "What this
+  project is" saying the installation was not attached had to be repaired by hand the moment it was.
+- `platforms/wordpress.md` is rewritten for `0.6.0`. It had told its reader to fill a
+  `Platform Principles` section and a `<PLATFORM_PRINCIPLES>` placeholder, neither of which had
+  existed since `0.5.0`, and it instructed dropping WooCommerce lines it did not contain. Used
+  anyway, it produced no error: the agent mapped the old names onto the new ones silently. It now
+  carries the blueprint version it was written against, and the rule about core is gone from it,
+  because the registry carries that since `0.6.0`.
+
 ### Documentation
 
 The framework's own documents were rebuilt to the shape they describe, having drifted three versions

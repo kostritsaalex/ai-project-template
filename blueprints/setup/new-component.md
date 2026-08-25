@@ -76,3 +76,8 @@ folder instead, which carry one extra line pointing at it.
 
 **Then wire it.** Step 7 of the procedure. Both halves or neither: a stub with no registry block
 leaves a folder claiming a parent that has never heard of it.
+
+**And check the parent's session note before you finish.** If this folder sits on the far side of a
+mount boundary from the parent, the note is now needed and may not exist: a scope adopted while it
+had no components has none, correctly. This is the one thing attaching a component changes in the
+parent beyond its own block.

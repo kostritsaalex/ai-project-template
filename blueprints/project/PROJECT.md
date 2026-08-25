@@ -32,7 +32,16 @@ framework proven to change what an assistant does: without it, a request the pro
 looking like ordinary work and gets done. "Does not currently" is deliberate. It records a present
 boundary, not a permanent one.
 
+If the boundary has not been decided, delete the sentence and write in its place that it has not been
+decided, what will settle it, and what to do meanwhile. Leaving the topic out altogether is worse
+than leaving it open: an assistant asked what falls outside the project will answer from the nearest
+sentence that looks like a boundary, and any sentence about a component not being attached will do.
+That was measured, and writing a real boundary fixed it.
+
 Do not describe what the folders contain. An assistant can look.
+
+Do not say here which components exist, which are attached, or where they sit. That is the registry's
+job, one section down, and a copy here has to be repaired by hand every time the registry changes.
 -->
 
 <PROJECT_PURPOSE>
@@ -67,21 +76,29 @@ Keep spaces out of the folder names. A space resolves fine on any system and cos
 in every shell command that touches the folder, forever. Hyphens or underscores instead. The
 project's name keeps its spaces and is the title of this document; the folder does not have to match.
 
-If the components sit on different sides of a mount boundary, two things go here and neither is
-visible in any file.
+Two more lines can go here, and they answer different questions. Decide them separately.
 
-Where to start a session so that all of them resolve.
+`<PATH_NOTE>`: what makes the local path above true. A path under a synced store, reached from
+another filesystem, usually holds because of a symlink somebody created once. Nothing in any file
+records that, so the path is true where it was written and false everywhere else. Name the
+arrangement and give the command, so a machine that lacks it can be fixed instead of failing quietly:
 
-And what makes the local path above true from there. A path under a synced store, reached from
-another filesystem, usually holds because of a symlink somebody created once. Name it and give the
-command, so a machine that lacks it can be fixed instead of failing quietly:
-
-    `~/OneDrive` is a symlink to the Windows OneDrive folder, so the path above is true on both
-    sides. Create it once on a machine that lacks it:
+    `~/OneDrive` is a symlink to the Windows OneDrive folder, which is what makes the local path
+    above true. Create it once on a machine that lacks it:
 
         ln -s /mnt/c/Users/alex/OneDrive ~/OneDrive
 
-Delete all of this if there is no boundary to cross.
+This one has nothing to do with components. A single-folder project reached through a mount needs it
+just as much. Delete it only when the path holds on its own.
+
+`<SESSION_NOTE>`: where to start a session so that every component in the registry resolves. This one
+does depend on the components, so it cannot be settled before they are known, and it has to be
+revisited when one is added:
+
+    Start sessions inside WSL. From there both this folder and `~/wordpress-7` are ordinary paths;
+    from the Windows side `~/wordpress-7` does not resolve at all.
+
+Delete it while every component sits on the same side as this folder.
 -->
 
 Address:
@@ -95,6 +112,8 @@ Local path:
 ```text
 <PROJECT_LOCAL_PATH>
 ```
+
+<PATH_NOTE>
 
 <SESSION_NOTE>
 
