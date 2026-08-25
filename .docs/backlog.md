@@ -47,10 +47,21 @@ Empty. The address question was settled in `0.7.0` by
 that no address exists, a check that requires one of the four, and the session note raised to a
 precondition.
 
-Not yet run against a live setup. Nothing in `0.7.0` has been through a structure check or a cold
-start, because `WordPress 7` was already in the shape it prescribes. The first real test is either a
-`structure-check` on that scope, which should now exercise the new check 11 wording against the
-Engine's `Address: none` block, or the next project adopted from scratch.
+**Run and confirmed, 2026-08-25**, both ways round on the `WordPress 7` scope.
+
+Positive: 14/14, with check 11 quoting both blocks and accepting two different address forms, the
+relative `wp-themes/` and the Engine's `none` with its reason. Check 14 ran for the second time in
+its life and passed.
+
+Negative: the Engine's block was deliberately rewritten to `Address: ~/wordpress-7` with the local
+path line deleted, reproducing the invention the second attach had produced, and the check was run
+again in a fresh session. It failed check 11 and nothing else, with the right diagnosis quoted:
+"block address is a bare local path". It noted separately that the block's name, posture word and
+travelling rule were all present, so it isolated the defect rather than rejecting the block whole.
+
+Worth keeping: check 12 quoted the same line and passed it, correctly. Twelve asks what form a path
+is written in, eleven asks what slot it sits in. Two checks reading one line from different angles,
+one failing it and one passing it, both right.
 
 ---
 
@@ -155,9 +166,13 @@ will remind them.
 `0.6.0` is merged to `main`, tagged and pushed. Two commits: the release, then "Fix eleven defects
 found validating 0.6.0". Working tree clean. Nothing is half-done.
 
-**Start here: run `0.7.0` against something.** A structure check on the `WordPress 7` scope is the
-cheapest test: check 11 now has to accept `Address: none. No copy of this folder exists off this
-machine.` and would have to reject a bare local path in that slot. Nothing in `0.7.0` has been run.
+**Start here: the second razor.** The item with the most leverage on this list, because it governs
+every rule the framework will ever gain, and the experiment is already set up. The Engine's
+`REPOSITORY.md` holds nine bullets, eight of which any competent WordPress assistant follows
+unprompted. Pick a task that touches two or three of them, run it twice in fresh sessions, once with
+the file present and once with it renamed away, and compare the work rather than the report. Its
+answer also reshapes the platform-rules question below: if most of the fragment turns out to be
+decoration, where it lives matters much less.
 
 **Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that
