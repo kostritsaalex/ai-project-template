@@ -1,0 +1,54 @@
+**Step 1 — Access.** Framework readable at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`. Target folder `…/scratchpad/k` readable and writable. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` in the folder.
+2. Not applicable — this is a project scope, not a component attach.
+3. No other AI instruction files anywhere under it, of this framework or another. Nothing would be overwritten.
+4. The folder claims no parent.
+5. The path resolves in the exact form I would write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k`. No symlink and no mount arrangement holds it up — `/tmp` is a tmpfs, but the path resolves literally as written. It is not under the home folder, so there is no `~/` form of it.
+6. Not applicable (component-only).
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md` (Blueprint Version 0.10.2, Framework Version 0.11.0) and `blueprints/project/PROJECT.md` with its comments.
+
+**Step 4 — Interview.** Answered in your message; not repeated.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | Your answer |
+| `<PROJECT_PURPOSE>` | Marine Services is a small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | Your answer |
+| `<SCOPE_COVERS>` | `This project currently covers tide forecasting, the public website and the photo archive. Anything else is outside it.` | Your answer, with the blueprint's closure sentence |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Both defaults offered in `blueprints/project/README.md`, kept by you |
+| `<PROJECT_SCOPE_ADDRESS>` | **Unknown.** See the note below the table. | Your answer: none, no copy exists off this machine |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | Settled by resolving it myself, in this exact form |
+| `<PATH_NOTE>` | Deleted | Settled: nothing props the path up — no symlink, no mount to name |
+| `<SESSION_NOTE>` | Deleted, with a visible line that adding a component elsewhere brings it back | Settled: all three components sit inside this folder, on its own side of every boundary |
+| `<COMPONENTS>` | Three blocks, below | Your answer |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Settled from `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today's date |
+| `<DOCUMENT_OWNER>` | Sam | Your answer |
+| `.docs/` and `.docs/decisions/` | Visible line saying neither exists yet | Settled: looked, neither is present |
+
+### The address row
+
+This is the one row I cannot settle for you, and it is the row every component copies. The blueprint wants an address resolvable from outside this machine, and you have told me there is no copy off it. There is nothing to invent here, so what I would write in its place is a visible sentence saying the project exists only on this machine and the local path below is currently the only way to reach it — not a placeholder, not a comment, and not a guessed URL.
+
+If you'd rather it were a real address, that is a decision about the project rather than about the document: a repository or a synced-store folder would give one. Say the word and it goes in instead.
+
+### Components
+
+| Name | Posture | Address in the registry |
+| --- | --- | --- |
+| tidewatch | **Repository** — settled from your description of it as the tide tool, plus the folder holding its own `.git`, `src` and `tests` | `tidewatch` |
+| riverside-site | **Repository** — settled from the folder holding WordPress core (`wp-admin`, `wp-includes`, `wp-config.php`), which is exactly the platform code the core rule exists for | `riverside-site` |
+| harvest-archive | **Assets** — settled from your description of it as the photographic archive; material, not code | `harvest-archive` |
+
+Each `Repository` block carries the core rule word for word: *Platform or framework core changes only through its own update mechanism, never by hand.* Each `Assets` block carries *Live material. Work here as the task requires.* No local-path line on any of the three — they sit inside the project folder, so the address is the whole of what reaching them needs.
+
+Any row here can be overturned in a sentence. Nothing has been written; per your instruction I have written no files and will not until you confirm.
+
+**What would come next after writing:** all three components would be in the registry but not yet attached — each needs `new-component.md` run against it to get its two stubs, and a registry block with no stubs in the folder is a map to a place that has never heard of the map.

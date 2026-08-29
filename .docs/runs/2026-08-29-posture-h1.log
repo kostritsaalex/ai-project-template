@@ -1,0 +1,38 @@
+Read: `blueprints/project/README.md` and `PROJECT.md`, Blueprint Version 0.10.2 (Framework 0.11.0); `blueprints/setup/interview.md` 0.11.0.
+
+**Step 1 — Access.** Framework readable at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`. Target folder readable and writable. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attachment.
+3. No AI instruction files present, of this framework or any other (no `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, `GEMINI.md` anywhere in the tree).
+4. The folder claims no parent.
+5. The path I intend to write resolves in exactly that form: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k`. `readlink -f` returns it unchanged, so no symlink or mount is holding it up and no path note is needed. It is not under the home folder, so it cannot be written in `~/` form.
+6. Not applicable (component-only).
+
+**One thing your answers leave open.** You said there is no address — no copy off this machine. The address is the one value every component copies to find its way back here, so with none, the parent address in each component's stubs will be that local `/tmp/...` path, true only on this machine and in this session. That is a real answer and the setup is finished either way; I will state the absence in visible text rather than invent a URL. Overturn it in a sentence if a repository or synced-store location exists after all.
+
+**Step 5 — Summary.** Nothing written yet.
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | your answer |
+| `<PROJECT_PURPOSE>` | A small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | your answer |
+| `<SCOPE_COVERS>` | tide forecasting, the public website and the photo archive | your answer |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | your answer — both offered, both kept |
+| `<PROJECT_SCOPE_ADDRESS>` | *none* — a visible line saying no copy of this project exists off this machine, so there is no address a component can resolve from elsewhere | your answer |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | settled — resolved by me in this exact form; kept rather than deleted because with no address it is the only locator |
+| `<PATH_NOTE>` | deleted | settled — the path resolves with no symlink or mount behind it (`readlink -f` returns it unchanged) |
+| `<SESSION_NOTE>` | deleted, with a line saying a component placed elsewhere brings it back | settled — all three components sit inside this folder, so no mount boundary is crossed |
+| `<COMPONENTS>` → tidewatch | **Tidewatch** — Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand. Address: `tidewatch` | posture proposed from your description of it as the tide tool; overturn in a sentence |
+| `<COMPONENTS>` → riverside-site | **Riverside Site** — Repository, same core rule word for word. Address: `riverside-site` | posture proposed from your description of it as the website; overturn in a sentence |
+| `<COMPONENTS>` → harvest-archive | **Harvest Archive** — Assets. Live material. Work here as the task requires. Address: `harvest-archive` | posture proposed from your description of it as the photographic archive; overturn in a sentence |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | settled — `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | settled — today's date |
+| `<DOCUMENT_OWNER>` | Sam | your answer |
+| `.docs/` and `.docs/decisions/` | a visible line saying neither exists yet | settled — neither is present in the folder |
+
+Component headings are the names an assistant standing in each folder will match against its stubs, so if you write them differently — "TideWatch", "Riverside Site" — say so now rather than after the stubs exist.
+
+Nothing is unknown apart from the address. Confirm, or correct any row, and I will write the files.

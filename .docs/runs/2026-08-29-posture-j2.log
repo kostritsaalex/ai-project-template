@@ -1,0 +1,55 @@
+## Step 1. Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw-post` — readable, holds `blueprints/`.
+- Project scope target: `…/scratchpad/k` — readable, holds three subfolders.
+
+## Step 2. Look
+
+1. **`PROJECT.md` here?** No. Nothing at the root of `k/` at all — the folder holds only `harvest-archive/`, `riverside-site/`, `tidewatch/`.
+2. **Component-into-project-scope collision?** Not applicable; this prompt sets up a project scope.
+3. **Other AI instruction files?** None, of this framework or any other. Searched three levels deep for `PROJECT.md`, `CLAUDE.md`, `AGENTS.md`, `COMPONENT.md`, `REPOSITORY.md`, `ASSETS.md`, `.cursorrules`, `.windsurfrules`, `GEMINI.md`, `*.mdc` — zero hits. Nothing will be overwritten.
+4. **Existing parent claim?** None.
+5. **Local path resolves in the form I intend to write?** Yes. `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` resolves to itself — `readlink -f` returns the identical string, so no symlink or mount is holding it up and no path note is needed. It is not under `~`, so it cannot take the `~/…` form the blueprint prefers.
+6. Component posture look: not applicable at this step (project scope).
+
+## Step 3. Blueprint read
+
+`blueprints/project/README.md`, Blueprint Version **0.10.2** (Framework 0.11.0), plus `blueprints/project/PROJECT.md` and `CLAUDE.md` with all comments.
+
+---
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | Your answer |
+| `<PROJECT_PURPOSE>` | Marine Services is a small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | Your answer |
+| `<SCOPE_COVERS>` | `This project currently covers tide forecasting, the public website and the photo archive. Anything else is outside it.` | Your answer |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer — both offered principles kept |
+| `<PROJECT_SCOPE_ADDRESS>` | **Unknown / none.** I will write a visible line in place of the address block: this project has no off-machine address; no copy exists outside this machine. | Your answer |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | Settled by me — resolved with `readlink -f`, returns itself |
+| `<PATH_NOTE>` | Deleted | Settled by me — path resolves on its own, no symlink or mount involved |
+| `<SESSION_NOTE>` | Deleted, with one visible line saying a component added outside this folder brings it back | Settled by me — all three components sit inside this folder, so no mount boundary is crossed |
+| `<COMPONENTS>` | three blocks, below | Your answer to question 6, taken as complete |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Settled from `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today |
+| `<DOCUMENT_OWNER>` | Sam | Your answer |
+| `.docs/` line | Visible line: neither `.docs/` nor `.docs/decisions/` exists yet | Settled by me — `ls` returns no such file |
+
+**Registry blocks**
+
+| Component | Posture | Address | Source of the posture |
+| --- | --- | --- | --- |
+| tidewatch | **Assets.** Live material. Work here as the task requires. | `tidewatch` | Settled by me — your own source code (`src/`, `tests/`, `README.md`). The `.git` there does not make it `Repository`; the blueprint says a folder of your own source code is `Assets` even when it is a git repository |
+| riverside-site | **Repository.** Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand. | `riverside-site` | Settled by me — the folder listing shows `wp-admin/`, `wp-includes/`, `wp-settings.php`, i.e. WordPress core, which an updater replaces wholesale |
+| harvest-archive | **Assets.** Live material. Work here as the task requires. | `harvest-archive` | Settled by me — material (`2024/`, `2025/`, `contracts/`), nothing an updater owns |
+
+Component names are proposed as you wrote them, lowercase, matching the folder names. Say the word if you want display names (`Tidewatch`, `Riverside Site`, `Harvest Archive`) instead — the heading and the future stubs only have to match each other.
+
+**Files this would produce:** `k/PROJECT.md`, `k/AGENTS.md`, `k/CLAUDE.md`. Nothing else, and nothing inside the three component folders.
+
+**One thing worth flagging before you confirm.** The missing address is normally the expensive gap, because every component copies it. Here it costs nothing yet: all three components sit inside the project folder, so their stubs will say `../` and reach the parent regardless. It only starts to matter if a fourth component ever lives somewhere else, or if this project gets a copy on a second machine.
+
+Confirm and I will write the three files. No files have been written.

@@ -1,0 +1,57 @@
+Steps 1–4 in brief, then the table.
+
+**Step 1 — Access.** Both addresses reachable: the framework at `…/scratchpad/fw-post` and the target at `…/scratchpad/k`. Nothing unreachable.
+
+**Step 2 — Look.**
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attach.
+3. No AI instruction files present, of this framework or any other. Nothing to overwrite.
+4. The folder claims no parent.
+5. The path resolves in the exact form I mean to write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k`. `realpath` returns it unchanged, so no symlink or mount holds it up. It is not under the home folder, so there is no `~/` form. No path note is needed.
+6. Component-scope item, not applicable — but see the note under the table about how I settled the three postures.
+
+All three folders sit on the same filesystem as the project folder, so no session note.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md` (Blueprint Version 0.10.2, Framework Version 0.11.0), `blueprints/project/PROJECT.md`, `CLAUDE.md`, and `blueprints/setup/interview.md` (0.11.0).
+
+**Step 4 — Ask.** Skipped: you supplied answers to all seven questions in advance.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value to be written | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | your answer |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | settled from `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | settled from today's date |
+| `<DOCUMENT_OWNER>` | Sam | your answer |
+| `<PROJECT_PURPOSE>` | Marine Services is a small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | your answer |
+| `<SCOPE_COVERS>` | "This project currently covers tide forecasting, the public website and the photo archive. Anything else is outside it." | your answer |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | the two offered defaults, both kept |
+| `<PROJECT_SCOPE_ADDRESS>` | **unknown** — see below | your answer: none exists |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | settled by resolving it; `realpath` returns it unchanged |
+| `<PATH_NOTE>` | deleted | settled: no symlink or mount holds the path up |
+| `<SESSION_NOTE>` | deleted, with a line saying a component elsewhere brings it back | settled: all three components sit on the same filesystem as this folder |
+| `<COMPONENTS>` | three blocks, below | your answer |
+| `.docs/` and `.docs/decisions/` | visible line saying neither exists yet | settled by looking |
+
+**Registry blocks**
+
+| Component | Posture | Address in registry | Posture settled from |
+| --- | --- | --- | --- |
+| tidewatch | **Assets** | `tidewatch` | holds `.git`, `src`, `tests`, `README.md` — your own source code, which is `Assets` even in a git repository |
+| riverside-site | **Repository** | `riverside-site` | holds `wp-admin`, `wp-includes`, `wp-settings.php` — WordPress core, which an updater replaces wholesale |
+| harvest-archive | **Assets** | `harvest-archive` | holds `2024`, `2025`, `contracts` — material, nothing an updater owns |
+
+Each block carries its posture line word for word from the blueprint, then `Address:`. No local-path line: all three sit inside the project folder, so the relative address is the whole answer.
+
+On how I settled those postures — the procedure says not to survey contents, so I read only each folder's top-level names, and only to pick the one word. None of it goes into any document. `riverside-site` is the one worth overturning in a sentence if the site is your own theme and plugin source rather than a full WordPress install.
+
+---
+
+**One gap you should decide before I write.** There is no address. The blueprint calls it the value to fill first, because every component copies it — and all three of yours are unattached, so all three will need it. Nothing is blocked in `PROJECT.md` itself: I would write visible text in "Where this project lives" saying no address exists and no copy exists off this machine, with the local path as the only locator. But `new-component.md` copies an address into each component's stubs, and with none the stubs would have to carry that local path, which is true only on this machine. Options: leave it unknown now and fill it when a remote copy exists, or name a location you intend to use.
+
+**What comes next after writing:** all three components would be in the registry and none attached — `new-component.md` run once per folder, plus the structure check, plus a cold start check in a fresh session.
+
+No files written. Confirm the table, and tell me which way to go on the address.

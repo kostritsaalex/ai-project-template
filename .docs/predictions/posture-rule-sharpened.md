@@ -123,3 +123,60 @@ instances recorded against it rather than one.**
 
 And it cannot establish a rate. One pair flipped; twelve runs will say whether a sharper rule holds,
 not how often the old one failed.
+
+---
+
+# Results, scored 2026-08-29
+
+Six runs, logs `2026-08-29-posture-{h,j}{1,2,3}.log`. Each run proposed a posture for all three
+folders, so eighteen posture judgements.
+
+| | K-own `tidewatch` | K-platform `riverside-site` | K-material `harvest-archive` |
+| --- | --- | --- | --- |
+| **correct** | `Assets` | `Repository` | `Assets` |
+| **H** (current) run 1 | **`Repository`** ✗ | `Repository` ✓ | `Assets` ✓ |
+| **H** run 2 | **`Repository`** ✗ | `Repository` ✓ | `Assets` ✓ |
+| **H** run 3 | **`Repository`** ✗ | `Repository` ✓ | `Assets` ✓ |
+| **J** (sharpened) run 1 | `Assets` ✓ | `Repository` ✓ | `Assets` ✓ |
+| **J** run 2 | `Assets` ✓ | `Repository` ✓ | `Assets` ✓ |
+| **J** run 3 | `Assets` ✓ | `Repository` ✓ | `Assets` ✓ |
+
+**Q2 passes. Arm J satisfies S1 and S2 on all three scopes.** Stable across every pair and correct on
+a folder of each kind. **Remedy 1 succeeds and the naming question is not promoted.**
+
+**Q3 not reached.** No flip survived the sharper rule, so renaming is not on the table. The naming
+watch item stays open with two instances against it and no third.
+
+**Q5 holds.** All three checksums unchanged.
+
+## Q1 held, and it held harder than predicted — which changes what the defect is
+
+Q1 predicted arm H would "flip or err on K-own in at least one run". **It erred in all three, and it
+did not flip at all.** The current wording produced `Repository` for a folder of the project's own
+source, consistently, with reasoning that never touched the axis: run 1 gave *"posture proposed from
+your description of it as the tide tool"* — a description of what the folder is for, not of who
+replaces its contents.
+
+**So the flip understated the problem.** The `gB1`/`gB2` pair was read as instability: a proposal that
+differs between runs. These three runs say the current rule is **stably wrong** on this folder kind,
+and that `gB2`'s `Assets` was the framework getting it right by accident rather than the baseline it
+sometimes departs from.
+
+**That is exactly the shape registered as Q4 and named as the worst outcome** — *"a rule that is
+stable and wrong is worse than one that flips, because nothing downstream would notice"* — and it
+turns out to describe the shipped behaviour rather than a risk of the repair. Registering it in
+advance is what makes it visible now; the stability column alone would have read as three consistent
+answers.
+
+**The correction is quotable.** Arm J run 1: *"Settled: your own tide-tool source. A folder of your
+own source code is `Assets` even when it is a git repository, and this one is."* The sentence added
+to the rule is the sentence the run gives back.
+
+## What this does not establish
+
+Whether `Repository` and `Assets` are the right words. It shows the rule can be stated so they are
+applied correctly, and **it leaves the naming question where 2026-08-24 left it, with two instances
+recorded against it rather than one.**
+
+And it is not a rate. Three runs per arm on one folder of each kind says the sharpened rule holds
+here; it does not say how often the old one failed, and no frequency is claimed.

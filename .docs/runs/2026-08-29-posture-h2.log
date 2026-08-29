@@ -1,0 +1,39 @@
+Read: `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Project Scope Blueprint **0.10.2** (Framework 0.11.0), plus `blueprints/setup/interview.md` 0.11.0.
+
+**Step 2 — what I found before asking anything:**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attach.
+3. No AI instruction files of this framework or any other, at the root or one level down.
+4. No folder claims a parent.
+5. The local path resolves exactly as written: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k`. No symlink, no mount indirection — it holds on its own, so no path note. It is on `tmpfs`, so it is real now and gone on reboot; that is a property of the folder, not of the document.
+6. Not applicable (component only).
+
+All three named components sit inside the project folder, so their addresses are folder-relative and no session note is needed.
+
+**Step 5 — summary before writing.** Nothing is written yet.
+
+| Placeholder | Value to write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | your answer |
+| `<PROJECT_PURPOSE>` | Marine Services is a small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | your answer |
+| `<SCOPE_COVERS>` | tide forecasting, the public website and the photo archive | your answer |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | your answer — both defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | **unknown.** You said none exists and no copy lives off this machine. I would write, in visible text, that this project has no off-machine address and exists only at the local path below. | your answer |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | settled — resolved on disk, in this exact form; not under `~`, so no tilde form |
+| `<PATH_NOTE>` | deleted | settled — path resolves directly, no symlink or mount holding it up |
+| `<SESSION_NOTE>` | deleted | settled — all three components are inside the project folder, so nothing sits across a boundary |
+| `<COMPONENTS>` — Tidewatch | `Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand.` Address: `tidewatch` | posture proposed — it is a code folder under `.git`; name from your answer |
+| `<COMPONENTS>` — Riverside Site | same `Repository.` line | posture proposed — it is a WordPress install, so the core rule is the point of the word |
+| `<COMPONENTS>` — Harvest Archive | `Assets. Live material. Work here as the task requires.` Address: `harvest-archive` | posture proposed — photographic archive, no platform core |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | settled — from `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | settled — today |
+| `<DOCUMENT_OWNER>` | Sam | your answer |
+| `.docs/` note | a visible line saying neither `.docs/` nor `.docs/decisions/` exists yet | settled — neither is on disk |
+
+Two things worth a sentence from you:
+
+- **The missing address is the one unknown.** It normally matters because every component copies it, but all three of yours are inside the project folder, so their stubs point back with `../` and reach the parent regardless. Nothing breaks here. It becomes a real gap the day a component lives somewhere else, or the day someone works from a second machine.
+- **Component names.** I have written the registry headings as `Tidewatch`, `Riverside Site` and `Harvest Archive`, capitalised, while the folders stay lowercase. The stubs must repeat the heading exactly when each one is attached — say the word if you would rather the headings match the folder names as typed.
+
+Overturn any row in a sentence, or say go and I will write the files.

@@ -1,0 +1,46 @@
+Read: `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, **Project Scope Blueprint 0.10.2** (Framework 0.11.0).
+
+## Steps 1–2: access and look
+
+1. Framework reachable, target folder reachable. Nothing unreadable.
+2. No `PROJECT.md` in the target root — this is a clean project scope, not an existing one.
+3. No other AI instruction files anywhere in the target (no `CLAUDE.md`, `AGENTS.md`, `COMPONENT.md`, `.cursorrules`, `GEMINI.md`). Nothing to overwrite.
+4. The folder claims no parent.
+5. The local path resolves in the exact form I would write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k`. No symlink, no mount indirection — but see the flag below.
+6. (Component-only; not applicable to a project scope.)
+
+## Step 5: summary table
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Marine Services | Your answer |
+| `<PROJECT_PURPOSE>` | Marine Services is a small marine-services business. It writes a tide tool, runs a website, and keeps a photographic archive. Software is one part of it, not all of it. | Your answer |
+| `<SCOPE_COVERS>` | tide forecasting, the public website and the photo archive | Your answer |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Both blueprint defaults, offered and kept by you |
+| `<PROJECT_SCOPE_ADDRESS>` | **None.** Written as a visible line: no copy of this project exists off this machine, so there is no address a component can resolve from elsewhere; the local path below is the only location. | Your answer, stated as absence per Step 6 |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/k` | Settled by resolving it; not under `~`, so no tilde form |
+| `<PATH_NOTE>` | Deleted — the path holds on its own, no symlink or mount props it up | Settled from `df` and `readlink -f` |
+| `<SESSION_NOTE>` | Deleted, with the line that adding a component elsewhere brings it back | Settled: all three components sit inside this folder, same side of every boundary |
+| `<COMPONENTS>` | three blocks, below | Your answer, taken as complete |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Blueprint README |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today |
+| `<DOCUMENT_OWNER>` | Sam | Your answer |
+| `.docs/` line | Visible line: neither `.docs/` nor `.docs/decisions/` exists yet | Settled from the folder |
+
+### Registry blocks
+
+| Component | Posture | Address | Source of the posture |
+| --- | --- | --- | --- |
+| tidewatch | **Assets.** Live material. Work here as the task requires. | `tidewatch` | Settled: your own tide-tool source. A folder of your own source code is `Assets` even when it is a git repository, and this one is |
+| riverside-site | **Repository.** Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand. | `riverside-site` | Settled: the folder root carries WordPress core (`wp-admin/`, `wp-includes/`, `wp-settings.php`), which an updater replaces wholesale |
+| harvest-archive | **Assets.** Live material. Work here as the task requires. | `harvest-archive` | Settled: a photographic archive, nothing an updater owns |
+
+Headings use the names exactly as you gave them, lowercase and hyphenated, because the stubs in each folder have to match the heading character for character. Say the word if you'd rather they read `Tidewatch`, `Riverside Site`, `Harvest Archive` — I'll use those in both places instead.
+
+## Two things worth your attention before I write
+
+**The missing address is a real gap, though a survivable one here.** The address is what every component copies to find its way back, and the framework's whole point is reaching parts that sit far apart. Your three components all sit inside the project folder, so their stubs will point back with `../` and resolve fine without it. Nothing breaks today. It breaks the moment a fourth component lives somewhere else, or a copy of this project reaches a second machine.
+
+**The project folder is on `tmpfs` under `/tmp`.** That filesystem is memory-backed and does not survive a reboot. Combined with no copy existing anywhere else, `PROJECT.md` and everything under it is one restart from gone. Not a blocker for writing the documents, and I'll write them where you asked — but if this is meant to outlive the session, moving the folder somewhere durable first is worth doing, and it would change the local path row.
+
+Confirm the table, or overturn any row in a sentence, and I'll write the three files.
