@@ -25,6 +25,14 @@ They fail differently, and each is blind to the others' failures.
 The structure check is mechanical. Every row is a quote you can open and verify, so its result does
 not depend on the tool's judgment.
 
+That holds only as far as each row is fully specified, which is not a caveat but a measured limit.
+Running `registry-check` twice from one unrepaired prompt, on one unchanged scope, produced two
+different verdicts on one row and two different readings of the line that counts failures. Where a
+row leaves something unsaid, the tool supplies the missing rule itself, differently on different
+runs, and returns an equally confident table either way. An under-specified row is judgment wearing
+mechanical clothes, and nothing in the output tells the two apart. The evidence for this is in
+[`.docs/predictions/registry-check-second-run.md`](../../.docs/predictions/registry-check-second-run.md).
+
 The cold start check is behavioral. Nothing about it is mechanical, which is why its conditions are
 strict: a new session, no hints, sources named for every answer. Loosen any of them and it returns
 a comfortable answer that means nothing.

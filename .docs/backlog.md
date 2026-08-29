@@ -162,8 +162,23 @@ afterwards in one pass:
 - *Found by the run.* Check 2 evidenced the presence of two files by quoting a heading from inside
   each, which evidences nothing about the row.
 
-It stays in `Release`. The repaired version has not been run, and the negative half has never been
-run at all: a scope broken on purpose, in a fresh session, to see whether the check catches what it
+**Run a second time, 2026-08-29, two arms, pre-registered in
+[`predictions/registry-check-second-run.md`](predictions/registry-check-second-run.md).** The
+repaired prompt returned `Failed rows: 0` and confirmed all four predictions, including the one held
+most loosely. The control arm, the original prompt run again unchanged, is the one that mattered:
+check 6 **passed** both components this time, where the first run failed both. So that defect is real
+by reading and intermittent in effect, and the confirmation it was scored with rested on a single
+observation that does not reproduce. Check 4 failed identically both times and is deterministic.
+Check 7 passed both times by reaching for the same non-registry line, so its diagnosis is stronger,
+not weaker.
+
+**The finding that outlives this check.** `checks/README.md` claimed a mechanical check's result does
+not depend on the tool's judgment. Two runs of one prompt on one scope disagreed on one row and on
+how to count failures, which puts a measured limit on that claim: where a row is under-specified the
+tool supplies the missing rule itself and returns an equally confident table either way. Recorded in
+the checks README, because it applies to all three checks and not to this one.
+
+It stays in `Release`. The negative half has never been run at all: a scope broken on purpose, in a fresh session, to see whether the check catches what it
 was written for. The `WordPress 7` scope supplies the break for free, since the Engine's registry
 block held a stale path four days ago and the real defect is on record.
 
