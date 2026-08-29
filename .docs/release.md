@@ -132,6 +132,11 @@ What each has to show:
 If anything fails here, amend the commit and run it again. That is what this step is placed before
 the tag to make possible.
 
+**If anything is edited after this step runs, the step runs again before the tag.** That is the whole
+reason it sits where it sits. `0.10.1` was tagged after V3 had passed and after the backlog had been
+edited, and V3 would have failed on that edit. It was found by hand afterwards, when the tag already
+existed.
+
 **8. Tag and push both.** `git tag -a vX.Y.Z`, then push `main` and the tag. A tag that stays local
 is a release nobody else has.
 

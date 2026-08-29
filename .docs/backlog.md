@@ -374,6 +374,17 @@ folder is not a blueprint anyone adopts — nothing is copied out of it — whic
 leaving it alone, and it ships prompts that change between releases, which is the argument against.
 Decide it the next time that folder changes.
 
+**Should the backlog name a version at all?** V3 has now gone silent twice from one cause: it greps
+the backlog for a phrase, and the phrase gets rewritten by ordinary editing. Loosening the grep bought
+one degree of freedom and no more.
+
+The question underneath is whether that line should be checked at all. `release.md` step 0 says a
+change under `.docs/` never causes a release, which makes the backlog's version line a convenience
+rather than something a tag depends on. Two ways out, and they are different claims. Make V3 read the
+version by pattern rather than by wording, which keeps the cross-check and stops it depending on
+prose. Or drop the backlog from V3 entirely and let that line lag, on the ground that a convenience
+does not need verifying and the changelog is the claim. Not now.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.

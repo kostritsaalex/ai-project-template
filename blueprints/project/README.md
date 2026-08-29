@@ -63,6 +63,11 @@ empty, which is a real answer.
 - Validate ideas through practical use whenever possible.
 - Avoid speculative additions.
 
+**The razor governs what this blueprint offers, not what an owner writes.** `0008` is a rule about
+what ships into every adopted project, and an owner is free to put anything he likes in his own
+`Principles` section, including all eight of the candidates or none of them. Nothing was saying this,
+and without it a cull reads as a prohibition. It is not one: the section is his.
+
 Six more were considered and cut, each for failing the razor in
 [decision 0008](../../.docs/decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md).
 The reasoning is in
