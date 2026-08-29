@@ -4,8 +4,42 @@ Kept as the run goes, not reconstructed afterwards. A judgement made because the
 raise it is invisible in the finished documents, and reconstruction from memory is the failure mode
 this repository catalogued on 2026-08-29.
 
-**Status: the run has not started.** It stopped at Step 2. Entries below cover only what was decided
-before that point.
+**Status: the run this log belongs to was discarded and is not the adoption that happened.**
+
+It reached Step 4 and was discarded there. No interview answer was ever received, no summary table was
+confirmed, and no document was written: nothing exists in ArtGlina that this run produced. A later
+reader should treat everything below as belonging to a survey, not to an adoption.
+
+**Why it was discarded.** By the end of Step 2 the session had established, from its own search,
+that framework documents existed in three folders besides the scope, that one of them was an
+`ASSETS.md`, and that two `REPOSITORY.md` files matched byte for byte. That is most of what the
+adoption was supposed to derive from the owner and from the folders. Knowing the shape of the answer
+is not the same as being told it, but it is close enough that the run could no longer be called
+blind, so it was stopped rather than continued on a weakened premise.
+
+The findings below stand on their own, because none of them depended on the adoption completing: the
+Step 6 conflict, the component-identity question now in the backlog, and the judgements themselves.
+
+## The blindness of the replacement run is bounded by an instruction, not by the disk
+
+The deletion is real: `artglina-ua`, `artglina-sandbox` and the scope root are all clear of framework
+documents, and `Artglina/Unsorted` no longer holds any. But `artglina-ua` is a git repository, so the
+documents survive in its history along with the commit that removed them.
+
+Checked here by subject line only, no diff opened: **three consecutive commit subjects are legible to
+anyone running `git log` in that folder**, and one of them names where the project scope lives. So the
+leak is not the single removal commit; it is a short run of subjects, one of which carries adoption
+content outright.
+
+**The subjects are deliberately not reproduced in this file.** This log lives in the framework
+repository, which the replacement session must read in order to read the blueprints, so quoting them
+here would move the leak from a place that session is told to avoid into a place it is required to
+open.
+
+What protects the replacement run is therefore an instruction — do not read any folder's history, and
+say so if you meet a trace anyway — and not the state of the disk. That is a weaker guarantee than
+deletion and it is declared rather than pretended away: a session that runs `git log` for an ordinary
+reason, or a tool that surfaces recent commits unbidden, defeats it without anyone intending to.
 
 ---
 
