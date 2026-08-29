@@ -91,7 +91,7 @@ grep -rn "Blueprint Version:\|Framework Version:" blueprints/*/README.md
 
 # V3. The version this release calls itself, in both places that name it.
 head -40 CHANGELOG.md | grep -m1 '^## \['
-grep -m1 "is released, tagged and pushed" .docs/backlog.md
+grep -m1 "released, tagged and pushed" .docs/backlog.md
 
 # V4. Nothing this release documents is untracked, ignored, or uncommitted.
 git status --porcelain
@@ -120,6 +120,11 @@ What each has to show:
   The command is keyed on a phrase a person can rewrite without noticing. If it returns nothing, look
   at the backlog before concluding anything: the line may be missing, or it may simply be worded
   differently now.
+  **That warning fired one release after it was written, on the release that wrote it.** `0.10.1`
+  changed the backlog line from "`0.10.0` **is** released" to "`0.10.0` and `0.10.1` **are**
+  released", and V3 went silent against a backlog that was perfectly correct. The command now greps
+  "released, tagged and pushed" without the leading verb, which matches both. It is still keyed on a
+  phrase and will still drift; the fix bought one degree of freedom, not immunity.
 - **V4.** All three commands print nothing. A file present on disk and excluded by an ignore rule is
   the case worth catching, because `git add` does not report what it declined to add. This is the
   check `v0.9.0` failed.
