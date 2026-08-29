@@ -45,6 +45,18 @@ in a single run proves nothing.
 and superseded records are marked rather than deleted. Each carries what the decision cost, stated
 plainly, including risks accepted with no mitigation.
 
+**An `Origin` section names the channel, not the author.** The framework is reviewed by a second
+assistant whose prompts reach a working session through the owner. From inside the session, a message
+may be his own words, the review's relayed, or both, and nothing distinguishes them. So a record
+attributes the *decision* to the owner, who makes it, and describes everything else as having arrived
+rather than as belonging to someone: "arrived with the review", "this session added". Where the
+session can point at evidence for authorship it may say so; otherwise it may not.
+
+This is the same discipline `git log -S` enforced on a claim about a past run. A sentence about who
+established what is a claim like any other, and writing it from memory is how a false one gets in.
+`0001` through `0009` predate this and name people for reasoning that came by that route. They stand
+as written.
+
 **The backlog has three sections and they mean different things.** `Now` is what has a quote behind
 it and needs no decision. `Release` needs a decision or an experiment. `Recorded, not tasks` is
 evidence worth keeping that nobody has to act on.

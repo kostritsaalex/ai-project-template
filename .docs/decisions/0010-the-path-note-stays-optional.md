@@ -80,9 +80,24 @@ the row was written. Only the silent case is conceded.
 
 ## Origin
 
-Alex, 2026-08-29, on reading the audit. His framing is the decision: the remedy from `0007` is
-available and the cost has to be stated rather than assumed, because an address is load-bearing for
-every reader and a path note only where a boundary exists.
+**Decided by the owner, 2026-08-29. The reasoning arrived through him and this record cannot say how
+much of it is his.**
 
-He also refused the third outcome in advance — leaving it in the backlog for another release — which
-is what made this a decision rather than a deferral.
+The framework is reviewed by a second assistant whose prompts reach this session through the owner,
+so a message here may carry his own words, the review's relayed, or both, and nothing inside the
+session distinguishes them. What is certain is the decision: he asked for the cost to be stated
+rather than assumed and refused the third outcome, leaving it in the backlog for another release,
+which is what made this a decision rather than a deferral.
+
+What arrived with it, and is recorded as arriving rather than as anyone's: that `0007`'s remedy is
+available and identical in shape; that the two cases differ because an address is load-bearing for
+every reader and a path note only where a boundary exists; and that either outcome is a result.
+
+The two arguments this session added are the ones it can vouch for: that gating on the session note
+was tried before `0.6.0` and caused the row never to run, and that a sentence ordinary work makes
+vacuous teaches skimming.
+
+**This ambiguity is not particular to this record.** `0008` and `0009` name a person for reasoning
+that reached the session by the same route, and were written before the convention below existed.
+They are left as they are rather than rewritten, because a record altered to look better informed
+than it was is worse than one that is plainly of its time.
