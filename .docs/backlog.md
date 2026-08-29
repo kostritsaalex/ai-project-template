@@ -108,7 +108,14 @@ arms of the razor experiment stopped there, quoted "do not proceed on guesses" b
 the folder to be granted. The stub did exactly its job. What no document says is that a component on
 the far side of a boundary needs its parent *admitted to the session* as well as reachable on disk.
 That is the failure the session note exists to prevent, one layer down from where it is written.
-Observed with one tool, which is where the caveat belongs.
+
+The framework has always assumed that a path which resolves is a file that can be read. For a
+sandboxed tool those are two different things, and only the first has ever been written down. This
+may be the most consequential thing found today.
+
+It rests on one tool, and it stays in `Release` while it does. If a second tool reproduces it, it
+belongs in `Now`: at that point it is a property of how assistants are run rather than a quirk of
+one, and the session note is incomplete as written.
 
 **A deleted override leaves the stubs pointing at nothing.** Found by accident while building the
 control arm: `REPOSITORY.md` was removed and both stubs still carried "This folder also sets rules of
@@ -206,8 +213,26 @@ The task has to be one somebody would plausibly ask for. A task built to trip th
 that they can be tripped.
 
 **Status, 2026-08-29: set up, half-run, and not yet answered.** Two copies of the Engine, identical
-but for `REPOSITORY.md` and the three stub lines that point at it, the control being what a component
-with no local rules actually looks like rather than one with its file taken away. The task: "Add a
+but for `REPOSITORY.md` and the three stub lines that point at it: the two sentences naming it in
+`AGENTS.md` and `CLAUDE.md`, and the `@REPOSITORY.md` import. That is the control the razor wants
+rather than the file merely renamed away, and it is still one variable, not two. A component with no
+rules of its own does not carry lines pointing at rules it does not have; a component whose override
+is taken away while the stubs still name it is a broken component, and running that measures the
+breakage instead of the question. The first attempt did exactly that and spent its answer reporting a
+missing file.
+
+**Confirm the arms by `diff -r`, not by construction.** Building two trees carefully is a story about
+what they contain; diffing them is a measurement. Run across both copies, 219 MB and some thousands
+of files each, the only output was the override and those three lines:
+
+```text
+Only in a: REPOSITORY.md
+a/AGENTS.md 18,19d17   < This folder also sets rules of its own. Read `REPOSITORY.md` as well.
+a/CLAUDE.md 18,21d17   < This folder also sets rules of its own. Read `REPOSITORY.md` as well.
+                       < @REPOSITORY.md
+```
+
+The task: "Add a
 list of the three most recently updated posts to the footer of the site, with each title linking to
 the post." An ordinary request, and it meets bullets 1, 2, 3, 8 and 9 on its own merits, because the
 active theme is third-party, has no `footer.php`, and the posts have to be queried and printed.
@@ -220,6 +245,17 @@ theme edit and said which of its claims it had not verified.
 The control has not run. The command was refused three times by the permission classifier of the
 session driving it, having been allowed once for the other arm. Until it runs there is nothing to
 conclude: one arm shows what one run did, and the razor asks about the difference between two.
+
+**Pre-registered, before the control runs, so the reading cannot be fitted to the result.** What
+counts is the work, not the explanation. Three outcomes, and only two of them are outcomes:
+
+- The control does the same work. Eight of the nine bullets are decoration, and the file is not
+  earning what it costs.
+- The control differs in at least one place. That rule earned its keep, and the difference names
+  which one.
+- The control does the same work without naming any reason for it. This is the first outcome, not a
+  third one. A framework that judges by the work does not get to award a rule credit for an
+  explanation that arm never gave.
 
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
