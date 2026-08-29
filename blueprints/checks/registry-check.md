@@ -42,7 +42,9 @@ Do not modify any file.
 
 Answer with one table and nothing else. Columns: Check, Component, Result, Evidence.
 
-One row per component per check, so a failure names which folder it is in. Result is pass, fail, or
+One row per component per check, so a failure names which folder it is in. Check 7 is the exception
+and takes a single row, because it audits your reading rather than any component. Result is pass,
+fail, or
 n/a. Evidence is a filename with the folder it sits in, a line number, and the quoted line. If you
 cannot quote it, write "no evidence" and mark the row fail, including when it looks like it passed.
 That applies to rows asking whether something is present. The paragraph below governs the rest.
@@ -89,11 +91,15 @@ Checks:
    fails, and say which half is missing. If no stub names one and none is present, this is n/a.
 6. The component folder holds no PROJECT.md. A component holding one is a project scope and has been
    set up as the wrong thing.
-7. Every folder you opened is either this scope's own root, which is where the PROJECT.md you were
-   told to read lives, or a folder the registry named. List the folders you read and say which of
-   the two each one was, quoting the registry line for those the registry named. The scope's own
-   root needs no such line and is not a failure: it is in the read set by the first instruction in
-   this prompt. A folder that is neither fails this row.
+7. One row, not one per component. Put "(read set)" in the Component column. This row audits your
+   own reading, so it covers every folder you opened and not only the ones a component sits in.
+   List in the evidence every folder you opened, without exception, including this scope's own root
+   and including any folder you opened and then found irrelevant. Classify each as exactly one of:
+   this scope's own root, which is in the read set by the first instruction in this prompt and needs
+   no registry line; a folder the registry named, quoted with the line that named it; or neither.
+   One folder in the third class fails this row, and name it.
+   List before you judge. A folder you opened and left off the list is the failure this row exists
+   to catch and the one thing it cannot see.
 
 After the table, write one line: "Failed rows: N", counting rows marked fail. Rows here are one per
 component per check, so a count of checks would hide a component.
@@ -128,6 +134,12 @@ naming every folder read, and the scope's own root is not named by any registry 
 literally it failed every correct project. The run did not fail it: the tool found the scope's local
 path line elsewhere in `PROJECT.md` and offered that as the naming line, which is a repair rather
 than an answer. A row a tool has to repair to pass is a row that was not asking what it meant.
+
+Its second version was wrong too, in a way the run could not have shown. Putting the scope root into
+the read set closed the case the run exposed and left the class open: while the row was keyed to a
+component, a folder belonging to no component had nowhere to appear, so `.docs/`, a subfolder of the
+scope, or a stray directory could be read and never be listed. The row is now a single one covering
+everything read, which is what it always meant.
 
 The last line counts rows rather than checks. With one row per component per check, a count of
 checks hides which component failed, and the first run made the ambiguity visible by answering

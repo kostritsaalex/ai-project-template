@@ -167,10 +167,19 @@ run at all: a scope broken on purpose, in a fresh session, to see whether the ch
 was written for. The `WordPress 7` scope supplies the break for free, since the Engine's registry
 block held a stale path four days ago and the real defect is on record.
 
+*Found by reading the repair.* The first fix to check 7 closed the instance and left the class. The
+row was keyed to a component, so putting the scope root in the read set fixed the one folder the run
+had surfaced while any folder belonging to no component still had nowhere to appear: `.docs/`, a
+subfolder of the scope, a stray directory. Check 7 is now a single row covering everything read.
+Worth naming as a habit rather than an incident: a defect arrives as one instance, and repairing what
+was shown is not the same as repairing what it is an instance of.
+
 Worth keeping about the method rather than the check: reading the prompt found three defects in
 twenty minutes and two reproduced, but the run corrected the scope of one, overturned the outcome of
 another while confirming its diagnosis, and found a defect reading had missed. Reading before running
-is cheap and is not a substitute for running.
+is cheap and is not a substitute for running. And a summary of a run is not the run: the check 7
+finding lived in a row that a two-row abridgement of the table dropped, and it survived only because
+the raw log was still on disk.
 
 **The checks folder is a blueprint with no version.** `blueprints/checks/` ships prompts that
 change between releases, and unlike the other four blueprints it carries no `Blueprint Version`, so
