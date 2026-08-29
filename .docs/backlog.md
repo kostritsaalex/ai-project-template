@@ -297,6 +297,48 @@ the second razor: "when a component moves, update its registry block" may be a l
 would follow without being told. `registry-check` 1 now catches it, validated against exactly this
 defect on 2026-08-29, so the open question is only whether the framework should also say something.
 
+**Is a component a folder or a repository?** The framework has never said, and it now has a case
+where the answer changes what is true.
+
+**The evidence**, established by the owner running commands rather than by this session inferring
+anything, and without any of the documents being opened. Two working copies exist,
+`~/Projects/All/artglina-ua` and `~/Projects/Development/artglina-sandbox`. Both have origin
+`git@github.com:kostritsaalex/artglina.com.ua.git`. In each, `git ls-files` lists `AGENTS.md`,
+`CLAUDE.md` and `REPOSITORY.md` as tracked. The stubs were committed, so the clone carried the
+component's identity with it, and each copy now says it is that component.
+
+**Neither check can see this, and both are behaving correctly.** `registry-check` walks outward from
+the registry to the folder at the declared local path and never reaches the second copy; the second
+copy is not named by anything it reads. `structure-check` run inside that copy passes every row,
+because every row is true there: the stubs name a component, carry a parent address that resolves,
+and say what to do when it cannot be reached.
+
+**Reading one: identity belongs to the address.** A component is the thing its address names, and
+where that address is a repository URL, both working copies are the same component seen twice. The
+sandbox is then behaving correctly and so is every check. Nothing needs building. Something needs
+saying, because the framework nowhere states that a component with a repository address is the
+repository rather than a directory, and a reader has no way to derive it.
+
+**Reading two: identity belongs to the folder.** The registry declares a component by naming where it
+is, so the folder at that local path is the component and the other copy is a different folder
+carrying a true-looking claim about being it. Then there is a real gap: a component can be
+multiplied by an ordinary `git clone`, no check sees the duplicate, and the framework has no way to
+say which copy the registry meant.
+
+**What tilts it, and why that is not enough to settle it.** `0005` says a folder that has not been
+declared a component is not one, and that being a component is a decision written into the registry
+rather than a property of what sits on disk. Read literally that favours reading two: the sandbox is
+not in any registry, so it is not a component whatever its stubs say. But `0005` was decided about
+folders nobody had cloned, and it did not face a case where the framework's own mechanism — stubs
+committed to a repository — manufactures the second claimant. A rule applied outside the case it was
+decided in is not the same as a rule that covers it.
+
+Also unsaid: whether stubs should be committed at all. Nothing in the framework recommends it or
+warns against it, and committing them is what produced this.
+
+Not settled here. It was found during an adoption, and an adoption is the wrong place to decide what
+a component is.
+
 **Reaching the parent takes more than an ordinary path.** The session note names the side from which
 every local path resolves, and that turns out to be necessary rather than sufficient. Run in the
 Engine's folder on 2026-08-29, a session started there could not read `PROJECT.md` at all: the path

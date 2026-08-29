@@ -78,3 +78,20 @@ contents.
 
 This is not a reason to change anything yet. It is the first time the procedure has met a folder it
 was asked to adopt without being allowed to read, and one instance is one instance.
+
+---
+
+# Resolved since the stop
+
+**The two `REPOSITORY.md` files of identical size are two clones of one repository.** Confirmed by
+the owner running `git remote` and `git ls-files` in each, not by this session inferring it from the
+matching byte count. Both working copies have origin `git@github.com:kostritsaalex/artglina.com.ua.git`
+and both track their stubs. No document was opened to establish this.
+
+The framework question it raises — whether a component is a folder or a repository — is recorded in
+the backlog as an open question with both readings, and is not settled here. An adoption is the wrong
+place to decide what a component is.
+
+It does bear on the adoption still to come, in one practical way: if the owner declares one of these
+copies a component, the answer to "where is it" is a repository URL and a local path, and which copy
+the local path names is a question the interview has to ask rather than assume.
