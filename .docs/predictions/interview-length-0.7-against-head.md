@@ -205,8 +205,27 @@ conditions, which is a more stable number than anything else measured here.
 version, same harness, same model, four days apart, different folder: **+145 words, +29.7%.**
 
 So the variation *within* one version of the framework, across two folders, is **larger than the
-difference between the two versions** that four releases separate. That comparison is not clean — the
-ArtGlina folder had a real symlink, a real business behind it and more for Step 2 to find. But the
+difference between the two versions** that four releases separate.
+
+**That comparison carries two confounds and both are named here rather than in a footnote.**
+
+*The folder.* ArtGlina had a real symlink, a real business behind it and more for Step 2 to find than
+a scratch tree of empty `.jpg` files.
+
+*The instruction, and this one was not disclosed when finding 1 was first written.* Roughly 120 of
+ArtGlina's 937 words are the "traces of an earlier arrangement" paragraphs, and they exist because
+the reviewer's prompt told that session to stay blind and to report any trace it met without using
+it. **That is neither the framework's prose nor the tool's initiative — it is a one-off instruction
+present in that run and absent from every arm here.** Arm B's preamble on a neutral folder is 179
+words against ArtGlina's 299, and this instruction accounts for most of a 120-word gap.
+
+Correcting for it does not erase finding 1, because the 120 words sit in the preamble and finding 1
+is measured on the question block, which is 633 against arm B's 488. It does mean the *total*-word
+comparison between ArtGlina and arm B is not a comparison of two interviews, and it should not be
+quoted as one. Recorded because an undisclosed instruction inside one arm is the same class of defect
+as an undisclosed deviation, and this repository has spent two days on that class.
+
+But the
 question block is supposed to be folder-independent. That is the entire basis of the propose-what-can-
 be-seen split: a question survives into the interview precisely because no amount of looking answers
 it. A question block that moves 30% between two folders on one version is measuring something it was
