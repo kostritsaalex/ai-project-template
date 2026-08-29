@@ -8,10 +8,12 @@ Last updated 2026-08-29, after the interview was measured rather than repaired.
 
 ## Where we are, 2026-08-29
 
-**`0.11.0` is committed and deliberately not yet tagged.** The owner reads the changelog entry before
-it is cut. When it is tagged this line becomes the usual "released, tagged and pushed", which is what
-`release.md` V3 greps for; until then V3 correctly returns nothing, and that is the stop working
-rather than a defect.
+**`0.11.0` is released, tagged and pushed.** Tagged on `2150f70`, after V1 to V4 passed on the
+committed tree and after the released text was run twice — once at six questions, once at seven after
+a placeholder check added one.
+
+**Three items wait for the batch after it, none blocking:** the two `release.md` clauses below, and
+the `<DOCUMENT_OWNER>` razor case, which may take the seventh question straight back out.
 
 **The interview was measured before it was repaired, and the diagnosis it was going to be repaired
 under was wrong.** The framework shipped no interview text at all, so the razor that was about to be
@@ -285,6 +287,31 @@ tests. The consequence either way is already recorded there. What belongs here i
 **every part of this framework that specifies a topic rather than a text is a prediction about a
 model, and the framework has two of them and had labelled one.**
 
+**`<DOCUMENT_OWNER>` is a razor case, and the seventh question may come straight back out.** The
+coverage gap found on 2026-08-29 had two solutions and **only one was weighed.** Add a question, or
+**delete the placeholder.**
+
+`0008` asks of any line whether an assistant does anything differently for knowing it. Applied here:
+`Document Owner` names a person to ask when the document is ambiguous. That is a convenience for a
+human reader rather than something that changes work. An assistant that meets an ambiguous
+`PROJECT.md` reports the ambiguity and stops, with or without a name on it — which is the shape of
+every line `0008` has cut so far.
+
+If it fails, the field leaves `PROJECT.md`, the interview returns to six questions, and **the shipped
+metric drops by a line.** That is the direction this framework has gone every time it has had the
+choice, in `0006` and in `0008` both.
+
+**The part worth recording is the process, not the answer.** The question was added without the
+alternative being considered. The coverage check established that the placeholder had no source, and
+the response went straight to sourcing it rather than asking whether it should exist. Both remedies
+were available from the same finding and one of them was never put on the table. **A gap in a
+document is not automatically an argument for filling it**, and this framework has closed two
+questions by finding that the thing in question need not exist — the platform fragment in `0008`, and
+where platform rules live, which vanished with it.
+
+It gets a run or it gets a reasoned cut recorded as reasoned rather than measured. Not now, and not
+as an argument.
+
 **The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
 grounds that an assistant would do the same thing without them. That is a claim about the reader, not
 a property of the rule, so it can stop being true without anything in this repository changing. The
@@ -400,6 +427,18 @@ noticing it again**, which is what happened for the two releases it has already 
 Found by running the step rather than by reading it, which is the second time step 7 has produced a
 finding about itself.
 
+**A second clause `release.md` earned the same day, and it goes in with the first.** Step 6 says
+everything a release changes goes in one commit. `0.11.0` is two, with a pre-registration between
+them: the release was committed and verified, then a placeholder check was pre-registered and run,
+then its finding — a seventh interview question — was committed on top. Amending the second commit
+over the first would have squashed the pre-registration and destroyed the only thing that makes a
+prediction worth writing, which is that it demonstrably preceded its runs.
+
+The clause: **a pre-registration committed between the work and the release is not squashed into
+it.** Step 7 verifies `HEAD` either way, so nothing is lost by the split and the provenance is kept.
+Written down so the next session does not have to reach the same conclusion under time pressure, at
+the point in a release where it is most tempting to tidy.
+
 **A document's claim about its own date is checkable and went unchecked.** On 2026-08-29 this session
 dated fifteen documents, eleven run-log filenames and a changelog entry `2026-08-30`, having taken
 the framing that the previous session's work was "yesterday". It was not: `v0.10.2` was tagged at
@@ -408,7 +447,25 @@ which both wrote `2026-08-29` for the date and disagreed with every document aro
 
 Corrected before the tag. Kept here because of the shape: **the framework's own instruments found
 it, and none of them was looking for it.** No check reads a date, `release.md` has no step for one,
-and the finding arrived as a by-product of a run about something else. The previous session made the
+and the finding arrived as a by-product of a run about something else.
+
+**The origin is a one-off instruction in a prompt, and that makes it the second of a pair.** The
+save-state prompt said "tomorrow starts with a measurement", the owner opened the next session the
+same evening, and "tomorrow" was read literally against a clock that said otherwise.
+
+The first was the ArtGlina interview, where roughly 120 of its 937 words are the "traces of an earlier
+arrangement" paragraphs, present because that session was told to stay blind and report any trace it
+met without using it. Recorded with the confounds in
+[`predictions/interview-length-0.7-against-head.md`](predictions/interview-length-0.7-against-head.md).
+
+**An instruction present in one run and absent from every other is a variable, and it belongs in the
+record with the confounds rather than in a footnote.** Both instances were correct instructions.
+Neither was wrong to give. Both changed an output in a way that was then read as a property of the
+framework — one inflating an interview that was cited as evidence of degradation, the other dating
+fifteen documents wrongly — and **both were found by measurement rather than by reading.** Nothing in
+this repository records what a session was told beyond what its documents say, so a prompt-borne
+variable is invisible to every instrument here by construction. Naming the pair is the whole of what
+is currently done about it. The previous session made the
 same error once, in
 [`predictions/registry-check-negative-run.md`](predictions/registry-check-negative-run.md) line 160,
 which is left as written because correcting another session's record silently is worse than leaving

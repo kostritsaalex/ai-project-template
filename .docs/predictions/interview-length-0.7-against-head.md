@@ -225,6 +225,12 @@ comparison between ArtGlina and arm B is not a comparison of two interviews, and
 quoted as one. Recorded because an undisclosed instruction inside one arm is the same class of defect
 as an undisclosed deviation, and this repository has spent two days on that class.
 
+**This is the first of a pair.** The second is in [`../backlog.md`](../backlog.md): a save-state
+prompt saying "tomorrow starts with a measurement", read literally by a session the owner opened the
+same evening, which dated fifteen documents and eleven log filenames a day ahead. **An instruction
+present in one run and absent from every other is a variable, and it belongs in the record with the
+confounds rather than in a footnote.**
+
 But the
 question block is supposed to be folder-independent. That is the entire basis of the propose-what-can-
 be-seen split: a question survives into the interview precisely because no amount of looking answers
