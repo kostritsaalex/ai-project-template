@@ -126,3 +126,106 @@ What remains is only the unexplained asymmetry, and **the symptom has never been
 `structure-check` has never been logged.** That is not evidence of absence. It stays a suspicion
 rather than a defect, and it is free to test the next time this check runs against a component whose
 parent is addressed in a synced store.
+
+---
+
+# Ownership map
+
+**Read:** 2026-08-29, after the deleted-override runs. One line per defect the check claims to catch,
+naming the row that owns it and any row that also fires. Written because the overlap between rows 10
+and 13 was discovered by accident in the nineteenth log, and until ownership is written down, a
+repair to one row can silently remove coverage a neighbour was providing or duplicate it.
+
+| Defect | Owns it | Also fires | Note |
+| --- | --- | --- | --- |
+| A leftover HTML comment | 1 | — | |
+| An unfilled placeholder | 2 | — | |
+| The blueprint notice left in place | 3 | — | |
+| The two stubs have diverged | 4 | 7, partly | 7 catches divergence only in the naming line; every other difference is 4's alone |
+| A project scope with no `PROJECT.md` | 5 | — | |
+| A project scope holding an override at its root | 5 | — | 10 is component-only and goes n/a here |
+| A component holding a `PROJECT.md` | 6 | — | |
+| Stubs that do not name the component, or name different ones | 7 | 4 | 4 fires because the naming line is text the two stubs share |
+| A parent address missing, or in none of the three forms | 8 | — | |
+| Stubs missing the unreachable-parent instruction | 9 | — | |
+| An override present that the stubs do not name | 10 | — | |
+| An override carrying a parent address | 10 | — | |
+| An override stating the folder's posture | 10 | — | |
+| **Stubs naming an override that is not present** | **13 in practice; 10 should** | 13 | The mis-routing. Run twice on 2026-08-29: 10 returns n/a, 13 fails and quotes both stubs |
+| A registry block missing a name, a posture word or an address | 11 | — | |
+| A `Repository` block without the travelling rule | 11 | — | |
+| A registry address in none of the four forms, or `../` | 11 | 12, differently | 12 asks what form a path is written in, 11 what slot it sits in. `0.7.0` recorded both reading one line, one failing and one passing, both right |
+| An empty registry with no sentence saying so | 11 | — | |
+| A local path with a username, or absolute | 12 | — | |
+| A location the documents point to that does not exist | 13 | — | |
+| A path note naming an arrangement without the command | 14 | — | |
+
+## Where no row fires
+
+- **A component missing one or both stubs entirely.** Rows 4 and 7 would fail for want of something
+  to quote, but neither claims the defect, and a failure there reports a divergence or a naming
+  problem rather than an absent file. `registry-check` row 2 owns this explicitly; `structure-check`
+  has no owner for it.
+- **A `Components` section absent altogether from a project scope.** Row 11 covers a registry with no
+  blocks and no sentence explaining that, but a document with no such section at all is not clearly
+  in its scope.
+- **A parent address that is well formed and wrong.** Owned by `registry-check` 4, and already
+  declared under "What this check cannot see".
+
+## Where two rows fire and which should
+
+- **Stubs naming an absent override.** Row 10 should own it: it is the row about overrides, and its
+  wording already carries the other three override defects. Row 13 currently owns it in fact.
+  **Making 10 bidirectional without touching 13 would give one defect two failing rows, and
+  "Failed checks: N" would count it twice.** `registry-check` met this and answered with the cascade:
+  one defect, one verdict. Any repair here has to decide that first.
+- **The naming line.** Rows 4 and 7 both fire when it differs between stubs. This one is benign: 7 is
+  a specific claim about a specific line and 4 is the general one, and a document failing both is
+  failing for two true reasons.
+
+---
+
+# Re-ranked, over two axes
+
+The first ranking used one axis: whether a wrong answer would be visible. The deleted-override runs
+supplied the second: whether another row covers the same defect. **A row can be wrong and harmless.**
+Re-derived over both, using the map above. The readings themselves are unchanged.
+
+| Rank | Row | Visible when wrong? | Covered elsewhere? | Moved |
+| --- | --- | --- | --- | --- |
+| 1 | **4** | No — a pass on two stubs that differ is silent | Only the naming line, by 7. Every other divergence is 4's alone | up from 3 |
+| 2 | **11** | No — a pass over a registry whose blocks were not all examined | No | up from 4 |
+| 3 | **13** | No | No, and it now carries a second defect nobody else catches | **up from 6** |
+| 4 | **6** | No — a pass produced from a listing rather than a fact | No. Row 5 is scope-only | up from 5 |
+| 5 | **5** | No, and bundled | No | up from 7 |
+| 6 | **10** | No — an n/a on stubs naming a file that is gone | **Yes, by 13, demonstrated twice** | **down from 1** |
+| 7 | **8** | Mostly yes: the likely wrong answer is a fail on a correct document | No | 8, unchanged |
+| 8 | **7** | Yes — quotable either way | Partly, by 4 | 9, roughly unchanged |
+| 9 | **1, 2, 3, 9, 12** | Yes — a quotation or a reproducible search | No, and none needed | unchanged |
+| — | **14** | No | No | **removed from the ranking** |
+
+## Which moved and why
+
+**Row 10, first to sixth.** The whole of its rank was the belief that a deleted override passes
+unnoticed. It does not: row 13 fails it, twice, quoting both stubs. Row 10 is still wrong, and the
+cost of its wrongness is a verdict filed in the wrong place — a real defect for anyone repairing the
+check, and nearly nothing for anyone running it.
+
+**Row 13, sixth to third.** It rises for the opposite reason. It is the only row catching two
+distinct defects, one of which it acquired by accident, and there is no second net under it. A
+mis-repair here removes coverage twice over, and the property that would be most tempting to tighten
+— the unbounded "any other file or folder they say is here" — is exactly what does the catching.
+
+**Rows 4 and 11 rise into the top two** without changing at all: they were second-axis winners all
+along, and nothing covers either. Row 11 is still the sharpest single item, one verdict over an
+entire registry.
+
+**Row 14 leaves the ranking.** [`0010`](../decisions/0010-the-path-note-stays-optional.md) decided
+it: the silence is a declared limit, not an open defect, so it is not competing for repair.
+
+## What the second axis is worth
+
+It reordered half the list and it demoted the item that was first. Neither axis alone was enough:
+visibility said row 10 mattered most, coverage says it matters least of the silent rows. **And the
+coverage axis could not have been derived by reading** — the overlap it turns on was found by running
+a check against a planted defect and watching a row nobody was looking at do the work.
