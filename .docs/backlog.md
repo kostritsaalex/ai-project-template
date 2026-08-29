@@ -362,6 +362,13 @@ makes that project the natural arm: one task run there with the principles prese
 section emptied, judged by the work. That is the same design that settled `0008`, and it is available
 for the price of two runs whenever somebody wants it.
 
+**`blueprints/setup/` is a blueprint folder with no version, and it just moved.** `0.10.0` changed
+`procedure.md` and no version records it. This is the same hole `checks/` had until `0.9.0` gave it a
+counter, found the same way, by running `release.md` step 7 and reading V1 against V2. The setup
+folder is not a blueprint anyone adopts — nothing is copied out of it — which is the argument for
+leaving it alone, and it ships prompts that change between releases, which is the argument against.
+Decide it the next time that folder changes.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
