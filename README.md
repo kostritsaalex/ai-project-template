@@ -24,7 +24,8 @@ Everything a document says is measured against one test:
 
 An assistant can open a folder and look. The platform, the local URL, the file layout, what the
 folder holds: all visible, so none of it belongs in a document. What survives is the registry, the
-address of the parent, the owner's principles, and what the project does not do.
+address of the parent, the owner's principles, and what the project covers with everything else
+outside it.
 
 ---
 
@@ -63,12 +64,16 @@ component. A nested component is `assets/brand` in one and `../` in the other.
 
 ## Blueprints
 
-| Blueprint | What it is for | Version |
-| --- | --- | --- |
-| [project](blueprints/project/) | The entry point. Principles, boundaries, the registry. One per project. | 0.7.0 |
-| [component](blueprints/component/) | Attaching a folder. Two stubs, nothing else. | 0.6.0 |
-| [repository](blueprints/repository/) | Override, for a `Repository` component that has rules of its own. | 0.6.0 |
-| [assets](blueprints/assets/) | Override, for an `Assets` component that has rules of its own. | 0.6.0 |
+| Blueprint | What it is for |
+| --- | --- |
+| [project](blueprints/project/) | The entry point. Principles, boundaries, the registry. One per project. |
+| [component](blueprints/component/) | Attaching a folder. Two stubs, nothing else. |
+| [repository](blueprints/repository/) | Override, for a `Repository` component that has rules of its own. |
+| [assets](blueprints/assets/) | Override, for an `Assets` component that has rules of its own. |
+
+Each blueprint's own `README.md` carries its version. This table used to repeat them and two of the
+four had gone stale by three releases, which is principle 5 doing what it says: a fact in two places
+is a fact that will disagree with itself.
 
 The first two do the ordinary work. The other two exist for a folder that needs to say something
 true of itself alone: platform conventions, a directory a tool rather than a person owns, an
@@ -84,11 +89,14 @@ be adapted rather than copied verbatim.
 
 [`blueprints/setup/`](blueprints/setup/) holds two prompts. You paste one, answer questions, and get
 filled files: `new-project.md` for the entry point, `new-component.md` for every folder after that.
+The project scope's questions are shipped as text in `interview.md` and asked verbatim; the component
+prompt still builds its own.
 
-[`blueprints/checks/`](blueprints/checks/) holds two more. `structure-check.md` audits the mechanics
-and returns a quote for every row. `cold-start-check.md` asks whether an assistant opening the folder
-for the first time actually picks up the context, and has to run in a session that did not perform
-the adoption.
+[`blueprints/checks/`](blueprints/checks/) holds three more. `structure-check.md` audits the mechanics
+of one folder and returns a quote for every row. `registry-check.md` walks the registry outward and
+opens each declared component, so it is the one check that reads more than one folder.
+`cold-start-check.md` asks whether an assistant opening the folder for the first time actually picks
+up the context, and has to run in a session that did not perform the adoption.
 
 ---
 
@@ -173,7 +181,7 @@ fully specified.
 
 ### If you are already on 0.7.0, here is what six releases bought you
 
-Measured on 2026-08-30, and reported here rather than left in the changelog, because a changelog
+Measured on 2026-08-29, and reported here rather than left in the changelog, because a changelog
 tells you what happened and not whether it was worth your time.
 
 **One better sentence in your `PROJECT.md`.** Diffing what actually lands in an adopted project,

@@ -6,14 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
-## [0.11.0] - 2026-08-30
+## [0.11.0] - 2026-08-29
 
 **The interview ships as text.** The framework shipped no interview at all, and nobody had noticed.
 See [0013](.docs/decisions/0013-the-interview-ships-as-text.md).
 
 ### Added
 
-- `blueprints/setup/interview.md`. Six questions and 203 words, asked verbatim. `procedure.md`
+- `blueprints/setup/interview.md`. Seven questions and 217 words, asked verbatim. `procedure.md`
   Step 4 points at it and requires it unaltered. It exists because a topic list is a prediction about
   whoever renders it: the same five topics, under one harness four days apart, produced an interview
   the owner accepted and one he refused.
@@ -50,18 +50,23 @@ adopted project carries.
 
 ### Also in this release, and not caused by it
 
+- **`README.md` loses its blueprint version column**, in which two of four rows had gone stale by
+  three releases. Each blueprint's own `README.md` carries its version; repeating them here was
+  principle 5 doing what it says. Also repaired there: the claim that `blueprints/checks/` holds two
+  checks, when it has held three since `0.9.0`, and a sixth surviving fragment of the pre-`0.10.0`
+  boundary form.
 - **`README.md` gains an upgrade answer**, in the `Status` section where somebody deciding whether to
   upgrade would meet it: what six releases from `0.8.0` to `0.10.2` bought an adopter, measured. One
   boundary sentence, one 50-line fragment removed, one new check. **It says plainly that the owner's
   hypothesis — that `0.7` was already enough — is confirmed except for `registry-check`.** Written
-  2026-08-30 in `7e7f8df`, before this release was drafted.
+  2026-08-29 in `7e7f8df`, before this release was drafted.
 - **`.docs/handover.md` and `.docs/backlog.md` carry the previous session's save-state**, committed in
   `02e7e75` after `v0.10.2` was tagged. It records the second aborted adoption. It changes no rule and
   causes no version, and it appears in this release's diff only because it landed between two tags.
 
 ### On the evidence
 
-Eleven runs, all logged in [`.docs/runs/`](.docs/runs/), three pre-registrations scored.
+Fifteen runs, all logged in [`.docs/runs/`](.docs/runs/), four pre-registrations scored.
 
 **What carried this.** Added prose measured at **zero words in four runs of the script across two
 scopes**, similarity 1.000 each time, plus a fifth run of the exact released text with the same
@@ -79,6 +84,18 @@ answered them and no `PROJECT.md` was produced. The six questions are proven to 
 are **not** proven to be enough to write a complete document from. **So `0.11.0` is provisional in
 exactly the way `0.10.0` through `0.10.2` are, and the ArtGlina adoption is the one instrument that
 settles all four.**
+
+**A placeholder map found a real defect in this tree before it was tagged, for two runs.** Every one
+of `PROJECT.md`'s twelve placeholders needs a source: six come from questions, three from proposals,
+two are read. **The twelfth, `<DOCUMENT_OWNER>`, had none** — no question asked it, it cannot be seen
+in an empty folder, and `interview.md` listed it among the proposals while naming no source, unlike
+the other three. Two sessions given the six answers, with no name anywhere in the prompt, both wrote
+`Alex` and **sourced it differently**: one from the account identity, one **from the framework's own
+`PROJECT.md`**. That second route writes `Alex` into the document of anybody who adopts this
+framework, and it was right here only because the adopter and the framework's owner are the same
+person. **So the interview is seven questions**, and the released text was run again to keep the
+shipped bytes run bytes. The general rule it leaves: a proposal earns its place only if the
+assistant note names where it comes from.
 
 **A shipped script ships its defects with perfect fidelity.** The draft's question 5 named a summary
 table "below" that is not below. Four runs reproduced the false clause four times, where an

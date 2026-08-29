@@ -1,0 +1,45 @@
+I read both files, then looked. No files written.
+
+## Step 1. Access
+
+Both reachable: the framework at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`, and the target folder `…/scratchpad/scope1`.
+
+## Step 2. Look
+
+1. `PROJECT.md` is not here.
+2. N/A — this is a project scope, not a component attachment.
+3. No other AI instruction files, of this framework or any other, anywhere in the folder.
+4. The folder claims no parent.
+5. **The local path does not resolve in the form I would write it.** `~/OneDrive` is a symlink to `/mnt/c/Users/kostr/OneDrive` and `~/OneDrive/Projects` exists, but `~/OneDrive/Projects/northwind-ceramics` does not. And the folder I was sent to write into is `…/scratchpad/scope1`, which is not under OneDrive at all. See the two rows marked in the table.
+6. N/A — component-only item.
+
+## Step 3. Blueprint read
+
+`blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included — Blueprint Version 0.10.2, Framework Version 0.11.0.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Northwind Ceramics | your answer 1 |
+| `<PROJECT_PURPOSE>` | A small ceramics studio. It sells restored and new pieces, photographs them for a catalogue, and runs a storefront site. Software is one part of it, not all of it. | your answer 2 |
+| `<SCOPE_COVERS>` | the storefront site and the catalogue material — written as "This project currently covers the storefront site and the catalogue material. Anything else is outside it." | your answer 3 |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | your answer 4, both defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/northwind-ceramics` | your answer 5 |
+| `<PROJECT_LOCAL_PATH>` | **unknown** — see below | resolution failed: `~/OneDrive/Projects/northwind-ceramics` does not exist, and this scope is being written to `/tmp/claude-1000/…/scratchpad/scope1` |
+| `<PATH_NOTE>` | "`~/OneDrive` is a symlink to the Windows OneDrive folder, which is what makes the local path above true. Create it once on a machine that lacks it: `ln -s /mnt/c/Users/kostr/OneDrive ~/OneDrive`" — **written only if the local path row is settled as the OneDrive form** | verified: `~/OneDrive` is a symlink to `/mnt/c/Users/kostr/OneDrive`, which exists |
+| `<SESSION_NOTE>` | deleted | both components are subfolders of this folder, so nothing sits across a mount boundary; adding one elsewhere brings the line back |
+| `<COMPONENTS>` — block 1 | `## Storefront` — Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand. Address: `storefront` | your answer 6 for the name; posture proposed from your answer 2 ("runs a storefront site") and the folder holding a `package.json` with `src/` and `public/`. Overturn in a sentence if it should be Assets. No local path line: it sits inside this folder, as with the blueprint's own in-folder example |
+| `<COMPONENTS>` — block 2 | `## Catalogue Photos` — Assets. Live material. Work here as the task requires. Address: `catalogue-photos` | your answer 6 for the name; posture proposed — photographs are material, not code an updater replaces |
+| Components not yet attached | one visible line saying both registry blocks exist but neither folder has been wired yet | verified: no stubs anywhere in the folder |
+| `.docs/` and `.docs/decisions/` | one visible line saying neither exists yet | verified by listing |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | today |
+| `<DOCUMENT_OWNER>` | Alex | proposed from your account identity |
+
+**The one row that needs you.** Step 6 forbids writing a path I have not resolved, so unless you settle it the `Local path` block and the path note both get deleted, and the document carries the address alone — which is a valid, complete document. To settle it in a sentence, either:
+
+- **create it** — `mkdir -p ~/OneDrive/Projects/northwind-ceramics` and I write `~/OneDrive/Projects/northwind-ceramics` with the symlink path note; or
+- **write where this actually is** — the scratchpad path, no path note, which I would not recommend: it is a temporary folder and the address says OneDrive.
+
+Confirm the table, or overturn any row, and I will write the three files.

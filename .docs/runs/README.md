@@ -34,17 +34,20 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-structure-check-2-row4-negative.log` | Same | Row 4 negative | One word changed in `wp-themes/AGENTS.md` only, deliberately not the naming line; restored after | 2026-08-29 |
 | `2026-08-29-registry-check-9-deleted-override.log` | `registry-check.md` at `0.9.3` | The same planted folder, seen from the scope | Same | 2026-08-29 |
 | `2026-08-29-registry-check-8-row4-negative-string.log` | Same | Check 4's negative half, string branch | **Planted in a component's stubs, not in `PROJECT.md`.** The Engine's `AGENTS.md` and `CLAUDE.md` line 12, one path segment changed, in the WSL filesystem | 2026-08-29 |
-| `2026-08-30-interview-length-a1.log` | Framework at `v0.7.0`, from a git worktree at that tag | Arm A, first run | **Not a check run and not a real project.** A scratch scope built for this experiment and deleted after: `storefront/` (astro `package.json`, `src/`, `public/`), `catalogue-photos/2026/` (three empty `.jpg`), `supplier-notes/` (two `.md`). Never written to; tree checksum `47809391e908d576d7fae6d9657e7e31` verified unchanged after all four runs | 2026-08-30 |
-| `2026-08-30-interview-length-a2.log` | Same | Arm A, repeat | Same scope, unchanged | 2026-08-30 |
-| `2026-08-30-interview-length-b1.log` | Framework at `HEAD` = `7e7f8df`, which is `0.10.2` plus the one-clause `procedure.md` repair `3363d09` | Arm B, first run | Same scope, unchanged | 2026-08-30 |
-| `2026-08-30-interview-length-b2.log` | Same | Arm B, repeat | Same scope, unchanged | 2026-08-30 |
-| `2026-08-30-shipped-script-bprime1.log` | `HEAD` unmodified | Arm B′, control, first run | **Scope 2**, a second scratch scope: five folders, all material, no code — `archive-2024/`, `archive-2025/`, `glaze-tests/`, `exhibition-prints/`, `client-briefs/`. Path-relative checksum `d24c2a045ebd3e87e47cb0b199472ded`, verified unchanged after all six runs | 2026-08-30 |
-| `2026-08-30-shipped-script-bprime2.log` | Same | Arm B′, repeat | Same | 2026-08-30 |
-| `2026-08-30-shipped-script-c1.log` | `HEAD` plus `blueprints/setup/interview.md` and Step 4 replaced by a pointer to it | Arm C, the script, first run | **Scope 1**, rebuilt identical to the previous experiment's; path-relative checksum `cfe0628965b1cb30db3af0bff174dee0` | 2026-08-30 |
-| `2026-08-30-shipped-script-c2.log` | Same | Arm C, repeat | Same | 2026-08-30 |
-| `2026-08-30-shipped-script-d1.log` | Same | Arm D, the script on the other scope, first run | Scope 2 | 2026-08-30 |
-| `2026-08-30-shipped-script-d2.log` | Same | Arm D, repeat | Scope 2 | 2026-08-30 |
-| `2026-08-30-released-interview-text.log` | **The text this release ships**, `blueprints/setup/interview.md` at `0.11.0`, run against the working tree the release commit contains | Release validation, one run | Scope 1, `cfe0628965b1cb30db3af0bff174dee0`, unchanged | 2026-08-30 |
+| `2026-08-29-interview-length-a1.log` | Framework at `v0.7.0`, from a git worktree at that tag | Arm A, first run | **Not a check run and not a real project.** A scratch scope built for this experiment and deleted after: `storefront/` (astro `package.json`, `src/`, `public/`), `catalogue-photos/2026/` (three empty `.jpg`), `supplier-notes/` (two `.md`). Never written to; tree checksum `47809391e908d576d7fae6d9657e7e31` verified unchanged after all four runs | 2026-08-29 |
+| `2026-08-29-interview-length-a2.log` | Same | Arm A, repeat | Same scope, unchanged | 2026-08-29 |
+| `2026-08-29-interview-length-b1.log` | Framework at `HEAD` = `7e7f8df`, which is `0.10.2` plus the one-clause `procedure.md` repair `3363d09` | Arm B, first run | Same scope, unchanged | 2026-08-29 |
+| `2026-08-29-interview-length-b2.log` | Same | Arm B, repeat | Same scope, unchanged | 2026-08-29 |
+| `2026-08-29-shipped-script-bprime1.log` | `HEAD` unmodified | Arm B′, control, first run | **Scope 2**, a second scratch scope: five folders, all material, no code — `archive-2024/`, `archive-2025/`, `glaze-tests/`, `exhibition-prints/`, `client-briefs/`. Path-relative checksum `d24c2a045ebd3e87e47cb0b199472ded`, verified unchanged after all six runs | 2026-08-29 |
+| `2026-08-29-shipped-script-bprime2.log` | Same | Arm B′, repeat | Same | 2026-08-29 |
+| `2026-08-29-shipped-script-c1.log` | `HEAD` plus `blueprints/setup/interview.md` and Step 4 replaced by a pointer to it | Arm C, the script, first run | **Scope 1**, rebuilt identical to the previous experiment's; path-relative checksum `cfe0628965b1cb30db3af0bff174dee0` | 2026-08-29 |
+| `2026-08-29-shipped-script-c2.log` | Same | Arm C, repeat | Same | 2026-08-29 |
+| `2026-08-29-shipped-script-d1.log` | Same | Arm D, the script on the other scope, first run | Scope 2 | 2026-08-29 |
+| `2026-08-29-shipped-script-d2.log` | Same | Arm D, repeat | Scope 2 | 2026-08-29 |
+| `2026-08-29-released-interview-text.log` | **The text this release ships**, `blueprints/setup/interview.md` at `0.11.0`, run against the working tree the release commit contains | Release validation, one run | Scope 1, `cfe0628965b1cb30db3af0bff174dee0`, unchanged | 2026-08-29 |
+| `2026-08-29-placeholder-coverage-1.log` | `0.11.0` as committed, six questions | Placeholder coverage, first run. **Answers supplied so the session reaches Step 5**, and deliberately containing no name of any kind | Scope 1, unchanged | 2026-08-29 |
+| `2026-08-29-placeholder-coverage-2.log` | Same | Repeat, because a silent omission is an absence | Same | 2026-08-29 |
+| `2026-08-29-released-interview-text-seven.log` | **The text this release ships**, `interview.md` at seven questions after the coverage check added one | Release validation, re-run after the interview changed | Same | 2026-08-29 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -86,17 +89,20 @@ f3bc602e06e2650ab4a21cc7449a352a  2026-08-29-structure-check-1-deleted-override.
 45fa11257420e2f0726c2b12f7f4d7aa  2026-08-29-structure-check-2-row4-positive.log
 6b121ec91c4b55d2bcc51b0d6586dfc0  2026-08-29-structure-check-2-row4-positive-repeat.log
 c3b8f56af7b03aa64eb4291eecb45889  2026-08-29-structure-check-2-row4-negative.log
-ecc4170878cb75d120a0fa9711f21ac6  2026-08-30-interview-length-a1.log
-c411a8a2c6f93934360288239c487558  2026-08-30-interview-length-a2.log
-80c4c47ded6f9ca5d0b46569bbba7d8b  2026-08-30-interview-length-b1.log
-f65aca1671634a46eead89db142bb645  2026-08-30-interview-length-b2.log
-cd260974c33fd14e95de3e6eeebe026a  2026-08-30-shipped-script-bprime1.log
-1f2908fa4d435b616c0cfd85e17a4a27  2026-08-30-shipped-script-bprime2.log
-b446c16cfdf8dc79695e7c6030650590  2026-08-30-shipped-script-c1.log
-789986262a49905836d2d62e38d7ee7a  2026-08-30-shipped-script-c2.log
-714335b9bf741c81bc97bcb27b09a79d  2026-08-30-shipped-script-d1.log
-6e01c0dcb0fe153edd2dbf9b12c10a75  2026-08-30-shipped-script-d2.log
-14da8e21cfa27b5284710e627b55685f  2026-08-30-released-interview-text.log
+ecc4170878cb75d120a0fa9711f21ac6  2026-08-29-interview-length-a1.log
+c411a8a2c6f93934360288239c487558  2026-08-29-interview-length-a2.log
+80c4c47ded6f9ca5d0b46569bbba7d8b  2026-08-29-interview-length-b1.log
+f65aca1671634a46eead89db142bb645  2026-08-29-interview-length-b2.log
+cd260974c33fd14e95de3e6eeebe026a  2026-08-29-shipped-script-bprime1.log
+1f2908fa4d435b616c0cfd85e17a4a27  2026-08-29-shipped-script-bprime2.log
+b446c16cfdf8dc79695e7c6030650590  2026-08-29-shipped-script-c1.log
+789986262a49905836d2d62e38d7ee7a  2026-08-29-shipped-script-c2.log
+714335b9bf741c81bc97bcb27b09a79d  2026-08-29-shipped-script-d1.log
+6e01c0dcb0fe153edd2dbf9b12c10a75  2026-08-29-shipped-script-d2.log
+14da8e21cfa27b5284710e627b55685f  2026-08-29-released-interview-text.log
+dba6ac2e180fd20ae46205a705618f54  2026-08-29-placeholder-coverage-1.log
+ce2c047b684a1c7eca8d5dd55e307a7c  2026-08-29-placeholder-coverage-2.log
+85b91316bd29a0427f3da013188300f0  2026-08-29-released-interview-text-seven.log
 ```
 
 ## What they are evidence for
@@ -125,7 +131,7 @@ of a row being forced into a verdict it has no basis for.
 ## The four interview logs are a different kind of run, and the index should say so
 
 Every other log here is a **check** run against a real project scope. The four
-`2026-08-30-interview-length-*` logs are **setup** runs against a scratch folder, and what they
+`2026-08-29-interview-length-*` logs are **setup** runs against a scratch folder, and what they
 record is a question block rather than a verdict table. They were produced by `claude -p`, one fresh
 non-interactive session each, with `Write`, `Edit` and `NotebookEdit` disabled so no run could write
 into the scope — a deviation from an ordinary adoption, identical across both arms, recorded in

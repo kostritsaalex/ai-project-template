@@ -75,7 +75,7 @@ which version you read.
 
 ## Step 4. Ask
 
-Ask the six questions in [`interview.md`](interview.md) **verbatim and in order, in one message.**
+Ask the seven questions in [`interview.md`](interview.md) **verbatim and in order, in one message.**
 Do not introduce them, gloss them, add clarifications, or add questions of your own. If something is
 missing from them, that is a defect in that file and it is reported after the interview rather than
 patched into the message.

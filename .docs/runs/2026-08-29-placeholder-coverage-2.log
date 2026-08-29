@@ -1,0 +1,45 @@
+Read: `blueprints/setup/procedure.md` (whole), `blueprints/setup/new-project.md` ("Notes for this scope"), `blueprints/setup/interview.md` (0.11.0), `blueprints/project/README.md` — **Project Scope Blueprint 0.10.2, Framework 0.11.0** — and `blueprints/project/PROJECT.md`.
+
+**Step 1 — Access.** Both addresses reachable: the framework at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`, and the target at `.../scratchpad/scope1`. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` here.
+2. N/A — this is a project scope, not a component attachment.
+3. No other AI instruction files, of this framework or another. No `.git`.
+4. The folder claims no parent.
+5. The local path I intend to write resolves in exactly that form: `realpath` returns it unchanged, so no symlink or mount holds it up.
+6. N/A — component-only item.
+
+**Step 3 — Blueprint.** `blueprints/project/README.md`, Blueprint Version 0.10.2 (Framework 0.11.0).
+
+**Step 4 — Ask.** Skipped; you supplied all six answers.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value to be written | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Northwind Ceramics | your answer (1) |
+| `<PROJECT_PURPOSE>` | Northwind Ceramics is a small ceramics studio. It sells restored and new pieces, photographs them for a catalogue, and runs a storefront site. Software is one part of it, not all of it. | your answer (2) |
+| `<SCOPE_COVERS>` | `This project currently covers the storefront site and the catalogue material. Anything else is outside it.` | your answer (3) |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | your answer (4), both defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/northwind-ceramics` | your answer (5) |
+| `<PROJECT_LOCAL_PATH>` | **Proposal: delete the line.** The folder actually sits at `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope1`, a session scratchpad — it resolves here and nowhere else, and it is not `~/OneDrive/Projects/northwind-ceramics`. Writing it would put a path in the document that is false on every other machine, including yours tomorrow. | my proposal — overturn in a sentence if you want the literal path written, or give me the real home for this folder |
+| `<PATH_NOTE>` | Delete. The path above resolves on its own; no symlink or mount holds it up. | settled from `realpath`, Step 2 item 5 |
+| `<SESSION_NOTE>` | Delete. Both components sit inside the project folder, on the same side as this document. Adding a component elsewhere brings the line back. | settled from your answer (6) plus the folder layout |
+| `<COMPONENTS>` — block 1 | `## Northwind Storefront` — Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand. Address: `storefront` | name and folder from your answer (6); posture my proposal, from your description of it as the storefront site |
+| `<COMPONENTS>` — block 2 | `## Northwind Catalogue Photos` — Assets. Live material. Work here as the task requires. Address: `catalogue-photos` | name and folder from your answer (6); posture my proposal, from your description of it as catalogue material |
+| Components not wired | Visible line saying both blocks exist in the registry but neither folder has been attached yet. | settled from Step 2 item 3 — no stubs anywhere |
+| `.docs/` line | Visible line: neither `.docs/` nor `.docs/decisions/` exists yet. | settled from the folder listing |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | settled from `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | today's date |
+| `<DOCUMENT_OWNER>` | Alex | my proposal, from the framework's own `PROJECT.md` |
+
+Two things worth a sentence before you confirm:
+
+- **The local path row is the one real decision here.** Your address is a OneDrive location; the folder I was pointed at is a temp scratchpad. Those are not the same place, and only one of them can be written truthfully.
+- `supplier-notes/` is in the folder and you did not name it. Per your answer being complete, it is not a component and gets no block — it is files sitting in the project scope.
+
+Nothing written. Confirm the table, or overturn any row, and I'll proceed to Step 6 when you tell me to.

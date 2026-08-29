@@ -1,13 +1,13 @@
 # Pre-registration: does the framework produce the interview's length, or does the reader?
 
-**Written 2026-08-30, before any arm is run. Committed before the first run.**
+**Written 2026-08-29, before any arm is run. Committed before the first run.**
 
 ---
 
 ## The question
 
 The interview the owner refused on 2026-08-29 was 937 words. The interview he accepted at `0.7.0`
-he recalls as four or five questions with answer options. Measurement on 2026-08-30 established
+he recalls as four or five questions with answer options. Measurement on 2026-08-29 established
 that the framework's setup path grew **four non-blank lines** between those two versions, that the
 framework ships **no interview text at all**, and that the same harness — Claude Code — rendered
 both.
@@ -30,7 +30,7 @@ about a model rather than a property of a rule — and it belongs beside the fir
 
 ## Why this is worth two runs rather than an argument
 
-The `+23 lines` claim was written on 2026-08-30 as an explicit hypothesis and marked as one. Acting
+The `+23 lines` claim was written on 2026-08-29 as an explicit hypothesis and marked as one. Acting
 on it without running it is the state principle 6 exists to prevent, and the whole of 2026-08-29
 was spent cataloguing what happens when a fix is written while composing the thing that carries it.
 
@@ -151,10 +151,10 @@ Stated in advance so it cannot be decided afterwards:
 
 ---
 
-# Results, scored 2026-08-30, after all four runs
+# Results, scored 2026-08-29, after all four runs
 
 Four runs, `claude -p`, `--model opus`, fresh session each, logs committed verbatim as
-`.docs/runs/2026-08-30-interview-length-{a1,a2,b1,b2}.log`.
+`.docs/runs/2026-08-29-interview-length-{a1,a2,b1,b2}.log`.
 
 ## Validity, checked before anything was interpreted
 

@@ -1,6 +1,6 @@
 # Pre-registration: one run of the text that actually ships
 
-**Written 2026-08-30, before the run and before the release commit. Committed first.**
+**Written 2026-08-29, before the run and before the release commit. Committed first.**
 
 ---
 
@@ -66,9 +66,9 @@ folder.
 
 ---
 
-# Result, scored 2026-08-30, before the release commit
+# Result, scored 2026-08-29, before the release commit
 
-Log: `.docs/runs/2026-08-30-released-interview-text.log`. Run against the working tree that the
+Log: `.docs/runs/2026-08-29-released-interview-text.log`. Run against the working tree that the
 release commit contains, not a copy of it.
 
 | | predicted | observed |

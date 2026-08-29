@@ -1,6 +1,6 @@
 # Pre-registration: does a shipped script stay shipped?
 
-**Written 2026-08-30, before any arm is run. Committed before the first run.**
+**Written 2026-08-29, before any arm is run. Committed before the first run.**
 
 ---
 
@@ -36,7 +36,7 @@ This is the one experiment that can still falsify the proposal, and it costs six
 
 ## The subject
 
-[`../drafts/interview.md`](../drafts/interview.md), drafted 2026-08-30 before this file was written.
+[`../drafts/interview.md`](../drafts/interview.md), drafted 2026-08-29 before this file was written.
 Six questions, **203 words**, 16 non-blank lines in the question block. Arm B's question block was
 488 words and the refused ArtGlina interview's was 633.
 
@@ -80,7 +80,7 @@ material, no code anywhere, so every posture proposal is `Assets` and none is `R
 | **D** | `HEAD` + the script | Scope 2 | 2 |
 
 Arm B on scope 1 already exists as
-`.docs/runs/2026-08-30-interview-length-b{1,2}.log` and is **not re-run.**
+`.docs/runs/2026-08-29-interview-length-b{1,2}.log` and is **not re-run.**
 
 **How the script framework is built, recorded because it is part of the arm.** A copy of the `HEAD`
 tree, with `.docs/drafts/interview.md` placed at `blueprints/setup/interview.md`, and
@@ -162,9 +162,9 @@ decorated at this sample size.
 
 ---
 
-# Results, scored 2026-08-30
+# Results, scored 2026-08-29
 
-Six runs, logs committed as `.docs/runs/2026-08-30-shipped-script-*.log`. The installed
+Six runs, logs committed as `.docs/runs/2026-08-29-shipped-script-*.log`. The installed
 `interview.md` and the exact Step 4 replacement are committed as
 `.docs/drafts/interview-as-installed.md` and `.docs/drafts/step-4-replacement.diff`.
 

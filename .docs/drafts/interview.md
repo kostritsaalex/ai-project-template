@@ -1,6 +1,6 @@
 # Draft: the project scope interview, shipped as text
 
-**Draft, 2026-08-30. Not in `blueprints/`. Nothing is released on the strength of this file.**
+**Draft, 2026-08-29. Not in `blueprints/`. Nothing is released on the strength of this file.**
 
 It exists to be the subject of
 [`../predictions/does-a-shipped-script-stay-shipped.md`](../predictions/does-a-shipped-script-stay-shipped.md).
@@ -11,14 +11,14 @@ file is deleted rather than repaired.
 
 ## For the assistant. Not shown to the person.
 
-Ask the six questions below **verbatim and in order, in one message.** Do not introduce them, gloss
+Ask the seven questions below **verbatim and in order, in one message.** Do not introduce them, gloss
 them, add clarifications, or add questions of your own. If something is missing from them, that is a
 defect in this file and it is reported afterwards, not patched in the message.
 
 Everything else is settled by proposal and shown in the summary table, where one sentence overturns
 it: the local path in the form you resolved, the path note and the command that recreates it, each
-component's posture, whether an override already exists, the document owner, and the session note
-once the components are known.
+component's posture, whether an override already exists, and the session note once the components
+are known.
 
 ---
 
@@ -47,6 +47,8 @@ once the components are known.
 6. **Components.** Which folders do you declare as components? A component is a folder belonging to
    this project, code or material; this folder is not one, it is the project scope. Name each one. A
    folder you do not name is files inside whichever component contains it. None is a complete answer.
+
+7. **Document owner.** Whose name goes on the `Document Owner` line?
 
 ---
 

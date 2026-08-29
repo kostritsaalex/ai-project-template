@@ -1,6 +1,6 @@
 # Pre-registration: do six answers and three proposals fill twelve placeholders?
 
-**Written 2026-08-30, before the run, after `0.11.0` was committed and verified and before it was
+**Written 2026-08-29, before the run, after `0.11.0` was committed and verified and before it was
 tagged.**
 
 ---
@@ -78,3 +78,59 @@ evidence is an absence, and an absence gets a repeat.
 **Outcome (b) in either run** sends the interview to seven questions. A source named in one run and
 not the other is (b): a value that appears only sometimes is the variance this whole release exists
 to remove.
+
+---
+
+# Result, scored 2026-08-29, before the tag
+
+Logs: `2026-08-29-placeholder-coverage-{1,2}.log`.
+
+**O1 holds.** Both runs produced the Step 5 summary table with a row for every placeholder. Both also
+added rows the map did not predict and which are correct: a visible line for components listed but
+not attached, and one for `.docs/` not existing yet.
+
+**O3 holds.** No placeholder other than `<DOCUMENT_OWNER>` came out unsourced. Run 1 marked
+`<PROJECT_LOCAL_PATH>` **unknown** and said why — the OneDrive path in the answer does not exist and
+the folder it was sent to is elsewhere — which is the procedure's Step 6 rule working, not a gap.
+
+**O4 holds.** Scope checksum `cfe0628965b1cb30db3af0bff174dee0`, unchanged.
+
+**O2 is (b), and the route matters more than the verdict.**
+
+Both runs wrote `Alex`. **They sourced it differently:**
+
+| run | value | source given |
+| --- | --- | --- |
+| 1 | Alex | "proposed from your account identity" |
+| 2 | Alex | "my proposal, from the framework's own `PROJECT.md`" |
+
+Run 2 read the **framework's own** `Document Owner` and copied it into a different project's
+document. **That route writes `Alex` into the `PROJECT.md` of anybody who adopts this framework.** It
+produced the right answer here only because the adopter and the framework's owner are the same
+person — which is the condition the `1.0` criteria in the `README` already name as the thing that has
+never been tested.
+
+The pre-registration named a differing source as the deciding outcome before the runs, so this is
+(b) by the rule written in advance and not by a reading chosen afterwards.
+
+## What was done
+
+`interview.md` gains **question 7: "Document owner. Whose name goes on the `Document Owner` line?"**
+Seven questions, 217 words. The claim that the owner is settled by proposal is removed from the
+assistant note, because it was never true.
+
+`0013`'s six-not-seven paragraph gains the exception, with this run as its evidence.
+
+**The released text was run again**, `2026-08-29-released-interview-text-seven.log`: **0 added words,
+similarity 1.000, seven questions**, scope unchanged. That is six runs of the mechanism with zero
+added prose, and it keeps the rule that the shipped bytes are run bytes.
+
+## The general rule this leaves, and it is worth more than the question
+
+**A proposal earns its place only if the assistant note names where it comes from.** The other three
+proposals name their sources — the local path from Step 2's resolution, the path note from the
+arrangement holding it up, the session note from the components. `<DOCUMENT_OWNER>` was listed among
+them with no source named, and that unnamed source is exactly where the defect was.
+
+This is the cheapest slice of the sufficiency test and the only part that needed no adoption. It
+found a real defect in a released tree before it was tagged, for the price of two runs.

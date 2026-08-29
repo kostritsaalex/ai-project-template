@@ -1,6 +1,6 @@
 # 0013. The interview ships as text
 
-**Date:** 2026-08-30  
+**Date:** 2026-08-29  
 **Status:** accepted
 
 ---
@@ -39,7 +39,7 @@ treatments, one folder apart, and the asymmetry had no recorded reason.
 **The framework ships the wording of the project scope interview as text, the way `checks/` ships
 prompts. The tool composes everything the look produces.**
 
-`blueprints/setup/interview.md` holds six questions and 203 words. `procedure.md` Step 4 points at
+`blueprints/setup/interview.md` holds seven questions and 217 words. `procedure.md` Step 4 points at
 it and requires it verbatim.
 
 **The line between shipped and generated is not a new one.** It is
@@ -52,14 +52,41 @@ Generated, and never in the file: the Step 2 look report; the resolved local pat
 path note and the command that recreates it; each component's posture; whether an override exists;
 the document owner; the session note; the summary table; every exception branch in Steps 1 and 2.
 
-**Six questions and not seven, and the reason is in the logs rather than in taste.** Seven appeared
-in all four runs of the length experiment and in the refused interview. Six of the seven are stable
-across every run — name, what it is, boundary, principles, address, components. **The seventh differs
-every time, and three of four were questions the framework had already forbidden**: whether `.docs/`
-exists, asked while stating that it does not; the local path, asked after being resolved; the
-posture, which Step 4 says in as many words is not a question. The fourth belongs to
-`new-component.md`. The seventh slot is not a topic. It is where an unspecified interview puts
-whatever it invented that run.
+**Six of the questions were settled by the logs, and the seventh by a check run before the tag.**
+
+Seven questions appeared in all four runs of the length experiment and in the refused interview. Six
+of them are stable across every run — name, what it is, boundary, principles, address, components.
+**The seventh differed every time, and three of four were questions the framework had already
+forbidden**: whether `.docs/` exists, asked while stating that it does not; the local path, asked
+after being resolved; the posture, which Step 4 says in as many words is not a question. The fourth
+belongs to `new-component.md`. So the seventh slot was not a topic. It was where an unspecified
+interview put whatever it invented that run, and the draft shipped six.
+
+**That was wrong, and a placeholder map caught it before the tag.** `PROJECT.md` carries twelve
+placeholders and every one needs a source. Six come from the questions, three from proposals — local
+path, path note, session note — and two are read, the blueprint version and the date. **The twelfth,
+`<DOCUMENT_OWNER>`, had none.** No question asked it, it cannot be seen in an empty folder, and
+`interview.md` listed it among the things settled by proposal **while naming no source for it**,
+unlike the other three which all name theirs.
+
+**Established by running it rather than by reasoning about it**, in
+[`../predictions/placeholder-coverage.md`](../predictions/placeholder-coverage.md). Two sessions were
+given the six answers, with **no name of any kind in the prompt**, and asked to produce the Step 5
+summary table. Both filled every placeholder. Both wrote `Alex`. **They sourced it differently:** one
+"from your account identity", the other "from the framework's own `PROJECT.md`".
+
+The second route is the finding. It reads the *framework's* document owner and copies it into a
+different project's document, so it writes `Alex` into the file of anybody who adopts this framework.
+It was right here only because the adopter and the framework's owner are the same person, which is
+the condition the `1.0` criteria already name as the thing never yet tested.
+
+**So the interview is seven questions.** One value, two sources, one of them wrong for every adopter
+but one, is the same variance this release exists to remove — and the pre-registration named a
+differing source as the deciding outcome before the runs. The question is one line and eleven words.
+
+**The general rule this leaves, worth more than the question:** a proposal earns its place only if
+the assistant note names where it comes from. The other three name theirs. This one did not, and that
+absence was exactly where the defect was.
 
 ## What the evidence is, and what it is not
 
@@ -101,9 +128,10 @@ That is the exchange principle 7 asks a release to name: the folder a person nev
 221 words so that the message a person does read falls from roughly 503 to 203.
 
 **Fidelity is not sufficiency, and this is the limit that matters.** Every run had writing disabled
-and stopped at the questions. Nobody answered them and no `PROJECT.md` was produced. **The six
+and stopped at the questions. Nobody answered them and no `PROJECT.md` was produced. **The seven
 questions are proven to arrive verbatim. They are not proven to be enough to write a complete
-document from.** The test for that is an adoption, it is scheduled, and it is the same instrument
+document from**, though the placeholder check above closes the one part of that which needed no
+adoption. The test for that is an adoption, it is scheduled, and it is the same instrument
 that un-provisions `0.10.0` through `0.10.2`. Until it runs, this release is provisional in exactly
 the way those three are.
 
@@ -138,7 +166,7 @@ their place because two renderings of the same five topics differed enough that 
 
 ## Origin
 
-**Decided by the owner, 2026-08-30**, across a day that began with a measurement he required before
+**Decided by the owner, 2026-08-29**, across a day that began with a measurement he required before
 any repair and ended with him accepting a result whose strongest argument had been withdrawn by its
 own control.
 

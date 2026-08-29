@@ -2,11 +2,11 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after the interview was measured rather than repaired.
+Last updated 2026-08-29, after the interview was measured rather than repaired.
 
 ---
 
-## Where we are, 2026-08-30
+## Where we are, 2026-08-29
 
 **`0.11.0` is committed and deliberately not yet tagged.** The owner reads the changelog entry before
 it is cut. When it is tagged this line becomes the usual "released, tagged and pushed", which is what
@@ -24,7 +24,7 @@ one sentence. Every interview was composed fresh by whichever tool held the blue
 had grown four non-blank lines in four releases.
 
 **One harness, near-identical instructions four lines apart: one interview the owner liked at `0.7`,
-one he refused at `0.10.2`.** Claude Code rendered both, established by the owner on 2026-08-30, so
+one he refused at `0.10.2`.** Claude Code rendered both, established by the owner on 2026-08-29, so
 the tool is not the variable and the model under it is the remaining candidate. That was not
 degradation, it was variance in something never specified — the same finding as an under-specified
 check row, on a new surface, with the same consequence that nothing in the output distinguishes
@@ -61,7 +61,7 @@ cover" and "exclu"; repaired in `0.11.0`. `cold-start-check.md` line 133 is stil
 wording and is **open**, because the checks were out of scope. All three are recorded in the
 stale-fact item below.
 
-**`blueprints/setup/` gets a version. Decided by the owner, 2026-08-30.** It had moved twice with no
+**`blueprints/setup/` gets a version. Decided by the owner, 2026-08-29.** It had moved twice with no
 counter to record it, `0.10.0` and today. The argument for leaving it alone was that nobody adopts
 anything out of that folder, and **that argument stops holding the moment the folder ships text a
 person reads**, which is what the proposal in front of him would make it do. The counter starts at
@@ -211,7 +211,7 @@ Neither is reachable from the registry, because neither is about a component.
 Do not read the third check as covering this half. It does not, and "probably the same item" would be
 read next time as "already covered".
 
-**Shape two has two more instances, found 2026-08-30, and they are the first that reached
+**Shape two has two more instances, found 2026-08-29, and they are the first that reached
 `blueprints/`.** Both were produced by one release. `0.10.0` inverted the boundary to a closed
 inclusion and updated three places — `blueprints/project/PROJECT.md`, the placeholder table in
 `blueprints/project/README.md`, and cold-start question 4 — and missed two more.
@@ -220,13 +220,13 @@ inclusion and updated three places — `blueprints/project/PROJECT.md`, the plac
 does not cover", so the framework spent four releases instructing the tool to ask for exclusions
 while the blueprint it reads one step later asks for coverage. **This is the question the owner
 refused in the first aborted adoption**, still in the file that produces the interview. Repaired
-2026-08-30 in its own commit, `3363d09`, ahead of any redesign.
+2026-08-29 in its own commit, `3363d09`, ahead of any redesign.
 
 *The fourth instance, open.* `cold-start-check.md` line 133 is the project-scope reading note for
 question 2, and it still says "One item from each list" and "an assistant that cannot name what is
 excluded". Under a closed inclusion there is one list, not two. The *question* at line 118 was
 inverted correctly and its reading note was not. **Not repaired: the checks were out of scope on
-2026-08-30 by instruction, and this needs deciding beside `0.10.1`'s scoring section for the
+2026-08-29 by instruction, and this needs deciding beside `0.10.1`'s scoring section for the
 component's question 4, which is the same question in the other prompt and did get the treatment.**
 One question in two prompts, one of which was scored and one of which was left in the old language.
 
@@ -274,7 +274,7 @@ claim and has never been marked as one.** It ships five topics and a paragraph o
 and nothing else, so what a person is actually asked is produced entirely by whoever renders them.
 Five topics work exactly as well as the reader.
 
-Established 2026-08-30: the harness was the same for both adoptions. **Claude Code ran the `0.7`
+Established 2026-08-29: the harness was the same for both adoptions. **Claude Code ran the `0.7`
 interview the owner accepted and the `0.10.2` interview he refused.** So "the tool changed" is not
 the explanation. Claude Code is a harness, not a reader; the model under it can change without the
 name changing, and a week passed between the two.
@@ -384,6 +384,35 @@ summarising them. Nothing else could have: the claim is about a run that happene
 it, and it was plausible enough to survive every reading not looking for it. Now that
 [`runs/`](runs/) is committed, a claim about a past run is checkable, which is an argument for citing
 the log whenever a document asserts what a run did.
+
+**`release.md` V2 contradicts step 1, and the repair is one clause. Decided 2026-08-29, to be made
+after the tag.** V2 says a `Blueprint Version` reads the new number *if and only if* that blueprint
+appears in V1's list of changed files. But step 2 requires bumping `Framework Version` in every
+blueprint `README.md`, so **every blueprint README always appears in that list**, and V2 read
+literally then demands every blueprint version move — which is exactly what step 1 forbids in the
+same file. Every release has silently read it as "changed substantively" instead.
+
+The repair: a `Blueprint Version` moves if and only if that blueprint changed in some file other than
+its README's version lines. It is a `.docs/` change and causes no release, so it goes in after the
+tag rather than reopening a verified tree. **Recorded here now so it does not wait on somebody
+noticing it again**, which is what happened for the two releases it has already been wrong for.
+
+Found by running the step rather than by reading it, which is the second time step 7 has produced a
+finding about itself.
+
+**A document's claim about its own date is checkable and went unchecked.** On 2026-08-29 this session
+dated fifteen documents, eleven run-log filenames and a changelog entry `2026-08-30`, having taken
+the framing that the previous session's work was "yesterday". It was not: `v0.10.2` was tagged at
+21:26 and this session began around 22:00 the same evening. Caught by two placeholder-coverage runs
+which both wrote `2026-08-29` for the date and disagreed with every document around them.
+
+Corrected before the tag. Kept here because of the shape: **the framework's own instruments found
+it, and none of them was looking for it.** No check reads a date, `release.md` has no step for one,
+and the finding arrived as a by-product of a run about something else. The previous session made the
+same error once, in
+[`predictions/registry-check-negative-run.md`](predictions/registry-check-negative-run.md) line 160,
+which is left as written because correcting another session's record silently is worse than leaving
+it visible.
 
 **The release procedure now has a verification step, and it was tested against its own failures.**
 Added to [`release.md`](release.md) as step 6, before the tag, because a release is the moment a
@@ -539,7 +568,7 @@ never measured**, because a reason for a rule always looks like it belongs besid
 metric protects is the document an adopted project carries. Nothing protects the document a person
 has to sit through.
 
-### Correction, 2026-08-30: the shape is right and the location was wrong
+### Correction, 2026-08-29: the shape is right and the location was wrong
 
 **The setup path did not grow.** Measured across `v0.7.0..HEAD`, non-blank lines:
 
@@ -574,7 +603,7 @@ the next thing planned. Measurement stopped it. **Recorded as the clearest case 
 repository's own rule: the diagnosis that survives an argument is not the one that survives a
 count.**
 
-**What the transcript adds, measured 2026-08-30.** The refused interview: 937 words, 32 non-blank
+**What the transcript adds, measured 2026-08-29.** The refused interview: 937 words, 32 non-blank
 lines, 299 words of preamble and 633 of questions, seven questions from five named topics — about 90
 words per question. Of those 937 words, **104 (11.1%) are lifted verbatim from `blueprints/` in runs
 of six words or more, and every one of those runs comes from a comment or a README passage written to
