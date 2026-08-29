@@ -242,9 +242,8 @@ Block Hooks API, used `WP_Query` with `orderby => 'modified'` rather than a raw 
 every boundary with `esc_url`, `esc_html`, `wp_kses_post` and `absint`. It also declined to invent a
 theme edit and said which of its claims it had not verified.
 
-The control has not run. The command was refused three times by the permission classifier of the
-session driving it, having been allowed once for the other arm. Until it runs there is nothing to
-conclude: one arm shows what one run did, and the razor asks about the difference between two.
+The control ran on 2026-08-29, driven by Alex after the session's own attempts to launch it were
+refused three times by a permission classifier.
 
 **Pre-registered, before the control runs, so the reading cannot be fitted to the result.** What
 counts is the work, not the explanation. Three outcomes, and only two of them are outcomes:
@@ -256,6 +255,56 @@ counts is the work, not the explanation. Three outcomes, and only two of them ar
 - The control does the same work without naming any reason for it. This is the first outcome, not a
   third one. A framework that judges by the work does not get to award a rule credit for an
   explanation that arm never gave.
+
+**The result: the control did the same work.** Judged by the code rather than by either summary,
+across the five bullets the task touches.
+
+*Third-party code is owned by its updater.* Both wrote a plugin and left SellAny untouched. The
+control got there citing the registry entry for `WordPress 7 Engine`, and named the theme as
+distributed third-party code that an update would overwrite.
+
+*Hooks and documented extension points.* Both used the Block Hooks API through the
+`hooked_block_types` filter, as `last_child` of `core/template-part`, narrowed on the context's
+footer area. Both worked out independently that `block.json`'s `blockHooks` field cannot express the
+area, both said so in a comment, and both cited core by file and line. The control also accepts the
+part's slug when the area term is missing, which is the more robust of the two.
+
+*Native platform functionality.* Both registered from `block.json` with a server-rendered
+`render.php` and no build step. Neither added a dependency or reached for a third-party plugin.
+
+*The data layer rather than raw queries.* Both wrote `new WP_Query` with the same nine arguments in
+the same order. Diffed, the two calls differ in the variable name and in where the post count comes
+from. Neither went near `$wpdb`.
+
+*Escaping at the boundary.* The bullet neither summary settled, and the one most likely to differ. It
+did not. Both escape the link with `esc_url`, the title with `wp_kses_post` behind a
+`wp_strip_all_tags` emptiness fallback, and the heading with `esc_html`, and both pass
+`get_block_wrapper_attributes()` through with the same phpcs-ignore justification. The only asymmetry
+is on the input half: the arm with the file exposes the post count and heading as block attributes
+and sanitizes the count with `absint` and a clamp, while the control hard-codes the count and has no
+input to sanitize. A different surface, not a different standard.
+
+**Under the pre-registration this is the first outcome.** These five bullets did not change the work.
+It is not even the silent version the pre-registration had already refused to count as a third
+outcome: the control produced the same work *and* named a reason while doing it.
+
+**Two boundaries on that reading, and they matter more than the result.**
+
+The rule about platform core is not in the override. It lives in the registry block, and both arms
+carried it, because the registry is the parent and the parent was reachable in both runs. So this
+measured an override against no override, not a framework against none. The control quoting that
+registry entry back is what makes the distinction visible rather than theoretical, and it is the
+single most useful thing the run produced: the layer the framework judges indispensable did fire,
+and the layer under test did not.
+
+And it is one task, one tool, one run per arm, on a file whose bullets are ordinary WordPress
+practice by the entry's own description. A rule written for something an assistant would not
+otherwise know remains untested. What was measured is the case the entry suspected, not the general
+one.
+
+**What this leaves.** The razor now has its first measurement instead of an argument. Whether it
+becomes a rule of the framework is a decision, and by this project's own habit a decision that
+changes a rule gets a record.
 
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
