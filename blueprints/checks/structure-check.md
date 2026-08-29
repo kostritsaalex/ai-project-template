@@ -65,9 +65,15 @@ Checks:
 3. No file still carries the blueprint notice. That notice begins with the words "BLUEPRINT FILE.
    NOT ACTIVE INSTRUCTIONS." A document's own header, such as a line reading "AI Project Entry
    Point" or "Local rules for this component", is not that notice and does not fail this check.
-4. AGENTS.md and CLAUDE.md carry the same text, apart from their first heading, apart from any line
-   beginning with the at sign, and ignoring blank lines. Report any other difference and fail the
-   check if there is one.
+4. AGENTS.md and CLAUDE.md carry the same text. Make the comparison this way and say that you made
+   it: from each file remove its first heading line, every line whose first non-blank character is
+   an at sign, and every blank line. Compare what is left, in order, character for character. The
+   row passes when the two sequences are identical and fails otherwise.
+   Say how many lines each side had after removing those, and name what you removed. On a failure,
+   quote the first pair of lines that differ, one from each file, with its line number in each.
+   Character for character means what it says: a differing word, a differing space inside a line, or
+   a line present in one file and not the other all fail. This is the row that catches one stub
+   edited and the other forgotten, which is a rule firing for one tool and not another.
 5. Project scope only. PROJECT.md is present, and neither REPOSITORY.md nor ASSETS.md is in this
    root. List every filename in the folder root.
 6. Component only. PROJECT.md is not in this folder. A component that holds one is a project scope

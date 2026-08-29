@@ -98,6 +98,7 @@ was tried before `0.6.0` and caused the row never to run, and that a sentence or
 vacuous teaches skimming.
 
 **This ambiguity is not particular to this record.** `0008` and `0009` name a person for reasoning
-that reached the session by the same route, and were written before the convention below existed.
+that reached the session by the same route, and were written before the convention in
+[`../handover.md`](../handover.md) existed.
 They are left as they are rather than rewritten, because a record altered to look better informed
 than it was is worse than one that is plainly of its time.
