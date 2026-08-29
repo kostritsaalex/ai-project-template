@@ -939,10 +939,32 @@ changed prompt against what the entry claims about it, which `release.md` step 7
 which V1 already lists the file for. And length was not what broke: two of `registry-check`'s seven
 rows were under-specified, and a shorter prompt would have been just as capable of that.
 
-**The naming question, closed but worth watching.** The pair stays, decided 2026-08-24. Hours later
-the owner's reasoning for calling a theme folder `Assets` included "a repository is technically out
-of place here because we host this on OneDrive", the storage-based reading the names invite. If a
-second instance appears, reopen.
+**The naming question: the trigger fired, 2026-08-29. Second instance recorded.** The pair was kept
+on 2026-08-24 with the condition *"If a second instance appears, reopen."*
+
+The first instance was the owner's, hours after that decision: his reasoning for calling a theme
+folder `Assets` included *"a repository is technically out of place here because we host this on
+OneDrive"* — the storage-based reading the names invite.
+
+**The second arrived on 2026-08-29 from the other kind of reader.** In
+`runs/2026-08-29-audit-gB1.log` a tool saw the project's own source in a git working copy and
+proposed `Repository`; its pair `-gB2.log` proposed `Assets` on identical input. `Assets` is right:
+the axis is whether a platform or framework replaces the folder wholesale, and **this framework's one
+adopted registry carries a folder of theme source code as `Assets`.**
+
+So the two instances agree in direction and differ in reader. A human read `Repository` as being
+about storage; a tool read it as being about source code. **Neither read it as the rule defines it**,
+which is what the word was kept on the assumption they would.
+
+**Reopened, and the order is a razor order rather than a preference.** First sharpen the rule and
+re-run; only if the flip survives a clearer rule does the naming question become live. Renaming is
+expensive in the way this framework hates — every registry block in every adopted project, and a word
+in the shipped documents — and it is not reached for before the cheap remedy has failed.
+Pre-registered as testing remedy 1 and only remedy 1, in
+[`predictions/posture-rule-sharpened.md`](predictions/posture-rule-sharpened.md).
+
+**The flip is one pair and is not a frequency.** Two runs disagreeing on identical input establishes
+the defect and says nothing about how often. No rate is claimed.
 
 **The framework's own local path had the defect check 14 exists to catch.** `PROJECT.md` gave
 `~/Repositories/ai-project-template` with nothing saying what holds it up. That form resolves on the
