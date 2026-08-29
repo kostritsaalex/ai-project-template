@@ -6,6 +6,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.10.1] - 2026-08-29
+
+**Cold-start question 4 gains a scoring rule, because half of it could not fail.**
+
+### Changed
+
+- The reading notes now score the question's two halves separately, and say that only the first is
+  mechanical. The first quotes the coverage line and names its file; there is a right answer in the
+  document. The second names something outside, and the document need not contain any near miss, so
+  it is scored against the coverage sentence the reader just quoted rather than against the document.
+  A passing answer is not in the covered set and is something a person could plausibly ask the
+  project for.
+- **Three failures are named, two of them mechanical.** *"Not stated here"* is the failure this half
+  exists to catch: under a closed inclusion the closure sentence licenses the derivation, so a reader
+  who refuses because no exclusion is written has not understood that the boundary is closed, which
+  is the habit the old form taught. *Something in the covered set* is checkable against the quote
+  given one line earlier. *Something unrelated*, "cooking" for a pottery business, is the judgement
+  call and is marked the weakest, to be failed only where the answer needed no reading at all.
+
+### On the evidence
+
+None. `0.10.0` and this repair are both unrun and the backlog says provisional in those words. The
+only instrument that exercises them is an adoption, and it comes next.
+
+**Why the half was kept rather than cut.** The two halves test different things. The first asks
+whether the boundary was read; the second asks whether it was understood as closed. Under the old
+exclusions wording the second job did not exist, because there was nothing to derive.
+
 ## [0.10.0] - 2026-08-29
 
 **The boundary becomes a closed inclusion, and the blueprint offers two principles of eight.** Two

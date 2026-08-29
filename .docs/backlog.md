@@ -9,7 +9,11 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-`0.10.0` is released, tagged and pushed. Working tree clean, nothing half-done.
+**`0.10.1` is provisional.** It is released, tagged and pushed, and neither of its two changes has
+been run. The boundary rewrite and the cold-start question that reads it can only be exercised by an
+adoption, and the adoption comes next. That much is unavoidable; shipping without saying so is not,
+and the standard was set earlier today when `0.9.0` shipped a prompt no run had used. It stays
+provisional until the ArtGlina adoption has been through it. Working tree clean, nothing half-done.
 
 Three releases today. `0.8.0` adopted the second razor and cut the platform fragment. `0.9.0` added
 `registry-check` and the rule in `0009` governing every check after it. `0.9.1` collapsed row 1's

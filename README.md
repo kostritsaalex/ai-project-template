@@ -155,7 +155,7 @@ to one and put that one where it fires. What ships into an adopted project is 41
 a project scope, 34 of them `PROJECT.md` and 7 its two adapters, and 22 for a component across its
 two stubs. The metric is non-blank lines with the blueprint notice and every HTML comment stripped,
 summed across the files a scope ships; an override is not counted, since a folder has one only when
-it has something to add. Re-measured at `0.10.0`, and re-measured at every release, which
+it has something to add. Re-measured at `0.10.1`, and re-measured at every release, which
 is a step in [`.docs/release.md`](.docs/release.md).
 
 `0.6.0` was also the first release validated by resetting a real project to bare folders and
