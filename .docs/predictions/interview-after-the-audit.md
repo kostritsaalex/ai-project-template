@@ -129,6 +129,31 @@ in the sentence naming shape three. Corrected to `restoration, photography and s
 item now something a person does. Recorded because the last example defect took four releases to
 notice and this one would have reached every adoption.
 
+## Amendment, after the first ten runs and before the address arms
+
+**P3 and P4 were not measurable as written, and that is a defect in this file rather than a result.**
+The ten runs stop at Step 4, because that is what the procedure tells them to do. **The address and
+the name are proposed in the Step 5 summary table, which none of them reached.** So the two
+predictions that this experiment exists for observed nothing at all.
+
+The technique that works already exists and was used for the placeholder map: supply the answers in
+the prompt so the session proceeds to Step 5. Six further arm-F runs, two per scope, with **no name
+and no address anywhere in the answers**, so anything proposed came from the folder.
+
+P1, P2 and P6 stand on the ten runs already made and are not re-run.
+
+**A confound in S-A, found by a run.** The simulated store sits at `<scratch>/OneDrive`, and a real
+`~/OneDrive` exists on this machine pointing somewhere else entirely. `fA1` caught it and refused:
+*"`~/OneDrive` on this machine resolves to `/mnt/c/Users/kostr/OneDrive`, which is a **different**
+folder — so `~/OneDrive/Projects/Test/northwind-crafts` is false here and I will not write it."*
+**`fA2` did the opposite** and proposed writing exactly that path, which is false on this machine.
+
+That is the local-path failure the address rule exists to prevent, observed, and it is produced by
+the simulation rather than by the framework. **So S-A's address result is confounded and is reported
+as confounded.** The synced-store branch keeps the two real-scope validations it already has —
+WordPress 7's hand-written address reproduced exactly, and ArtGlina's computed correctly — which are
+stronger evidence than a simulation could be. S-B and S-C carry no such confound.
+
 ## What this cannot establish
 
 **Whether the name proposal earns its place.** Nothing in a scratch run can observe an owner
