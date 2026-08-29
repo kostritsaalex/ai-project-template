@@ -15,6 +15,22 @@ a placeholder check added one.
 **Three items wait for the batch after it, none blocking:** the two `release.md` clauses below, and
 the `<DOCUMENT_OWNER>` razor case, which may take the seventh question straight back out.
 
+**Every adoption is cancelled, and the owner's approval of the question set is now a step rather than
+an assumption.** Decided 2026-08-29. He will not run an adoption until he has read the interview and
+accepted it. The sequence is: **release, he reads the four questions, he approves, then an adoption.**
+
+**So the provisional releases wait on his approval of the interview, not on scheduling.** Four are
+provisional today — `0.10.0`, `0.10.1`, `0.10.2` and `0.11.0` — and five once the four-question
+release ships. Every one of them is un-provisioned by the same single instrument, an adoption, and
+that instrument is now gated on a judgement he has not yet given rather than on finding an evening
+for it. **Saying "waiting for the adoption" would misdescribe it**: nothing is queued, and the queue
+does not move until he reads the questions.
+
+**This also releases the reason `blueprints/` was held.** The hold existed because a live adoption
+reads the framework from disk. With no adoption in flight, that reason is gone, and the batch is
+free to land whenever the owner says so. The hold is not silently lifted here — it was his to place
+and it is his to lift — but the record should not carry a reason that has stopped applying.
+
 **The interview was measured before it was repaired, and the diagnosis it was going to be repaired
 under was wrong.** The framework shipped no interview text at all, so the razor that was about to be
 built would have cut nothing. What shipped instead is the wording itself, as
