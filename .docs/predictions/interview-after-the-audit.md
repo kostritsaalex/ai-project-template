@@ -114,6 +114,21 @@ would have written.**
 asks on failure instead of proposing the remote as found — a correction the audit made to the
 review's own proposal.
 
+## The risk of running now, registered rather than avoided
+
+**The ArtGlina adoption is in flight against `0.11.0` and may change the question set.** If it shows
+four questions insufficient — a placeholder left unfilled, or an answer the owner cannot give — these
+results describe a draft that no longer exists, and **the arms are re-run rather than reinterpreted.**
+That is a cheap outcome and it is the honest way to spend idle time; the alternative buys only the
+certainty that the results describe a subject that still exists.
+
+**A defect in the subject, found and fixed before the first arm ran.** Question 2's example read
+`restoration, photography and the online shop` — two kinds of work and a place, **in the example
+written to teach that the boundary names kinds of work and the registry names places.** Shape three,
+in the sentence naming shape three. Corrected to `restoration, photography and selling online`, every
+item now something a person does. Recorded because the last example defect took four releases to
+notice and this one would have reached every adoption.
+
 ## What this cannot establish
 
 **Whether the name proposal earns its place.** Nothing in a scratch run can observe an owner

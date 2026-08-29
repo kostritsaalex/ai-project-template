@@ -43,7 +43,7 @@ it. Each proposal names where it comes from, and a proposal with no named source
    one part of something larger.
 
 2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is
-   outside it."* Name **kinds of work** — for example `restoration, photography and the online shop`,
+   outside it."* Name **kinds of work** — for example `restoration, photography and selling online`,
    or `hosting and deployment, content writing, SEO`. Where the work happens is the registry's job,
    not this sentence's. If something adjacent is commonly assumed to be inside and is not, name it.
    That part is optional.
