@@ -247,6 +247,33 @@ read Step 3's blueprint after Step 4's topic list and followed the blueprint. So
 silent in the only run that met it. A defect that a capable tool routes around is still a defect, and
 it is exactly the kind nothing will ever report.
 
+**Shape three, an example contradicting the rule it illustrates. Named 2026-08-29, and it is not a
+variant of the other two.**
+
+`0004` cuts facts and `0008` cuts rules, and between them they say what a document may contain. **An
+example is neither.** It demonstrates rather than states, it teaches more than the rule it sits
+beside, and **it can contradict that rule while both read correctly on their own.** Nothing in this
+framework governs one.
+
+**The evidence is that it did.** `0.10.0` inverted the boundary. The rule said "what the project
+covers, closed". The example, in the same table, changed from `hosting and deployment, mobile
+applications, accounting` — three kinds of work — to `the main folder and the northwind-storefront
+repository` — two places. `0011`'s own decision text carries the same folder-list example. The
+changelog's `Removed` section named the exclusions form and **nobody recorded that the example had
+changed category.**
+
+Every adoption since followed the example rather than the rule, which is how the boundary question
+began eliciting folder lists and colliding with the registry. **It went four releases.** The person
+answering noticed it only as a feeling that two questions were duplicated, and it took a git diff of
+one table cell to establish.
+
+**The instrument is a reader, and it is the same reader shape two already needs.** An example is
+checked by reading it against the rule it illustrates. No check can do it: the checks are bounded to
+a folder, `registry-check` walks the registry, and none of them opens a rule and its example and
+compares what each one teaches. **Nothing is being built for this.** It is named so that the next
+person changing a rule looks at the example beside it, and so that the next audit has a word for the
+shape.
+
 **The instrument for shape two is a reader, and it is a different tool with a different cost.** Three
 of the contradictions found on 2026-08-29 were caught by a session reading the whole repository and
 cross-checking the documents against each other, which is how the `architecture.md` drift surfaced at
@@ -287,6 +314,28 @@ tests. The consequence either way is already recorded there. What belongs here i
 **every part of this framework that specifies a topic rather than a text is a prediction about a
 model, and the framework has two of them and had labelled one.**
 
+**The interview has a floor of four questions, and it is stated here so it can be seen being
+crossed.** Written 2026-08-29, as a claim that can fail.
+
+If question 1 and question 5 become proposals and question 7 goes with its razor, what remains is:
+**what the project is, its boundary, its principles, and which folders are components.** Nothing else
+in `PROJECT.md` needs a person. The placeholder map established that at twelve of twelve — six from
+questions, three from proposals, two read, and the twelfth is the one under the razor.
+
+So the interview has converged on exactly the set of things that live only in the owner's head, which
+is what `0004` said a document carries in the first place. **The convergence was not designed. It
+fell out of applying the razor question by question**, which is the audit `0013` skipped.
+
+**What breaks this claim**, and either would be a finding rather than an embarrassment:
+
+- A placeholder arriving in `PROJECT.md` that needs a human answer and is not one of these four.
+- One of these four turning out to be derivable. Components is the likeliest candidate and `0005`
+  currently forbids it: being a component is a decision written into the registry, never a property
+  of what is on disk. If that is ever relaxed, the floor is three.
+
+**A floor nobody stated is a floor nobody can notice being crossed.** That is the whole reason this
+is written down rather than left as a count somebody could recompute.
+
 **`<DOCUMENT_OWNER>` is a razor case, and the seventh question may come straight back out.** The
 coverage gap found on 2026-08-29 had two solutions and **only one was weighed.** Add a question, or
 **delete the placeholder.**
@@ -300,6 +349,17 @@ every line `0008` has cut so far.
 If it fails, the field leaves `PROJECT.md`, the interview returns to six questions, and **the shipped
 metric drops by a line.** That is the direction this framework has gone every time it has had the
 choice, in `0006` and in `0008` both.
+
+**One change in the batch is justified by the razor and not by a run, and the record says so.** The
+name proposal — deriving the project's name from the folder name and offering it for correction —
+**cannot be measured in a scratch run**, because nothing in a scratch scope can observe an owner
+correcting it. `Artglina` against `ArtGlina`, 4 mentions to 48 in this repository, is a good argument
+that the proposal must invite correction rather than settle a value. **It is not evidence that the
+proposal earns its place.**
+
+Stated separately so that six measured changes do not lend it their credibility. Its falsifier is an
+adoption where the proposed name is accepted uncorrected and turns out wrong, and only an adoption
+can produce it.
 
 **The part worth recording is the process, not the answer.** The question was added without the
 alternative being considered. The coverage check established that the placeholder had no source, and
