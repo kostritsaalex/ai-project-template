@@ -63,3 +63,27 @@ release entry says so rather than letting this run stand in for it.
 
 The release does not get cut. The failure goes in this file and the interview returns to the draft
 folder.
+
+---
+
+# Result, scored 2026-08-30, before the release commit
+
+Log: `.docs/runs/2026-08-30-released-interview-text.log`. Run against the working tree that the
+release commit contains, not a copy of it.
+
+| | predicted | observed |
+| --- | --- | --- |
+| **R1** added prose | zero | **0 words, similarity 1.000** |
+| **R2** repaired clause | "table below" absent, "summary table" present | **absent / present** |
+| **R3** questions | six, no seventh | **six** |
+| **R4** scope untouched | checksum unchanged | `cfe0628965b1cb30db3af0bff174dee0`, unchanged |
+
+All four hold. The question block is 206 words against the file's 203, the difference being markdown
+the run reflowed rather than words it added — `difflib` similarity is 1.000 over normalised words.
+
+**Five runs of the mechanism now, across three texts and two scopes, and added prose is zero in every
+one.** This is the run that makes the released bytes the run bytes, which is the thing `0.9.0` failed
+to do and was corrected for.
+
+**What it still does not establish, as registered in advance: sufficiency.** Nobody answered these
+six questions and no `PROJECT.md` was written. The adoption is the test for that.

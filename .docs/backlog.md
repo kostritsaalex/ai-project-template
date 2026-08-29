@@ -8,33 +8,58 @@ Last updated 2026-08-30, after the interview was measured rather than repaired.
 
 ## Where we are, 2026-08-30
 
-**The interview was measured and the diagnosis it was going to be repaired under was wrong.** No
-redesign has been written. One clause was repaired, in its own commit, and the rest of the day's work
-is a record.
+**`0.11.0` is committed and deliberately not yet tagged.** The owner reads the changelog entry before
+it is cut. When it is tagged this line becomes the usual "released, tagged and pushed", which is what
+`release.md` V3 greps for; until then V3 correctly returns nothing, and that is the stop working
+rather than a defect.
 
-**The framework ships no interview.** Zero question marks in `blueprints/setup/*.md` and zero in
-`PROJECT.md`'s comments. `procedure.md` Step 4 names five topics in one sentence; the interview is
-composed fresh on every adoption by whichever tool holds the blueprint. The setup path grew four
-lines in four releases. **One harness, near-identical instructions four lines apart: one interview
-the owner liked at `0.7`, one he refused at `0.10.2`.** Claude Code rendered both, established by the
-owner on 2026-08-30, so the tool is not the variable and the model under it is the remaining
-candidate. That is not degradation, it is variance in something that was never specified — the same finding as an under-specified check row, on a new
-surface, and with the same consequence that nothing in the output distinguishes judgement from
-procedure.
+**The interview was measured before it was repaired, and the diagnosis it was going to be repaired
+under was wrong.** The framework shipped no interview text at all, so the razor that was about to be
+built would have cut nothing. What shipped instead is the wording itself, as
+[`0013`](decisions/0013-the-interview-ships-as-text.md) records.
 
-**The candidate that replaced the razor.** Ship the interview as text, the way `blueprints/checks/`
-ships prompts. `checks/` is the part of this framework whose behaviour is reproducible enough to
-argue about, and it is one folder away from the part that is not. Argued both ways in the step 2
-report below; not decided, and no script written.
+**The framework shipped no interview, and that was the finding.** Before `0.11.0`: zero question
+marks in `blueprints/setup/*.md`, zero in `PROJECT.md`'s comments, and Step 4 naming five topics in
+one sentence. Every interview was composed fresh by whichever tool held the blueprint. The setup path
+had grown four non-blank lines in four releases.
+
+**One harness, near-identical instructions four lines apart: one interview the owner liked at `0.7`,
+one he refused at `0.10.2`.** Claude Code rendered both, established by the owner on 2026-08-30, so
+the tool is not the variable and the model under it is the remaining candidate. That was not
+degradation, it was variance in something never specified — the same finding as an under-specified
+check row, on a new surface, with the same consequence that nothing in the output distinguishes
+judgement from procedure.
+
+**Settled: the interview ships as text.** Eleven runs, three pre-registrations scored, added prose
+zero in five runs of the mechanism. `blueprints/setup/interview.md` holds six questions and 203
+words, against about 503 for the unspecified interview it replaces.
+
+**What it rests on and what it does not.** It rests on fidelity measured at 1.000 and on a 60%
+reduction across two scopes. **It does not rest on folder-driven variance, which this session argued
+and then refuted with its own control** — a deliberately different scope moved the question block by
+−3.5%, inside the band pre-registered as weakening it. The length experiment before it came out
+indeterminate. Both are named in the changelog rather than left to disappear between documents.
+
+**`0.11.0` is provisional for the same reason the three before it are.** Every run stopped at the
+questions with writing disabled, so what is proven is that the six questions arrive verbatim, not
+that they are enough to write a `PROJECT.md` from. **Fidelity, not sufficiency.** The ArtGlina
+adoption is the single instrument that settles all four releases. Sequence: fix, release, adopt.
+
+**The component interview is untouched**, and a project has one scope and as many components as it
+has folders, so the unspecified half is the half met more often. Deliberate: all eleven runs are on
+the scope interview and the component interview has never been measured once.
 
 **What the three provisional releases still wait on is unchanged.** `0.10.0`, `0.10.1` and `0.10.2`
 are released, tagged and pushed, and nothing in any of them has been run. Only an adoption exercises
 them, and the adoption has been refused twice.
 
-**Repaired today, alone:** `procedure.md` Step 4 asked for what a project does not cover, four
-releases after `0.10.0` made the boundary a closed inclusion everywhere else. Commit `3363d09`.
-Recorded as the third instance of shape two in the stale-fact item below, with a fourth left open in
-`cold-start-check.md`.
+**Three stale boundary fragments found, two repaired.** `procedure.md` Step 4 asked for what a
+project does not cover, four releases after `0.10.0` made the boundary a closed inclusion everywhere
+else — repaired alone in `3363d09`. The rule at the top of the same file still said documents carry
+"what the project does not do", **missed by the grep that found the first**, which searched "does not
+cover" and "exclu"; repaired in `0.11.0`. `cold-start-check.md` line 133 is still on the old two-list
+wording and is **open**, because the checks were out of scope. All three are recorded in the
+stale-fact item below.
 
 **`blueprints/setup/` gets a version. Decided by the owner, 2026-08-30.** It had moved twice with no
 counter to record it, `0.10.0` and today. The argument for leaving it alone was that nobody adopts

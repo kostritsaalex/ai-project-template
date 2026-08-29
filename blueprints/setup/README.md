@@ -1,5 +1,8 @@
 # Setup Prompts
 
+**Blueprint Version:** 0.11.0  
+**Framework Version:** 0.11.0
+
 Two prompts that adopt a blueprint by interview. Instead of opening each file and working through
 its placeholders by hand, you paste one prompt, answer questions in blocks, and get filled files.
 
@@ -15,6 +18,11 @@ creates, checks verify.
 [`procedure.md`](procedure.md) holds the shared procedure. You never paste it; both prompts send the
 assistant to read it.
 
+[`interview.md`](interview.md) holds the six questions a project scope is asked, as text rather than
+as topics, and `procedure.md` Step 4 sends the assistant there. **The component interview is still
+built from topics**, which is a known asymmetry recorded in
+[decision 0013](../../.docs/decisions/0013-the-interview-ships-as-text.md).
+
 ---
 
 ## Which one, and in what order
@@ -23,8 +31,8 @@ The project scope first, then one run of the component prompt per folder.
 
 There is no separate prompt per kind of component. A repository attached on the first day and a
 photography folder attached two years afterwards are the same operation: two stubs in the folder, one
-block in the registry. The difference between them is one word in that block, and the interview asks
-for it.
+block in the registry. The difference between them is one word in that block, and the assistant
+proposes it from what it saw rather than asking.
 
 There is also no separate prompt for adding a component later, and none for a folder that has years
 of history behind it. The assistant looks before it asks.

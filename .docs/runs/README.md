@@ -44,6 +44,7 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-shipped-script-c2.log` | Same | Arm C, repeat | Same | 2026-08-30 |
 | `2026-08-30-shipped-script-d1.log` | Same | Arm D, the script on the other scope, first run | Scope 2 | 2026-08-30 |
 | `2026-08-30-shipped-script-d2.log` | Same | Arm D, repeat | Scope 2 | 2026-08-30 |
+| `2026-08-30-released-interview-text.log` | **The text this release ships**, `blueprints/setup/interview.md` at `0.11.0`, run against the working tree the release commit contains | Release validation, one run | Scope 1, `cfe0628965b1cb30db3af0bff174dee0`, unchanged | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -95,6 +96,7 @@ b446c16cfdf8dc79695e7c6030650590  2026-08-30-shipped-script-c1.log
 789986262a49905836d2d62e38d7ee7a  2026-08-30-shipped-script-c2.log
 714335b9bf741c81bc97bcb27b09a79d  2026-08-30-shipped-script-d1.log
 6e01c0dcb0fe153edd2dbf9b12c10a75  2026-08-30-shipped-script-d2.log
+14da8e21cfa27b5284710e627b55685f  2026-08-30-released-interview-text.log
 ```
 
 ## What they are evidence for

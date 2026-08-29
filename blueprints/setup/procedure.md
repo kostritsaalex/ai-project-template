@@ -17,8 +17,9 @@ exists, what the folder holds: all visible, none of it goes in a document and no
 question.
 
 What the documents carry is what no amount of looking reveals. Where the parent is. What the project
-does not do. The owner's principles. The registry of components that do not know about each other,
-and the one word in each block that says how that folder is to be treated.
+covers, and that anything else is outside it. The owner's principles. The registry of components that
+do not know about each other, and the one word in each block that says how that folder is to be
+treated.
 
 So the interview is short by construction. If you find yourself asking about something you could have
 read, stop and read it.
@@ -74,40 +75,26 @@ which version you read.
 
 ## Step 4. Ask
 
-Ask only what the files cannot answer. For a project scope that is roughly: what the project is,
-what it covers, the owner's principles, where it lives, and which components exist. For a
-component it is two questions: what it is called and whether it has a rule of its own yet. The
-posture is not one of them. Whether platform or framework code sits in the folder is visible, so
+Ask the six questions in [`interview.md`](interview.md) **verbatim and in order, in one message.**
+Do not introduce them, gloss them, add clarifications, or add questions of your own. If something is
+missing from them, that is a defect in that file and it is reported after the interview rather than
+patched into the message.
+
+The posture is not a question. Whether platform or framework code sits in the folder is visible, so
 propose the posture from what you saw, put it in the summary table as settled, and let it be
-overturned there. The blueprint's comments name the rest.
+overturned there.
 
-Ask in one block, not one question at a time. Where you can draft an answer, show the draft and ask
-what is wrong with it rather than asking the person to compose from nothing.
-
-Four things to avoid, each with a tell you can catch in your own draft:
-
-- **A question you would argue with.** If you marked an option recommended, or wrote a reason against
-  another inside its own description, you have decided. Say what you decided and move on.
-- **An even menu when you hold a view.** An unchecked list reads as neutral, and a person late in an
-  interview ticks fewer boxes, so their omissions look like answers. Say you believe all of it
-  belongs and ask what to remove.
-- **An option that leaves the document contradicting itself.** Repairing that is not a choice the
-  person gets. Offer the wording, not the option of leaving two sections at odds.
-- **A question about something you can read.** Read it.
-- **A value you have not observed.** Ask for it empty. The Example column in a blueprint describes a
-  fictional project, and an address taken from it will look plausible and be wrong.
-  **Principles are the one exception**, and the project blueprint names the two that may be offered.
-  Offer them aloud, show them in the summary table as proposed, and write only what is kept. They are
-  not a fact about the world that a wrong guess corrupts, and an owner with none settled yet is better
-  served by two to reject than by a blank page.
-
-When you ask which components exist, ask which folders the person declares, and take the answer as
-complete. A folder they did not name is files inside whichever component contains it, and it takes
-that component's posture. Do not offer a subfolder you noticed as a candidate, and do not ask whether
-a component should be split into smaller ones.
+Take the answer to question 6 as complete. A folder the person did not name is files inside whichever
+component contains it, and it takes that component's posture. Do not offer a subfolder you noticed as
+a candidate, and do not ask whether a component should be split into smaller ones.
 
 `Local rules` and `Hazards` are allowed to come out empty. Empty is the usual answer, and the
 sections are deleted when they do. Do not fish for content to put in them.
+
+**This holds for a project scope. `new-component.md` still runs an interview of its own, from topics
+rather than from text, and it is unspecified in exactly the way Step 4 used to be.** That asymmetry
+is deliberate and is recorded in
+[decision 0013](../../.docs/decisions/0013-the-interview-ships-as-text.md).
 
 ---
 

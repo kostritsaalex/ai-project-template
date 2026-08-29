@@ -6,6 +6,91 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.11.0] - 2026-08-30
+
+**The interview ships as text.** The framework shipped no interview at all, and nobody had noticed.
+See [0013](.docs/decisions/0013-the-interview-ships-as-text.md).
+
+### Added
+
+- `blueprints/setup/interview.md`. Six questions and 203 words, asked verbatim. `procedure.md`
+  Step 4 points at it and requires it unaltered. It exists because a topic list is a prediction about
+  whoever renders it: the same five topics, under one harness four days apart, produced an interview
+  the owner accepted and one he refused.
+- A `Blueprint Version` for `blueprints/setup/`, which had never had one, so no release could record
+  that it moved. It starts at `0.11.0` rather than pretending to a history it cannot evidence, the
+  way `blueprints/checks/` started at `0.9.0`. The argument for leaving that folder uncounted was
+  that nobody adopts anything out of it, and that stopped holding the moment it began shipping text
+  a person reads.
+
+### Changed
+
+- **`procedure.md` Step 4 stops describing questions and starts pointing at them.** From 463 words to
+  227.
+- Two surviving fragments of the old boundary form, four releases after `0.10.0` inverted it. Step 4
+  told the assistant to ask "what it does not cover" — **the exact question the owner refused in the
+  first aborted adoption** — repaired alone in `3363d09` before this release was drafted. And the
+  rule at the top of `procedure.md` still said documents carry "what the project does not do". The
+  second was missed by the grep that found the first, which searched "does not cover" and "exclu".
+
+### Removed
+
+- **Step 4's apparatus for drafting questions**, which is dead once the questions are fixed: the
+  five-topic sentence, "ask in one block", and the four-things-to-avoid list with its principles
+  exception.
+- The claim in `setup/README.md` that the interview asks for a component's posture. It has not since
+  `0.6.0`; the assistant proposes it.
+
+`blueprints/setup/` grows from 3900 words to 4121, +221. That is the exchange: the folder a person
+never reads grows by 221 words so that the message a person does read falls from about 503 to 203.
+
+The shipped-line metric is unchanged. **41 non-blank lines for a project scope and 22 for a
+component**, as it has been since `0.7.0`. This release changes what a person is asked, not what an
+adopted project carries.
+
+### Also in this release, and not caused by it
+
+- **`README.md` gains an upgrade answer**, in the `Status` section where somebody deciding whether to
+  upgrade would meet it: what six releases from `0.8.0` to `0.10.2` bought an adopter, measured. One
+  boundary sentence, one 50-line fragment removed, one new check. **It says plainly that the owner's
+  hypothesis — that `0.7` was already enough — is confirmed except for `registry-check`.** Written
+  2026-08-30 in `7e7f8df`, before this release was drafted.
+- **`.docs/handover.md` and `.docs/backlog.md` carry the previous session's save-state**, committed in
+  `02e7e75` after `v0.10.2` was tagged. It records the second aborted adoption. It changes no rule and
+  causes no version, and it appears in this release's diff only because it landed between two tags.
+
+### On the evidence
+
+Eleven runs, all logged in [`.docs/runs/`](.docs/runs/), three pre-registrations scored.
+
+**What carried this.** Added prose measured at **zero words in four runs of the script across two
+scopes**, similarity 1.000 each time, plus a fifth run of the exact released text with the same
+result. The pre-registration named deletion of the draft as the response to failure, and named it
+before the draft was written.
+
+**What did not carry it, and it was this session's own best argument.** The claim that the question
+block varies with the folder. A control arm on a deliberately different scope moved it by **−3.5%**,
+inside the band pre-registered as weakening it. **That finding is marked down, and it is named here
+rather than allowed to disappear between two documents.** The length experiment that preceded it came
+out **indeterminate** and is evidence for nothing.
+
+**Fidelity is not sufficiency.** Every run had writing disabled and stopped at the questions. Nobody
+answered them and no `PROJECT.md` was produced. The six questions are proven to arrive verbatim; they
+are **not** proven to be enough to write a complete document from. **So `0.11.0` is provisional in
+exactly the way `0.10.0` through `0.10.2` are, and the ArtGlina adoption is the one instrument that
+settles all four.**
+
+**A shipped script ships its defects with perfect fidelity.** The draft's question 5 named a summary
+table "below" that is not below. Four runs reproduced the false clause four times, where an
+unspecified interview would have repaired it silently. Repaired before release, and the released text
+was run once to make the run bytes the shipped bytes — the thing `0.9.0` failed to do.
+
+**The component interview is untouched and it is the half that happens more often.** A project has
+one scope and as many components as it has folders. `new-component.md` still builds its interview
+from topics. The asymmetry is deliberate: every one of the eleven runs is on the scope interview, the
+component interview has never been measured once, and specifying it now would be writing text from an
+argument rather than from evidence.
+
 ## [0.10.2] - 2026-08-29
 
 **The razor governs what the blueprint offers, not what an owner writes.** One sentence the framework
