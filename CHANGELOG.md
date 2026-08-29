@@ -6,6 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.10.2] - 2026-08-29
+
+**The razor governs what the blueprint offers, not what an owner writes.** One sentence the framework
+had never said.
+
+### Added
+
+- The project blueprint's README states it where a reader meets the culled default: `0008` is a rule
+  about what ships into every adopted project, and an owner may put anything he likes in his own
+  `Principles` section, including all eight candidates or none. Without this a cull reads as a
+  prohibition, and it is not one — the section is his.
+
+### On the evidence
+
+None, and the occasion for it is worth recording. The owner intends to write all eight principles
+into ArtGlina's `PROJECT.md`, overruling `0012`'s cull for his own project. That is permitted and
+nothing said so. The gap surfaced because somebody exercised a freedom the framework had never
+granted in writing.
+
+The ArtGlina pre-registration is amended before the run to match, and the amended arm is stronger
+than the one it replaces: instead of asking whether an owner keeps two sentences he was offered, it
+runs the six cut principles in a live project. **The failure predicted is not that they are ignored
+but that they are obeyed**, with two quotable pairs to watch — "identify the affected scope" against
+this framework's own word for a scope, in the document carrying the registry, and "preserve backward
+compatibility where practical" against the `Assets` posture's "work here as the task requires".
+
+The second is a rule returning through a different door. `0006` cut four preserve rules from that
+posture because an assets folder is live and a rule ordinary work breaks teaches that the document
+can be ignored. A project principle puts it back at a level that outranks the posture, and **nothing
+in the framework notices a principle colliding with a posture**: the registry states one, the project
+document states the other, and no check compares them.
+
 ## [0.10.1] - 2026-08-29
 
 **Cold-start question 4 gains a scoring rule, because half of it could not fail.**
