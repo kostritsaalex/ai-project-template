@@ -35,11 +35,13 @@ releases after `0.10.0` made the boundary a closed inclusion everywhere else. Co
 Recorded as the third instance of shape two in the stale-fact item below, with a fourth left open in
 `cold-start-check.md`.
 
-**`blueprints/setup/` has now moved twice with no version to record it**, which was already an open
-question below and is no longer deferrable: `0.10.0` changed `procedure.md` and so did today. That
-folder ships no file anybody copies, and it ships prompts that change between releases. The
-redesign, if it happens, changes this file substantially, so the release carrying that redesign is
-where this gets decided rather than settled quietly in a commit.
+**`blueprints/setup/` gets a version. Decided by the owner, 2026-08-30.** It had moved twice with no
+counter to record it, `0.10.0` and today. The argument for leaving it alone was that nobody adopts
+anything out of that folder, and **that argument stops holding the moment the folder ships text a
+person reads**, which is what the proposal in front of him would make it do. The counter starts at
+the number of the release that introduces it, rather than pretending to a history it cannot
+evidence, which is how `blueprints/checks/` got one in `0.9.0`. It is added at the redesign release
+and recorded in that release's decision record.
 
 Working tree clean. Nothing half-done.
 
@@ -235,6 +237,27 @@ found by reading and make the read a step somewhere.
 
 Worth keeping: re-measuring the metric at `0.8.0` found it still correct. That is luck, not evidence
 that the class is harmless.
+
+**The setup path is a prediction about a model too, and nobody ever called it one.** Second instance
+of the worry recorded immediately below, and written here beside the first rather than as a finding
+of its own, because it is the same worry and the framework should stop discovering it fresh.
+
+`0008` is recorded as a claim about the reader rather than a property of a rule, and it can stop
+being true with nothing in this repository changing. **`procedure.md` Step 4 is the same kind of
+claim and has never been marked as one.** It ships five topics and a paragraph of style constraints
+and nothing else, so what a person is actually asked is produced entirely by whoever renders them.
+Five topics work exactly as well as the reader.
+
+Established 2026-08-30: the harness was the same for both adoptions. **Claude Code ran the `0.7`
+interview the owner accepted and the `0.10.2` interview he refused.** So "the tool changed" is not
+the explanation. Claude Code is a harness, not a reader; the model under it can change without the
+name changing, and a week passed between the two.
+
+That leaves two candidates and they are separable with the harness held constant, which is what
+[`predictions/interview-length-0.7-against-head.md`](predictions/interview-length-0.7-against-head.md)
+tests. The consequence either way is already recorded there. What belongs here is the general form:
+**every part of this framework that specifies a topic rather than a text is a prediction about a
+model, and the framework has two of them and had labelled one.**
 
 **The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
 grounds that an assistant would do the same thing without them. That is a claim about the reader, not
