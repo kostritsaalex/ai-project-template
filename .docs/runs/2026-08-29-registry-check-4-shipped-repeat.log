@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | WP Themes | pass | PROJECT.md (WordPress-7 root) line 65: ``Address: `wp-themes/` `` — relative path, so this is the line used; resolved from the scope root to `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes`; listed it, the folder is there. |
+| 1 | WordPress 7 Engine | fail | PROJECT.md (WordPress-7 root) line 71: `Address: none. No copy of this folder exists off this machine.` — not a relative path, so the local path line beneath it is used: PROJECT.md (WordPress-7 root) line 72: ``Local path: `~/wordpress-7` ``; `~` expands to `/home/kostritsaalex`, resolving to `/home/kostritsaalex/wordpress-7`; `test -d` on that path returned MISSING. No visible text in PROJECT.md says this component is not attached yet. |
+| 2 | WP Themes | pass | Listed the root of wp-themes: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore`. Both stubs present. |
+| 2 | WordPress 7 Engine | n/a | Row 1 for this component failed: the folder `/home/kostritsaalex/wordpress-7` does not exist, so there was nothing to read. |
+| 3 | WP Themes | pass | PROJECT.md (WordPress-7 root) line 62: `## WP Themes`; AGENTS.md (wp-themes) line 3: ``This folder is the `WP Themes` component of the WordPress 7 project.``; CLAUDE.md (wp-themes) line 3: ``This folder is the `WP Themes` component of the WordPress 7 project.`` |
+| 3 | WordPress 7 Engine | n/a | Row 1 for this component failed: the folder `/home/kostritsaalex/wordpress-7` does not exist, so there was nothing to read. |
+| 4 | WP Themes | pass | AGENTS.md (wp-themes) line 11: `../`; CLAUDE.md (wp-themes) line 11: `../`; resolved from `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` it lands on `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, this folder, whose own address is PROJECT.md (WordPress-7 root) line 39: `OneDrive, Projects/Development/WordPress-7`. |
+| 4 | WordPress 7 Engine | n/a | Row 1 for this component failed: the folder `/home/kostritsaalex/wordpress-7` does not exist, so there was nothing to read. |
+| 5 | WP Themes | n/a | Listed the root of wp-themes, no REPOSITORY.md and no ASSETS.md; and neither AGENTS.md nor CLAUDE.md (wp-themes) names either file. |
+| 5 | WordPress 7 Engine | n/a | Row 1 for this component failed: the folder `/home/kostritsaalex/wordpress-7` does not exist, so there was nothing to read. |
+| 6 | WP Themes | pass | Tested the single path `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes/PROJECT.md` with `test -e`: ABSENT. |
+| 6 | WordPress 7 Engine | n/a | Row 1 for this component failed: the folder `/home/kostritsaalex/wordpress-7` does not exist, so there was nothing to test. |
+| 7 | (read set) | pass | Folders opened: (1) `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7` — this scope's own root, in the read set by the first instruction, needs no registry line; (2) `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` — a folder the registry named, PROJECT.md (WordPress-7 root) line 65: ``Address: `wp-themes/` ``. Attempted `/home/kostritsaalex/wordpress-7` — named by the registry, PROJECT.md (WordPress-7 root) line 72: ``Local path: `~/wordpress-7` `` — but it does not exist and was not opened. No folder in the third class. |
+
+Failed rows: 1

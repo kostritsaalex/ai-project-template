@@ -18,8 +18,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-2-control.log` | `registry-check.md` as committed in `381b200`, verified byte-identical to the first run's prompt | Second run, control: the original prompt again | Same scope, unchanged since the first run | 2026-08-29 |
 | `2026-08-29-registry-check-3-negative.log` | `registry-check.md` as committed in `49b25dd` | Negative half, first run | Same scope with **one line deliberately broken**: the Engine's registry local path set back to `~/wordpress-7`, a folder that does not exist. Restored immediately after, verified byte-identical to the copy taken before planting | 2026-08-29 |
 | `2026-08-29-registry-check-3-negative-repeat.log` | `registry-check.md` as committed in `49b25dd` | Negative half, repeat of the same arm | Same broken scope, unchanged between the two runs | 2026-08-29 |
+| `2026-08-29-registry-check-4-shipped.log` | `registry-check.md` as shipped in `0.9.0` plus the check 6 rewrite, a text no earlier run had used | Negative half against the shipped text | Same planted defect, restored after | 2026-08-29 |
+| `2026-08-29-registry-check-4-shipped-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 
-All five ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+All seven ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
@@ -36,6 +38,8 @@ cf722de35201272594e2f9b27cd9a778  2026-08-29-registry-check-2-repaired.log
 6bdd042245658a913d25c0aadaf40d8c  2026-08-29-registry-check-2-control.log
 f05464775dff20994c5dc5806fdb18f7  2026-08-29-registry-check-3-negative.log
 38b7e3e0dfa615069558410b7b817e8d  2026-08-29-registry-check-3-negative-repeat.log
+c060bcecf5e18b3ab770524b2bcdba06  2026-08-29-registry-check-4-shipped.log
+c889c6f6960f8d82debaa20e393d709e  2026-08-29-registry-check-4-shipped-repeat.log
 ```
 
 ## What they are evidence for

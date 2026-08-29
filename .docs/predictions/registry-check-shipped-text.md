@@ -49,3 +49,31 @@ uselessness — the one outcome that would be worse than the noise it was writte
 
 As before: any row disagreeing with this prediction gets the arm run again before anything is
 concluded.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, twice. Every prediction confirmed, both times, on every row. Logs
+`2026-08-29-registry-check-4-shipped.log` and `-repeat.log`. Everything above this line was written
+before either run.
+
+Check 1 failed the Engine in both, quoting line 71 to justify falling through to line 72, expanding
+the tilde, and reporting the folder missing. Rows 2 to 6 for the Engine came back `n/a` in both, all
+five, each naming row 1. Every `WP Themes` row was unchanged, and check 6's evidence is now a single
+probe: "Tested the single path `.../wp-themes/PROJECT.md` with `test -e`: ABSENT." Check 7 passed as
+one row. `Failed rows: 1` in both.
+
+None of the three too-wide outcomes occurred. No correct component's row turned `n/a`, check 7 did
+not, and the count did not fall to zero.
+
+**One planted defect, one verdict, in both runs.** The old text produced six failures in one run and
+five plus a nonsensical pass in the other, on the same defect. The comparison is in
+[`../runs/`](../runs/): four logs, two prompts, one scope state.
+
+**`0.9.0` is no longer provisional.** The text that shipped has now been run against the defect the
+check exists to catch, twice, and behaves as specified.
+
+The check 6 rewrite is validated by the same runs. Its instability had three causes across two
+experiments, and this is the first pair of runs in which it returns the same verdict on the same
+evidence twice.
