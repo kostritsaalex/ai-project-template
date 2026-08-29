@@ -75,7 +75,7 @@ which version you read.
 ## Step 4. Ask
 
 Ask only what the files cannot answer. For a project scope that is roughly: what the project is,
-what it does not cover, the owner's principles, where it lives, and which components exist. For a
+what it covers, the owner's principles, where it lives, and which components exist. For a
 component it is two questions: what it is called and whether it has a rule of its own yet. The
 posture is not one of them. Whether platform or framework code sits in the folder is visible, so
 propose the posture from what you saw, put it in the summary table as settled, and let it be
