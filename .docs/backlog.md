@@ -9,7 +9,13 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-`0.9.0` is released, tagged and pushed. Working tree clean, nothing half-done.
+**`0.9.0` is provisional.** It is released, tagged and pushed, and the prompt it shipped had never
+been run. The `n/a` rule for rows downstream of a component that cannot be found was written into the
+release commit itself, after the last negative run, so every run validating `registry-check`
+validated a prompt three lines different from the one that shipped. That is the state principle 6
+exists to prevent, and it is the same shape as the four preserve rules that shipped for two releases
+unused and turned out to describe a folder that does not exist. It stays provisional until the
+shipped text is run against the planted defect.
 
 Two releases today. `0.8.0` adopted the second razor, cut the platform fragment and the Engine's nine
 bullets, and wrote down what would make the contract `1.0`. `0.9.0` added the third check, run five
@@ -50,7 +56,26 @@ and the core rule stayed out of `Local rules`.
 
 ## Now
 
-Empty. The address question was settled in `0.7.0` by
+**Check 6 in `registry-check`: fixed 2026-08-29, awaiting its run.** Three pointers from independent
+experiments at one row, which is a quote behind it and no decision to make. It flipped fail to pass
+between the first run and its own control on an unchanged scope; it flipped again between the two
+negative runs; and it is why one negative run counted six failures and the other five. The backlog
+had already recorded the same shape in `structure-check` 6, that it invites invention by asking for a
+full listing when the only fact it needs is whether `PROJECT.md` is present.
+
+**Rewritten, not deleted.** It now tests one path and reports the result, and is told not to list the
+folder. Deleting it was considered and rejected: the row carries a claim no other row makes, that a
+component holding a `PROJECT.md` is a project scope set up as the wrong thing, and nothing in checks
+1 to 5 detects that. Check 2's listing happens to contain the fact but does not judge it, and making
+check 2 judge two things is how a row becomes the kind of thing that flips. The claim is unchanged
+and only the evidence narrowed, so this takes no decision record.
+
+`structure-check` 6 has the same shape and is untouched, because it has no reproductions and widening
+this silently is not the same as fixing it. It is the first thing the next session looks at.
+
+---
+
+Otherwise empty. The address question was settled in `0.7.0` by
 [decision 0007](decisions/0007-a-component-with-no-address-says-so.md): a fourth form saying plainly
 that no address exists, a check that requires one of the four, and the session note raised to a
 precondition.

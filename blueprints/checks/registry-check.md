@@ -92,8 +92,10 @@ Checks:
 5. Overrides agree in both directions. If a stub names REPOSITORY.md or ASSETS.md, that file is
    present in the same folder. If such a file is present, both stubs name it. Either half alone
    fails, and say which half is missing. If no stub names one and none is present, this is n/a.
-6. The component folder holds no PROJECT.md. A component holding one is a project scope and has been
-   set up as the wrong thing.
+6. The component folder holds no file named PROJECT.md. Test for that one path and give the result
+   as the evidence. Do not list the folder: the fact this row needs is whether one named file is
+   there, and a listing buries it among everything else. A component holding a PROJECT.md is a
+   project scope and has been set up as the wrong thing.
 7. One row, not one per component. Put "(read set)" in the Component column. This row audits your
    own reading, so it covers every folder you opened and not only the ones a component sits in.
    List in the evidence every folder you opened, without exception, including this scope's own root
@@ -128,6 +130,14 @@ otherwise fails only when somebody follows it.
 Check 5 catches the half-done override. Removing `REPOSITORY.md` while the stubs still name it, or
 the reverse, leaves a component that reads as having rules it does not have; an assistant opening it
 reports a missing file instead of doing the work. Add and remove an override as one operation.
+
+Check 6 asks for one fact and takes one probe. It used to ask for a listing, and it was the least
+stable row in the check: it flipped between fail and pass in two independent experiments, once
+between a run and its own control on an unchanged scope, once between the two negative runs, and it
+is why one negative run counted six failures and the other five. Two of the three causes were fixed
+elsewhere, by restoring the absence half of the evidence rule and by making unevaluable rows n/a. The
+third was the row itself, asking for a full listing when the only fact it needs is whether one named
+file is present, and offering that listing as the place for a verdict to come from.
 
 Check 7 audits the check itself. A tool that read something outside the declared set has broken the
 rule the whole method rests on, and a table that fails it should not be trusted on any other row.

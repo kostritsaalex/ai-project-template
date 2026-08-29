@@ -52,12 +52,25 @@ Two things it still cannot do. Check 4 has never failed on a real defect, only o
 repaired, so the moved-parent case is untested. Check 7 cannot be tested by any honest run: a tool
 that stays inside its read set passes it whether the row is well specified or not.
 
-### Nothing was removed
+### Removed
 
-Said explicitly, because principle 7 asks a release that adds to name what it cut in exchange, and
-this one cuts nothing. It adds a check, a rule, and two folders of evidence. The case for it is that
-the framework had two checks that could not see between folders and a class of defect that lives
-exactly there.
+- **Five verdicts per absent component.** When `registry-check` cannot find a component's folder, the
+  five rows downstream of that no longer return a result. They are `n/a`, naming the row that
+  stopped them. The check now declines to answer questions it used to answer, and that is the
+  exchange principle 7 asks a release to name: what it buys is that the verdicts it does give are
+  load-bearing. The rows it stopped producing were not merely redundant, they were unstable and
+  sometimes wrong, one of them passing a component whose folder does not exist on the grounds that a
+  missing folder contains no `PROJECT.md`.
+- **The full-folder listing in check 6.** The row asks for one probe of one path now. The listing was
+  where its instability came from, and it was the least stable row in the check.
+
+### Known defect in this release's tag
+
+`v0.9.0` points at `7a30e13`, whose tree contains `.docs/runs/README.md` and none of the logs it
+indexes, because a global `*.log` ignore excluded them silently. The logs landed in `b699d47`
+immediately after, with the checksums the index already claimed. The tag was left where it is: moving
+it would rewrite published history to tidy away the one place this class of defect is visible in the
+record itself.
 
 ## [0.8.0] - 2026-08-29
 
