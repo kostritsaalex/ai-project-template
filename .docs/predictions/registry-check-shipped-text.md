@@ -74,6 +74,13 @@ five plus a nonsensical pass in the other, on the same defect. The comparison is
 **`0.9.0` is no longer provisional.** The text that shipped has now been run against the defect the
 check exists to catch, twice, and behaves as specified.
 
-The check 6 rewrite is validated by the same runs. Its instability had three causes across two
-experiments, and this is the first pair of runs in which it returns the same verdict on the same
-evidence twice.
+**The check 6 rewrite is not isolated by these runs, and an earlier version of this section said it
+was.** The pair differs from the previous pair by two changes at once, the cascade and the rewrite.
+Check 6 came back `n/a` for the Engine in both, which the cascade decided rather than the rewrite,
+and `pass` for `WP Themes` in both, where the absence half of the evidence rule had already been
+restored in `49b25dd`. So the row's stability here is not attributable to the rewrite.
+
+What the pair supports is narrower: the shipped text as a whole behaved as predicted, twice. The
+rewrite stands on its reasoning, that a row asking for one fact should take one probe, and not on a
+measurement. Isolating it would cost a run and is not worth one; saying it is not isolated costs a
+sentence.

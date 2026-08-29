@@ -75,3 +75,26 @@ words** — not left for somebody to discover the day a green table means nothin
 
 As before: any row disagreeing with this prediction gets the arm run again before anything is
 concluded.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, twice. Every prediction confirmed on every row, both times. Logs
+`2026-08-29-registry-check-5-unreachable.log` and `-repeat.log`.
+
+Check 1 returned `n/a` for the Engine on the URL branch, with the reason: "Address is a URL, no local
+path line beneath it, no folder reachable from it — the registry never claimed this component is on
+this machine." Rows 2 to 6 returned `n/a`, all five, each saying "Row 1 did not confirm a folder
+exists", which is the new rule's own wording rather than the old enumeration's. Every `WP Themes` row
+was unchanged. Check 7 listed two folders and no Engine folder. `Failed rows: 0`, twice.
+
+None of the three falsifying outcomes occurred. No Engine row failed, so the rule does not read
+"unreachable" as "broken". No `WP Themes` row turned `n/a`, so suppression did not spread to an
+audited component. Check 7 invented no folder.
+
+**The too-wide consequence is confirmed as predicted and is now documented.** `Failed rows: 0` is
+correct here because `WP Themes` was genuinely audited. On a project whose components all sit off
+this machine, the same rule yields a table of `n/a` and a green count that audited nothing. This is
+written into "What this check cannot see" in those words, because it was registered in advance as the
+real risk and it turned out to be the honest behaviour rather than a defect.

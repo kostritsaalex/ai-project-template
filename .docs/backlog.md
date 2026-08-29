@@ -210,18 +210,31 @@ what it declined to add. The repository's `.gitignore` now negates the rule for 
 fixes the instance; whether anything should read `runs/README.md` back against the folder it
 describes is the open question, and it is the same open question as the metric was.
 
-**One false belief wrote itself into three documents.** The claim that `structure-check` "passed
-twice" a stale registry path appeared in `registry-check.md`, in a pre-registration, and in the
-`0.9.0` changelog. It is false: the two passes were on 2026-08-25, when the path was still correct.
-It was written once and then restated from memory, never re-derived, and each restatement read as
-independent corroboration of the previous one.
+**A claim that was never established, restated until it looked like one.** The claim that
+`structure-check` "passed twice" a stale registry path reached three documents: `registry-check.md`,
+a pre-registration, and the `0.9.0` changelog. It is false. Those two passes were on 2026-08-25, when
+the path was still correct.
 
-All three were found in one pass, by reading the artefacts back to paste them rather than summarising
-them. Nothing else found them: the claim is about a run that happened, so no check reads it, and it
-was plausible enough to survive every reading that was not looking for it.
+**Provenance, established by `git log -S` rather than by recollection.** It first appears in
+`381b200` at 17:41 on 2026-08-29, the commit that created `registry-check.md`, and it was written
+there as a finished fact with nothing behind it. That is more than an hour before any reviewer
+raised the hypothesis that the registry might already be stale, so the two are not a common cause and
+the reviewer's speculation is not the origin. The origin was an unforced invention of the session's
+own, in the file it was writing at the time.
 
-The open question is whether anything can be done beyond the habit. A claim about a past run is
-checkable against [`runs/`](runs/) now that the logs are committed, which is an argument for citing
+The direction may in fact run the other way, and this is worth naming as a possibility rather than a
+finding: a reader meeting that sentence in the shipped check, which says a stale path was passed
+twice, would reasonably form the hypothesis that the registry was stale. An invented claim in a
+document is capable of generating the review question that later appears to corroborate it.
+
+So the shape is the worse of the two: not a fact restated from memory, but a claim that was never
+established at any point, restated twice until repetition made it look settled. Each restatement read
+as corroboration of the last.
+
+All three were found in one pass, by reading the artefacts back in order to paste them rather than
+summarising them. Nothing else could have: the claim is about a run that happened, so no check reads
+it, and it was plausible enough to survive every reading not looking for it. Now that
+[`runs/`](runs/) is committed, a claim about a past run is checkable, which is an argument for citing
 the log whenever a document asserts what a run did.
 
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
@@ -324,6 +337,13 @@ platform rule follows from a platform rather than a folder, so a fragment was co
 WordPress component and nothing owned it. `0008` removed the fragment, so there is nothing left to
 own. Recorded because the item was deleted from `Release` rather than marked closed, and a question
 that vanishes reads like a question nobody answered.
+
+**A challenge withdrawn, recorded because the answer to it stays.** The `0.9.0` entry originally
+said nothing was removed, and was challenged on the grounds that making rows 2 to 6 `n/a` removes
+five verdicts. The challenge was withdrawn by the reviewer as thin: `registry-check.md` is a new file
+in that release, so its internal rules need no separate itemisation under principle 7. The `Removed`
+section written in answer to it stays, because it is true and useful independently of the demand that
+produced it. Recorded so the record does not read as though the demand was sound.
 
 **The naming question, closed but worth watching.** The pair stays, decided 2026-08-24. Hours later
 the owner's reasoning for calling a theme folder `Assets` included "a repository is technically out

@@ -6,6 +6,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.9.1] - 2026-08-29
+
+**The n/a rule reaches the branch it was missing.** A fix and its run, no new capability.
+
+### Changed
+
+- `registry-check` row 1 states its cascade as one condition instead of enumerating cases. **Unless
+  row 1 confirmed the folder exists, rows 2 to 6 are n/a and name it.** The `0.9.0` wording fired on
+  one of row 1's three outcomes, leaving the other two, a component not yet attached and a component
+  addressed off this machine, with no folder to read and no rule telling them to stay silent. That is
+  the pathology the cascade exists for, one branch over in the same row, and a project with a GitHub
+  URL in its registry meets it on a first run.
+- `What this check cannot see` now says that a green table can mean nothing was audited. A project
+  whose components all sit off this machine produces `n/a` on every row and `Failed rows: 0`, which
+  looks like a pass. Read the table, not the count: if no row says pass, nothing was checked. This
+  was registered in advance as the risk of the fix and confirmed as its honest behaviour.
+
+### Removed
+
+- Two of the three cases in row 1's cascade wording, replaced by the condition they had in common.
+  Fewer rules, wider coverage.
+
+### On the evidence
+
+Run twice against a scope whose component was given a repository address and no local path. Check 1
+returned n/a on that branch with the reason, rows 2 to 6 returned n/a naming row 1, the other
+component was untouched, check 7 invented no folder, `Failed rows: 0` both times. Pre-registered in
+`.docs/predictions/registry-check-unreachable-component.md`, with three falsifying outcomes named
+before the run and none of them observed.
+
+### Correction to the 0.9.0 entry
+
+Its evidence section claimed `structure-check` had "passed twice" a stale registry path. It had not:
+those passes were on 2026-08-25, when the path was still correct. The claim was never established at
+any point, and it reached three documents before being caught by reading them back. `git log -S`
+places its first appearance in `381b200`, the commit that created `registry-check.md`.
+
 ## [0.9.0] - 2026-08-29
 
 **A third check, and a measured limit on what a check is worth.** See

@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | WP Themes | pass | Located by the address line, which is a relative path: `PROJECT.md` in `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, line 65: "Address: `wp-themes/`". Resolved from this folder to `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes`; the folder is there. |
+| 1 | WordPress 7 Engine | n/a | `PROJECT.md` in `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, line 71: "Address: https://github.com/kostritsaalex/wordpress-7-engine". The address is a URL and no local path line follows it, so the registry never claimed the folder is on this machine. |
+| 2 | WP Themes | pass | Listed the root of `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes`: `.vscode/`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore/`. Both stubs present. |
+| 2 | WordPress 7 Engine | n/a | Check 1 for this component did not confirm a folder exists. |
+| 3 | WP Themes | pass | `PROJECT.md` in `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, line 62: "## WP Themes". `AGENTS.md` in `wp-themes`, line 3: "This folder is the `WP Themes` component of the WordPress 7 project." `CLAUDE.md` in `wp-themes`, line 3: "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 3 | WordPress 7 Engine | n/a | Check 1 for this component did not confirm a folder exists. |
+| 4 | WP Themes | pass | `AGENTS.md` in `wp-themes`, line 11: "../". `CLAUDE.md` in `wp-themes`, line 11: "../". Resolved from `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` to `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, which is this folder. Compared against `PROJECT.md` in `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, line 45: "~/OneDrive/Projects/Development/WordPress-7", which resolves to the same folder. |
+| 4 | WordPress 7 Engine | n/a | Check 1 for this component did not confirm a folder exists. |
+| 5 | WP Themes | n/a | Searched both stubs in `wp-themes` for REPOSITORY.md and ASSETS.md, no match; listed the root of `wp-themes`, no REPOSITORY.md and no ASSETS.md. |
+| 5 | WordPress 7 Engine | n/a | Check 1 for this component did not confirm a folder exists. |
+| 6 | WP Themes | pass | Tested the single path `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes/PROJECT.md`: not present. |
+| 6 | WordPress 7 Engine | n/a | Check 1 for this component did not confirm a folder exists. |
+| 7 | (read set) | pass | Folders opened: (1) `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7` — this scope's own root, in the read set by the first instruction, no registry line needed; (2) `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` — named by the registry, `PROJECT.md` in `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`, line 65: "Address: `wp-themes/`". No folder in the third class. |
+
+Failed rows: 0

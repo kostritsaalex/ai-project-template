@@ -20,8 +20,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-3-negative-repeat.log` | `registry-check.md` as committed in `49b25dd` | Negative half, repeat of the same arm | Same broken scope, unchanged between the two runs | 2026-08-29 |
 | `2026-08-29-registry-check-4-shipped.log` | `registry-check.md` as shipped in `0.9.0` plus the check 6 rewrite, a text no earlier run had used | Negative half against the shipped text | Same planted defect, restored after | 2026-08-29 |
 | `2026-08-29-registry-check-4-shipped-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
+| `2026-08-29-registry-check-5-unreachable.log` | `registry-check.md` at `0.9.1`, row 1's cascade collapsed from three cases to one condition | A component the registry never claimed is on this machine | Engine's address replaced by a repository URL and its local path line deleted; restored after | 2026-08-29 |
+| `2026-08-29-registry-check-5-unreachable-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 
-All seven ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+All nine ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
@@ -40,6 +42,8 @@ f05464775dff20994c5dc5806fdb18f7  2026-08-29-registry-check-3-negative.log
 38b7e3e0dfa615069558410b7b817e8d  2026-08-29-registry-check-3-negative-repeat.log
 c060bcecf5e18b3ab770524b2bcdba06  2026-08-29-registry-check-4-shipped.log
 c889c6f6960f8d82debaa20e393d709e  2026-08-29-registry-check-4-shipped-repeat.log
+65b0ddf0ca1b124524710595d7f25b20  2026-08-29-registry-check-5-unreachable.log
+605d88261b6ebfd8a79012ffb5f7dc9e  2026-08-29-registry-check-5-unreachable-repeat.log
 ```
 
 ## What they are evidence for

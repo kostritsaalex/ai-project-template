@@ -169,6 +169,13 @@ checks hides which component failed, and the first run made the ambiguity visibl
 
 ## What this check cannot see
 
+**A green table can mean nothing was audited.** A component the registry never claimed is on this
+machine, one addressed by a URL or a synced store with no reachable folder, is `n/a` on every row.
+That is correct: nothing about it can be read from here, and reporting a failure would call a
+perfectly good component broken. But the count at the bottom counts failures, so a project whose
+components all sit elsewhere produces a table of `n/a` and `Failed rows: 0`, which looks exactly like
+a project that passed. Read the table, not the count. If no row says `pass`, nothing was checked.
+
 Whether the registry is right. It compares two documents and reports where they disagree; it has no
 way to know that a component was given the wrong posture, or that a block describes a folder nobody
 uses any more.
