@@ -220,10 +220,21 @@ raised the hypothesis that the registry might already be stale, so the two are n
 the reviewer's speculation is not the origin. The origin was an unforced invention of the session's
 own, in the file it was writing at the time.
 
-The direction may in fact run the other way, and this is worth naming as a possibility rather than a
-finding: a reader meeting that sentence in the shipped check, which says a stale path was passed
-twice, would reasonably form the hypothesis that the registry was stale. An invented claim in a
-document is capable of generating the review question that later appears to corroborate it.
+**The reverse direction was raised and is closed.** It was suggested that the invented sentence might
+have generated the reviewer's hypothesis, a reader meeting "a stale path was passed twice" forming
+the natural suspicion that the registry was stale. It did not. The reviewer had not read
+`registry-check.md` at that point, and the hypothesis came from the owner's own message that he had
+moved the Engine, together with his question about whether to repair the path or watch the system
+behave.
+
+So there are two independent origins for one appearance of agreement. A true premise, that a folder
+had moved. And an invented claim, about what `structure-check` did when it moved. They arrived from
+different places, they were never checked against each other, and each made the other look
+corroborated.
+
+The speculation is closed here rather than left standing, because an unresolved "it might have gone
+the other way" is the same shape as the item it sits inside: a claim nobody established, kept because
+it is plausible.
 
 So the shape is the worse of the two: not a fact restated from memory, but a claim that was never
 established at any point, restated twice until repetition made it look settled. Each restatement read
@@ -234,6 +245,21 @@ summarising them. Nothing else could have: the claim is about a run that happene
 it, and it was plausible enough to survive every reading not looking for it. Now that
 [`runs/`](runs/) is committed, a claim about a past run is checkable, which is an argument for citing
 the log whenever a document asserts what a run did.
+
+**The release procedure now has a verification step, and it was tested against its own failures.**
+Added to [`release.md`](release.md) as step 6, before the tag, because a release is the moment a
+document's claim about the tree is most likely to be false and it was the one moment nothing checked.
+Four commands: what actually changed since the last tag, every version string, the version named in
+both the changelog and here, and whether anything a document names is untracked, ignored or
+uncommitted.
+
+Run retrospectively against the two tags it was written for, it finds both. Against `v0.9.0` it names
+all five logs the `runs/` index claims and the tree does not hold. Against `v0.9.1` it finds the
+backlog and the changelog disagreeing about which version this is.
+
+`set -e` would have prevented neither. Both defects were produced by a script whose assertion failed
+and whose commit ran anyway, and `set -e` fixes that particular script; the step catches the class,
+including the instances that arrive some other way.
 
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should

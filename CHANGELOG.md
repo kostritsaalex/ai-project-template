@@ -25,8 +25,14 @@ where practical.
 
 ### Removed
 
-- Two of the three cases in row 1's cascade wording, replaced by the condition they had in common.
-  Fewer rules, wider coverage.
+- The three cases in row 1's cascade, replaced by the condition they had in common: one rule instead
+  of an enumeration, covering the two branches the enumeration had missed.
+
+  **As tagged, this release did not show that removal.** The sentence stating the condition was
+  followed by another restating all three cases, so `v0.9.1` points at a tree where three lines had
+  become five. Fewer rules, more words. The restatement was cut afterwards, judged by `0008`: it
+  prescribed nothing the condition above it did not already say, and a clause that changes no
+  behaviour does not earn a document.
 
 ### On the evidence
 
