@@ -9,10 +9,23 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-**`0.10.0`, `0.10.1` and `0.10.2` are provisional.** They are released, tagged and pushed, and
-nothing in any of them has been run: `0.10.0`'s boundary rewrite and the cold-start question that
-reads it, `0.10.1`'s scoring rule for that question, and `0.10.2`'s statement of what the razor
-governs. All of it can only be exercised by an adoption, and the adoption comes next. That much is unavoidable; shipping without saying so is not,
+**`0.10.0`, `0.10.1` and `0.10.2` are provisional, and there is no instrument to un-provision them.**
+They are released, tagged and pushed, and nothing in any of them has been run: `0.10.0`'s boundary
+rewrite and the cold-start question that reads it, `0.10.1`'s scoring rule for that question, and
+`0.10.2`'s statement of what the razor governs. Only an adoption exercises any of it.
+
+**The adoption did not happen, and this is the second abort.** The first was discarded because the
+session had learned too much from its own survey to stay blind. The second never started: the owner
+read the interview and refused it, on its length rather than on its questions.
+
+His verdict, in his words, because it is about the whole path and not about one row: **initialization
+has degraded. Consistency may have improved; the interview got much worse.** He is not going to
+answer it.
+
+So tonight's state is not a day of progress with one loose end. It is a framework whose last three
+releases cannot be validated, whose adoption path has now been refused twice by the only person who
+can run it, and whose owner says the part a project meets first is worse than it was four releases
+ago. That much is unavoidable; shipping without saying so is not,
 and the standard was set earlier today when `0.9.0` shipped a prompt no run had used. It stays
 provisional until the ArtGlina adoption has been through it. Working tree clean, nothing half-done.
 
@@ -385,6 +398,26 @@ version by pattern rather than by wording, which keeps the cross-check and stops
 prose. Or drop the backlog from V3 entirely and let that line lag, on the ground that a convenience
 does not need verifying and the changelog is the claim. Not now.
 
+**Every repair this week was correct, and they accumulated where nothing measures.** This is the
+finding tonight, and it sits above any particular row.
+
+Each change had a reason and most had a run behind them. Each also added justification: a clause
+explaining why a row asks what it asks, a sentence naming the case a rule exists to catch, a note
+recording what an earlier version got wrong. None of it was wrong and all of it was addressed to
+somebody. The sum is an interview the owner will not answer.
+
+**The shape has appeared three times now and this is its clearest instance.** The check prompts grew
+outside the 41-and-22 metric, which measures what an adopted project carries and not what a person is
+asked to read. `0.9.1` stated a cascade as one condition and then restated the three cases it
+replaced, so a release claiming a removal shipped a longer file. And now the setup path, which no
+measurement covers at all: `procedure.md` and `new-project.md` are read by an assistant, and the
+questions they produce are read by an owner, and nothing counts either.
+
+The common cause is not carelessness. It is that **justification accumulates in the place that is
+never measured**, because a reason for a rule always looks like it belongs beside the rule. What the
+metric protects is the document an adopted project carries. Nothing protects the document a person
+has to sit through.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
@@ -703,15 +736,26 @@ holds two stubs, identical apart from their heading, and nothing else.
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
 
-**Start here: is `structure-check` under-specified too?** The cheapest item with the widest reach.
-Read all three prompts for rows that cannot be evidenced as written, and for rows that depend on an
-earlier row without saying what happens when it fails. Both defects are now known to exist, and both
-were found by reading in minutes. Anything suspicious gets a pre-registration and a run, on the
-pattern in [`predictions/`](predictions/), which is three files now and works.
+**Start here, and it is a measurement rather than a repair.** Do not rewrite the interview before it
+is reported. Three steps, in order.
 
-**Then: the moved-parent case.** `registry-check` 4 has never failed on a real defect. Move a scope,
-or build a component pointing at where one used to be, and see whether the row catches it. That is
-the other half of what the check claims.
+**1. Diff what was actually asked against what the blueprint contains.** The interview that reached
+the owner is not the blueprint; it is the blueprint as one tool rendered it, and the difference has
+never been established. Report the split: how many lines are the blueprint's own text, how many the
+tool added. Sentences of the "a plausible guess about your business would read as fact" kind may
+belong to either. **Repairing a file for prose a tool wrote is the error this repository spent
+2026-08-29 cataloguing**, and it is the error most available here.
+
+**2. Check the memory of `0.7` with `git show` rather than by agreeing with it.** The owner recalls
+four or five questions with answer options. If the older interview really was shorter, give the
+numbers from both versions. **That difference is the cost of four releases of correct repairs, and it
+is the most useful number available.** If it turns out the old interview was no shorter, the finding
+above is wrong and should be marked so.
+
+**3. Only then, the candidate rule.** One sentence: the blueprint explains to the assistant, and the
+assistant asks the owner short questions. Reasoning belongs in the file the assistant reads, not in
+the message the owner answers. It is a candidate and not a decision, and it is not applied before
+steps 1 and 2 are reported.
 
 **Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that

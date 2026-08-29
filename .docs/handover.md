@@ -4,6 +4,11 @@ What the sessions that built `0.5.0` through `0.7.0` knew and the rest of the re
 say. Written 2026-08-25, when the work moved from a cloud assistant reading the Windows checkout to
 an assistant running inside WSL.
 
+**Tonight's state, 2026-08-29:** three releases are provisional and cannot be validated, because the
+only instrument is an adoption and the adoption has been refused twice. Do not treat the volume of
+work in the log as progress until that is resolved. The plan in `backlog.md` starts with a measurement
+and explicitly forbids repairing the interview before it is reported.
+
 State and open work are in [`backlog.md`](backlog.md). Why the framework is shaped as it is, in
 [`decisions/`](decisions/). This file holds method, calibration and the facts of the move.
 
@@ -31,6 +36,17 @@ resolved to, the differing segment named. None of that can be produced without l
 settles it. A pass can be produced by not looking, and an `n/a` paragraph more easily still, which is
 why every `n/a` behaviour this framework has shipped was run twice and why check 6 flipped between
 runs for a week before anyone noticed. Spend the repeat where the evidence is silence.
+
+**A correct repair still costs something, and the cost lands where nothing counts.** Every change
+made on 2026-08-29 was defensible and most had a run behind it. Each also added justification, which
+is what a careful repair does. The sum was an interview the owner refused to answer, saying
+initialization had degraded even as consistency improved.
+
+Ask of a repair not only whether it is right but **where its weight lands and whether anything
+measures that place.** The shipped-line metric covers what an adopted project carries. Nothing covers
+the check prompts, and nothing covers the setup path, and both grew all week. A reason for a rule
+always looks like it belongs beside the rule, which is why justification accumulates in exactly the
+documents no measurement protects.
 
 **Judge by the artefact, not the report.** Three times during the `0.6.0` validation a report ending
 in "Failed checks: 0" contained a detail that does not exist: folders listed in a directory that
