@@ -35,6 +35,19 @@ The search for the project's name returned several folders that hold framework d
 because you noticed it", so none of them is treated as a component and none will be offered as one.
 They are reported below as documents found, which is a different claim.
 
+**J4. The interview was batched at the owner's request, and that is not the blueprint's shape.**
+He asked for every question in a single list, answered in one message, with any question opened by an
+answer going into a second list. `procedure.md` Step 4 already says to "ask in one block, not one
+question at a time", so the two agree on the first round. Neither says what the second round is, and
+the blueprint only implies one: it defers the session note until after the components are named,
+which cannot happen in the same block that asks for them.
+
+*Why it matters to a later reader:* **a batched interview and a conversational one are not the same
+instrument.** A conversation lets a puzzled answer be chased on the spot, and a batch does not, so a
+thin answer stays thin until the next round and an ambiguity travels into the summary table. Anything
+this adoption gets right or wrong about the interview was got with the batched form, and the shape
+`procedure.md` describes should not be assumed from it.
+
 ---
 
 # Finding that stopped the run
