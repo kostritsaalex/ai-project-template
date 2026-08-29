@@ -52,19 +52,32 @@ entry links to it. A rule that changed without a record is a rule nobody can arg
 decoration. A release that only adds should say so explicitly rather than leaving the omission to be
 noticed.
 
-**6. Verify the tree against what the release says about it, before the tag.**
+**6. Commit.** Everything the release changes, in one commit. Nothing is verified before this point,
+because until the work is committed there is no tree to verify: `$PREV..HEAD` cannot see uncommitted
+files and a dirty `git status` is expected rather than diagnostic.
 
-A release is the moment a document's claim about the tree is most likely to be false, and it is the
-one moment nothing checks. Two tags prove it: `v0.9.0` points at a tree whose `runs/` index names
-five logs the tree does not contain, and `v0.9.1` at a tree whose backlog announces `0.9.0`. Both
-came from a scripted multi-file edit where an assertion failed and the commit went ahead regardless.
+**7. Verify the committed tree, before the tag.**
 
-Run all four. Each prints its own evidence; read it rather than trusting the exit code.
+A release is the moment a document's claim about the tree is most likely to be false, and it was the
+one moment nothing checked. Two tags prove it: `v0.9.0` points at a tree whose `runs/` index names
+five logs the tree does not contain, and `v0.9.1` at a tree whose backlog announces `0.9.0`.
+
+**The position is the whole design.** This ran before the commit once and had to be completed by the
+operator to pass: `$PREV..HEAD` showed nothing, so a `--cached` command was invented on the spot, and
+`git status` printed ten modified files against a criterion that said it must print none, and the
+release went ahead anyway. Between commit and tag, `HEAD` is exactly the tree the tag will name,
+`$PREV..HEAD` is the release's own diff, and a clean `git status` means something. Verifying after the
+tag, which is the only other place these commands work, can report a defect that is already
+permanent.
+
+Run all four. Each prints its own evidence; read it rather than trusting an exit code. If a command
+here does not answer its question and you find yourself typing another one, stop: the step is wrong
+and the command you reached for is the finding.
 
 ```bash
 PREV=$(git describe --tags --abbrev=0)
 
-# V1. What actually changed since the last tag.
+# V1. What this release actually changed.
 git diff --name-only $PREV..HEAD
 
 # V2. Every version string, so the new number is where it belongs and nowhere else.
@@ -96,16 +109,15 @@ What each has to show:
   The command is keyed on a phrase a person can rewrite without noticing. If it returns nothing, look
   at the backlog before concluding anything: the line may be missing, or it may simply be worded
   differently now.
-- **V4.** The first two commands print nothing and the third prints no `NOT TRACKED` line. A file
-  present on disk and excluded by an ignore rule is the case worth catching, because `git add` does
-  not report what it declined to add. This is the check `v0.9.0` failed.
+- **V4.** All three commands print nothing. A file present on disk and excluded by an ignore rule is
+  the case worth catching, because `git add` does not report what it declined to add. This is the
+  check `v0.9.0` failed.
 
-To run this against a tag rather than the working tree, substitute `git show <tag>:<path>` for the
-file reads and `git ls-tree -r <tag> --name-only` for the tracking check. That is how the two
-failures above were confirmed after the fact.
+If anything fails here, amend the commit and run it again. That is what this step is placed before
+the tag to make possible.
 
-**7. Commit, tag, push both.** `git tag -a vX.Y.Z`, then push `main` and the tag. A tag that stays
-local is a release nobody else has.
+**8. Tag and push both.** `git tag -a vX.Y.Z`, then push `main` and the tag. A tag that stays local
+is a release nobody else has.
 
 ---
 
