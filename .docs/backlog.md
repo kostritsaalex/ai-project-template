@@ -9,22 +9,20 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-**`0.9.0` was provisional and no longer is.** It was released with a prompt no run had ever used. The `n/a` rule for rows downstream of a component that cannot be found was written into the
-release commit itself, after the last negative run, so every run validating `registry-check`
-validated a prompt three lines different from the one that shipped. That is the state principle 6
-exists to prevent, and it is the same shape as the four preserve rules that shipped for two releases
-unused and turned out to describe a folder that does not exist. It stays provisional until the
-shipped text is run against the planted defect. That run happened the same day, twice, and every
-prediction held: one failure for the planted defect, five `n/a` rows naming it, nothing correct
-touched, `Failed rows: 1` both times. Recorded in
-[`predictions/registry-check-shipped-text.md`](predictions/registry-check-shipped-text.md). The
-release stands.
+`0.9.1` is released, tagged and pushed. Working tree clean, nothing half-done.
 
-Two releases today. `0.8.0` adopted the second razor, cut the platform fragment and the Engine's nine
-bullets, and wrote down what would make the contract `1.0`. `0.9.0` added the third check, run five
-times in both directions before shipping, and the rule in `0009` that governs every check after it.
-Between them the framework gained [`release.md`](release.md), [`runs/`](runs/) and
-[`predictions/`](predictions/).
+Three releases today. `0.8.0` adopted the second razor and cut the platform fragment. `0.9.0` added
+`registry-check` and the rule in `0009` governing every check after it. `0.9.1` collapsed row 1's
+cascade from three cases to one condition, which is what a component addressed off this machine
+needs. The check has been run nine times, five of them pre-registered, every log committed in
+[`runs/`](runs/).
+
+**`0.9.0` was provisional for about ten minutes and is not any more.** It shipped a prompt no run had
+ever used: the `n/a` rule went into the release commit itself, after the last negative run, so every
+run that validated `registry-check` validated a prompt three lines different from the one that
+shipped. That is the state principle 6 exists to prevent. The shipped text was then run twice against
+the planted defect and every prediction held. Kept here rather than tidied away, because the failure
+mode is easy to repeat: a fix written while composing the release is a fix nothing has run.
 
 The table below is the `0.6.0` validation run, kept as the record it is. The WordPress 7 project was
 reset to bare folders and re-adopted from scratch on `0.6.0`, then the Engine component was reset a
