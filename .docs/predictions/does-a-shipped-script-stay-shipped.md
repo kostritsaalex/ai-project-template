@@ -259,6 +259,19 @@ would have silently repaired that sentence; four runs of a specified one repeate
 
 The repair is one clause and it is not made here, because this file is the record of what was run.
 
+## What was measured is fidelity, not sufficiency
+
+**Every run had writing disabled and stopped at the questions. Nobody answered them and no document
+was produced.** So the six questions are proven to arrive verbatim, and they are **not** proven to be
+enough to write a complete `PROJECT.md` from.
+
+That distinction has to be stated here in those words, because "the script survives" will otherwise
+be read as "the script works". Six questions arriving unaltered is a property of the mechanism. Six
+questions being the right six is a different claim and this experiment does not touch it.
+
+The sufficiency test exists and is scheduled. It is the ArtGlina adoption, which is also the only
+instrument that un-provisions `0.10.0`, `0.10.1` and `0.10.2`. **Sequence: fix, release, adopt.**
+
 ## Verdict
 
 The proposal survives. It does so on P1 and P4 and on a 60% reduction measured across two scopes —
