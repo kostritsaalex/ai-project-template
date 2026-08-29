@@ -2,12 +2,50 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-29, after the move into WSL, the repair of the documents it made stale, and the
-`0.8.0` release.
+Last updated 2026-08-30, after the interview was measured rather than repaired.
 
 ---
 
-## Where we are
+## Where we are, 2026-08-30
+
+**The interview was measured and the diagnosis it was going to be repaired under was wrong.** No
+redesign has been written. One clause was repaired, in its own commit, and the rest of the day's work
+is a record.
+
+**The framework ships no interview.** Zero question marks in `blueprints/setup/*.md` and zero in
+`PROJECT.md`'s comments. `procedure.md` Step 4 names five topics in one sentence; the interview is
+composed fresh on every adoption by whichever tool holds the blueprint. The setup path grew four
+lines in four releases. **Two tools, near-identical instructions four lines apart: one interview the
+owner liked at `0.7`, one he refused at `0.10.2`.** That is not degradation, it is variance in
+something that was never specified — the same finding as an under-specified check row, on a new
+surface, and with the same consequence that nothing in the output distinguishes judgement from
+procedure.
+
+**The candidate that replaced the razor.** Ship the interview as text, the way `blueprints/checks/`
+ships prompts. `checks/` is the part of this framework whose behaviour is reproducible enough to
+argue about, and it is one folder away from the part that is not. Argued both ways in the step 2
+report below; not decided, and no script written.
+
+**What the three provisional releases still wait on is unchanged.** `0.10.0`, `0.10.1` and `0.10.2`
+are released, tagged and pushed, and nothing in any of them has been run. Only an adoption exercises
+them, and the adoption has been refused twice.
+
+**Repaired today, alone:** `procedure.md` Step 4 asked for what a project does not cover, four
+releases after `0.10.0` made the boundary a closed inclusion everywhere else. Commit `3363d09`.
+Recorded as the third instance of shape two in the stale-fact item below, with a fourth left open in
+`cold-start-check.md`.
+
+**`blueprints/setup/` has now moved twice with no version to record it**, which was already an open
+question below and is no longer deferrable: `0.10.0` changed `procedure.md` and so did today. That
+folder ships no file anybody copies, and it ships prompts that change between releases. The
+redesign, if it happens, changes this file substantially, so the release carrying that redesign is
+where this gets decided rather than settled quietly in a commit.
+
+Working tree clean. Nothing half-done.
+
+---
+
+## Where we were, 2026-08-29
 
 **`0.10.0`, `0.10.1` and `0.10.2` are provisional, and there is no instrument to un-provision them.**
 They are released, tagged and pushed, and nothing in any of them has been run: `0.10.0`'s boundary
@@ -144,6 +182,40 @@ Neither is reachable from the registry, because neither is about a component.
 
 Do not read the third check as covering this half. It does not, and "probably the same item" would be
 read next time as "already covered".
+
+**Shape two has two more instances, found 2026-08-30, and they are the first that reached
+`blueprints/`.** Both were produced by one release. `0.10.0` inverted the boundary to a closed
+inclusion and updated three places — `blueprints/project/PROJECT.md`, the placeholder table in
+`blueprints/project/README.md`, and cold-start question 4 — and missed two more.
+
+*The third instance.* `procedure.md` Step 4 named the topics to ask about and still said "what it
+does not cover", so the framework spent four releases instructing the tool to ask for exclusions
+while the blueprint it reads one step later asks for coverage. **This is the question the owner
+refused in the first aborted adoption**, still in the file that produces the interview. Repaired
+2026-08-30 in its own commit, `3363d09`, ahead of any redesign.
+
+*The fourth instance, open.* `cold-start-check.md` line 133 is the project-scope reading note for
+question 2, and it still says "One item from each list" and "an assistant that cannot name what is
+excluded". Under a closed inclusion there is one list, not two. The *question* at line 118 was
+inverted correctly and its reading note was not. **Not repaired: the checks were out of scope on
+2026-08-30 by instruction, and this needs deciding beside `0.10.1`'s scoring section for the
+component's question 4, which is the same question in the other prompt and did get the treatment.**
+One question in two prompts, one of which was scored and one of which was left in the old language.
+
+**What these two add to the class, and it is not more of the same.** Every earlier instance was a
+workshop document going stale: `architecture.md` against `0007`, the metric against the tree. These
+are two shipped files disagreeing with a third shipped file, so the defect is in what an adopting
+project meets rather than in what a maintainer reads. And neither is reachable by any check: both
+checks are bounded to a folder, `registry-check` walks the registry, and none of the three opens two
+blueprints and compares them. **A release that changes a rule in one blueprint has nothing that finds
+the other blueprints stating the old one.** That is the gap, stated in the form a future instrument
+would have to answer.
+
+**Neither produced an observed failure, and that is the argument for the reader rather than against
+it.** The 2026-08-29 ArtGlina interview asked the closed-inclusion form correctly, because the tool
+read Step 3's blueprint after Step 4's topic list and followed the blueprint. So the stale clause was
+silent in the only run that met it. A defect that a capable tool routes around is still a defect, and
+it is exactly the kind nothing will ever report.
 
 **The instrument for shape two is a reader, and it is a different tool with a different cost.** Three
 of the contradictions found on 2026-08-29 were caught by a session reading the whole repository and
@@ -417,6 +489,61 @@ The common cause is not carelessness. It is that **justification accumulates in 
 never measured**, because a reason for a rule always looks like it belongs beside the rule. What the
 metric protects is the document an adopted project carries. Nothing protects the document a person
 has to sit through.
+
+### Correction, 2026-08-30: the shape is right and the location was wrong
+
+**The setup path did not grow.** Measured across `v0.7.0..HEAD`, non-blank lines:
+
+| | v0.7.0 | now | Δ |
+| --- | --- | --- | --- |
+| `setup/procedure.md` | 137 | 141 | **+4** |
+| `setup/new-project.md` | 65 | 65 | **0** |
+| `setup/README.md` | 55 | 55 | **0** |
+| `project/README.md` | 109 | 126 | +17 |
+| `project/PROJECT.md` | 130 | 136 | +6 |
+
+`new-project.md` has not been touched since `0.6.0` and `setup/README.md` not since `0.7.0`. Across
+`v0.7.0..v0.10.2` exactly one file under `setup/` changed at all, by six lines. **The interview the
+owner refused was produced by a file four lines longer than the file that produced the interview he
+liked.** So the entry above is wrong where it names the setup path, and the paragraph naming it is
+left standing above rather than rewritten, because what it got right is worth more than the error.
+
+**Where the justification actually went.** Check prompts, `v0.7.0` to `v0.10.2`: 313 non-blank lines
+to 522, **+209 and +67%**. `project/README.md`: +17, of which 23 lines are the principles default
+added by `0.10.0` and `0.10.2`. Those are the two unmeasured places, and only the second is spoken
+aloud to a person.
+
+**The deeper correction, and it is the reason the diagnosis could not have been right.** The entry
+ends "nothing protects the document a person has to sit through". **There is no such document.** The
+framework ships no interview text: zero question marks in `blueprints/setup/*.md`, zero in
+`PROJECT.md`'s comments, not one sentence anywhere addressed to the person being interviewed.
+`procedure.md` Step 4 names five topics in one sentence and constrains style in a paragraph. Every
+word of every interview is composed fresh by whichever tool is holding the blueprint.
+
+A razor aimed at words addressed to a person would therefore have cut nothing, and building one was
+the next thing planned. Measurement stopped it. **Recorded as the clearest case yet of this
+repository's own rule: the diagnosis that survives an argument is not the one that survives a
+count.**
+
+**What the transcript adds, measured 2026-08-30.** The refused interview: 937 words, 32 non-blank
+lines, 299 words of preamble and 633 of questions, seven questions from five named topics — about 90
+words per question. Of those 937 words, **104 (11.1%) are lifted verbatim from `blueprints/` in runs
+of six words or more, and every one of those runs comes from a comment or a README passage written to
+the assistant.** "The complement of a project is endless", "it records a present boundary, not a
+permanent one", "files, belonging to whichever component contains it and taking that component's
+posture": design rationale, written to explain the blueprint to its reader, re-emitted to the owner
+as explanation he did not ask for.
+
+That is the mechanism, and it is not growth. **A file's justification does not have to grow to reach
+the owner. It only has to be in a file the tool was told to read before composing.** `0.10.0` added
+23 lines about the principles default and simultaneously told the assistant to offer them aloud,
+which is the one place four releases put justification directly in the path of something spoken.
+
+The instance to keep, because it needs no interpretation: `procedure.md` line 98 tells the assistant
+"a value you have not observed — ask for it empty… an address taken from it will look plausible and
+be wrong", an instruction about its own draft. The interview rendered it to the owner as *"I am
+asking this blank rather than drafting it — a plausible guess about your business would read as
+fact."* Nothing was wrong with either sentence. The second should never have existed.
 
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should

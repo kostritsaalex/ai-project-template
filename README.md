@@ -171,6 +171,41 @@ It also puts a measured limit on what any of these checks is worth: two runs of 
 one unchanged scope disagreed on a row, so a check's result is mechanical only as far as each row is
 fully specified.
 
+### If you are already on 0.7.0, here is what six releases bought you
+
+Measured on 2026-08-30, and reported here rather than left in the changelog, because a changelog
+tells you what happened and not whether it was worth your time.
+
+**One better sentence in your `PROJECT.md`.** Diffing what actually lands in an adopted project,
+`0.7.0` against `0.10.2`, with the blueprint notice and comments stripped: `PROJECT.md` 34 lines to
+34, the two adapters unchanged, both component stubs unchanged, both overrides unchanged. **One line
+differs.** The boundary moved from `This project does not currently cover X` to `This project
+currently covers X. Anything else is outside it.` The reason is in
+[decision 0011](.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md), and it is a real
+improvement, and it is one line.
+
+**A 50-line fragment stopped landing.** `0.8.0` deleted `blueprints/repository/platforms/wordpress.md`,
+which had been pasted into every adopted WordPress component. Measured against a control, its rules
+changed no work, so they went — see
+[decision 0008](.docs/decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md). This
+is the largest reduction of the six releases and the metric above never counted it, because the
+metric counts blueprint files and this was a fragment.
+
+**One new check that does something the old ones could not.** `registry-check` walks the registry
+outward and opens each declared component, so it is the first thing here that reads one document back
+against another folder. It catches a component that moved and a stub pointing at a deleted override.
+On a single-folder project it is worth nothing. On a project whose components sit on two filesystems,
+which is what this framework is for, it is the only mechanism of its kind.
+
+**Everything else was maintenance.** `0.9.1` through `0.9.4` repair the checks; `0.10.1` adds a
+scoring rule to a check question; `0.10.2` states in a blueprint README that the razor governs what
+the blueprint offers and not what an owner writes. All correct, none of it visible from inside an
+adopted project.
+
+So: **one sentence, one removal, one check.** If you are on `0.7.0` and your project lives in one
+folder, `0.7.0` was already enough and this section is the honest answer to whether to upgrade. If
+your components sit across a filesystem boundary, upgrade for `registry-check`.
+
 See [CHANGELOG.md](CHANGELOG.md) for what changed, and
 [`.docs/decisions/`](.docs/decisions/) for why.
 
