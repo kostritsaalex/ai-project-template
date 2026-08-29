@@ -1,0 +1,44 @@
+## Step 1. Access
+
+Framework readable at `fw-v2`. Target folder readable at `sC/rowan-studio`. Both reachable.
+
+## Step 2. Look
+
+1. No `PROJECT.md` in the folder.
+2. Not applicable — this is a project scope, not a component attachment.
+3. No other AI instruction files: no `AGENTS.md`, `CLAUDE.md`, `.cursorrules` or similar. The folder holds only `archive-2024/`, `archive-2025/`, `briefs/`, `glaze-tests/`, `prints/`, and no hidden files.
+4. No parent claimed anywhere in the folder.
+5. The path resolves exactly as written: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sC/rowan-studio`. Every component of it is a real directory — no symlink, no mount holding it up. It sits outside the home folder, so there is no `~/` form of it. It is not a git working copy and not inside a synced store.
+6. Not applicable — project scope.
+
+## Step 3. Blueprint
+
+Read `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included: Project Scope Blueprint **0.10.2** (Framework 0.11.0). Also read `blueprints/setup/interview.md` (0.12.0) to settle by proposal what the four questions do not cover.
+
+## Step 5. Summary
+
+| Placeholder | Value to be written | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Rowan Studio | Proposed from the folder name `rowan-studio`, spaces restored |
+| `<PROJECT_PURPOSE>` | Rowan Studio is a ceramics studio. It makes and glazes pottery, photographs the work, and shows it at exhibitions. There is no software in it at all. | Your answer 1 |
+| `<SCOPE_COVERS>` | making, glazing, photography and exhibitions | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 (both offered principles kept) |
+| `<PROJECT_SCOPE_ADDRESS>` | `none` — this folder exists only on this machine. It is not a git working copy, has no remote, and is not inside a synced store. | Settled from the folder: no `.git`, no synced-store path. Interview rule 3 for the address |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sC/rowan-studio` | Resolved in Step 2, in the exact form to be written. Outside the home folder, so no `~/` form |
+| `<PATH_NOTE>` | *deleted* | Settled from Step 2: every component of the path is a real directory. No symlink or mount props it up, so there is nothing to record |
+| `<SESSION_NOTE>` | *deleted*, with a visible line saying a component added elsewhere brings it back | Settled: both components sit inside the project folder, on the same side of every boundary as `PROJECT.md` |
+| `<COMPONENTS>` → block 1 | **## Archive 2024** — Assets. Live material. Work here as the task requires.<br>Address: `archive-2024` | Your answer 4; posture proposed from your answer 1 (no software anywhere in the project, so no platform-updated code) |
+| `<COMPONENTS>` → block 2 | **## Archive 2025** — Assets. Live material. Work here as the task requires.<br>Address: `archive-2025` | Your answer 4; posture proposed the same way |
+| Components not yet attached | Both. A visible line will say neither has its stubs yet. | Settled from Step 2: neither folder holds an `AGENTS.md` or `CLAUDE.md` |
+| `.docs/` and `.docs/decisions/` | A visible line saying neither exists yet | Settled from Step 2 |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today |
+| `<DOCUMENT_OWNER>` | Alex | Proposed from your account name (`kostritsaalex@gmail.com`) |
+
+Three things worth a sentence before you confirm:
+
+- **The address is `none`.** That is the fourth legitimate form, not a gap — but it means a component attached later copies `none` as its parent address, which resolves for nobody. If this folder is ever meant to live in a repository or a synced store, settling that first is cheaper than rewriting both stubs afterwards.
+- **`briefs/`, `glaze-tests/` and `prints/` are not components.** You named two folders and I took the answer as complete. Those three stay as files in the project scope.
+- **Both components are inside the project folder,** so their registry addresses are written without a leading slash and their stubs will point back with `../`.
+
+Nothing was written. Confirm the table, or overturn any row in a sentence, and I will write `PROJECT.md`, `AGENTS.md` and `CLAUDE.md` into `sC/rowan-studio`.

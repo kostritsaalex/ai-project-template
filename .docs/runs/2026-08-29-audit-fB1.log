@@ -1,0 +1,26 @@
+**Step 1 — Access.** Framework readable at `fw-v2`. Target folder readable at `sB/harbourline`.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` here.
+2. Not applicable — this is a project scope setup, not a component attach.
+3. No other AI instruction files present (no `CLAUDE.md`, `AGENTS.md`, or any other framework's file). The folder holds `README.md`, `src/main.py`, and a `.git`.
+4. The folder claims no parent.
+5. The path resolves exactly as I intend to write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sB/harbourline`. No symlink or mount holds it up — `readlink -f` returns the same path.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md`, Project Scope Blueprint 0.10.2, and `blueprints/project/PROJECT.md` with its comments; questions from `blueprints/setup/interview.md` 0.12.0.
+
+---
+
+1. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — for example `restoration, photography and selling online`, or `hosting and deployment, content writing, SEO`. Where the work happens is the registry's job, not this sentence's. If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.

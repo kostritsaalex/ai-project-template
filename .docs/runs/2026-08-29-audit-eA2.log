@@ -1,0 +1,33 @@
+**Step 1 — Access.** Framework readable at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`. Target folder readable and writable. Nothing unreachable.
+
+**Step 2 — What I found**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attach.
+3. No other AI instruction files, of this framework or any other. The only markdown anywhere under it is `supplier-notes/kilns.md`, which is ordinary content.
+4. The folder claims no parent.
+5. The path I was given resolves, but only through a symlink: `…/scratchpad/OneDrive` → `…/scratchpad/win/OneDrive`. Note that a *different* `~/OneDrive` also exists on this machine and points at the Windows OneDrive — it is **not** this folder, so `~/OneDrive/Projects/Test/northwind-crafts` would be false and I will not write it. I'll propose the given form plus a path note naming the symlink.
+6. Not applicable — project scope.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md` (Blueprint Version 0.10.2, Framework 0.11.0) and `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` with their comments, plus `blueprints/setup/interview.md` (0.11.0).
+
+**Step 4 — The interview**
+
+1. **Name.** What is this project called? It keeps its spaces, and the folder need not match.
+
+2. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+3. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+4. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+5. **Address.** Where does this project live, written so that it resolves from another machine? A repository URL, or a location in a synced store such as `OneDrive, Projects/northwind`. Your local path is already settled and I will show it in the summary table.
+
+6. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.
+
+7. **Document owner.** Whose name goes on the `Document Owner` line?

@@ -1,0 +1,27 @@
+**Step 1 — Access.** Framework at `.../scratchpad/fw-v2` is readable. Target folder `.../scratchpad/OneDrive/Projects/Test/northwind-crafts` is readable. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` here.
+2. Not applicable — this is a project scope, not a component attach.
+3. No other AI instruction files anywhere in the folder (searched three levels for `CLAUDE.md`, `AGENTS.md`, `PROJECT.md`, `REPOSITORY.md`, `ASSETS.md`, `.cursorrules`, copilot instructions). Nothing to overwrite.
+4. The folder claims no parent. No `.git` anywhere in it.
+5. The path resolves, but **only through a symlink**: `OneDrive` is a symlink to `win/OneDrive` in this session's sandbox, mirroring `~/OneDrive → /mnt/c/Users/kostr/OneDrive` on your machine — I confirmed `~/OneDrive` is that symlink, though I cannot read outside the sandbox to confirm the `Projects/Test/northwind-crafts` subpath there. The form I intend to write is `~/OneDrive/Projects/Test/northwind-crafts`, and it needs a path note naming the symlink. I will show it in the summary table so you can correct it.
+6. Component-only item; skipped.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md`, Blueprint Version 0.10.2 (Framework 0.11.0), and `blueprints/project/PROJECT.md` with its comments, plus `blueprints/setup/interview.md` 0.12.0.
+
+---
+
+1. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — for example `restoration, photography and selling online`, or `hosting and deployment, content writing, SEO`. Where the work happens is the registry's job, not this sentence's. If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.

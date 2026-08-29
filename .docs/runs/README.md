@@ -48,6 +48,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-placeholder-coverage-1.log` | `0.11.0` as committed, six questions | Placeholder coverage, first run. **Answers supplied so the session reaches Step 5**, and deliberately containing no name of any kind | Scope 1, unchanged | 2026-08-29 |
 | `2026-08-29-placeholder-coverage-2.log` | Same | Repeat, because a silent omission is an absence | Same | 2026-08-29 |
 | `2026-08-29-released-interview-text-seven.log` | **The text this release ships**, `interview.md` at seven questions after the coverage check added one | Release validation, re-run after the interview changed | Same | 2026-08-29 |
+| `2026-08-29-audit-e{A1,A2,C1,C2}.log` | `HEAD` at `0.11.0`, seven questions | Arm E, the before | **S-A** a scope inside a simulated synced store; **S-C** five folders of material, no git, no store | 2026-08-29 |
+| `2026-08-29-audit-f{A1,A2,B1,B2,C1,C2}.log` | `HEAD` + `interview-v2.md`, four questions | Arm F, stopping at the questions | S-A, S-B a git working copy with an SSH remote only, S-C | 2026-08-29 |
+| `2026-08-29-audit-g{A1,A2,B1,B2,C1,C2}.log` | Same | **Arm F with the four answers supplied**, so the session reaches the Step 5 summary table where the address and name are proposed. The first ten runs stopped at Step 4 and measured neither | Same three scopes, all unchanged | 2026-08-29 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -103,6 +106,22 @@ b446c16cfdf8dc79695e7c6030650590  2026-08-29-shipped-script-c1.log
 dba6ac2e180fd20ae46205a705618f54  2026-08-29-placeholder-coverage-1.log
 ce2c047b684a1c7eca8d5dd55e307a7c  2026-08-29-placeholder-coverage-2.log
 85b91316bd29a0427f3da013188300f0  2026-08-29-released-interview-text-seven.log
+ce1c0e733179a377917005fcde81da42  2026-08-29-audit-eA1.log
+88eb598a73393e1b428c0621cc791006  2026-08-29-audit-eA2.log
+33648566b450d7604382c5d2a805c611  2026-08-29-audit-eC1.log
+4a0b081b76c335164d18bed85dd10633  2026-08-29-audit-eC2.log
+adda830e675cc39ca873e94a08341303  2026-08-29-audit-fA1.log
+fd812b7ca9bc909208a343fc66f5e443  2026-08-29-audit-fA2.log
+027e4c665110151c40af59752969898c  2026-08-29-audit-fB1.log
+13be8ebdbc10045a1570647685fee58c  2026-08-29-audit-fB2.log
+0e0896540291a895213e239facbc3ce3  2026-08-29-audit-fC1.log
+ce43f280c64347ec52cf1e97eb579b1d  2026-08-29-audit-fC2.log
+ece278eb72a0eb18a701aee7dfd60763  2026-08-29-audit-gA1.log
+89ec1ccbc9768dfa1c7bbe30f1d611b0  2026-08-29-audit-gA2.log
+9ba1bb5274bf68df9fdb89c41f563b34  2026-08-29-audit-gB1.log
+f7f21f95191afce1a717676f92975c6c  2026-08-29-audit-gB2.log
+6018952ef37b259697417e28a9223248  2026-08-29-audit-gC1.log
+575c90b588988546fd68c9600efed285  2026-08-29-audit-gC2.log
 ```
 
 ## What they are evidence for

@@ -1,0 +1,52 @@
+## Step 1. Access
+
+Framework readable at `…/scratchpad/fw-v2`. Target folder readable at `…/scratchpad/sB/harbourline`. Nothing unreachable.
+
+## Step 2. Look
+
+1. **`PROJECT.md` here?** No.
+2. **Project scope / component clash?** N/A — this prompt sets up a project scope.
+3. **Other AI instruction files?** None. The folder holds `README.md` (one line, `# Harbourline`), `src/main.py`, and `.git/`.
+4. **Existing parent claim?** None.
+5. **Does the path resolve, in the form I mean to write it?** Yes. `realpath` returns the given path unchanged — no symlink, no mount, nothing holding it up. It is not under `~`, so there is no tilde form to write.
+6. **Platform/framework code?** N/A for a project scope; noted below for `src`.
+
+## Step 3. Blueprint read
+
+Read `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included — **Project Scope Blueprint 0.10.2** (Framework 0.11.0). Also `blueprints/setup/interview.md` (0.12.0) and decisions `0006`, `0007`.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `Harbourline` | Settled — folder name, matched by `README.md`'s `# Harbourline` |
+| `<PROJECT_PURPOSE>` | Harbourline is a command-line tool that parses tide data and prints forecasts. It is only software. | Your answer 1 |
+| `<SCOPE_COVERS>` | `parsing tide data, the forecast maths, and the command line that exposes it` — written as *"This project currently covers … Anything else is outside it."* | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 (both defaults kept) |
+| `<PROJECT_SCOPE_ADDRESS>` | `https://github.com/example-org/harbourline` | Settled — `.git/config` remote `git@github.com:example-org/harbourline.git`, normalised to a URL with its scheme per `0007` |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sB/harbourline` | Settled — Step 2, resolved in exactly this form |
+| `<PATH_NOTE>` | **Deleted.** | Settled — the path resolves on its own; no symlink or mount |
+| `<SESSION_NOTE>` | **Deleted**, with a line saying a component elsewhere brings it back. | Settled — the one component sits inside this folder |
+| `<COMPONENTS>` | One block: **`## Harbourline Source`** — `Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand.` / `Address: src` | Name proposed from the folder + project name; component from your answer 4; posture see note below; address is the relative path from here, no leading slash, no local-path line (it is inside this folder) |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.10.2` | Settled — `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | `2026-08-29` | Settled — today |
+| `<DOCUMENT_OWNER>` | `Alex` | Proposed — the account running this setup (`kostritsaalex`). Not asked by the interview; see defect below |
+| `.docs/` line | Visible text: neither `.docs/` nor `.docs/decisions/` exists yet. | Settled — Step 2 |
+
+**Files:** `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` in the root, and nothing else. No stubs in `src/` — that is `new-component.md`'s job.
+
+### The one row worth a second look: the posture on `src`
+
+`src/` holds `main.py` and nothing else — the project's own code, no vendored platform or framework core. Two files in the framework point opposite ways on that case:
+
+- `new-project.md` says a folder holding code *a platform or framework updates* takes `Repository`, and **"anything else takes `Assets`."** Read literally, `src` takes `Assets`.
+- Decision `0006` says that in "a folder of the project's own code with no vendored core, both words behave identically today", and keeps `Repository` as the word carrying the layer "expected to grow".
+
+I propose `Repository`, because the behaviour is identical today and the word will still be right when the folder grows a dependency it does not hand-edit. `Assets` on a source folder reads as an error to anyone who opens the registry. Say the word and I will switch it.
+
+### Two defects to report, per Step 4
+
+1. **`interview.md` never establishes `<DOCUMENT_OWNER>`.** It is neither one of the four questions nor on the settle-by-proposal list, yet `PROJECT.md` has the placeholder. Mine above is a guess from your account name.
+2. **The posture rule disagrees with itself** between `new-project.md` and decision `0006`, exactly as set out above.
+
+Nothing written. Confirm the table — or overturn a row — and I will write the three files.

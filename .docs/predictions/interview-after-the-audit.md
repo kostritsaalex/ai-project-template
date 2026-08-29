@@ -174,3 +174,90 @@ questions rather than four.
 
 **P1 or P2 failing** sends `interview-v2.md` back to the draft folder rather than being repaired in
 place, on the same terms `does-a-shipped-script-stay-shipped.md` set.
+
+---
+
+# Results, scored 2026-08-29
+
+Sixteen runs, logs `2026-08-29-audit-{e,f,g}*.log`. Ten as originally designed, six after the
+amendment.
+
+## P1, P2, P6 — from the first ten
+
+| Arm | Scope | question block | questions | added prose |
+| --- | --- | --- | --- | --- |
+| E (`0.11.0`) | A, C | 217 words, all four runs | **7** | — |
+| F (revised) | A, C, B | 175 words, all six runs | **4** | **0, 0.0%** |
+
+**P1 holds.** Zero added prose in all six script runs, `difflib` similarity 1.000. Fidelity survives
+the change: a shorter script with a longer assistant note is still pasted verbatim. That is ten runs
+of the mechanism at zero, across three subjects.
+
+**P2 holds.** Exactly four questions in every arm F run, on three different scopes. No fifth
+appeared.
+
+**P6 holds.** All three checksums unchanged after all sixteen runs.
+
+## P3, the address — the prediction this experiment existed for
+
+| Scope | Proposed | Source the run named |
+| --- | --- | --- |
+| **S-B** `gB1` | `https://github.com/example-org/harbourline` | remote `git@github.com:…`, "normalised to a URL with its scheme per `0007`" |
+| **S-B** `gB2` | `https://github.com/example-org/harbourline` | `git remote -v`, "normalised … per decision 0007" |
+| **S-C** `gC1` | `none. No copy of this folder exists off this machine.` | "`0007`, fourth form: not in a synced store and not a git working copy with a remote" |
+| **S-C** `gC2` | `none` with the reason | "no `.git`, no synced-store path" |
+| **S-A** `gA1` | `OneDrive, Projects/Test/northwind-crafts` | "resolves inside a store named OneDrive; no git remote" |
+| **S-A** `gA2` | `OneDrive, Projects/Test/northwind-crafts` | "`interview.md` rule 1" |
+
+**P3 passes on every branch, twice each, and on the branch that had failed.** The git remote was
+normalised rather than written as found, by both runs, both citing `0007` unprompted — which is the
+correction the audit made to the review's proposal, working. **S-C produced `0007`'s fourth form with
+its reason, never a blank and never a local path in the address slot** — the exact defect
+`structure-check` 11 exists for.
+
+**The address falsifier did not fire.** No proposed address failed `0007`'s four forms.
+
+## P4, the name — holds, and it proposed correction unprompted
+
+`Northwind Crafts`, `Harbourline`, `Rowan Studio` — all six runs proposed from the folder name with
+spaces or casing restored, and named the folder as the source. Three of six volunteered the
+correction invitation without being told to: *"correct it if the name differs"*, *"A draft — correct
+it if the workshop's name differs"*, *"correct it if the name carries spaces or different casing."*
+
+**This remains the change justified by the razor and not by a run.** These runs show the proposal is
+*made* and *offered for correction*. Nothing here shows it is *right*, because no owner corrected
+anything. That needs an adoption.
+
+## The S-A confound, and my amendment overstated it
+
+The amendment said `fA2` "proposed writing exactly that path", the false `~/OneDrive/…` form. That is
+accurate about Step 2 and wrong about the outcome. **At Step 5, where the value is actually written,
+`gA2` marked the local path `unknown` and refused:** *"the `~/OneDrive/…` form is the one that
+belongs in the document and is the one I could not check… I will not write an unresolved path."*
+`gA1` wrote the absolute path it had resolved and said so.
+
+**So the confound displaced onto the local path and neither run wrote a false one.** The address
+branch fired correctly on S-A as well. Correcting my own amendment: the intent appeared at Step 2 and
+the same mechanism caught it at Step 5, which is Step 6's "do not write a path you have not resolved"
+doing its job.
+
+## An incidental finding, and it is a real defect
+
+**The posture proposal returned opposite verdicts on identical input.** S-B, same folder, same
+answers: `gB1` proposed `Repository. Things get changed here…`, `gB2` proposed `Assets. Live
+material…`. The folder holds `src/main.py`, the project's own code, with nothing a platform or
+framework updates wholesale — so **`Assets` is right by the blueprint's own rule and `gB1` is
+wrong.**
+
+This is not what was under test. The posture proposal has been in the framework since `0.6.0` and is
+the one thing a component is ever told about itself. It is the same shape as an under-specified check
+row: a proposal that looks settled and is judgement, differing between runs, with nothing in the
+output distinguishing the two. **Recorded in the backlog as its own item rather than fixed here**,
+because fixing something found mid-experiment is the error this repository spent two days
+cataloguing.
+
+## Verdict
+
+The revised interview is carried on P1, P2, P3 and P6. **P4 is carried only as far as a scratch run
+can carry it**, and P5 was registered as untested and remains so — no one answered these questions,
+so whether the boundary stops eliciting places is still an adoption's job.

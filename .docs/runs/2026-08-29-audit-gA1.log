@@ -1,0 +1,45 @@
+**Step 1 — Access.** Both reachable: framework at `…/scratchpad/fw-v2`, target at `…/scratchpad/OneDrive/Projects/Test/northwind-crafts`.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` here.
+2. Not applicable — this is a project scope, not a component attach.
+3. No other AI instruction files, of this framework or another. Nothing will be overwritten.
+4. The folder claims no parent.
+5. The path resolves, but only through a symlink: `…/scratchpad/OneDrive` → `…/scratchpad/win/OneDrive`. Without it the written path is false. `~/OneDrive/…` is *not* verifiable from this session (home is outside the allowed working directory), so I will not write that form.
+6. Not applicable (component-only check).
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md`, Project Scope Blueprint **0.10.2** (framework 0.11.0), and `blueprints/project/PROJECT.md` with its comments.
+
+**Step 4 — Interview.** Your four answers taken as given.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value to be written | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Northwind Crafts | Proposed from the folder name `northwind-crafts` — correct it if the name differs |
+| `<PROJECT_PURPOSE>` | Northwind Crafts is a small crafts workshop. It restores furniture, photographs the pieces, and sells them through a shop site. Software is one part of it, not all of it. | Your answer 1 |
+| `<SCOPE_COVERS>` | restoration, photography and selling online | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 (both defaults kept) |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/Test/northwind-crafts` | Settled: the path resolves inside a store named OneDrive; no git remote exists here |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/OneDrive/Projects/Test/northwind-crafts` | Settled: the exact form I resolved in Step 2. A `~/OneDrive/…` form is unverifiable from this session |
+| `<PATH_NOTE>` | The path above holds because `…/scratchpad/OneDrive` is a symlink. Recreate on a machine lacking it: `ln -s …/scratchpad/win/OneDrive …/scratchpad/OneDrive` | Settled: observed symlink in Step 2 |
+| `<SESSION_NOTE>` | *Deleted.* Both components sit inside this folder, on the same side of the symlink as the scope. Adding a component elsewhere brings the line back. | Settled from answer 4 plus the folder layout |
+| `<COMPONENTS>` — block 1 | **Northwind Storefront** — *Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand.* Address: `storefront` | Name and posture proposed: `storefront/package.json` declares an Astro dependency, framework code an updater replaces wholesale |
+| `<COMPONENTS>` — block 2 | **Northwind Lookbook** — *Assets. Live material. Work here as the task requires.* Address: `lookbook` | Name and posture proposed: photographs, no platform code |
+| `<COMPONENTS>` — closing line | Visible text saying neither component is wired yet: each has a registry block but no stubs. | Settled: no stubs found in either folder |
+| `.docs/` line | Visible line saying `.docs/` and `.docs/decisions/` do not exist yet. | Settled: neither folder is present |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Settled: `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today |
+| `<DOCUMENT_OWNER>` | Alex | Proposed from the account name — overturn with any other name |
+
+Two things worth naming before you confirm:
+
+- `supplier-notes/` was not declared, so it is files sitting in the project scope folder, in no component. That is a valid outcome; say the word if you meant it to be one.
+- Files that would be written: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` at the root, and nothing else. Both components would then need `new-component.md` run in their folders.
+
+One defect to report: `blueprints/setup/interview.md` states Framework Version 0.12.0 while `blueprints/project/README.md` states 0.11.0.
+
+Nothing has been written. Confirm or overturn any row and I will proceed to Step 6.

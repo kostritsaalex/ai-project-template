@@ -1,0 +1,33 @@
+**Access.** Framework readable at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`. Target folder readable at `.../scratchpad/sC/rowan-studio`.
+
+**What I found:**
+
+1. No `PROJECT.md` here.
+2. Not applicable — this is a project scope, not a component attachment.
+3. No other AI instruction files, of this framework or another.
+4. The folder claims no parent.
+5. The path resolves in the exact form I would write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sC/rowan-studio`. No symlink or mount holds it up — but it sits on a tmpfs mounted at `/tmp`, so it is not under your home folder and has no `~/` form. It is also a session scratchpad, which I will flag in the summary rather than assume.
+6. Not applicable — component only.
+
+**Blueprint read:** `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Blueprint Version 0.10.2, Framework Version 0.11.0.
+
+---
+
+1. **Name.** What is this project called? It keeps its spaces, and the folder need not match.
+
+2. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+3. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+4. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+5. **Address.** Where does this project live, written so that it resolves from another machine? A repository URL, or a location in a synced store such as `OneDrive, Projects/northwind`. Your local path is already settled and I will show it in the summary table.
+
+6. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.
+
+7. **Document owner.** Whose name goes on the `Document Owner` line?

@@ -1,0 +1,45 @@
+## Step 1. Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw-v2` — readable.
+- Project scope: `…/scratchpad/OneDrive/Projects/Test/northwind-crafts` — readable.
+
+## Step 2. Look
+
+1. No `PROJECT.md` here.
+2. Not applicable — this is a project scope, not a component attach.
+3. No AI instruction files of any framework: no `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`. Nothing to overwrite.
+4. The folder claims no parent. No conflict with anything I was given.
+5. **Path resolves only through a symlink, and only in one of its two forms.** The folder resolves at the literal path I was given. One hop on that path is a symlink: `…/scratchpad/OneDrive` → `…/scratchpad/win/OneDrive`. The `~/`-relative form I would normally write, `~/OneDrive/Projects/Test/northwind-crafts`, I could **not** resolve: reads outside this session's working directory are blocked, and `~/OneDrive` on this machine is a symlink to `/mnt/c/Users/kostr/OneDrive`, which is a different place from the one I read. So the arrangement is confirmed, the project folder under it is not. This is the one row I will not settle by proposal.
+6. Not applicable — project scope.
+
+## Step 3. Blueprint read
+
+`blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included — Blueprint Version 0.10.2, Framework Version 0.11.0. Interview text from `blueprints/setup/interview.md`, version 0.12.0.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Northwind Crafts | Proposal from folder name `northwind-crafts`, spaces restored. A draft — correct it if the workshop's name differs. |
+| `<PROJECT_PURPOSE>` | Northwind Crafts is a small crafts workshop. It restores furniture, photographs the pieces, and sells them through a shop site. Software is one part of it, not all of it. | Your answer 1. |
+| `<SCOPE_COVERS>` | restoration, photography and selling online | Your answer 2, verbatim. Written as: *This project currently covers restoration, photography and selling online. Anything else is outside it.* |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible.<br>2. Avoid speculative additions. | Your answer 3 — both offered principles kept. Order as offered; say if you want it reversed. |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/Test/northwind-crafts` | Settled from `interview.md` rule 1: the path resolves inside a synced store, so the address is the store's name and the path within it. Not a git working copy — no `.git` here. |
+| `<PROJECT_LOCAL_PATH>` | **unknown** — proposed `~/OneDrive/Projects/Test/northwind-crafts`, unverified | Step 2 item 5. The folder I read resolves under this session's sandbox; the `~/OneDrive/…` form is the one that belongs in the document and is the one I could not check. Confirm it and I write it; say it is wrong and I write what you give me. I will not write an unresolved path. |
+| `<PATH_NOTE>` | `~/OneDrive` is a symlink to the Windows OneDrive folder, which is what makes the local path above true. Create it once on a machine that lacks it: `ln -s /mnt/c/Users/kostr/OneDrive ~/OneDrive` | Proposal from the symlink on this machine (`/home/kostritsaalex/OneDrive` → `/mnt/c/Users/kostr/OneDrive`). Correct the Windows username if `kostr` is not it. Stands or falls with the row above. |
+| `<SESSION_NOTE>` | *deleted* | Settled from `new-project.md`: both components sit inside this folder, so nothing sits on the far side of a mount boundary. Adding a component elsewhere brings the line back. |
+| `<COMPONENTS>` | Two blocks, below. | Your answer 4, taken as complete. |
+| — Northwind Storefront | `## Northwind Storefront`<br>Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand.<br>Address: `storefront` | Name a draft from the folder plus the project name. Posture **proposed as settled**: the folder holds a `package.json` and `src/`, i.e. code whose dependencies a package manager replaces wholesale. Address is the in-folder form, no leading slash. |
+| — Northwind Lookbook | `## Northwind Lookbook`<br>Assets. Live material. Work here as the task requires.<br>Address: `lookbook` | Name a draft, as above. Posture **proposed as settled**: photographs, nothing a platform updates. |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Read from `blueprints/project/README.md`. |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today. |
+| `<DOCUMENT_OWNER>` | **unknown** | The interview does not ask for it and it is not in `interview.md`'s list of things settled by proposal. One word from you fills it. |
+| `.docs/` statement | A visible line saying `.docs/` and `.docs/decisions/` do not exist yet. | Read from the folder — neither is present. |
+
+Two things also settled and not placeholders: `AGENTS.md` and `CLAUDE.md` go in beside `PROJECT.md`, and the components will be in the registry but **not yet attached** — that gets said in visible text.
+
+**One defect to report, per Step 4:** `interview.md` provides no way to obtain `<DOCUMENT_OWNER>`. It is neither one of the four questions nor one of the seven items the file lists as settled by proposal, so an assistant following the file exactly reaches Step 5 with a mandatory placeholder unfilled. Either the proposal list needs an owner entry with a named source, or the questions need a fifth.
+
+Nothing has been written. Confirm the table — in particular the local path and the owner — and I will write the three files.

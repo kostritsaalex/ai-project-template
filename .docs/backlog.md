@@ -740,6 +740,24 @@ be wrong", an instruction about its own draft. The interview rendered it to the 
 asking this blank rather than drafting it — a plausible guess about your business would read as
 fact."* Nothing was wrong with either sentence. The second should never have existed.
 
+**The posture proposal returned opposite verdicts on identical input.** Found 2026-08-29 as an
+incidental result of the interview audit runs, in `2026-08-29-audit-gB1.log` and `-gB2.log`. Same
+folder, same supplied answers, one framework: `gB1` proposed `Repository. Things get changed here…`
+and `gB2` proposed `Assets. Live material…`.
+
+The folder holds the project's own source and nothing a platform or framework updates wholesale, so
+**`Assets` is right by the blueprint's own rule and `gB1` is wrong.**
+
+**This is the same shape as an under-specified check row**, on the one line a component is ever told
+about itself. The posture reads as settled, it is judgement, it differs between runs, and nothing in
+the output distinguishes the two. It has been in the framework since `0.6.0` and has never been
+tested in either direction.
+
+Not fixed where it was found. Fixing something discovered mid-experiment is the error this repository
+spent 2026-08-29 cataloguing, and this one was found by an experiment about something else. What it
+needs is the treatment `registry-check`'s rows got: state what evidence settles the word, and run it
+against a folder of each kind.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.

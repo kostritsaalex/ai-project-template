@@ -1,0 +1,36 @@
+**Step 2 — what I found**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attachment.
+3. No AI instruction files of any framework present. The folder holds `archive-2024/`, `archive-2025/`, `briefs/`, `glaze-tests/`, `prints/` and nothing else.
+4. No parent claim anywhere in the folder.
+5. The path resolves in the exact form I mean to write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sC/rowan-studio` — a real directory on `tmpfs`, no symlink and no mount boundary holding it up. It is not under the home folder, so there is no `~/` form. No `.git`, no remote, and nothing syncing it.
+6. Not applicable (component only).
+
+**Step 3** — Read `blueprints/project/README.md`, Project Scope Blueprint **0.10.2** (Framework 0.11.0), plus the blueprint's `PROJECT.md`, `CLAUDE.md`, `AGENTS.md` and `blueprints/setup/interview.md` (0.12.0).
+
+---
+
+**Step 5 — summary**
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Rowan Studio | Proposal from the folder name `rowan-studio`, spaces restored |
+| `<PROJECT_PURPOSE>` | Rowan Studio is a ceramics studio. It makes and glazes pottery, photographs the work, and shows it at exhibitions. There is no software in this project at all. | Your answer 1 |
+| `<SCOPE_COVERS>` | making, glazing, photography and exhibitions | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 (both defaults kept) |
+| `<PROJECT_SCOPE_ADDRESS>` | `none. No copy of this folder exists off this machine.` | Settled from decision `0007`, fourth form: the folder is not in a synced store and is not a git working copy with a remote |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/sC/rowan-studio` | Resolved in Step 2, written in the form that resolves |
+| `<PATH_NOTE>` | Deleted | Settled from Step 2: the path holds on its own, no symlink or mount behind it |
+| `<SESSION_NOTE>` | Deleted, with a visible line saying a component added elsewhere brings it back | Settled: both components sit inside this folder, on its side of every boundary |
+| `<COMPONENTS>` | Two blocks — **Rowan Studio Archive 2024**, `Assets. Live material. Work here as the task requires.`, `Address: archive-2024`; **Rowan Studio Archive 2025**, same posture line, `Address: archive-2025`. Plus a visible line saying neither is wired yet. | Your answer 4; posture proposed from what you told me — image material, no platform or framework code an updater replaces |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.10.2 | Blueprint README metadata |
+| `<YYYY-MM-DD>` | 2026-08-29 | Today |
+| `<DOCUMENT_OWNER>` | Alex | Proposal from the account email `kostritsaalex@gmail.com` |
+| `.docs/` statement | A visible line saying neither `.docs/` nor `.docs/decisions/` exists yet | Step 2: not present in the folder |
+
+Files this would write into the scope root: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md`. Nothing else, and nothing outside that folder. `briefs/`, `glaze-tests/` and `prints/` stay unlisted — they are files, not components, since you did not name them.
+
+Two rows are worth a look before you confirm: the component **names**, since the stubs have to repeat them exactly, and the **owner**, which I guessed rather than asked. Say the word and I'll write; overturn any row in a sentence.
+
+After writing, each component needs `new-component.md` run against it to gain its two stubs, and the structure check in `blueprints/checks/structure-check.md` should run.
