@@ -333,8 +333,23 @@ folders nobody had cloned, and it did not face a case where the framework's own 
 committed to a repository — manufactures the second claimant. A rule applied outside the case it was
 decided in is not the same as a rule that covers it.
 
-Also unsaid: whether stubs should be committed at all. Nothing in the framework recommends it or
-warns against it, and committing them is what produced this.
+**The unsaid thing may already be forced, which narrows the question.** If a repository-backed
+component's stubs are not committed, a fresh clone arrives with no stubs at all, and an assistant
+opening it knows nothing about the project it belongs to. That is the exact failure this framework
+exists to prevent. So the stubs have to be committed, and the multiplication is a consequence of the
+design rather than an accident of this project. A question whose two answers are "commit them and get
+duplicates" or "do not commit them and lose the point" is not open in the direction it appears to be.
+
+**A candidate resolution that costs no machinery.** Identity may follow the address form `0007`
+already settled. A component addressed by a URL is the repository, and every working copy of it is
+that component, correctly, a sandbox included. A component addressed by a relative path, or with no
+address at all and only a local path, is the folder, because for those there is nothing else identity
+could attach to. Under that reading nothing is broken, `0005`'s tilt applies to exactly the cases it
+was decided about, and what is missing is one sentence in the project blueprint.
+
+This framework has dissolved questions before rather than building for them, most recently in `0008`,
+where asking where platform rules should live was answered by finding they need not exist. That is
+the shape to try first here, and trying it is not the same as adopting it.
 
 Not settled here. It was found during an adoption, and an adoption is the wrong place to decide what
 a component is.
