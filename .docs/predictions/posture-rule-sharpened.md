@@ -128,6 +128,23 @@ not how often the old one failed.
 
 # Results, scored 2026-08-29
 
+**Deviation from the registered design, recorded before the result.** The arms table above says two
+runs per scope, twelve runs, with the three folder kinds as three separate scopes. **What was run is
+one scope containing all three folders as declared components, three runs per arm, six runs and
+eighteen posture judgements.**
+
+The change was not deliberate and is not neutral. It is stronger in one way — each run judges all
+three kinds, so a rule that answers the same word to everything is visible inside a single run rather
+than across three — and weaker in another: three folders in one registry give a run the chance to
+reason comparatively, which three isolated scopes would not. **A run that sees an obvious
+`Repository` beside a doubtful folder has help that a real adoption of a single-component project
+would not give it.** That cuts against arm J, which passed, so it does not manufacture the result;
+it does mean arm J's pass is on the easier of the two designs, and the isolated-scope version is
+still unrun.
+
+Recorded rather than quietly re-labelled, because a design changed between registration and running
+is the thing a pre-registration exists to make visible.
+
 Six runs, logs `2026-08-29-posture-{h,j}{1,2,3}.log`. Each run proposed a posture for all three
 folders, so eighteen posture judgements.
 
