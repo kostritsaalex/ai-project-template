@@ -70,8 +70,10 @@ Checks:
    A component whose address is a URL or a synced-store location, with no local path line and no
    folder you can reach, is n/a rather than a failure: nothing in the registry claimed it was on this
    machine.
-   When this row fails for a component, rows 2 to 6 for that component are n/a, and their evidence
-   names this row as the reason. They are not failures: nothing is wrong with stubs nobody could
+   Unless this row confirmed the folder exists, rows 2 to 6 for that component are n/a and name this
+   row as the reason. That covers every outcome above except a confirmed folder, whether this row
+   failed, or was n/a for a component not yet attached, or was n/a for an address that never claimed
+   the folder was on this machine. They are not failures: nothing is wrong with stubs nobody could
    read, and a folder that does not exist will satisfy an absence check for no useful reason.
 2. That folder holds both stubs, AGENTS.md and CLAUDE.md. List the root-level filenames you found.
    This row is evidenced by that listing. Do not quote a line from inside the files: their contents
