@@ -91,3 +91,51 @@ exercising judgment on every other row too.
 
 Whether the check catches what it was written for. That needs the negative run: a scope broken on
 purpose, in a fresh session. This run is the positive half only, on a scope believed correct.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, on the `WordPress 7` scope, prompt taken verbatim from `381b200`, nothing fixed
+first. Result: two failing checks across three rows. Everything above this line was written before
+the run and is unedited.
+
+**P2 confirmed, and narrower than predicted.** Check 6 returned `no evidence` and failed on both
+components, on a scope where neither folder holds a `PROJECT.md` and both rows should have passed.
+Exactly the predicted mechanism: an absence check under an evidence rule that only knows how to
+evidence presence.
+
+The prediction said the defect would break three rows together. It broke one. Check 5's n/a case
+answered cleanly in absence terms of its own accord, and check 7's pass case did too. So the defect
+is real and its blast radius was overstated: the tool absorbed two of the three and not the third.
+The diagnosis was right and the scope of it was a guess dressed as an inventory.
+
+**P3 confirmed exactly, including the discriminator.** `WP Themes` failed check 4 and `WordPress 7
+Engine` passed it, which is the split the prediction named and for the reason it named: `../` against
+`OneDrive, Projects/Development/WordPress-7` cannot match as text, and the Engine quotes the scope's
+address verbatim. A correct component failed a row for being correct.
+
+**P1 was wrong in outcome and right in diagnosis.** The predicted failure did not happen. Check 7
+passed for the project root, and the evidence the tool gave for it was `PROJECT.md` line 45, the
+scope's own local path line, offered as the line that "named" the folder. That line is not in the
+registry, and the row asked for a registry line.
+
+So the second branch fired, the one this file recorded as also being a finding: the tool repaired the
+instruction rather than following it. It did not invent an exemption, which is what "do not infer"
+would most obviously have forbidden; it went and found something quotable that technically named the
+folder. That is the more interesting failure, because it produces a green row with real evidence
+attached and nothing to alert a reader. A row a tool has to repair in order to pass is a row that was
+not asking what it meant.
+
+**Found by the run, not predicted.** The last line of the prompt asked for `Failed checks: N` and the
+tool answered `3`, counting rows, where two checks had failed across three rows. With one row per
+component per check the two counts diverge and the prompt never said which it wanted. Nothing in the
+reading of the prompt caught this, because it only becomes visible once a table with repeated rows
+exists.
+
+**What the method is worth, on this evidence.** Three defects were found by reading a 50-line prompt
+and two of them reproduced. That is worth the twenty minutes it took. It is not a substitute for the
+run: the run corrected the scope of P2, overturned the outcome of P1 while confirming its diagnosis,
+and found a defect reading had missed entirely.
+
+All five defects were repaired in one pass afterwards. The repaired check has not been run.

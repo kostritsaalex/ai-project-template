@@ -44,8 +44,16 @@ Answer with one table and nothing else. Columns: Check, Component, Result, Evide
 
 One row per component per check, so a failure names which folder it is in. Result is pass, fail, or
 n/a. Evidence is a filename with the folder it sits in, a line number, and the quoted line. If you
-cannot quote it, write "no evidence" and mark the check fail, including when it looks like it
-passed.
+cannot quote it, write "no evidence" and mark the row fail, including when it looks like it passed.
+That applies to rows asking whether something is present. The paragraph below governs the rest.
+
+A check that asks whether something is absent is evidenced by the search you ran and what it
+returned, for example: listed the root of wp-themes, no PROJECT.md. A search that returns nothing is
+a pass, and passing it needs no quote. When the search does return something, quote the first match
+and mark the row fail.
+
+Resolving a path is computing, not inferring. Where a row below tells you to resolve one, do it, and
+give what it resolved to as part of the evidence.
 
 Do not infer, do not assume, do not fill a gap from what such a document usually contains. Where two
 documents disagree, both are quoted and the row fails; it is not your job to decide which is right.
@@ -60,21 +68,35 @@ Checks:
    folder you can reach, is n/a rather than a failure: nothing in the registry claimed it was on this
    machine.
 2. That folder holds both stubs, AGENTS.md and CLAUDE.md. List the root-level filenames you found.
+   This row is evidenced by that listing. Do not quote a line from inside the files: their contents
+   are not what the row asks about.
 3. Both stubs name this component, and the name matches its registry heading in PROJECT.md exactly.
    Quote the heading and the naming line from each stub. A difference in wording, case or spacing
    fails: the heading is what the registry is keyed on.
-4. Both stubs give the parent address, and it matches the address PROJECT.md gives for itself under
-   where the project lives. Quote both. This is the row that catches a project scope that has moved
-   and left its components pointing at where it used to be.
+4. Both stubs give the parent address, and it agrees with the address PROJECT.md gives for itself
+   under where the project lives. Compare it as a location where you can resolve it, and as a string
+   where you cannot.
+   A relative address such as "../" is resolved from the component's folder. If it lands on this
+   folder the row passes, and the evidence says what it resolved to. This is the normal and correct
+   form for a component contained in the scope's own folder, and comparing it as text would fail
+   every such component forever.
+   An address you cannot resolve from here, a URL or a location in a synced store, is compared as
+   text and has to match character for character.
+   Quote both lines either way. This is the row that catches a project scope that has moved and left
+   its components pointing at where it used to be.
 5. Overrides agree in both directions. If a stub names REPOSITORY.md or ASSETS.md, that file is
    present in the same folder. If such a file is present, both stubs name it. Either half alone
    fails, and say which half is missing. If no stub names one and none is present, this is n/a.
 6. The component folder holds no PROJECT.md. A component holding one is a project scope and has been
    set up as the wrong thing.
-7. Every folder you opened is one the registry named. List the folders you read, and PROJECT.md's
-   line that named each. A folder you read that no line named fails this check.
+7. Every folder you opened is either this scope's own root, which is where the PROJECT.md you were
+   told to read lives, or a folder the registry named. List the folders you read and say which of
+   the two each one was, quoting the registry line for those the registry named. The scope's own
+   root needs no such line and is not a failure: it is in the read set by the first instruction in
+   this prompt. A folder that is neither fails this row.
 
-After the table, write one line: "Failed checks: N".
+After the table, write one line: "Failed rows: N", counting rows marked fail. Rows here are one per
+component per check, so a count of checks would hide a component.
 
 Write nothing else. No summary, no overall verdict, no recommendations, no reassurance.
 ```
@@ -99,8 +121,17 @@ the reverse, leaves a component that reads as having rules it does not have; an 
 reports a missing file instead of doing the work. Add and remove an override as one operation.
 
 Check 7 audits the check itself. A tool that read something outside the declared set has broken the
-rule the whole method rests on, and a table that fails check 7 should not be trusted on any other
-row.
+rule the whole method rests on, and a table that fails it should not be trusted on any other row.
+
+Its first version was wrong, and wrong in the direction that matters. It asked for a registry line
+naming every folder read, and the scope's own root is not named by any registry line, so read
+literally it failed every correct project. The run did not fail it: the tool found the scope's local
+path line elsewhere in `PROJECT.md` and offered that as the naming line, which is a repair rather
+than an answer. A row a tool has to repair to pass is a row that was not asking what it meant.
+
+The last line counts rows rather than checks. With one row per component per check, a count of
+checks hides which component failed, and the first run made the ambiguity visible by answering
+"Failed checks: 3" for two failing checks across three rows.
 
 ---
 

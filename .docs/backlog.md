@@ -138,14 +138,39 @@ A refutation goes into `0008`, which says where.
 2026-08-29 under [decision 0009](decisions/0009-a-check-declares-its-read-set-in-advance.md). Seven
 checks, registry to disk only, one row per component per check.
 
-It stays in `Release` rather than moving anywhere, because by this project's own standard a check is
-not working until it has been run both ways round: once against a correct scope, and once against a
-scope broken on purpose, in a fresh session, to see whether it catches what it was written for. The
-`WordPress 7` scope is the subject, and its history supplies the deliberate break for free, since
-the Engine's registry block held a stale path four days ago and the real defect is on record.
+**Run once, positive only, 2026-08-29, after three defects were pre-registered by reading it.** The
+predictions are a committed file,
+[`predictions/registry-check-first-run.md`](predictions/registry-check-first-run.md), written before
+the run because a prediction stated after a result is not one. Five defects in total, all repaired
+afterwards in one pass:
 
-Until that happens this is a prompt somebody wrote, which is the state every rule in this framework
-is suspicious of.
+- *Predicted and confirmed.* The evidence rule carried only its presence half, so check 6, an absence
+  check, failed both components with "no evidence" on a scope where both should pass. Predicted to
+  break three rows; it broke one, and the tool absorbed the other two. The diagnosis was right and
+  the inventory was a guess.
+- *Predicted and confirmed, with its discriminator.* Check 4 compared addresses as text, so the
+  contained component failed for pointing at its parent as `../`, which is the correct form, while
+  the component quoting the scope's address verbatim passed. Exactly the predicted split.
+- *Predicted wrongly, diagnosed rightly.* Check 7 was expected to fail every correct project, since
+  the scope's own root is named by no registry line. It passed, because the tool went and found the
+  scope's local path line elsewhere in `PROJECT.md` and offered it as the naming line. The second
+  branch, recorded in advance as also being a finding: the instruction was repaired rather than
+  followed, and the result is a green row with real evidence attached and nothing to warn a reader.
+- *Found by the run.* The count line asked for "Failed checks: N" and got `3`, counting rows, where
+  two checks failed across three rows. Invisible to reading, because it only appears once a table
+  with repeated rows exists.
+- *Found by the run.* Check 2 evidenced the presence of two files by quoting a heading from inside
+  each, which evidences nothing about the row.
+
+It stays in `Release`. The repaired version has not been run, and the negative half has never been
+run at all: a scope broken on purpose, in a fresh session, to see whether the check catches what it
+was written for. The `WordPress 7` scope supplies the break for free, since the Engine's registry
+block held a stale path four days ago and the real defect is on record.
+
+Worth keeping about the method rather than the check: reading the prompt found three defects in
+twenty minutes and two reproduced, but the run corrected the scope of one, overturned the outcome of
+another while confirming its diagnosis, and found a defect reading had missed. Reading before running
+is cheap and is not a substitute for running.
 
 **The checks folder is a blueprint with no version.** `blueprints/checks/` ships prompts that
 change between releases, and unlike the other four blueprints it carries no `Blueprint Version`, so
