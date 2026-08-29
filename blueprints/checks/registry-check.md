@@ -79,17 +79,20 @@ Checks:
 3. Both stubs name this component, and the name matches its registry heading in PROJECT.md exactly.
    Quote the heading and the naming line from each stub. A difference in wording, case or spacing
    fails: the heading is what the registry is keyed on.
-4. Both stubs give the parent address, and it agrees with the address PROJECT.md gives for itself
-   under where the project lives. Compare it as a location where you can resolve it, and as a string
-   where you cannot.
-   A relative address such as "../" is resolved from the component's folder. If it lands on this
-   folder the row passes, and the evidence says what it resolved to. This is the normal and correct
-   form for a component contained in the scope's own folder, and comparing it as text would fail
-   every such component forever.
-   An address you cannot resolve from here, a URL or a location in a synced store, is compared as
-   text and has to match character for character.
-   Quote both lines either way. This is the row that catches a project scope that has moved and left
-   its components pointing at where it used to be.
+4. Both stubs give the parent address, and it points at this scope. Which comparison you make is
+   settled by what the stubs carry, and the two are different questions rather than two ways of
+   asking one.
+   A relative address such as "../" is resolved from the component's folder and has to land on the
+   folder you are running in. The comparison is against that folder and against no line of text.
+   Quote the address from each stub, give the path it resolved to, and say that it is this folder.
+   Do not cite this document's local path line for it: a local path is a hint about where the folder
+   usually sits, and a verdict resting on a hint is the "no evidence" case wearing a quote.
+   Any other address, a URL or a location in a synced store, is compared as text against the
+   "Address:" line under where the project lives, character for character. Quote both. That line and
+   not the local path beneath it, because they are different claims and only the first is the address
+   every component copies.
+   This is the row that catches a project scope that has moved and left its components pointing at
+   where it used to be.
 5. Overrides agree in both directions. If a stub names REPOSITORY.md or ASSETS.md, that file is
    present in the same folder. If such a file is present, both stubs name it. Either half alone
    fails, and say which half is missing. If no stub names one and none is present, this is n/a.
