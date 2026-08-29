@@ -5,7 +5,7 @@
 > Read this before working anywhere in this project.
 >
 > **Derived from:** Project Blueprint 0.6.0  
-> **Last Updated:** 2026-08-25  
+> **Last Updated:** 2026-08-29  
 > **Document Owner:** Alex
 
 ---
@@ -55,15 +55,7 @@ https://github.com/kostritsaalex/ai-project-template
 Local path:
 
 ```text
-~/Repositories/ai-project-template
-```
-
-That form holds on the Windows side, where `~` is the Windows home folder. Inside WSL the same
-checkout is `/mnt/c/Users/kostr/Repositories/ai-project-template`, and the `~/` form above does not
-resolve unless a symlink is made once:
-
-```bash
-ln -s /mnt/c/Users/kostr/Repositories ~/Repositories
+~/Projects/Frameworks/ai-project-template
 ```
 
 ---

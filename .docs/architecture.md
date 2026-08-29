@@ -61,28 +61,29 @@ into the registry rather than a property of what sits on disk.
 A reference to another scope carries an address that resolves from where the reference is read.
 Naming a scope without an address leaves the reader aware that context exists and unable to reach it.
 
-Three forms qualify:
+Four forms qualify:
 
 - A repository URL, written in full with the scheme. A private repository still gets its real URL,
   because it identifies the parent even when it cannot be opened.
 - An account-relative location in a synced store, written as `OneDrive, Projects/northwind`. It
   resolves on any machine signed in to the same account and names no username.
 - A relative path, when the referenced scope is a folder containing the referring one.
+- None, said plainly, with the reason: `none. No copy of this folder exists off this machine.` The
+  criterion is a copy that exists off the machine rather than version control. `git init` changes
+  nothing here, and only a remote, a synced store, or a containing folder that travels makes one of
+  the first three possible.
 
-A location on one person's machine does not qualify. See
+A location on one person's machine is not an address in any of these senses. Write the fourth form
+instead, and put the local path on its own line beneath. See
 [decision 0001](decisions/0001-project-scope-need-not-be-a-repository.md) for what this constrains
-about where a project scope may live.
+about where a project scope may live, and
+[decision 0007](decisions/0007-a-component-with-no-address-says-so.md) for why the fourth form
+exists.
 
-**No form covers a component that exists on one machine only,** with no remote and nothing syncing
-it. That case is real and unsettled. Attaching the same such component twice produced two different
-inventions: once an `Address:` line saying plainly that there is no remote, once the machine-local
-path written into the `Address:` slot as though it were one. No check caught either, because
-`structure-check` 11 asks a registry block for an address without saying what makes one valid, and
-check 8 defines validity but reads only the component's own folder.
-
-Until it is settled, write it the first way: say in the `Address:` line that the component has none
-and why, and give its local path on its own line beneath. That is honest, and it leaves the reader
-looking for a real address rather than following one that resolves nowhere.
+The fourth form is what a component that exists on one machine only carries. `structure-check` 11
+requires one of the four, and the case it exists to catch is a bare local path written into the
+`Address:` slot: it reads as an address, resolves nowhere off this machine, and gives no sign that
+there was never anything to follow.
 
 A local path may sit beside the address as a hint about where the folder usually is. Write it
 relative to the home folder, as `~/parent/name`, and never spell out a username: `~` already stands

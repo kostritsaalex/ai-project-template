@@ -64,24 +64,26 @@ The framework was worked on through a checkout on the Windows side, at
 `~/Repositories/ai-project-template` as Git Bash resolves it. It now lives inside WSL at
 `~/Projects/Frameworks/ai-project-template`.
 
-Two consequences.
+`PROJECT.md` was corrected to that path on 2026-08-29. The new location is native to the WSL
+filesystem, so nothing holds the path up but the filesystem itself, and the path note explaining the
+old arrangement was deleted rather than rewritten. That is the framework's own rule about local paths
+applied to itself.
 
-**Both copies exist as of this date.** The Windows one was not deleted. Until one is removed they
-will drift, and `PROJECT.md` will be true about one of them and false about the other.
-
-**`PROJECT.md` is out of date about its own local path.** It records the Windows form together with a
-note explaining that the `~/` form holds only on that side. Inside WSL the new path holds on its own
-and needs no such note. This is the framework's own rule about local paths applied to itself, and
-fixing it is a reasonable first task for whoever picks this up.
+**Both copies still exist as of 2026-08-29.** The Windows one, at
+`/mnt/c/Users/kostr/Repositories/ai-project-template` read from this side, is a complete checkout with
+its own `.git`. It is no longer the one being worked in and it is not the one `PROJECT.md` describes.
+Until it is removed the two will drift.
 
 ---
 
 ## Two things that bit repeatedly
 
-**`~/wordpress-7` and `WordPress-7` are different folders.** The first is a WordPress installation in
-the WSL home filesystem, the Engine component. The second is the project scope in a synced store on
-the Windows side. Confusing them cost time twice in one session, both times when a listing looked
-wrong and was in fact showing the other folder.
+**The Engine and its scope have confusable names.** The `WordPress 7 Engine` is a WordPress
+installation in the WSL home filesystem, at `~/Projects/Development/wordpress-7` since it moved on
+2026-08-29. `WordPress-7` is the project scope in a synced store on the Windows side. Confusing them
+cost time twice in one session, both times when a listing looked wrong and was in fact showing the
+other folder. The Engine's old path, `~/wordpress-7`, still appears in `0007` and in the record of
+the negative check run; there it is history rather than a location, and nothing resolves at it now.
 
 **`\\wsl.localhost\...` is not an address and barely a path.** It reaches the WSL filesystem from
 Windows, and on any other machine it resolves to that machine's WSL and returns a different folder

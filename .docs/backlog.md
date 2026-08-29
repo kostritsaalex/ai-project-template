@@ -2,16 +2,17 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-25, after the `0.6.0` validation run and the fixes it produced.
+Last updated 2026-08-29, after the move into WSL and the repair of the documents it made stale.
 
 ---
 
 ## Where we are
 
-`0.6.0` is written across the working tree, validated, and ready to commit.
+`0.7.0` is released, tagged and pushed. Working tree clean, nothing half-done.
 
-The WordPress 7 project was reset to bare folders and re-adopted from scratch on `0.6.0`, then the
-Engine component was reset a second time and re-attached against the fixed blueprints.
+The table below is the `0.6.0` validation run, kept as the record it is. The WordPress 7 project was
+reset to bare folders and re-adopted from scratch on `0.6.0`, then the Engine component was reset a
+second time and re-attached against the fixed blueprints.
 
 | | structure-check | cold-start |
 | --- | --- | --- |
@@ -89,6 +90,16 @@ this run, which is what caught the session note and the address wording.
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
 
+**A component can move.** The registry carries its local path, and nothing reads that path against
+the disk. `structure-check` cannot: it is forbidden from reading outside the folder it audits. The
+address rule covers the parent moving, since every stub carries the parent's address; the reverse has
+no rule and no check. First instance, 2026-08-29: the WordPress 7 Engine moved inside the WSL home
+filesystem and two lines in the parent went stale, the registry block and the session note. The
+second is the one worth noting, because an assistant told to fix the block will fix the block. The
+component's own stubs needed nothing, the parent not having moved. Whether this earns a rule waits on
+the second razor: "when a component moves, update its registry block" may be a line an assistant
+would follow without being told. The third check, above, would catch it as a side effect.
+
 **When a nested component earns its place.** Worth two stubs and a registry block only when it
 carries something the folder would not otherwise have: a posture different from the one it inherits,
 or an override of its own. `new-component.md` runs the interview either way. An override **adds** a
@@ -163,8 +174,7 @@ will remind them.
 
 ## Plan for the session after this one
 
-`0.6.0` is merged to `main`, tagged and pushed. Two commits: the release, then "Fix eleven defects
-found validating 0.6.0". Working tree clean. Nothing is half-done.
+`0.7.0` is merged to `main`, tagged and pushed. Working tree clean. Nothing is half-done.
 
 **Start here: the second razor.** The item with the most leverage on this list, because it governs
 every rule the framework will ever gain, and the experiment is already set up. The Engine's
@@ -174,14 +184,13 @@ the file present and once with it renamed away, and compare the work rather than
 answer also reshapes the platform-rules question below: if most of the fragment turns out to be
 decoration, where it lives matters much less.
 
+The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
+scope is the authority on where it now is.
+
 **Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that
 posture gets its second test and where the assets override may get its first real case. Expect the
 `Unsorted/` folder to be the interesting one.
 
-**Kept for when the mood is right: the second razor.** The Engine's `REPOSITORY.md` now holds nine
-bullets, eight of which any competent WordPress assistant follows unprompted. One task with the file
-and one without, judged by the work, settles whether rules need a razor of their own.
-
-**Do not start with:** a full framework re-read, or another validation run. `0.6.0` was validated
-end to end today and nothing in it is suspected.
+**Do not start with:** a full framework re-read, or another validation run. `0.6.0` and `0.7.0` were
+both validated on 2026-08-25 and nothing in either is suspected.
