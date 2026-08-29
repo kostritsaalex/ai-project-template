@@ -27,9 +27,12 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-7-row4-comparand.log` | `registry-check.md` at `0.9.3`, check 4 rewritten to name which line it compares against | Does the row ask one question | **No plant.** The scope discriminates as it stands: one component carries `../`, the other the synced-store address verbatim | 2026-08-29 |
 | `2026-08-29-registry-check-7-row4-comparand-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 | `2026-08-29-registry-check-8-row4-negative-relative.log` | `registry-check.md` at `0.9.3` | Check 4's negative half, relative branch | **Planted in a component's stubs, not in `PROJECT.md`.** `wp-themes/AGENTS.md` and `CLAUDE.md` line 11, `../` to `../../`, in the scope's own filesystem under OneDrive on the Windows side | 2026-08-29 |
+| `2026-08-29-structure-check-1-deleted-override.log` | `structure-check.md` at `0.9.3`, component variant | **First `structure-check` log in this repository.** A deleted override: both `wp-themes` stubs name `REPOSITORY.md`, and no such file exists | Planted in the component's stubs; restored after | 2026-08-29 |
+| `2026-08-29-structure-check-1-deleted-override-repeat.log` | Same | Repeat, because row 10's result is an absence | Same | 2026-08-29 |
+| `2026-08-29-registry-check-9-deleted-override.log` | `registry-check.md` at `0.9.3` | The same planted folder, seen from the scope | Same | 2026-08-29 |
 | `2026-08-29-registry-check-8-row4-negative-string.log` | Same | Check 4's negative half, string branch | **Planted in a component's stubs, not in `PROJECT.md`.** The Engine's `AGENTS.md` and `CLAUDE.md` line 12, one path segment changed, in the WSL filesystem | 2026-08-29 |
 
-All fifteen ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
@@ -63,6 +66,9 @@ e1588659e9633cd23a01e751ed882ee0  2026-08-29-registry-check-7-row4-comparand.log
 11d6e5eadeb66b33f9cfc0d4ab367c6e  2026-08-29-registry-check-7-row4-comparand-repeat.log
 43d5cce31488a7574bf09b029e7b79cc  2026-08-29-registry-check-8-row4-negative-relative.log
 4c13e40c9817e3ff4e7d20703e1c30c2  2026-08-29-registry-check-8-row4-negative-string.log
+4d0eb949757a7e9165333018697010be  2026-08-29-registry-check-9-deleted-override.log
+f3bc602e06e2650ab4a21cc7449a352a  2026-08-29-structure-check-1-deleted-override.log
+10ee2c1eb867132b3635fda4efe6a974  2026-08-29-structure-check-1-deleted-override-repeat.log
 ```
 
 ## What they are evidence for

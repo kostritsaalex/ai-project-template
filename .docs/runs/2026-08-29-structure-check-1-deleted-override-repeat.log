@@ -1,0 +1,18 @@
+| Check | Result | Evidence |
+|---|---|---|
+| 1. No HTML comment | pass | searched AGENTS.md, CLAUDE.md for `<!--`, no match |
+| 2. No unfilled placeholder | pass | searched AGENTS.md, CLAUDE.md for `<[A-Z_]+>`, no match |
+| 3. No blueprint notice | pass | searched AGENTS.md, CLAUDE.md for `BLUEPRINT FILE`, no match |
+| 4. Stubs carry same text | pass | compared both files ignoring first heading and `@`-lines and blank lines; AGENTS.md lines 3–16 and CLAUDE.md lines 3–16 are identical; only differences are heading (`# AI Instructions` vs `# Claude Instructions`) and CLAUDE.md:18 `@REPOSITORY.md` |
+| 5. Project scope: PROJECT.md present, no REPOSITORY.md/ASSETS.md | n/a | folder is a component |
+| 6. Component: no PROJECT.md in root | pass | root contains: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore` — no PROJECT.md |
+| 7. Both stubs name the component, same one | pass | AGENTS.md:3 "This folder is the `WP Themes` component of the WordPress 7 project."; CLAUDE.md:3 "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 8. Parent given as resolvable address | pass | AGENTS.md:11 "../"; CLAUDE.md:11 "../" |
+| 9. Both stubs say what to do if parent unreachable | pass | AGENTS.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses."; CLAUDE.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 10. REPOSITORY.md/ASSETS.md handling | n/a | neither file present in root (listing shows `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore`) |
+| 11. Components registry blocks | n/a | folder is a component |
+| 12. Local paths written as ~/ | pass | searched AGENTS.md, CLAUDE.md for `/home/`, `Users`, `~/`, no match |
+| 13. Pointed-to locations exist or are declared absent | fail | `REPOSITORY.md` — AGENTS.md:16 / CLAUDE.md:16 "This folder also sets rules of its own. Read `REPOSITORY.md` as well." — file does not exist in root and no visible text says it does not exist yet |
+| 14. Project scope: what makes local path true | n/a | folder is a component |
+
+Failed checks: 1

@@ -77,6 +77,10 @@ what `registry-check` check 6 was, and what the all-`n/a` table nearly became.
 
 1. **Row 10.** A wrong answer is an `n/a` on a component whose stubs name a file that is gone. Silent,
    and it has already happened in this project.
+   **Run 2026-08-29 and confirmed exactly, twice — and the rank overstates the consequence.** Row 13
+   caught the same defect in both runs, so the check is not blind to it. Row 10's cost is a verdict
+   in the wrong place rather than a miss. See
+   [`../predictions/override-deleted-both-checks.md`](../predictions/override-deleted-both-checks.md).
 2. **Row 14.** A wrong answer is an `n/a` on a document missing a path note it needs. Silent, and
    indistinguishable from the correct case by construction.
 3. **Row 4.** A wrong answer is a pass on two stubs that differ. Silent, and it defeats the one thing
@@ -85,7 +89,9 @@ what `registry-check` check 6 was, and what the all-`n/a` table nearly became.
    the scale that matters, because one verdict covers every component.
 5. **Row 6.** A wrong answer is a pass produced from a listing rather than a fact. Its twin in
    `registry-check` flipped between runs for a week.
-6. **Row 13.** A wrong answer is a pass over a location nobody resolved, or a listing of locations
+6. **Row 13.** Its unbounded definition caught the deleted override that row 10 abstained on, twice,
+   which makes the looseness load-bearing rather than merely risky. Any change to this row has to
+   keep that. A wrong answer is a pass over a location nobody resolved, or a listing of locations
    that do not exist. The second has been observed three times in this project and is recorded.
 7. **Row 5.** As row 6, plus a bundled verdict that does not say which half failed.
 8. **Row 8.** A wrong answer is most likely a *fail* on a correct document, because the tool applies

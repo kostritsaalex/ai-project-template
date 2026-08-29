@@ -1,0 +1,18 @@
+| Check | Result | Evidence |
+|---|---|---|
+| 1. No HTML comment | pass | searched AGENTS.md, CLAUDE.md for `<!--`, no match |
+| 2. No unfilled placeholder | pass | searched AGENTS.md, CLAUDE.md for `<[A-Z_]+>`, no match |
+| 3. No blueprint notice | pass | searched AGENTS.md, CLAUDE.md for `BLUEPRINT FILE`, no match |
+| 4. Stubs carry same text | pass | AGENTS.md lines 2–17 and CLAUDE.md lines 2–17 are identical character for character; only differences are the first heading (AGENTS.md:1 `# AI Instructions` vs CLAUDE.md:1 `# Claude Instructions`) and CLAUDE.md:18 `@REPOSITORY.md`, an at-sign line |
+| 5. Project scope: PROJECT.md present, no REPOSITORY.md/ASSETS.md | n/a | folder is a component |
+| 6. Component: no PROJECT.md | pass | folder root contains: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore` — no PROJECT.md |
+| 7. Both stubs name the component, same one | pass | AGENTS.md:3 "This folder is the \`WP Themes\` component of the WordPress 7 project."; CLAUDE.md:3 "This folder is the \`WP Themes\` component of the WordPress 7 project." |
+| 8. Parent address resolves from outside this machine | pass | AGENTS.md:11 "../"; CLAUDE.md:11 "../" |
+| 9. Both stubs say what to do when parent unreachable | pass | AGENTS.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses."; CLAUDE.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 10. REPOSITORY.md/ASSETS.md handling | n/a | neither REPOSITORY.md nor ASSETS.md is present in the folder root |
+| 11. Components registry blocks | n/a | folder is a component; no PROJECT.md here |
+| 12. Local paths relative to home with ~/ | pass | searched AGENTS.md, CLAUDE.md for `/home/`, `/mnt/`, `~/`, `X:\`, no match |
+| 13. Pointed-to locations exist or are said not to | fail | `REPOSITORY.md` — CLAUDE.md:16 / AGENTS.md:16 "This folder also sets rules of its own. Read \`REPOSITORY.md\` as well." and CLAUDE.md:18 "@REPOSITORY.md"; the file is not in the folder root (`.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore`) and neither stub says in visible text that it does not exist yet |
+| 14. Project scope: what makes local path true | n/a | folder is a component; no PROJECT.md here |
+
+Failed checks: 1

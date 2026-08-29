@@ -74,3 +74,60 @@ rather than retyped, and verified byte-identical afterwards.
 By the rule recorded in `handover.md` today: repeat the run whose evidence is an absence. A `fail`
 carrying a quotation is self-verifying and runs once. An `n/a` or a pass is produced as easily by not
 looking, so if either check returns one, that arm runs again before anything is concluded.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29. `registry-check` once, `structure-check` twice under the repeat rule, since its
+result for row 10 is an absence.
+
+**`registry-check` row 5: fail, as predicted, and its first real verdict.**
+
+> Both stubs name REPOSITORY.md — AGENTS.md (wp-themes) line 16 … CLAUDE.md (wp-themes) line 16 …
+> Missing half: the file. Tested wp-themes/REPOSITORY.md — does not exist.
+
+It named which half was missing, quoted both stubs and probed the path. In sixteen runs this row had
+returned `n/a` twenty-eight times and `fail` twice from a cascade defect; this is the first time it
+has done the thing it was written for. The audit's argument rested on a claim about the row, and the
+claim turns out to be true.
+
+**`structure-check` row 10: `n/a`, twice, as predicted.**
+
+> neither REPOSITORY.md nor ASSETS.md is present in the folder root
+
+The row is not licensed to look at the stubs when neither file is present, so it did not, on a
+component whose stubs point at a file that does not exist. The defect is confirmed exactly as the
+audit read it out of the wording.
+
+## What was not predicted, and it changes the ranking
+
+**Row 13 failed, in both runs, and caught the defect row 10 missed.**
+
+> `REPOSITORY.md` — AGENTS.md:16 / CLAUDE.md:16 "This folder also sets rules of its own. Read
+> `REPOSITORY.md` as well." … the file is not in the folder root (`.vscode`, `AGENTS.md`,
+> `CLAUDE.md`, `homecare-of-baltimore`) and neither stub says in visible text that it does not exist
+> yet
+
+`Failed checks: 1` in both runs. So **`structure-check` does catch a deleted override**, and the
+audit was wrong that this is a blind spot. It is a mis-routed verdict: the row that ought to own the
+defect abstains, and a different row picks it up.
+
+And it picks it up *because of the property the audit criticised*. Row 13 was ranked sixth with the
+complaint that its positive definition, "any other file or folder they say is here", is unbounded and
+leaves the tool to decide what counts. That unboundedness is exactly what let it treat a stub's
+mention of `REPOSITORY.md` as a pointed-to location. The row's looseness is load-bearing.
+
+**Row 4 passed**, and the prediction for it was muddled: the paragraph first said it would fail, then
+corrected itself to a pass before the run. The pass is right and the evidence shows why — the
+at-sign exclusion works as written, quoting `CLAUDE.md:18 @REPOSITORY.md` as excluded. A prediction
+that argued with itself is not a prediction, and it is recorded as such rather than counted.
+
+## What this settles
+
+- `registry-check` 5 does what it claims. Demonstrated once, on evidence that is a quotation.
+- `structure-check` 10 does not, and the wording predicted it exactly.
+- `structure-check` as a whole is not blind to this defect, so row 10's rank of first overstates the
+  consequence. What it costs is a verdict in the wrong place, not a miss.
+- Row 13's unbounded definition is a strength here and a weakness elsewhere. Both readings are now
+  evidenced, and any change to that row has to keep this behaviour.
