@@ -22,8 +22,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-4-shipped-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 | `2026-08-29-registry-check-5-unreachable.log` | `registry-check.md` at `0.9.1`, row 1's cascade collapsed from three cases to one condition | A component the registry never claimed is on this machine | Engine's address replaced by a repository URL and its local path line deleted; restored after | 2026-08-29 |
 | `2026-08-29-registry-check-5-unreachable-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
+| `2026-08-29-registry-check-6-cut-clause.log` | `registry-check.md` at `0.9.2`, differing from the `0.9.1` prompt by exactly the cut restatement clause | The second razor measured on a check: does removing a clause that prescribes nothing change anything | Same plant as run 5, restored after | 2026-08-29 |
+| `2026-08-29-registry-check-6-cut-clause-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 
-All nine ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+All eleven ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
@@ -44,6 +46,8 @@ c060bcecf5e18b3ab770524b2bcdba06  2026-08-29-registry-check-4-shipped.log
 c889c6f6960f8d82debaa20e393d709e  2026-08-29-registry-check-4-shipped-repeat.log
 65b0ddf0ca1b124524710595d7f25b20  2026-08-29-registry-check-5-unreachable.log
 605d88261b6ebfd8a79012ffb5f7dc9e  2026-08-29-registry-check-5-unreachable-repeat.log
+515cf7ea5dd5a319e77992b38e977581  2026-08-29-registry-check-6-cut-clause.log
+d8dd1ebd4b577c9fc1feb8e965684f8b  2026-08-29-registry-check-6-cut-clause-repeat.log
 ```
 
 ## What they are evidence for

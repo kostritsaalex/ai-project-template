@@ -55,3 +55,44 @@ against each other, line by line.
 
 The clause goes back, and `0.9.2` records that `0008` was applied by reading and overturned by
 running. That is worth more than the clause.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, twice. **The prediction holds.** Verdicts identical to both baselines on every
+row, in both runs: `WP Themes` pass, pass, pass, pass, n/a, pass; the Engine n/a throughout; check 7
+pass over two folders; `Failed rows: 0`.
+
+## The evidence columns, which is what this run was for
+
+Read against each other line by line, as the prediction required. Two differences appeared and
+neither survives.
+
+**The silence reason on rows 2 to 6.** Baseline one gave a per-row tail: "Row 1 did not confirm a
+folder exists; no folder to list", "…no stubs to read", "…no path to test". Baseline two gave a
+uniform sentence with no tail. The cut runs also gave a uniform sentence with no tail. So the form
+the cut arm produced is the form one baseline already produced, and **the two baselines differ from
+each other here more than either differs from the cut arm.** Run-to-run variance, established without
+needing the cut.
+
+**The phrase "never claimed … on this machine" in check 1.** Both baselines carried it; the first cut
+run did not. That was the one signal that looked like the clause doing work, since the cut clause
+contained a version of the phrase. It was not scored on one observation, and the second cut run
+carried it: "Nothing in the registry claimed it is on this machine." The phrase's source is row 1's
+own URL branch, which the cut did not touch and which is still in the prompt. Three of four runs
+carry it, spanning both arms.
+
+**No third difference of any kind was found**, and none of the three falsifiers fired: no Engine row
+was anything but n/a, every silent row named check 1, and the reasoning arrives the same way.
+
+## What this settles, and what it does not
+
+The clause changed neither the verdicts nor the route to them. `0008` cuts it, and this is the first
+time the second razor has been applied to a check and then measured rather than reasoned about. The
+reading and the running agreed.
+
+That agreement is the result, and it is a smaller result than it looks. One clause, one check, one
+tool, four runs. It says the razor's reading was right here. It does not say a reading of the razor
+is generally safe, and the entry in `Release` about re-measuring when the model or tool changes still
+stands, now with one more measurement under it rather than fewer.

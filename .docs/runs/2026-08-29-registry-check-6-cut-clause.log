@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | WP Themes | pass | PROJECT.md (WordPress-7 root), line 65: ``Address: `wp-themes/` `` — relative address, resolved from WordPress-7 root to `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes`; folder is there |
+| 1 | WordPress 7 Engine | n/a | PROJECT.md (WordPress-7 root), line 71: `Address: https://github.com/kostritsaalex/wordpress-7-engine` — URL address, no local path line beneath it, no reachable folder |
+| 2 | WP Themes | pass | Listed root of wp-themes: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore` — both stubs present |
+| 2 | WordPress 7 Engine | n/a | Check 1 did not confirm a folder exists |
+| 3 | WP Themes | pass | PROJECT.md (WordPress-7 root), line 62: `## WP Themes`; AGENTS.md (wp-themes), line 3: ``This folder is the `WP Themes` component of the WordPress 7 project.``; CLAUDE.md (wp-themes), line 3: ``This folder is the `WP Themes` component of the WordPress 7 project.`` |
+| 3 | WordPress 7 Engine | n/a | Check 1 did not confirm a folder exists |
+| 4 | WP Themes | pass | AGENTS.md (wp-themes), line 11: `../`; CLAUDE.md (wp-themes), line 11: `../` — resolved from `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` to `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`; PROJECT.md (WordPress-7 root), line 45: `~/OneDrive/Projects/Development/WordPress-7`, which resolves via the `~/OneDrive` symlink to the same path |
+| 4 | WordPress 7 Engine | n/a | Check 1 did not confirm a folder exists |
+| 5 | WP Themes | n/a | No stub names REPOSITORY.md or ASSETS.md (AGENTS.md and CLAUDE.md in wp-themes, lines 1–15, name only `PROJECT.md`), and the wp-themes root listing contains neither file |
+| 5 | WordPress 7 Engine | n/a | Check 1 did not confirm a folder exists |
+| 6 | WP Themes | pass | Tested path `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes/PROJECT.md` — not present |
+| 6 | WordPress 7 Engine | n/a | Check 1 did not confirm a folder exists |
+| 7 | (read set) | pass | Folders opened: `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7` — this scope's own root; `/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7/wp-themes` — named by the registry, PROJECT.md (WordPress-7 root), line 65: ``Address: `wp-themes/` ``. No other folder was opened |
+
+Failed rows: 0

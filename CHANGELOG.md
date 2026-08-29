@@ -6,6 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.9.2] - 2026-08-29
+
+**The second razor, measured on a check for the first time.** A removal and the run that tested it.
+
+### Removed
+
+- The sentence in `registry-check` row 1 restating the three cases the condition above it already
+  covers. `0.9.1` stated the cascade as one condition and then enumerated the cases again, so three
+  lines became five and that release's claim of a removal was not visible in its own tree.
+
+### On the evidence
+
+`0008` says a rule earns its place only if an assistant would do otherwise without it. Every
+application of it so far had been settled by reading, including the reading that cut this clause.
+This one was measured, because the arm already existed: two logs, agreeing on every row, produced by
+a prompt differing from the cut one by exactly this clause.
+
+Run twice against the cut text, on the same plant. Every verdict identical to both baselines,
+`Failed rows: 0`. The prediction was registered as the claim being tested, with the falsifier named
+as the same verdicts reached by visibly different reasoning, since `0008` cuts on behaviour and not
+on outcomes.
+
+Two differences in the evidence columns were examined and neither survived. The wording of the
+silence reason varies more between the two baselines than between either baseline and the cut arm. A
+phrase missing from the first cut run reappeared in the second, and its source is a part of row 1 the
+cut never touched.
+
+**The reading and the running agreed, and that is a smaller result than it looks.** One clause, one
+check, one tool, four runs. It says the razor's reading was right here. It does not say reading is
+generally a safe substitute for running, and the backlog item about re-measuring the razor when the
+model or the tool changes stands with one more measurement under it.
+
 ## [0.9.1] - 2026-08-29
 
 **The n/a rule reaches the branch it was missing.** A fix and its run, no new capability.
