@@ -28,8 +28,8 @@ where practical.
   naming the prompt version, the arm, the scope state and the date. A finding was disputed this week
   against a summary of a table that had dropped the row carrying it, and settled by opening the log.
   A paraphrase of a run is not the run.
-- `.docs/predictions/`, holding a pre-registration per run. Three so far, each written and committed
-  before the run it describes.
+- `.docs/predictions/`, holding a pre-registration per run. Four so far, each written and committed
+  before the run it describes, and one of them scored a prediction of mine as wrong.
 
 ### Changed
 
@@ -42,11 +42,20 @@ where practical.
 
 ### On the evidence
 
-`registry-check` was run five times before shipping: as written, repaired, as a control against its
-own unrepaired self, and twice against a scope with one line deliberately broken. It caught the
-planted defect both times, named the reason, resolved the path and said what it resolved to, took
-neither of the two pre-registered escape routes, and failed nothing that was correct. The defect
-planted was the one that really happened on 2026-08-25 and that `structure-check` passed twice.
+`registry-check` was run seven times, three of them pre-registered: as written, repaired, as a
+control against its own unrepaired self, twice against a scope with one line deliberately broken,
+and twice more against the text that actually shipped.
+
+Those last two matter, and they are the reason this section was rewritten after release. The `n/a`
+rule below was written into the release commit itself, so for a few hours `0.9.0` shipped a prompt no
+run had ever used, which is the state principle 6 exists to prevent. The backlog said provisional in
+those words until the shipped text had been run. It has: one failure for the planted defect, five
+`n/a` rows naming it, nothing correct touched, `Failed rows: 1`, twice.
+
+The planted defect was the `WordPress 7 Engine`'s registry block naming a path the folder had moved
+away from. No check caught that when it happened and none could have: `structure-check` had passed
+that block twice, but on 2026-08-25 when the path was still correct, and it may not read outside the
+folder it audits.
 
 Two things it still cannot do. Check 4 has never failed on a real defect, only on a false one now
 repaired, so the moved-parent case is untested. Check 7 cannot be tested by any honest run: a tool

@@ -210,6 +210,20 @@ what it declined to add. The repository's `.gitignore` now negates the rule for 
 fixes the instance; whether anything should read `runs/README.md` back against the folder it
 describes is the open question, and it is the same open question as the metric was.
 
+**One false belief wrote itself into three documents.** The claim that `structure-check` "passed
+twice" a stale registry path appeared in `registry-check.md`, in a pre-registration, and in the
+`0.9.0` changelog. It is false: the two passes were on 2026-08-25, when the path was still correct.
+It was written once and then restated from memory, never re-derived, and each restatement read as
+independent corroboration of the previous one.
+
+All three were found in one pass, by reading the artefacts back to paste them rather than summarising
+them. Nothing else found them: the claim is about a run that happened, so no check reads it, and it
+was plausible enough to survive every reading that was not looking for it.
+
+The open question is whether anything can be done beyond the habit. A claim about a past run is
+checkable against [`runs/`](runs/) now that the logs are committed, which is an argument for citing
+the log whenever a document asserts what a run did.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
