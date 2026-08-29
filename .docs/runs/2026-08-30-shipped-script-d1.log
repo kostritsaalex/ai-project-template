@@ -1,0 +1,31 @@
+Access confirmed: framework at `fw-script/` and target at `scope2/` both readable.
+
+**What's here (Step 2)**
+
+1. No `PROJECT.md` in `scope2/` — nothing to overwrite.
+2. Not applicable; this is a project scope, not a component.
+3. No AI instruction files of any framework. `scope2/` holds only `client-briefs/`, `exhibition-prints/`, `glaze-tests/`, `archive-2024/`, `archive-2025/` and their files — no markdown at all.
+4. No parent claim anywhere in the folder.
+5. **Path caveat.** The folder resolves only as `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope2` — a real directory, no symlink or mount behind it. It is a session scratchpad path, not a `~/` location, and I cannot read outside the scratchpad to check whether a permanent home exists. I will not write that path as the project's local path; tell me the real one in the table stage, or I'll record it as unknown.
+6. Component-only check, skipped.
+
+**Blueprint read (Step 3):** `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Project Scope Blueprint 0.10.2.
+
+---
+
+1. **Name.** What is this project called? It keeps its spaces, and the folder need not match.
+
+2. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+3. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+4. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+5. **Address.** Where does this project live, written so that it resolves from another machine? A repository URL, or a location in a synced store such as `OneDrive, Projects/northwind`. Your local path is already settled and is in the table below.
+
+6. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.

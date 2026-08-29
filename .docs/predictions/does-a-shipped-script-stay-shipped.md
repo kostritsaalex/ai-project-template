@@ -159,3 +159,107 @@ decorated at this sample size.
   followed, which is a real finding but a different one, and such a run is reported separately rather
   than counted as added prose of zero.
 - The two runs within an arm differing by more than the difference between arms.
+
+---
+
+# Results, scored 2026-08-30
+
+Six runs, logs committed as `.docs/runs/2026-08-30-shipped-script-*.log`. The installed
+`interview.md` and the exact Step 4 replacement are committed as
+`.docs/drafts/interview-as-installed.md` and `.docs/drafts/step-4-replacement.diff`.
+
+## Validity
+
+**P6 holds.** Scope 1 `cfe0628965b1cb30db3af0bff174dee0` and scope 2 `d24c2a045ebd3e87e47cb0b199472ded`,
+unchanged after all six runs.
+
+**Every script run reached `interview.md`.** None cites it by name, which is why the first check for
+it looked like a failure, but all four reproduced its text, so the pointer in Step 4 was followed.
+The "reported separately" clause does not fire.
+
+## The measures
+
+| Arm | Framework | Scope | total | preamble | question block |
+| --- | --- | --- | --- | --- | --- |
+| B | `HEAD` | 1 | 676 / 658 | 172 / 156 | 504 / 502 |
+| B′ | `HEAD` | 2 | 609 / 717 | 122 / 233 | 487 / 484 |
+| C | `HEAD` + script | 1 | 334 / 325 | 131 / 122 | **203 / 203** |
+| D | `HEAD` + script | 2 | 355 / 347 | 152 / 139 | **203 / 208** |
+
+**Added prose: 0 words, 0.0%, in all four script runs.** `difflib` similarity 1.000 against the
+script in every one. Nothing was inserted, nothing glossed, nothing appended after question 6.
+
+## Scoring
+
+**P1 confirmed.** Added prose is zero in all four runs, against a threshold of under 10%. **The script
+stays shipped.** The proposal survives the one experiment that could refute it.
+
+**P2 did not occur.** No run came near 25%.
+
+**P4 holds, and the automated test for it did not.** The question block in every script run is
+byte-identical to the script, so the forbidden-question test reduces to a test of the script itself,
+and the script contains no posture question, no `.docs` question and no request for the local path.
+**The keyword grep registered as "grep, not judgement" produced false positives on all four runs**,
+firing on the declarative sentence "Your local path is already settled" inside question 5. A keyword
+match cannot distinguish asking from stating. That is the same defect this repository keeps finding
+in its own check rows — a test that looks mechanical and is not — and it is recorded here because it
+was written into a pre-registration one day after the last instance was catalogued.
+
+**P5: the control weakens finding 1, and finding 1 was mine.** Arm B's question block on scope 1
+averaged 503 words; arm B′ on scope 2 averaged 485.5. **A change of −3.5%**, inside the 10% band that
+was pre-registered as weakening it.
+
+So the question block does **not** move materially across folders on one fixed version. Two scopes as
+different as three folders of mixed code and material and five folders of pure material moved it by
+seventeen words. **The claim that ArtGlina's 633-word question block demonstrated folder-driven
+variance is not supported**, and the more likely explanations are the two confounds already recorded
+against it: the reviewer's blindness instruction, and a real project with more to say than a scratch
+tree.
+
+Finding 1 is therefore marked down. It was offered as the strongest unregistered argument for the
+proposal after the previous run came out indeterminate, and a control run against it does not support
+it. Recorded here rather than quietly dropped.
+
+**P6 holds.**
+
+## What survives, and it is not what was argued a run ago
+
+The length-variance argument is largely gone. What the six runs support instead:
+
+**The script is 203 words against 503.** A 60% reduction in what a person reads, with the spread
+across two very different scopes at 1.2% and within one arm at 0 and 5 words. Whatever else is true,
+this is the acceptance criterion met and measured rather than asserted.
+
+**Variance survives in behaviour rather than in length, and the control arm produced the clearest
+instance yet.** `bprime2` opens question B with *"From the folder names my guess is a ceramics
+practice — tell me what's wrong with that rather than composing from scratch."* The ArtGlina
+interview, on the same framework version, said the opposite: *"I am asking this blank rather than
+drafting it — a plausible guess about your business would read as fact."* Both are defensible
+readings of one instruction, `procedure.md`'s *"Where you can draft an answer, show the draft and ask
+what is wrong with it."* One drafts, one refuses to. **That is the variance the proposal was really
+about, and it is about what gets asked rather than how long the asking is.**
+
+`bprime2` also invented a seventh topic — *"A. Which state is this project in?"* with three options —
+out of `new-project.md`'s note *"Check which state the project is in"*, which is addressed to the
+assistant and asks it to determine the state, not to put it to the person. And it numbered its
+questions `A`–`F` where every other run used digits.
+
+**The forbidden-question count, stated honestly at this sample size.** Across six unspecified runs:
+`a1` asked whether `.docs/` exists while saying it does not, and `b2` asked for each component's
+posture. Both `B′` runs are clean. So two violations in six unspecified runs, none in four script
+runs. Small numbers, and reported as small numbers.
+
+## A defect in the draft, found by running it
+
+Question 5 ends *"Your local path is already settled and is in the table below."* **There is no table
+below.** The summary table is Step 5 and comes after the answers. All four script runs reproduced the
+sentence verbatim, which is the experiment working exactly as intended and is also the accepted cost
+stated plainly: **a shipped script ships its defects with perfect fidelity.** An unspecified interview
+would have silently repaired that sentence; four runs of a specified one repeated it four times.
+
+The repair is one clause and it is not made here, because this file is the record of what was run.
+
+## Verdict
+
+The proposal survives. It does so on P1 and P4 and on a 60% reduction measured across two scopes —
+**not** on the folder-variance argument, which its own control has weakened.

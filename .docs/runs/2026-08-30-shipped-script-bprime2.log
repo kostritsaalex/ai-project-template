@@ -1,0 +1,43 @@
+I've read the framework and looked at the folder. Report first, then questions.
+
+## Step 2 — What I found
+
+| # | Check | Result |
+|---|---|---|
+| 1 | `PROJECT.md` already here? | No. |
+| 2 | Sent to attach a component into a project scope? | N/A — this is a project scope setup. |
+| 3 | Other AI instruction files, this framework or another? | None. No `CLAUDE.md`, `AGENTS.md`, `ASSETS.md`, `REPOSITORY.md`, `.cursorrules`, `GEMINI.md`, `.mdc` anywhere at depth 2. Nothing to overwrite. |
+| 4 | Folder already claims a parent? | No. |
+| 5 | Does the path resolve, in the form I'd write it? | Yes. `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope2` resolves as written, no symlink in the chain, and it is not under `~` so there is no tilde form. One thing worth saying aloud: `/tmp` here is **tmpfs** — RAM-backed and gone on reboot. That is not a path note (the path holds on its own on this machine), but it does mean this address is not durable. |
+| 6 | Platform/framework code (component only) | N/A. |
+
+The folder holds five subfolders. Per the procedure I am not treating any of them as component candidates — a folder is a component because you say so.
+
+**Step 3 —** Read `blueprints/project/README.md`, **Blueprint Version 0.10.2** (Framework 0.10.2), and `PROJECT.md` / `AGENTS.md` / `CLAUDE.md` with their comments.
+
+---
+
+## Step 4 — Questions
+
+**A. Which state is this project in?** The blueprint recognises three. Skip this if B–F make it obvious; I ask because "no documents yet" is a legitimate finished answer:
+1. Nothing settled worth writing down, no second place coming → adopt nothing.
+2. Something settled, lives in one folder → this scope, empty registry. A finished setup.
+3. Works in (or knows it will work in) a second place → this scope plus a component per place.
+
+**B. What is the project, and what does it cover?**
+From the folder names my guess is a **ceramics practice** — studio work with archives by year, client briefs, glaze testing, exhibition prints. Tell me what's wrong with that rather than composing from scratch. I need two things:
+- A few sentences on what it is, **including whether software is all of it, part of it, or none of it.** An assistant that assumes "software project" treats everything else as out of scope.
+- The boundary, as a closed inclusion: `This project currently covers ___. Anything else is outside it.` If you name a near miss (the adjacent thing people assume is inside and isn't), good; not required. If the boundary isn't decided, say so and I'll write what will settle it and what to do meanwhile — leaving the topic out is worse than leaving it open.
+
+**C. Principles.** The blueprint offers two. I believe both belong; tell me what to remove, replace, or add, and whether the order is decided:
+1. Validate ideas through practical use whenever possible.
+2. Avoid speculative additions.
+Saying "none" is a real answer and empties the section.
+
+**D. Address.** Where does this scope live, resolvable from off this machine? I'm asking this empty — I won't invent it. Examples of the two shapes: `https://github.com/acme/northwind-project`, or `OneDrive, Projects/northwind`. Given the tmpfs point above, if this scratch folder *is* the real home, say so and I'll write the absolute path as the address.
+
+**E. Which folders do you declare as components?** A component is a folder belonging to this project, code or material, that gets its own two stubs and a registry block. **This folder is not one — it is the project scope.** I'll take your list as complete: a folder you don't name is files inside whichever component contains it. "None" is a complete answer and gives a finished single-folder setup. For each one you name, tell me its address, and I'll propose the posture (`Repository` for code a platform or framework updates wholesale; `Assets` otherwise) as settled in the summary table where you can overturn it in a sentence.
+
+**F. Document owner** — name to put on the document. `Alex`, or something else?
+
+I'll settle the session note after E, and only if a component lands on the far side of a mount boundary from here. Then a summary table before I write anything.

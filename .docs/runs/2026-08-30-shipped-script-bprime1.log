@@ -1,0 +1,47 @@
+Access confirmed: framework readable at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`, target folder readable and writable.
+
+## What I found before asking
+
+1. **No `PROJECT.md`** in the target folder.
+2. Component check — not applicable, you sent me to set up a project scope.
+3. **No other AI instruction files**, of this framework or any other. Nothing in the tree matches `*.md`, `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, and there is no `.git`.
+4. **No parent is claimed** anywhere in the folder.
+5. **The path resolves exactly as written.** `realpath` returns the same string I gave it — no symlink and no mount holding it up, so no path note is needed and none will be written.
+6. Component-only check — skipped.
+
+Blueprint read: `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, **version 0.10.2**.
+
+---
+
+## Questions
+
+Six things, in one block. Draft answers are marked; overturn any of them in a sentence.
+
+**1. Project name.** The folder is called `scope2`, which tells me nothing. What is the project called? It keeps its spaces; the folder does not have to match.
+
+**2. What the project is.** A few sentences, including whether software is all of it or only part of it. My draft, from the folder names only — tell me what's wrong with it rather than composing from scratch:
+
+> A ceramics practice: studio work, glaze development, exhibition pieces, and commissioned work for clients. Software is not part of it.
+
+**3. The boundary.** The template writes it as a closed inclusion: *"This project currently covers ___. Anything else is outside it."* What goes in the blank? This is the one line proven to change what an assistant does. If you'd also name a near miss — the adjacent thing people assume is inside and isn't — say so. "Not decided yet" is a real answer; I'd then write what will settle it and what to do meanwhile.
+
+**4. Principles.** The blueprint offers two. I believe both belong; tell me what to remove, and add anything of your own:
+
+> - Validate ideas through practical use whenever possible.
+> - Avoid speculative additions.
+
+If you have priorities and their order is decided, give them in order.
+
+**5. Where the scope lives.** I need the **address** — where this document lives, resolvable from a machine that isn't this one. A repository URL (`https://github.com/...`) or a synced-store location (`OneDrive, Projects/name`). I have not observed this and won't guess it.
+
+The **local path** I did resolve, and propose as settled: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope2`. It's a scratchpad path with no home-relative form, so if this scope is a throwaway and has no real address, say so — I'll write the local path alone and say in visible text that no external address is settled.
+
+**6. Components.** A component is a folder belonging to this project — code or material — that gets its own two stub files and one block in the registry. **This folder is not one**; it is the project scope itself.
+
+Which folders do you declare as components? I'll take your answer as complete: a folder you don't name is simply files inside whichever component contains it. Naming none is a finished answer — the registry stays empty and says so.
+
+For each one you name I'll propose a **posture**: `Repository` if a platform or framework updates code inside it, `Assets` otherwise. From the names alone I'd expect everything here to be `Assets`, and you can overturn that per component in the summary table.
+
+---
+
+I'll settle the session note after the components are named, and only if any of them sits across a mount boundary from this folder. `.docs/` and `.docs/decisions/` don't exist — I'll say that in visible text rather than create them.

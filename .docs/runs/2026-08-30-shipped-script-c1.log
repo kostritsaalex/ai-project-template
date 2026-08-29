@@ -1,0 +1,31 @@
+**Step 1 — Access.** Both reachable: the framework at `.../scratchpad/fw-script` and the target folder at `.../scratchpad/scope1`. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this prompt sets up a project scope, not a component.
+3. No AI instruction files present, of this framework or any other. Nothing would be overwritten.
+4. The folder claims no parent.
+5. The path I intend to write resolves in exactly that form: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope1`. `realpath` returns it unchanged, so no symlink or mount holds it up and no path note is needed. It has no `~/` form.
+6. Not applicable — no component posture to look for from here.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md`, Project Scope Blueprint **0.10.2**, and `blueprints/project/PROJECT.md`, `AGENTS.md`, `CLAUDE.md` with their comments.
+
+---
+
+1. **Name.** What is this project called? It keeps its spaces, and the folder need not match.
+
+2. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+3. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+4. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+5. **Address.** Where does this project live, written so that it resolves from another machine? A repository URL, or a location in a synced store such as `OneDrive, Projects/northwind`. Your local path is already settled and is in the table below.
+
+6. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.

@@ -38,6 +38,12 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-interview-length-a2.log` | Same | Arm A, repeat | Same scope, unchanged | 2026-08-30 |
 | `2026-08-30-interview-length-b1.log` | Framework at `HEAD` = `7e7f8df`, which is `0.10.2` plus the one-clause `procedure.md` repair `3363d09` | Arm B, first run | Same scope, unchanged | 2026-08-30 |
 | `2026-08-30-interview-length-b2.log` | Same | Arm B, repeat | Same scope, unchanged | 2026-08-30 |
+| `2026-08-30-shipped-script-bprime1.log` | `HEAD` unmodified | Arm B′, control, first run | **Scope 2**, a second scratch scope: five folders, all material, no code — `archive-2024/`, `archive-2025/`, `glaze-tests/`, `exhibition-prints/`, `client-briefs/`. Path-relative checksum `d24c2a045ebd3e87e47cb0b199472ded`, verified unchanged after all six runs | 2026-08-30 |
+| `2026-08-30-shipped-script-bprime2.log` | Same | Arm B′, repeat | Same | 2026-08-30 |
+| `2026-08-30-shipped-script-c1.log` | `HEAD` plus `blueprints/setup/interview.md` and Step 4 replaced by a pointer to it | Arm C, the script, first run | **Scope 1**, rebuilt identical to the previous experiment's; path-relative checksum `cfe0628965b1cb30db3af0bff174dee0` | 2026-08-30 |
+| `2026-08-30-shipped-script-c2.log` | Same | Arm C, repeat | Same | 2026-08-30 |
+| `2026-08-30-shipped-script-d1.log` | Same | Arm D, the script on the other scope, first run | Scope 2 | 2026-08-30 |
+| `2026-08-30-shipped-script-d2.log` | Same | Arm D, repeat | Scope 2 | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -83,6 +89,12 @@ ecc4170878cb75d120a0fa9711f21ac6  2026-08-30-interview-length-a1.log
 c411a8a2c6f93934360288239c487558  2026-08-30-interview-length-a2.log
 80c4c47ded6f9ca5d0b46569bbba7d8b  2026-08-30-interview-length-b1.log
 f65aca1671634a46eead89db142bb645  2026-08-30-interview-length-b2.log
+cd260974c33fd14e95de3e6eeebe026a  2026-08-30-shipped-script-bprime1.log
+1f2908fa4d435b616c0cfd85e17a4a27  2026-08-30-shipped-script-bprime2.log
+b446c16cfdf8dc79695e7c6030650590  2026-08-30-shipped-script-c1.log
+789986262a49905836d2d62e38d7ee7a  2026-08-30-shipped-script-c2.log
+714335b9bf741c81bc97bcb27b09a79d  2026-08-30-shipped-script-d1.log
+6e01c0dcb0fe153edd2dbf9b12c10a75  2026-08-30-shipped-script-d2.log
 ```
 
 ## What they are evidence for
@@ -128,3 +140,16 @@ different versions. `a1` asks whether `.docs/` exists while stating in the same 
 not — a question about something it had already read. `b2` asks the person for each component's
 posture, which Step 4 says in as many words is not a question and must be proposed. Two violations of
 two named rules in four runs, on both sides of four releases.
+
+**The six `shipped-script` logs are the subject changing, not the scope.** Arms C and D ran against a
+framework that does not exist in any commit of `blueprints/`: `HEAD` with a drafted interview script
+installed and `procedure.md` Step 4 replaced by a pointer to it. Both the installed file and the exact
+Step 4 diff are committed beside the draft, as `.docs/drafts/interview-as-installed.md` and
+`.docs/drafts/step-4-replacement.diff`, because a run against a tree nobody can reconstruct is not
+evidence.
+
+In all four script runs the question block is byte-identical to the script — `difflib` similarity
+1.000, zero added words. The control arm B′ moved the question block by −3.5% against arm B on a
+completely different scope, which **weakens** the folder-variance finding these logs were partly meant
+to support. Both results are scored in
+[`../predictions/does-a-shipped-script-stay-shipped.md`](../predictions/does-a-shipped-script-stay-shipped.md).
