@@ -3,7 +3,7 @@
 The optional third file for an `Assets` component, when that folder has rules of its own.
 
 **Blueprint Version:** 0.6.0  
-**Framework Version:** 0.9.3  
+**Framework Version:** 0.9.4  
 **Status:** in use in one project. Demoted in `0.5.0` from the normal way to attach a component to
 the exception.
 

@@ -1,0 +1,18 @@
+| Check | Result | Evidence |
+|---|---|---|
+| 1. No HTML comment remains | pass | Searched AGENTS.md, CLAUDE.md with `grep -n '<!--'`, no match. |
+| 2. No unfilled placeholder remains | pass | Searched AGENTS.md, CLAUDE.md with `grep -nE '<[A-Z_]+>'`, no match. |
+| 3. No blueprint notice | pass | Searched AGENTS.md, CLAUDE.md with `grep -n 'BLUEPRINT FILE'`, no match. |
+| 4. AGENTS.md and CLAUDE.md carry the same text | pass | Comparison made as specified: from each file I removed the first heading line (AGENTS.md:1 `# AI Instructions`; CLAUDE.md:1 `# Claude Instructions`), every line whose first non-blank character is an at sign (none in either file), and every blank line (AGENTS.md: 2,4,7,9,13; CLAUDE.md: 2,4,7,9,13). 8 lines remained on each side. Compared in order, character for character: identical. |
+| 5. Project scope only — PROJECT.md present, no REPOSITORY.md/ASSETS.md | n/a | This folder is a component. |
+| 6. Component only — PROJECT.md not in this folder | pass | Folder root filenames: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore`. No PROJECT.md. |
+| 7. Both stubs name which component this folder is, same one | pass | AGENTS.md:3 "This folder is the `WP Themes` component of the WordPress 7 project."; CLAUDE.md:3 "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 8. Both stubs give parent as an externally resolving address | pass | AGENTS.md:11 "../"; CLAUDE.md:11 "../" — relative path to the containing folder. |
+| 9. Both stubs say what to do when parent unreachable | pass | AGENTS.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses."; CLAUDE.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 10. REPOSITORY.md/ASSETS.md pointed at by both stubs | n/a | Neither REPOSITORY.md nor ASSETS.md is present in the folder root. |
+| 11. Components registry blocks | n/a | This folder is a component. |
+| 12. Local paths written relative to home folder with ~/ | pass | Searched AGENTS.md, CLAUDE.md with `grep -nE '(/home/\|Users\\\|~/)'`, no match. |
+| 13. Locations pointed to exist or are said not to exist | pass | `PROJECT.md` at `../` (AGENTS.md:8–12, CLAUDE.md:8–12) — exists at `../PROJECT.md`. No other file or folder location is named in either document. |
+| 14. Project scope only — what makes local path true | n/a | This folder is a component. |
+
+Failed checks: 0

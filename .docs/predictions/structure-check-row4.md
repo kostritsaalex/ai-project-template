@@ -69,3 +69,37 @@ saying what to do when the parent cannot be reached. Nothing else fires. `Failed
 
 `wp-themes`' two stubs are already snapshotted with checksums. Arm 2 is restored from that snapshot,
 not retyped, and verified byte-identical.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29. Positive twice, negative once, as pre-registered. **Every prediction confirmed.**
+
+**Arm 1, positive, both runs `Failed checks: 0`.** Row 4 passed and stated the procedure unprompted
+in each: the heading lines removed and quoted, no at-sign lines found, the blank lines named by
+number, "8 lines remained on each side", compared character for character.
+
+**Arm 2, negative, `Failed checks: 1`.** Row 4 failed, and quoted the pair:
+
+> First differing pair — AGENTS.md line 14: "…say so and **halt**…" / CLAUDE.md line 14: "…say so and
+> **stop**…"
+
+One word, in one file, caught with a line number from each side.
+
+**The isolation held.** Row 7 passed, the naming line being untouched, so row 4 fired alone — which
+is what the arm was built to show, the ownership map recording rows 4 and 7 both firing on a
+divergent naming line.
+
+**Row 9 passed, and its evidence is the interesting part.** It quoted *both* variants side by side,
+`halt` in one file and `stop` in the other, and passed. So it read the claim rather than matching
+fixed wording, which was registered in advance as the falsifier for that row. It is not matching a
+remembered sentence.
+
+## What this settles
+
+Row 4 catches one stub edited and the other forgotten, on a one-word difference, and says how it
+looked. It is the first row of `structure-check` to be run in both directions with its result
+recorded, and it was the top of the re-ranked list.
+
+Nothing here bears on rows 11, 13, 6 or 5, which stand where the re-ranking put them.

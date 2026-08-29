@@ -193,7 +193,7 @@ Re-derived over both, using the map above. The readings themselves are unchanged
 
 | Rank | Row | Visible when wrong? | Covered elsewhere? | Moved |
 | --- | --- | --- | --- | --- |
-| 1 | **4** | No — a pass on two stubs that differ is silent | Only the naming line, by 7. Every other divergence is 4's alone | up from 3 |
+| — | **4** | — | — | **repaired and run both ways, 2026-08-29; leaves the ranking** |
 | 2 | **11** | No — a pass over a registry whose blocks were not all examined | No | up from 4 |
 | 3 | **13** | No | No, and it now carries a second defect nobody else catches | **up from 6** |
 | 4 | **6** | No — a pass produced from a listing rather than a fact | No. Row 5 is scope-only | up from 5 |
@@ -219,6 +219,12 @@ mis-repair here removes coverage twice over, and the property that would be most
 **Rows 4 and 11 rise into the top two** without changing at all: they were second-axis winners all
 along, and nothing covers either. Row 11 is still the sharpest single item, one verdict over an
 entire registry.
+
+**Row 4 then left the ranking the same day.** It was rewritten to name the comparison it makes and
+run in both directions, passing twice on correct stubs and failing on one word changed in one file,
+quoting the pair with a line number from each. See
+[`../predictions/structure-check-row4.md`](../predictions/structure-check-row4.md). **Row 11 is now
+the top open item.**
 
 **Row 14 leaves the ranking.** [`0010`](../decisions/0010-the-path-note-stays-optional.md) decided
 it: the silence is a declared limit, not an open defect, so it is not competing for repair.

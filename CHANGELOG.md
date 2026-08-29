@@ -6,6 +6,38 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.9.4] - 2026-08-29
+
+**`structure-check` row 4 names the comparison it makes.** The first of its rows repaired and run in
+both directions.
+
+### Changed
+
+- **Row 4 states its procedure and requires the tool to say it performed it.** It used to ask for
+  "the same text, apart from their first heading, apart from any line beginning with the at sign, and
+  ignoring blank lines", leaving the tool to decide what sameness means. It now says: remove each
+  file's first heading line, every line whose first non-blank character is an at sign, and every
+  blank line; compare the remainder in order, character for character; report the line counts and
+  what was removed; on a failure quote the first differing pair with a line number from each file.
+
+### On the evidence
+
+Row 4 ranked first of fourteen in the audit, over both axes: a wrong answer is a silent pass on two
+stubs that differ, and nothing else covers it beyond the naming line. Run twice on correct stubs, it
+passed and stated the procedure unprompted each time, down to naming the blank lines by number. Run
+once against one word changed in one file, it failed and quoted the pair.
+
+Row 7 passed in that arm, so row 4 fired alone, which is what the arm was built to isolate. Row 9
+passed while quoting both variants side by side, showing it reads the claim rather than matching
+fixed wording — registered in advance as its falsifier.
+
+### Also in this release, from `.docs/` and causing no version of their own
+
+An ownership map for `structure-check`: one line per defect, the row that owns it, and any row that
+also fires. It exists because the overlap between rows 10 and 13 was found by accident, and it
+records three defects no row owns at all. The audit's ranking is re-derived over two axes rather than
+one, after a run showed a row can be wrong and harmless.
+
 ## [0.9.3] - 2026-08-29
 
 **Two instruments repaired: the release step, and the row that never asked one question.**

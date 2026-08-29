@@ -1,0 +1,18 @@
+| Check | Result | Evidence |
+|---|---|---|
+| 1. No HTML comment | pass | Searched AGENTS.md, CLAUDE.md for `<!--`, no match |
+| 2. No unfilled placeholder | pass | Searched AGENTS.md, CLAUDE.md for `<[A-Z_]+>`, no match |
+| 3. No blueprint notice | pass | Searched AGENTS.md, CLAUDE.md for `BLUEPRINT FILE`, no match |
+| 4. Stubs carry same text | fail | Comparison made as specified: from each file removed the first heading line (`# AI Instructions` / `# Claude Instructions`), every line whose first non-blank character is an at sign (none present in either file), and every blank line. AGENTS.md left 8 lines; CLAUDE.md left 8 lines. First differing pair — AGENTS.md line 14: "If you cannot reach it, say so and halt. Do not proceed on guesses." / CLAUDE.md line 14: "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 5. Project scope: PROJECT.md present, no REPOSITORY.md/ASSETS.md | n/a | This folder is a component |
+| 6. Component: no PROJECT.md | pass | Folder root: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore` — no PROJECT.md |
+| 7. Both stubs name the same component | pass | AGENTS.md:3 "This folder is the `WP Themes` component of the WordPress 7 project." / CLAUDE.md:3 "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 8. Parent address resolves from outside this machine | pass | AGENTS.md:11 "../" (relative path to containing folder) / CLAUDE.md:11 "../" |
+| 9. Both stubs say what to do when parent unreachable | pass | AGENTS.md:14 "If you cannot reach it, say so and halt. Do not proceed on guesses." / CLAUDE.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 10. REPOSITORY.md/ASSETS.md handling | n/a | Neither file present in folder root |
+| 11. Registry blocks | n/a | This folder is a component |
+| 12. Local paths relative to home with ~/ | pass | Searched AGENTS.md, CLAUDE.md for `/home/`, `C:`, `/mnt/`, `~`, no match |
+| 13. Pointed-to locations exist or are stated as not existing | pass | The only location the documents point to is `PROJECT.md` at `../`, which belongs to the parent scope and is excluded from this check; no in-scope locations are named |
+| 14. Project scope: what holds the local path up | n/a | This folder is a component |
+
+Failed checks: 1

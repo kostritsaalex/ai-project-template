@@ -1,0 +1,18 @@
+| Check | Result | Evidence |
+|---|---|---|
+| 1. No HTML comment remains | pass | searched AGENTS.md, CLAUDE.md for the opening sequence `<!--`, no match |
+| 2. No unfilled placeholder remains | pass | searched AGENTS.md, CLAUDE.md for `<[A-Z_]+>`, no match |
+| 3. No blueprint notice remains | pass | searched AGENTS.md, CLAUDE.md for "BLUEPRINT FILE", no match |
+| 4. AGENTS.md and CLAUDE.md carry the same text | pass | Comparison made as specified: from each file I removed the first heading line (AGENTS.md:1 `# AI Instructions`; CLAUDE.md:1 `# Claude Instructions`), every line whose first non-blank character is an at sign (none in either file), and every blank line (AGENTS.md and CLAUDE.md lines 2, 4, 7, 9, 13). 8 lines remained on each side. Compared in order, character for character: identical |
+| 5. Project scope only — PROJECT.md present, no REPOSITORY.md/ASSETS.md | n/a | this folder is a component |
+| 6. Component only — PROJECT.md not in this folder | pass | folder root contains: `.vscode`, `AGENTS.md`, `CLAUDE.md`, `homecare-of-baltimore`; searched the root listing for PROJECT.md, no match |
+| 7. Both stubs name the component, and the same one | pass | AGENTS.md:3 "This folder is the `WP Themes` component of the WordPress 7 project."; CLAUDE.md:3 "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 8. Both stubs give parent as an address resolving off this machine | pass | AGENTS.md:8–11 "`PROJECT.md` is at:" / "../"; CLAUDE.md:8–11 "`PROJECT.md` is at:" / "../" — a relative path to the containing folder |
+| 9. Both stubs say what to do when parent unreachable | pass | AGENTS.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses."; CLAUDE.md:14 "If you cannot reach it, say so and stop. Do not proceed on guesses." |
+| 10. Component only — stubs point at REPOSITORY.md/ASSETS.md | n/a | neither REPOSITORY.md nor ASSETS.md is present in the folder root |
+| 11. Project scope only — components registry blocks | n/a | this folder is a component; no PROJECT.md here |
+| 12. Local paths written as ~/ with no username | pass | searched AGENTS.md, CLAUDE.md for `~/`, `/home/`, a drive-letter path, and `/mnt/`, no match |
+| 13. Locations inside this scope that the documents point to | pass | searched AGENTS.md, CLAUDE.md for referenced files and folders: the only location named is `../` for `PROJECT.md`, which belongs to the parent scope and is excluded; no location inside this scope is pointed to, so there is nothing to list |
+| 14. Project scope only — what makes the local path true | n/a | this folder is a component; no PROJECT.md here |
+
+Failed checks: 0
