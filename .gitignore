@@ -6,3 +6,8 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Run logs in .docs/runs/ are evidence and are committed deliberately.
+# A global ignore of *.log silently dropped all five of them once, leaving an
+# index that described files the repository did not contain. This overrides it.
+!.docs/runs/*.log

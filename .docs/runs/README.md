@@ -23,6 +23,11 @@ All five ran against the `WordPress 7` scope at `OneDrive, Projects/Development/
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
+**These files need an override to be committed at all.** A global `*.log` ignore excluded all five
+silently on the first attempt, and the commit went through carrying this index and none of the files
+it describes. The repository's `.gitignore` now negates it. If a log added later does not appear in
+`git status`, that is why, and `git check-ignore -v` on the file will name the rule.
+
 Checksums at commit time, so a later edit is detectable:
 
 ```text

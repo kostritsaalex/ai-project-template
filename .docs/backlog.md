@@ -165,6 +165,19 @@ and twenty-five. Repaired in `registry-check` by a rule making those rows n/a. K
 shape is general: any check whose rows depend on an earlier row needs to say what happens when the
 earlier one fails, and neither of the other two checks says.
 
+**A file can be committed and not be there.** On 2026-08-29 five run logs were copied into
+`.docs/runs/`, added, committed and reported as committed. A global `*.log` ignore had excluded every
+one of them, `git add -A` said nothing, the commit succeeded, and what landed was an index describing
+five files the repository did not contain. Found only by listing `git ls-files` while chasing an
+unrelated question.
+
+It is the same shape as everything else in this section: a document making a claim about something
+outside itself, with nothing reading the claim back. This instance is worse than the others in one
+way, because the tool that could have caught it stayed silent by design. `git add` does not report
+what it declined to add. The repository's `.gitignore` now negates the rule for that folder, which
+fixes the instance; whether anything should read `runs/README.md` back against the folder it
+describes is the open question, and it is the same open question as the metric was.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.

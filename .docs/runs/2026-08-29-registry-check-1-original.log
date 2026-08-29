@@ -1,0 +1,19 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1. Folder exists where registry says | WP Themes | pass | Address is a relative path, so located by `PROJECT.md` (WordPress-7/) line 65: "Address: `wp-themes/`" — folder `WordPress-7/wp-themes` is there |
+| 1. Folder exists where registry says | WordPress 7 Engine | pass | Address is "none", so located by `PROJECT.md` (WordPress-7/) line 72: "Local path: `~/Projects/Development/wordpress-7`" — folder `/home/kostritsaalex/Projects/Development/wordpress-7` is there |
+| 2. Holds both stubs AGENTS.md and CLAUDE.md | WP Themes | pass | Root-level files found in `wp-themes/`: AGENTS.md, CLAUDE.md. `AGENTS.md` (wp-themes/) line 1: "# AI Instructions"; `CLAUDE.md` (wp-themes/) line 1: "# Claude Instructions" |
+| 2. Holds both stubs AGENTS.md and CLAUDE.md | WordPress 7 Engine | pass | Root-level Markdown files found in `wordpress-7/`: AGENTS.md, CLAUDE.md. `AGENTS.md` (wordpress-7/) line 1: "# AI Instructions"; `CLAUDE.md` (wordpress-7/) line 1: "# Claude Instructions" |
+| 3. Both stubs name the component, matching registry heading | WP Themes | pass | `PROJECT.md` (WordPress-7/) line 62: "## WP Themes"; `AGENTS.md` (wp-themes/) line 3: "This folder is the `WP Themes` component of the WordPress 7 project."; `CLAUDE.md` (wp-themes/) line 3: "This folder is the `WP Themes` component of the WordPress 7 project." |
+| 3. Both stubs name the component, matching registry heading | WordPress 7 Engine | pass | `PROJECT.md` (WordPress-7/) line 67: "## WordPress 7 Engine"; `AGENTS.md` (wordpress-7/) line 3: "This folder is the `WordPress 7 Engine` component of the WordPress 7 project."; `CLAUDE.md` (wordpress-7/) line 3: "This folder is the `WordPress 7 Engine` component of the WordPress 7 project." |
+| 4. Parent address matches PROJECT.md's own address | WP Themes | fail | `PROJECT.md` (WordPress-7/) line 39: "OneDrive, Projects/Development/WordPress-7"; `AGENTS.md` (wp-themes/) line 11: "../"; `CLAUDE.md` (wp-themes/) line 11: "../" |
+| 4. Parent address matches PROJECT.md's own address | WordPress 7 Engine | pass | `PROJECT.md` (WordPress-7/) line 39: "OneDrive, Projects/Development/WordPress-7"; `AGENTS.md` (wordpress-7/) line 12: "OneDrive, Projects/Development/WordPress-7"; `CLAUDE.md` (wordpress-7/) line 12: "OneDrive, Projects/Development/WordPress-7" |
+| 5. Overrides agree in both directions | WP Themes | n/a | No stub names REPOSITORY.md or ASSETS.md and neither file is present in `wp-themes/` |
+| 5. Overrides agree in both directions | WordPress 7 Engine | n/a | No stub names REPOSITORY.md or ASSETS.md and neither file is present in `wordpress-7/` |
+| 6. Folder holds no PROJECT.md | WP Themes | fail | no evidence |
+| 6. Folder holds no PROJECT.md | WordPress 7 Engine | fail | no evidence |
+| 7. Every folder opened was registry-named | WordPress-7 (project root) | pass | `PROJECT.md` (WordPress-7/) line 45: "~/OneDrive/Projects/Development/WordPress-7" |
+| 7. Every folder opened was registry-named | WP Themes | pass | Read `WordPress-7/wp-themes`; named by `PROJECT.md` (WordPress-7/) line 65: "Address: `wp-themes/`" |
+| 7. Every folder opened was registry-named | WordPress 7 Engine | pass | Read `/home/kostritsaalex/Projects/Development/wordpress-7`; named by `PROJECT.md` (WordPress-7/) line 72: "Local path: `~/Projects/Development/wordpress-7`" |
+
+Failed checks: 3
