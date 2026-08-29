@@ -11,6 +11,12 @@ shipping a measurement nobody had re-taken.
 
 ## The steps
 
+**0. A change under `.docs/` never causes a release.** A version number describes what an adopting
+project receives, which is `blueprints/`. This procedure, the backlog, the decisions, the
+predictions and the logs are the framework's own workshop, and bumping a version for them would
+announce a change nobody adopting it can see. Such a change may be described in a release that is
+happening anyway, as `0.9.3` described the move of the verification step, but it never causes one.
+
 **1. Bump the blueprints that changed, and only those.** A blueprint version records that *that*
 blueprint moved. Bumping one that did not moves a number for a document nobody edited, and the next
 reader has no way to tell which of the four actually changed. `git diff <last tag>..HEAD -- blueprints/`

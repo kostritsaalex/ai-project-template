@@ -24,6 +24,14 @@ address is, and the negative run is what proved it: the block was rewritten to
 `Address: ~/wordpress-7`, the check failed that row and nothing else, and it named the reason. Do not
 accept a check as working on a positive run alone.
 
+**Repeat the run whose evidence is an absence, not the one whose evidence is a quotation.** How many
+times an arm needs running is not a matter of caution, it follows from what the row had to do to
+produce its answer. A failing row's evidence is self-verifying: both stub lines quoted, the path they
+resolved to, the differing segment named. None of that can be produced without looking, so one run
+settles it. A pass can be produced by not looking, and an `n/a` paragraph more easily still, which is
+why every `n/a` behaviour this framework has shipped was run twice and why check 6 flipped between
+runs for a week before anyone noticed. Spend the repeat where the evidence is silence.
+
 **Judge by the artefact, not the report.** Three times during the `0.6.0` validation a report ending
 in "Failed checks: 0" contained a detail that does not exist: folders listed in a directory that
 holds none of them, and a claim about the contents of a file that says no such thing. None changed a

@@ -261,6 +261,27 @@ backlog and the changelog disagreeing about which version this is.
 and whose commit ran anyway, and `set -e` fixes that particular script; the step catches the class,
 including the instances that arrive some other way.
 
+**`structure-check`'s rows are audited and nothing is fixed yet.**
+[`audits/structure-check-rows.md`](audits/structure-check-rows.md), read 2026-08-29, one row per
+check, ranked by whether a wrong answer would be visible. Four shapes: the two `registry-check`
+produced, evidence that cannot be produced as written and a row depending on an earlier one, plus
+bundled verdicts and, as a candidate with one instance, a row needing knowledge the prompt neither
+contains nor permits fetching.
+
+Top of the ranking: row 10, which passes silently when a stub names an override that is gone, a
+defect this project has already produced; row 14, whose `n/a` cannot distinguish a document correctly
+without a path note from one wrongly without; row 4, whose false pass lets the two stubs diverge,
+which is the one thing the pair exists to prevent.
+
+Decisions come one at a time, each with its own pre-registration where it needs a run.
+
+**No logs exist for `structure-check`.** The audit went looking for them. `.docs/runs/` holds fifteen
+files, all `registry-check`, and none were ever deleted; the `0.6.0` and `0.7.0` runs predate the
+folder. What survives is the backlog's own "14/14 twice before the fixes" and the prose beside it,
+which is a claim about a past run checkable against nothing. Five of the fourteen rows turn on what a
+tool actually produced, and for those the audit says a fresh run is needed rather than appealing to
+that history.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
