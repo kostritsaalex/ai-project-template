@@ -11,7 +11,8 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 `0.8.0` is released, tagged and pushed. Working tree clean, nothing half-done. It adopted the second
 razor, cut the platform fragment and the Engine's nine bullets, and wrote down what would make the
-contract `1.0`.
+contract `1.0`. The framework then gained a release procedure, [`release.md`](release.md), after the
+release itself showed it needed one.
 
 The table below is the `0.6.0` validation run, kept as the record it is. The WordPress 7 project was
 reset to bare folders and re-adopted from scratch on `0.6.0`, then the Engine component was reset a
@@ -70,6 +71,30 @@ one failing it and one passing it, both right.
 ---
 
 ## Release
+
+**A derived fact with no trigger goes stale, and this is one defect rather than four.** Four
+instances turned up on 2026-08-29 and the shape is identical in each: a fact that was true when it
+was written, derived from something outside the document, with nothing that re-derives it and no
+event that forces anyone to look.
+
+The Engine's local path in the registry, stale the moment the folder moved. The three-forms wording
+in `architecture.md`, left behind by the release that settled the question and correct until `0007`
+was written. The stubs pointing at an override after it was deleted. And the shipped-line metric in
+the `README`, which hid longest of the four because it is a number: it reads as a measurement, so it
+reads as settled, and nobody asks a measurement when it was last taken. Re-measured at `0.8.0` and
+found still correct, which is luck rather than evidence that the class is harmless.
+
+Three of the four were found by reading. None by a check, and no check could have found them: every
+check in `blueprints/checks/` is forbidden from reading outside the folder it audits, and every one
+of these facts is a claim about somewhere else.
+
+Candidates, none settled and not mutually exclusive. Date every derived fact, so staleness is visible
+rather than invisible. Name, beside each, the event that invalidates it. Or re-derive at a moment
+that already exists, which is what [`release.md`](release.md) now does for the metric and only for
+the metric. The third is the cheapest and covers the least.
+
+Related, and probably the same item once somebody looks properly: **the third check**, above, which
+would walk the registry and resolve what it points at.
 
 **The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
 grounds that an assistant would do the same thing without them. That is a claim about the reader, not

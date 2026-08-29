@@ -73,6 +73,7 @@ itself. A project that grows a second place to work adds a block here and two st
 # Documentation and decisions
 
 `.docs/architecture.md` explains the scope model. `.docs/decisions/` holds the record of why the
-framework is shaped as it is, one file per decision, newest last.
+framework is shaped as it is, one file per decision, newest last. `.docs/release.md` is the procedure
+for cutting a release of the framework, and a session about to cut one reads it first.
 
 Blueprint-specific documentation lives beside its blueprint, in that folder's `README.md`.
