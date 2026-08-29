@@ -25,15 +25,16 @@
 # Local rules
 
 <!--
-Whatever this repository decides for itself, in your own words: platform conventions, what a tool
-rather than a person owns here, how work here is verified.
+Whatever this repository owns differently, in your own words: a vendored dependency, a generated
+directory, a build output that is written rather than edited, how work here is verified.
+
+One test, and it is strict. A rule earns a place here only if an assistant would do otherwise without
+it. Ordinary good practice for the platform fails that test: it was measured, and a component with
+these rules and one without produced the same work. Write what is true of this folder, not what is
+true of the technology.
 
 The registry already carries the rule that platform and framework core changes only through its own
-update mechanism. Do not repeat it. What belongs here is anything else this folder owns differently:
-a vendored dependency, a generated directory, a build output that is written rather than edited.
-
-Ready-made platform fragments live in `platforms/`. Take one if it fits, and drop the lines that
-cannot fire on work done from here.
+update mechanism. Do not repeat it.
 
 Nothing project-wide goes here, and neither does the posture of the folder. Both are in the parent,
 and where this file and the parent registry disagree, the registry is right.

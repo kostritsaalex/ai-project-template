@@ -68,20 +68,6 @@ one failing it and one passing it, both right.
 
 ## Release
 
-**Where platform rules live.** They follow from a platform, not from a folder, which is the shape
-`0005` used to move the preserve rules into the registry. There is no mechanism, so a fragment gets
-copy-pasted into every WordPress component and nothing owns it. Candidate split: the shape of such a
-rule is generic and can sit as a prompt in the `REPOSITORY.md` comment, while the WordPress instance
-stays in the fragment. Supporting evidence from the run: the agent generalised the ownership axis to
-third-party plugins by itself, writing a bullet the old fragment did not contain, and that bullet is
-now the fragment's first line.
-
-**A second razor, for rules.** The razor in `0004` cuts facts. Rules are invisible by construction,
-so nothing constrains them. Candidate test: a rule earns a document only if an assistant would do
-otherwise without it. Eight of the nine bullets in the Engine's `REPOSITORY.md` are ordinary
-WordPress practice, which makes that folder the place to settle it: one task with the file and one
-without, judged by the work.
-
 **The third check.** Walk the registry from `PROJECT.md`, open each component's stubs, compare the
 parent address and the component name against the block. Registry to disk only. Done by hand twice in
 this run, which is what caught the session note and the address wording.
@@ -190,10 +176,12 @@ Windows side and not inside WSL, which is why every prompt this session used
 `/mnt/c/Users/kostr/Repositories/...` instead. Fixed on 2026-08-25 by naming both forms. Check 14
 would not have caught it: it is `n/a` when a document says nothing about its path, so silence passes.
 
-**A platform fragment now carries a version tied to a blueprint version.**
-`platforms/wordpress.md` is the first file in the framework with `For: Repository Blueprint 0.6.0`
-in its header. If fragments multiply, somebody has to revisit them each release, and no mechanism
-will remind them.
+**A platform fragment carried a version tied to a blueprint version.** `platforms/wordpress.md`
+was the first file in the framework with `For: Repository Blueprint 0.6.0` in its header, and the
+worry was that fragments would multiply and nobody would be reminded to revisit them. Closed by
+[decision 0008](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md), which
+removed the fragment and the folder. A problem about maintaining something can be closed by not
+having it.
 
 ---
 
@@ -201,8 +189,11 @@ will remind them.
 
 `0.7.0` is merged to `main`, tagged and pushed. Working tree clean. Nothing is half-done.
 
-**Start here: the second razor.** The item with the most leverage on this list, because it governs
-every rule the framework will ever gain, and the experiment is already set up. The Engine's
+**Settled, 2026-08-29: the second razor.** Adopted as
+[decision 0008](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md). What
+follows is the record of the run that settled it, kept because the method is reusable and because
+the prediction it carries has to be refutable. The item with the most leverage on the list, because
+it governs every rule the framework will ever gain, and the experiment was already set up. The Engine's
 `REPOSITORY.md` holds nine bullets, eight of which any competent WordPress assistant follows
 unprompted. Pick a task that touches two or three of them, run it twice in fresh sessions, once with
 the file present and once with it renamed away, and compare the work rather than the report. Its
@@ -302,9 +293,11 @@ practice by the entry's own description. A rule written for something an assista
 otherwise know remains untested. What was measured is the case the entry suspected, not the general
 one.
 
-**What this leaves.** The razor now has its first measurement instead of an argument. Whether it
-becomes a rule of the framework is a decision, and by this project's own habit a decision that
-changes a rule gets a record.
+**What this leaves.** `0008` cut the fragment and the `platforms/` folder from this repository. The
+Engine's own `REPOSITORY.md` and the three stub lines naming it have not been removed: that folder is
+in another project and under no version control, so the deletion is not undoable and is the owner's
+to make. Doing it leaves the Engine shaped exactly like the control arm, which is the one
+configuration in this experiment that has actually been run.
 
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.

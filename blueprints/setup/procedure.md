@@ -129,7 +129,7 @@ Follow the adoption steps in the blueprint's README. These hold for every scope:
   unfinished task to the next assistant.
 - Do not write a path you have not resolved, and do not silently substitute a different form of it
   for the one you resolved.
-- Do not copy the blueprint's `README.md`, its `platforms/` folder, or this file into the target.
+- Do not copy the blueprint's `README.md` or this file into the target.
 - A component's two stubs say who the folder is and where the parent is, and stop. A rule written
   into one of them is a rule in a second place, and the parent registry is the first.
 - Change nothing outside the folders named in the prompt, apart from the registry entry below.
