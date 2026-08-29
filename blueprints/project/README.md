@@ -3,7 +3,7 @@
 The one scope that holds project-wide context and the registry of everything below it.
 
 **Blueprint Version:** 0.7.0  
-**Framework Version:** 0.7.0  
+**Framework Version:** 0.8.0  
 **Status:** in use in two projects. `0.5.0` moved what a component says about itself into the
 registry, and `0.6.0` cut that line down to one rule.
 

@@ -6,6 +6,59 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.8.0] - 2026-08-29
+
+**A rule earns a document only if it changes behaviour.** The second razor, measured rather than
+argued. See
+[decision 0008](.docs/decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md).
+
+### Added
+
+- The razor itself. `0004` cuts facts, this cuts rules, and between them nothing enters a document
+  because it is true, sensible or good practice. A rule earns its place only if an assistant would
+  do otherwise without it.
+- The Repository Blueprint states that test where it used to offer a fragment, and names the case
+  worth catching: ordinary good practice for the platform reads as diligence and changes nothing.
+- A criterion for `1.0` in the `README`, because "the contract is not stable" said nothing about
+  what would make it stable. Two things, both checkable, neither yet true: the shape survives a
+  project somebody other than its author adopted and then worked in, and a check catches a defect
+  nobody planted.
+
+### Removed
+
+- `blueprints/repository/platforms/` and the WordPress fragment inside it, along with the four
+  places that pointed at them. A platform rule is a rule about how one works with a widely used
+  platform, which is exactly what a competent assistant already does; the property that makes it a
+  platform rule is the property that makes it decoration.
+- The nine bullets in the `WordPress 7 Engine`'s `REPOSITORY.md`, and so that file, and so the two
+  stub sentences naming it and the `@REPOSITORY.md` import. Removed as one operation: the half-done
+  state, a file with no pointers or pointers with no file, is what ruined the first attempt at the
+  control arm.
+
+### Changed
+
+- The Repository Blueprint moves to `0.7.0`. Project, component and assets are untouched and stay
+  where they were, all four carrying `Framework Version: 0.8.0`.
+- `Local rules` goes back to being empty by default, which is what the blueprints always said it
+  usually is. The blueprint had begun pre-filling the one section an owner was meant to write.
+
+### Not changed, deliberately
+
+- The rule that travels with the word `Repository`, that platform or framework core changes only
+  through its own update mechanism. It sits in the registry, both arms of the experiment carried it,
+  and both arms cited it. It was therefore not tested, and untested rules are not cut. `0.6.0` cut
+  four rules for never having been run; this release cuts nine for having been run and made no
+  difference. The same principle in opposite directions, and neither settled by argument.
+
+### On the evidence
+
+One task, one tool, one run per arm, in a domain the model knows well, which is the most favourable
+ground for concluding that a WordPress rule is redundant and the least favourable for the opposite.
+What remains untested is the category the first razor exists to protect: a rule about something an
+assistant could not otherwise know, such as a generated directory or a vendored dependency. The
+razor is adopted on evidence from one side of its own boundary, and the backlog carries the
+re-measurement that follows from that.
+
 ## [0.7.0] - 2026-08-25
 
 **A component with no address says so.** See

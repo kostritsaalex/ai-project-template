@@ -136,6 +136,19 @@ is in [`.docs/architecture.md`](.docs/architecture.md).
 
 Early development, and the contract is not stable.
 
+**What would make it `1.0`.** Two things, and neither has happened. Both are checkable, which is the
+point of writing them down rather than waiting to feel ready.
+
+*The shape survives a project somebody else adopted.* Every project the framework has been through
+was adopted by its author, who knows what each document is for and repairs it without noticing. An
+adoption by somebody else, who then works in the project for a while and comes back with what broke,
+is the first evidence that the shape is a shape rather than one person's habit.
+
+*A check catches a defect nobody planted.* The checks have been run positively many times and
+negatively a few, against documents broken on purpose to see whether the check notices. That proves
+the check fires. It does not prove the check is worth running, which needs a real defect, arriving
+by ordinary carelessness, found by a check before a person found it.
+
 The architecture is in use in two real projects and changes through use. Every release from `0.3.0`
 to `0.5.0` removed more than it added. `0.6.0` was the first to spend a line: it cut four rules down
 to one and put that one where it fires. What ships into an adopted project is now 41 non-blank lines
@@ -145,6 +158,10 @@ across its two stubs. The metric is non-blank lines summed across the files of a
 `0.6.0` was also the first release validated by resetting a real project to bare folders and
 adopting it again from scratch. Five structure checks, five cold starts, no failures, and eleven
 defects found and fixed on the way.
+
+`0.8.0` is the first release to remove a rule because it was measured and made no difference, rather
+than because it had never been run. Two copies of one component, differing only in whether it carried
+its own rules, produced the same work on the same task.
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed, and
 [`.docs/decisions/`](.docs/decisions/) for why.

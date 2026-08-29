@@ -2,13 +2,16 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-29, after the move into WSL and the repair of the documents it made stale.
+Last updated 2026-08-29, after the move into WSL, the repair of the documents it made stale, and the
+`0.8.0` release.
 
 ---
 
 ## Where we are
 
-`0.7.0` is released, tagged and pushed. Working tree clean, nothing half-done.
+`0.8.0` is released, tagged and pushed. Working tree clean, nothing half-done. It adopted the second
+razor, cut the platform fragment and the Engine's nine bullets, and wrote down what would make the
+contract `1.0`.
 
 The table below is the `0.6.0` validation run, kept as the record it is. The WordPress 7 project was
 reset to bare folders and re-adopted from scratch on `0.6.0`, then the Engine component was reset a
@@ -67,6 +70,28 @@ one failing it and one passing it, both right.
 ---
 
 ## Release
+
+**The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
+grounds that an assistant would do the same thing without them. That is a claim about the reader, not
+a property of the rule, so it can stop being true without anything in this repository changing. The
+first razor has no such expiry: what is visible in a folder stays visible.
+
+Nothing re-runs it on its own, and a cost recorded only in a decision rots quietly, which is why it
+is here as well.
+
+The repeat is cheap. Both arms are built, the sandbox recipe and the task are in the plan entry
+below, and the whole thing costs minutes. Re-run it when the model changes, when the tool changes,
+or against a weaker model than the one that produced the result, which is the case most likely to
+break it and the one never tried.
+
+**What would count as a contradiction.** The arm with the rules produces materially different work
+from the arm without: it uses the platform's data layer where the control writes a raw query, escapes
+where the control does not, extends through a hook where the control edits third-party code. Any one
+of those, in either direction, and the razor is wrong for that reader. What does not count is the
+control naming fewer reasons, writing less commentary, or explaining itself worse. The pre-registered
+reading holds on a repeat: the work decides, not the account of it.
+
+A refutation goes into `0008`, which says where.
 
 **The third check.** Walk the registry from `PROJECT.md`, open each component's stubs, compare the
 parent address and the component name against the block. Registry to disk only. Done by hand twice in
@@ -293,11 +318,11 @@ practice by the entry's own description. A rule written for something an assista
 otherwise know remains untested. What was measured is the case the entry suspected, not the general
 one.
 
-**What this leaves.** `0008` cut the fragment and the `platforms/` folder from this repository. The
-Engine's own `REPOSITORY.md` and the three stub lines naming it have not been removed: that folder is
-in another project and under no version control, so the deletion is not undoable and is the owner's
-to make. Doing it leaves the Engine shaped exactly like the control arm, which is the one
-configuration in this experiment that has actually been run.
+**What this leaves.** `0008` cut the fragment and the `platforms/` folder from this repository, and
+the Engine's `REPOSITORY.md` went with its three stub lines on 2026-08-29, as one operation, because
+the half-done state is what ruined the first control attempt. The Engine is now shaped exactly like
+the control arm, which is the one configuration in this experiment that has actually been run. It
+holds two stubs, identical apart from their heading, and nothing else.
 
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
