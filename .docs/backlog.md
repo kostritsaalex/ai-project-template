@@ -100,6 +100,24 @@ component's own stubs needed nothing, the parent not having moved. Whether this 
 the second razor: "when a component moves, update its registry block" may be a line an assistant
 would follow without being told. The third check, above, would catch it as a side effect.
 
+**Reaching the parent takes more than an ordinary path.** The session note names the side from which
+every local path resolves, and that turns out to be necessary rather than sufficient. Run in the
+Engine's folder on 2026-08-29, a session started there could not read `PROJECT.md` at all: the path
+resolved, and the tool refused it for sitting outside the directory the session was started in. Both
+arms of the razor experiment stopped there, quoted "do not proceed on guesses" back, and asked for
+the folder to be granted. The stub did exactly its job. What no document says is that a component on
+the far side of a boundary needs its parent *admitted to the session* as well as reachable on disk.
+That is the failure the session note exists to prevent, one layer down from where it is written.
+Observed with one tool, which is where the caveat belongs.
+
+**A deleted override leaves the stubs pointing at nothing.** Found by accident while building the
+control arm: `REPOSITORY.md` was removed and both stubs still carried "This folder also sets rules of
+its own. Read `REPOSITORY.md` as well.", with `CLAUDE.md` still carrying the `@REPOSITORY.md` import.
+The run noticed and reported the file missing. `structure-check` 10 does not catch it, because it
+reads "if neither file is present, this check is n/a", so a stub pointing at an override that no
+longer exists passes as not-applicable. Same family as "A component can move": the stubs hold a fact
+that nothing reads back against the disk.
+
 **When a nested component earns its place.** Worth two stubs and a registry block only when it
 carries something the folder would not otherwise have: a posture different from the one it inherits,
 or an override of its own. `new-component.md` runs the interview either way. An override **adds** a
@@ -183,6 +201,25 @@ unprompted. Pick a task that touches two or three of them, run it twice in fresh
 the file present and once with it renamed away, and compare the work rather than the report. Its
 answer also reshapes the platform-rules question below: if most of the fragment turns out to be
 decoration, where it lives matters much less.
+
+The task has to be one somebody would plausibly ask for. A task built to trip the bullets proves only
+that they can be tripped.
+
+**Status, 2026-08-29: set up, half-run, and not yet answered.** Two copies of the Engine, identical
+but for `REPOSITORY.md` and the three stub lines that point at it, the control being what a component
+with no local rules actually looks like rather than one with its file taken away. The task: "Add a
+list of the three most recently updated posts to the footer of the site, with each title linking to
+the post." An ordinary request, and it meets bullets 1, 2, 3, 8 and 9 on its own merits, because the
+active theme is third-party, has no `footer.php`, and the posts have to be queried and printed.
+
+The arm with the file honoured all five. It left SellAny untouched and inserted the block through the
+Block Hooks API, used `WP_Query` with `orderby => 'modified'` rather than a raw query, and escaped at
+every boundary with `esc_url`, `esc_html`, `wp_kses_post` and `absint`. It also declined to invent a
+theme edit and said which of its claims it had not verified.
+
+The control has not run. The command was refused three times by the permission classifier of the
+session driving it, having been allowed once for the other arm. Until it runs there is nothing to
+conclude: one arm shows what one run did, and the razor asks about the difference between two.
 
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
