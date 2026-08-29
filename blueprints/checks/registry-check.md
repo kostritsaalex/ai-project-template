@@ -43,10 +43,11 @@ Do not modify any file.
 Answer with one table and nothing else. Columns: Check, Component, Result, Evidence.
 
 One row per component per check, so a failure names which folder it is in. Check 7 is the exception
-and takes a single row, because it audits your reading rather than any component. Result is pass,
-fail, or
-n/a. Evidence is a filename with the folder it sits in, a line number, and the quoted line. If you
-cannot quote it, write "no evidence" and mark the row fail, including when it looks like it passed.
+and takes a single row, because it audits your reading rather than any component.
+
+Result is pass, fail, or n/a. Evidence is a filename with the folder it sits in, a line number, and
+the quoted line. If you cannot quote it, write "no evidence" and mark the row fail, including when it
+looks like it passed.
 That applies to rows asking whether something is present. The paragraph below governs the rest.
 
 A check that asks whether something is absent is evidenced by the search you ran and what it
@@ -117,10 +118,14 @@ Write nothing else. No summary, no overall verdict, no recommendations, no reass
 ## Reading the result
 
 Check 1 is the one this check was written for. A component's local path sits in the registry, nothing
-re-derives it, and it goes stale the moment somebody moves the folder. That happened on 2026-08-29:
-the `WordPress 7 Engine` moved and its registry block was still naming the old path, which
-`structure-check` passed twice because the path is well formed and check 12 only asks what form it is
-written in.
+re-derives it, and it goes stale the moment somebody moves the folder. That happened to the
+`WordPress 7 Engine`, whose registry block was still naming its old path when the move was noticed on
+2026-08-29.
+
+No check caught it, and no check could have. `structure-check` had passed that block twice, but on
+2026-08-25, when the path it named was still correct; it was not passing a stale path, and it cannot
+read one, because it may not look outside the folder it audits. Between the move and the discovery no
+check ran at all, and none existed that would have helped. That gap is what this file is for.
 
 Check 4 fails in the direction that costs most. A component pointing at where its scope used to be
 passes `structure-check` 8, which confirms the shape of an address and is forbidden from resolving

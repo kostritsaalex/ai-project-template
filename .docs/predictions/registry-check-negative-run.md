@@ -156,3 +156,18 @@ and that is the other thing this check claims to catch.
 
 Check 7 remains untestable by any honest run, as the second pre-registration said: a tool that stays
 inside the read set passes it whether the row is well specified or not.
+
+## Correction to this file's header, added 2026-08-30 review
+
+The section describing the variable says the planted defect "reproduces the defect that actually
+occurred on 2026-08-25". The date is wrong and so is the implication. What happened on 2026-08-25 was
+a deliberate break during the `0.7.0` validation, when the Engine's block was rewritten to
+`Address: ~/wordpress-7` to test `structure-check` 11. The real staleness is a different event: the
+folder moved at some unrecorded time and the block was found naming the old path on 2026-08-29.
+
+The sentence also implied `structure-check` had passed a stale path twice. It had not. It passed that
+block twice on 2026-08-25, when the path was still correct.
+
+The predictions above are unedited and were unaffected by this: the variable planted was the same
+either way. The error was in the account of where the defect came from, and it is the class of defect
+this repository has spent two sessions cataloguing, found by reading the artefact back.
