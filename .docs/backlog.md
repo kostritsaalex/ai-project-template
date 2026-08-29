@@ -314,6 +314,54 @@ is a folder outside the repository, a convention about what may be written durin
 or nothing at all, is unsettled. What is settled is that the current arrangement protects nobody: the
 material is one `cat` away, in a repository the session is told to read.
 
+**The exclusions question is unbounded, and the person answering it says so.** From the ArtGlina
+interview: it is easier to say what a project covers than what it does not, because the complement is
+endless. That is a fair complaint about the question rather than about the line it produces, and the
+line has to survive whatever replaces it. The exclusions sentence is the only rule in this framework
+with a measured before and after, and WordPress 7's "what falls inside" sentence earned its place as
+the other half of the pair rather than as a substitute for it.
+
+Candidate redesign, not a decision: ask for coverage first, then for the near misses only. Not
+everything the project excludes, which is infinite, but the adjacent things a reasonable person would
+assume are inside and are not. That is bounded, it still produces the quotable line the measurement
+was about, and it is what the WordPress 7 case actually needed — its thin first answer was repaired
+by naming what falls inside, and the exclusions it eventually wrote were all near misses.
+
+Untested either way. A redesigned question is a change to the interview, which is the part of the
+framework with the least evidence behind it.
+
+**A candidate set of default principles, offered by the owner for the project blueprint.** He wants
+these shipped as a default rather than the section left blank:
+
+1. Understand the current architecture.
+2. Identify the affected scope.
+3. Read relevant documentation.
+4. Prefer improving existing patterns over introducing new ones.
+5. Keep the framework simple and internally consistent.
+6. Validate architectural ideas through practical usage whenever possible.
+7. Avoid speculative additions.
+8. Preserve backward compatibility where practical.
+
+**Condition on shipping any of them: each is judged against `0008` first, and the record says which
+survive and why.** A rule earns a place only if an assistant would do otherwise without it.
+
+The doubt, recorded with them: they read as principles for a software project, and this blueprint
+serves scopes where software is one part of something larger. 1 and 8 look least likely to change
+behaviour in a project that is mostly not code — there is no architecture to understand in a folder
+of photographs, and nothing to keep backward compatible.
+
+**The nearest precedent cuts against shipping them, and is not decisive.** `0008` removed the
+platform fragment, which was pre-filled content the blueprint offered for a section an owner was
+meant to write, and removed it for being what a competent assistant does anyway. A default set of
+principles is the same shape in a different section. What makes it not decisive is that `0008` was
+measured on a component's override and never on project principles, so whether its evidence transfers
+is itself untested.
+
+**Evidence will arrive without anyone arranging it.** They are in use on ArtGlina verbatim, which
+makes that project the natural arm: one task run there with the principles present and one with the
+section emptied, judged by the work. That is the same design that settled `0008`, and it is available
+for the price of two runs whenever somebody wants it.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
