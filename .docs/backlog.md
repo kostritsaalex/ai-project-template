@@ -15,9 +15,10 @@ is a record.
 **The framework ships no interview.** Zero question marks in `blueprints/setup/*.md` and zero in
 `PROJECT.md`'s comments. `procedure.md` Step 4 names five topics in one sentence; the interview is
 composed fresh on every adoption by whichever tool holds the blueprint. The setup path grew four
-lines in four releases. **Two tools, near-identical instructions four lines apart: one interview the
-owner liked at `0.7`, one he refused at `0.10.2`.** That is not degradation, it is variance in
-something that was never specified — the same finding as an under-specified check row, on a new
+lines in four releases. **One harness, near-identical instructions four lines apart: one interview
+the owner liked at `0.7`, one he refused at `0.10.2`.** Claude Code rendered both, established by the
+owner on 2026-08-30, so the tool is not the variable and the model under it is the remaining
+candidate. That is not degradation, it is variance in something that was never specified — the same finding as an under-specified check row, on a new
 surface, and with the same consequence that nothing in the output distinguishes judgement from
 procedure.
 

@@ -1,0 +1,51 @@
+## Step 1 — Access
+
+Both reachable.
+
+- Framework: `/home/kostritsaalex/Projects/Frameworks/ai-project-template` — readable, blueprints present.
+- Target: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope` — exists, readable, writable.
+
+## Step 2 — Look
+
+1. **`PROJECT.md` already here?** No.
+2. **Sent to attach a component into a project scope?** No — this is a project scope setup, so the check doesn't apply.
+3. **Other AI instruction files?** None. No `CLAUDE.md`, `AGENTS.md`, `ASSETS.md`, `REPOSITORY.md`, `.cursorrules`, `GEMINI.md` or copilot instructions anywhere in the top three levels. Nothing to overwrite.
+4. **Does the folder claim a parent?** No.
+5. **Does the local path resolve in the form I'd write it?** Yes. `realpath` returns the given path unchanged — no symlink, no mount in the way. So `<PATH_NOTE>` would be deleted. But this path is a session scratchpad, not under your home folder, so I need you to tell me what to write (question 5 below).
+6. Component-only check — not applicable.
+
+## Step 3 — Blueprint read
+
+Read `blueprints/project/README.md` (Blueprint Version 0.10.2, Framework Version 0.10.2) and `blueprints/project/PROJECT.md`, `CLAUDE.md`, `AGENTS.md` with all comments.
+
+---
+
+## Step 4 — Questions
+
+Answer inline; short is fine.
+
+**1. Name.** What is the project called? Keeps its spaces — it's the document title, the folder need not match.
+
+**2. What it is.** A few sentences. Include whether the project is only software or whether software is one part of something larger — an assistant that assumes "software project" treats everything else as out of scope.
+
+**3. The boundary.** It gets written as a closed inclusion: *"This project currently covers ___. Anything else is outside it."* Fill the blank. If there's an adjacent thing people assume is inside and isn't, name it — optional. If the boundary isn't decided yet, say so and tell me what will settle it and what to do meanwhile; I'll write that instead of leaving the topic out.
+
+**4. Principles.** I think these two belong, and I'll write them unless you say otherwise:
+
+- Validate ideas through practical use whenever possible.
+- Avoid speculative additions.
+
+Tell me what to remove, what to add in your own words, and whether the order is decided (an unordered list everyone agrees with decides nothing).
+
+**5. Where it lives.** Two separate lines, and I have neither:
+
+- **Address** — where this document lives, resolvable from outside this machine: a repository URL (scheme included), or a synced-store location like `OneDrive, Projects/northwind`. Every component copies this, so it's the one value most worth getting right. If this scope really is only ever going to live in the scratchpad folder, say so and I'll write that path as the address.
+- **Local path** — where the scope usually sits on a machine that has it, home-relative (`~/...`, nothing between `~` and the first folder). The resolved scratchpad path is `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope` — I'll write that if it's the real answer, or the home-relative path if this folder is a stand-in for somewhere else.
+
+**6. Components.** A component is a folder belonging to this project — code or material — that gets two stubs and a registry block. **This folder is not one; it is the project scope.** Which folders do you declare? I'll take your list as complete: a folder you don't name is just files inside whichever component contains it, and takes that component's posture. An empty registry is a finished answer, not half of one.
+
+For each one you name, give me the folder and, if it lives outside this scope folder, its address. I'll propose the posture myself — `Repository` for a folder holding code a platform or framework updates wholesale, `Assets` for anything else — and show it in the summary table as settled so you can overturn it in a sentence.
+
+**7. Does a rule of its own already exist** for any component you name — an existing `REPOSITORY.md` or `ASSETS.md`, or rules you want written there? Usually no.
+
+I'll settle the session note after you name the components, and only if any of them sits across a mount boundary from this folder. Then a summary table before anything is written.

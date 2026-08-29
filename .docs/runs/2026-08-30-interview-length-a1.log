@@ -1,0 +1,34 @@
+**Step 1 — Access.** Both reachable: framework at `…/scratchpad/arm-a-v0.7.0`, target at `…/scratchpad/scope`.
+
+**Step 2 — What I found in the target folder**
+
+1. No `PROJECT.md`. This folder is not yet a scope.
+2. Not applicable — I was sent to set up a project scope, not attach a component.
+3. No AI instruction files of any framework (no `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, etc.). Nothing will be overwritten.
+4. No parent claimed anywhere.
+5. The path resolves exactly as written: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope`. No symlink, no mount boundary — `/tmp` is a local tmpfs. So no path note, and no session note either unless a component turns out to live somewhere else.
+6. Not applicable (component only).
+
+The folder holds three subfolders. I'm not proposing any of them as components — that's your declaration to make, below.
+
+**Step 3 — Blueprint read:** `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Project Scope Blueprint **0.7.0** (framework 0.7.0), comments included. Also the two adapters.
+
+---
+
+**Step 4 — Questions.** All in one block; short answers are fine.
+
+1. **Project name** — keeps its spaces; the folder need not match.
+
+2. **What the project is** — a few sentences. Critically: is it *only* software, or is software one part of something larger? An assistant that assumes "software project" treats everything else as out of scope.
+
+3. **What it does not currently cover.** This is the one line proven to change assistant behaviour, so I'd rather it not be empty. If you haven't decided the boundary, say so and I'll write what will settle it and what to do meanwhile — that's a valid answer, but leaving the topic out isn't.
+
+4. **Your principles** — the rules holding across the whole project, in your words, in priority order if you've decided the order. Anything that applies to one folder only doesn't belong here.
+
+5. **Address** — where this scope lives, resolvable from another machine. A repo URL (`https://github.com/…`) or a synced-store location (`OneDrive, Projects/x`). I'm asking this empty on purpose: I can't observe it, and a plausible-looking guess would be wrong. Every component copies it.
+   For the **local path** I propose the resolved path above, written literally. Say if this scope really lives somewhere else and this is just a working copy.
+
+6. **Which folders do you declare as components?** A component is a folder belonging to this project — code or material — that you want the registry to point at. This folder itself is not one; it's the project scope. Name them, and I'll take the list as complete: anything you don't name is just files inside whichever component contains it. Declaring none is a finished setup, not half of one.
+   For each you name, tell me only what it is, and I'll propose the posture — **Repository** (holds code a platform or framework updates; adds the rule that core changes only through its own update mechanism) or **Assets** (live material; adds nothing to your principles) — as settled in the summary table, where one sentence overturns it.
+
+7. **Do `.docs/` and `.docs/decisions/` exist or are they planned?** Neither is there now; I'll state their absence in visible text either way.

@@ -34,6 +34,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-structure-check-2-row4-negative.log` | Same | Row 4 negative | One word changed in `wp-themes/AGENTS.md` only, deliberately not the naming line; restored after | 2026-08-29 |
 | `2026-08-29-registry-check-9-deleted-override.log` | `registry-check.md` at `0.9.3` | The same planted folder, seen from the scope | Same | 2026-08-29 |
 | `2026-08-29-registry-check-8-row4-negative-string.log` | Same | Check 4's negative half, string branch | **Planted in a component's stubs, not in `PROJECT.md`.** The Engine's `AGENTS.md` and `CLAUDE.md` line 12, one path segment changed, in the WSL filesystem | 2026-08-29 |
+| `2026-08-30-interview-length-a1.log` | Framework at `v0.7.0`, from a git worktree at that tag | Arm A, first run | **Not a check run and not a real project.** A scratch scope built for this experiment and deleted after: `storefront/` (astro `package.json`, `src/`, `public/`), `catalogue-photos/2026/` (three empty `.jpg`), `supplier-notes/` (two `.md`). Never written to; tree checksum `47809391e908d576d7fae6d9657e7e31` verified unchanged after all four runs | 2026-08-30 |
+| `2026-08-30-interview-length-a2.log` | Same | Arm A, repeat | Same scope, unchanged | 2026-08-30 |
+| `2026-08-30-interview-length-b1.log` | Framework at `HEAD` = `7e7f8df`, which is `0.10.2` plus the one-clause `procedure.md` repair `3363d09` | Arm B, first run | Same scope, unchanged | 2026-08-30 |
+| `2026-08-30-interview-length-b2.log` | Same | Arm B, repeat | Same scope, unchanged | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -75,6 +79,10 @@ f3bc602e06e2650ab4a21cc7449a352a  2026-08-29-structure-check-1-deleted-override.
 45fa11257420e2f0726c2b12f7f4d7aa  2026-08-29-structure-check-2-row4-positive.log
 6b121ec91c4b55d2bcc51b0d6586dfc0  2026-08-29-structure-check-2-row4-positive-repeat.log
 c3b8f56af7b03aa64eb4291eecb45889  2026-08-29-structure-check-2-row4-negative.log
+ecc4170878cb75d120a0fa9711f21ac6  2026-08-30-interview-length-a1.log
+c411a8a2c6f93934360288239c487558  2026-08-30-interview-length-a2.log
+80c4c47ded6f9ca5d0b46569bbba7d8b  2026-08-30-interview-length-b1.log
+f65aca1671634a46eead89db142bb645  2026-08-30-interview-length-b2.log
 ```
 
 ## What they are evidence for
@@ -97,3 +105,26 @@ the job it exists for, while the rows downstream of it disagree between the runs
 check 6 **passes** for a component whose folder does not exist, on the reasoning that a missing
 folder contains no `PROJECT.md`. That is true and worthless, and it is the clearest single artefact
 of a row being forced into a verdict it has no basis for.
+
+---
+
+## The four interview logs are a different kind of run, and the index should say so
+
+Every other log here is a **check** run against a real project scope. The four
+`2026-08-30-interview-length-*` logs are **setup** runs against a scratch folder, and what they
+record is a question block rather than a verdict table. They were produced by `claude -p`, one fresh
+non-interactive session each, with `Write`, `Edit` and `NotebookEdit` disabled so no run could write
+into the scope — a deviation from an ordinary adoption, identical across both arms, recorded in
+[`../predictions/interview-length-0.7-against-head.md`](../predictions/interview-length-0.7-against-head.md).
+
+The prompt was `blueprints/setup/new-project.md`'s own paste block with the two addresses filled in.
+That file is **byte-identical between `v0.7.0` and `HEAD`**, so the two arms' prompts differ in
+exactly one line, the framework path.
+
+They are evidence for two things. The pre-registered one is length, and it came out indeterminate by
+the thresholds set in advance. The one nobody registered is worth more: **arm A run 1 and arm B run 2
+each asked a question the setup procedure explicitly forbids**, and they are different questions in
+different versions. `a1` asks whether `.docs/` exists while stating in the same sentence that it does
+not — a question about something it had already read. `b2` asks the person for each component's
+posture, which Step 4 says in as many words is not a question and must be proposed. Two violations of
+two named rules in four runs, on both sides of four releases.

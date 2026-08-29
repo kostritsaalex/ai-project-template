@@ -1,0 +1,41 @@
+Framework and target folder are both reachable. Here's what I found before asking anything.
+
+**Step 2 — Look**
+
+1. No `PROJECT.md` in the target folder. It is not already a project scope.
+2. Not applicable — I was sent to set up a project scope, not attach a component.
+3. No AI instruction files of any framework anywhere under the target: no `CLAUDE.md`, `AGENTS.md`, `PROJECT.md`, `REPOSITORY.md`, `ASSETS.md`, `.cursorrules`, `GEMINI.md`, `.mdc`. Nothing will be overwritten.
+4. The folder claims no parent. No prior scope to contradict.
+5. The path resolves exactly as I would write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope` — no symlink, no mount arrangement holding it up. It sits on `/tmp` (tmpfs), so it does not survive a reboot; that is a fact about the folder, not something a path note repairs.
+6. Not applicable — project scope, not a component.
+
+**Step 3 — Blueprint read**
+
+`blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included. Project Scope Blueprint **0.10.2** (framework 0.10.2).
+
+---
+
+**Step 4 — Questions**
+
+Seven things, all of them things I cannot read off disk. Answer inline in any order.
+
+**1. Project name.** Keeps its spaces; the folder need not match.
+
+**2. What the project is.** A few sentences. Say especially whether software is all of it or one part of something larger — an assistant that assumes it is looking at a software project treats everything else as out of scope.
+
+**3. What the project covers.** This becomes a closed boundary: "This project currently covers ___. Anything else is outside it." It is the one line in the framework proven to change what an assistant does. If there is an adjacent thing people wrongly assume is inside, name it. If the boundary is not decided yet, say so and say what would settle it — I will write that, rather than leaving the topic out.
+
+**4. Principles.** I am proposing the blueprint's two defaults. Tell me what to cut, what to reword, and what of your own to add:
+
+- Validate ideas through practical use whenever possible.
+- Avoid speculative additions.
+
+The section is yours — these are two to reject, not a limit. Keeping neither leaves it empty, which is a real answer. If the order matters, give them ranked.
+
+**5. Address.** Where this scope lives, resolvable from outside this machine — a repository URL scheme included, or a synced-store location like `OneDrive, Projects/name`. I have not observed one and will not guess: there is no git repository here and no synced store. Every component copies this value, so it is the one worth getting exactly right. If there genuinely is no off-machine home yet, say so and I will write the local path as the address with a visible line saying it is local-only.
+
+**6. Components.** A component is a folder belonging to this project — code or material — that gets its own two stubs and one registry block. **This folder is not one; it is the project scope.** Tell me which folders you declare, by name. I take your list as complete: anything you do not name is simply files inside whichever component contains it, and I will not go looking for candidates or suggest splitting one into several. "None" is a finished answer, not half a setup.
+
+**7. Posture per component.** For each folder you name: does a platform or framework update it wholesale — the kind of code an updater replaces? That takes `Repository`, which carries the rule that core changes only through its own update mechanism. Everything else takes `Assets`, live material worked on as the task requires. Tell me enough about each and I will propose the word in the summary table, where you can overturn it in a sentence.
+
+I will settle the session note after you name the components — it only exists if one of them sits across a mount boundary from this folder — and I expect to delete the path note, since this path holds on its own.

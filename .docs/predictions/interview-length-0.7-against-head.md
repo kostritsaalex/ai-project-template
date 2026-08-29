@@ -148,3 +148,100 @@ Stated in advance so it cannot be decided afterwards:
 - The two runs within one arm differing by more than the difference between the arms. That does not
   invalidate the run; it is reported as the result, and the result is that this measurement cannot
   separate the two causes at this sample size.
+
+---
+
+# Results, scored 2026-08-30, after all four runs
+
+Four runs, `claude -p`, `--model opus`, fresh session each, logs committed verbatim as
+`.docs/runs/2026-08-30-interview-length-{a1,a2,b1,b2}.log`.
+
+## Validity, checked before anything was interpreted
+
+- **P5 holds.** Scope tree checksum `47809391e908d576d7fae6d9657e7e31` before and after all four
+  runs. Nothing was written.
+- **No run was discarded.** All four reached the framework, read the blueprint, and stopped at the
+  questions.
+- **The within-arm spread does not swamp the difference.** Arm A's two runs differ by 39 words on the
+  question block, arm B's by 12; the between-arm difference is 114. The run is valid by the criterion
+  set in advance.
+
+## The four measures
+
+| | total words | question block | questions | words / question |
+| --- | --- | --- | --- | --- |
+| A run 1 | 520 | 354 | 7 | 50.6 |
+| A run 2 | 585 | 393 | 7 | 56.1 |
+| **Arm A mean** | **552.5** | **373.5** | **7.0** | **53.4** |
+| B run 1 | 676 | 494 | 7 | 70.6 |
+| B run 2 | 658 | 482 | 7 | 68.9 |
+| **Arm B mean** | **667.0** | **488.0** | **7.0** | **69.7** |
+
+Question block: **+114.5 words, +30.7%.**
+
+## Scoring
+
+**P1 is not confirmed, and it fails on its second half.** Arm B exceeds arm A by 30.7%, which clears
+the 25% threshold. But the principles question accounts for **24.0%** of the absolute difference
+(32.0 words to 59.5, +27.5 of 114.5), against a threshold of 40%. The difference is spread rather
+than concentrated: principles +27.5, where-it-lives +21.5, boundary +8, name +4, what-it-is +0.5,
+and **components −25**, arm B's component question being shorter than arm A's.
+
+**P2 is not confirmed.** 30.7% is far outside the 10% band.
+
+**P3 is the outcome.** This is exactly the case P3 named — 25% or more without the principles
+concentration — and it is reported as indeterminate because that is what was written down before the
+run. **No redesign is justified by this measurement alone.** The `+23 lines` hypothesis is not
+refuted and is not supported; what it predicted was concentration, and the difference is distributed
+across five questions instead.
+
+**P4 holds exactly.** Seven questions in every one of the four runs, both arms. The refused ArtGlina
+interview also asked seven. Five topics have produced seven questions in three independent
+conditions, which is a more stable number than anything else measured here.
+
+## The finding that was not pre-registered, and it outweighs the one that was
+
+**Arm B's question block is 488 words. The refused ArtGlina interview's was 633.** Same framework
+version, same harness, same model, four days apart, different folder: **+145 words, +29.7%.**
+
+So the variation *within* one version of the framework, across two folders, is **larger than the
+difference between the two versions** that four releases separate. That comparison is not clean — the
+ArtGlina folder had a real symlink, a real business behind it and more for Step 2 to find. But the
+question block is supposed to be folder-independent. That is the entire basis of the propose-what-can-
+be-seen split: a question survives into the interview precisely because no amount of looking answers
+it. A question block that moves 30% between two folders on one version is measuring something it was
+designed not to measure.
+
+## The second unregistered finding: both versions broke their own stated rules
+
+Two of the four runs asked a question the procedure explicitly forbids, one in each arm.
+
+**Arm A, run 1, question 7:** *"Do `.docs/` and `.docs/decisions/` exist or are they planned? Neither
+is there now."* It answers its own question in its second clause. Step 4's list of things to avoid
+names this one: *"A question about something you can read. Read it."*
+
+**Arm B, run 2, question 7:** *"Posture per component. For each folder you name: does a platform or
+framework update it wholesale?"* Step 4 says of the posture, in as many words, *"The posture is not
+one of them"*, and tells the assistant to propose it from what it saw.
+
+**Neither version enforces its own rule, and the rules broken are the two written most explicitly.**
+This was not predicted, it appeared in half the runs, and it is a stronger argument for shipping the
+wording than the length number is: a fixed script contains a question or it does not, and `grep`
+settles it. A topic list plus four prohibitions did not settle it in either version.
+
+## What this changes about the proposal
+
+The proposal — ship the wording of the questions, keep generating everything the look produces —
+**is not carried by the pre-registered measure**, which came out indeterminate and must be reported
+that way.
+
+It is carried by the two findings nobody registered: the question block varies 30% across folders on
+one fixed version, and two of four runs asked a forbidden question. Both are variance in the thing the
+proposal proposes to specify. Neither was arranged, and the second was found by reading the artefacts
+rather than the numbers, which is this repository's own stated method.
+
+**Recorded as a caution about this run's own status.** An experiment whose registered prediction came
+out indeterminate, and which is then argued from its unregistered observations, is the exact shape
+this repository warns about. The mitigation is that both unregistered findings are quotations from
+committed logs rather than counts computed after the fact, and either can be checked by opening the
+files. They are offered as observations needing their own test, not as a result this run established.

@@ -1,0 +1,36 @@
+Read: `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Blueprint Version 0.7.0 (Framework 0.7.0), comments included.
+
+## What I found in the scope folder
+
+1. **No `PROJECT.md`** here. The folder is free to become a project scope.
+2. Not applicable — I was sent to set up a project scope, not attach a component.
+3. **No other AI instruction files**, of this framework or any other. No `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.mdc`. Nothing to overwrite.
+4. **No parent claimed** anywhere in the folder.
+5. **The path resolves exactly as given**, with no symlink and no mount in the way:
+   `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/scope`
+   It is not under your home folder, so there is no `~/` form of it, and no path note is needed — nothing is holding it up that could be missing elsewhere.
+6. Not applicable — component only.
+
+There is no `.git`, and no `.docs/` or `.docs/decisions/`. I will say that in visible text rather than leave it silent.
+
+## Questions
+
+A **component** is a folder belonging to this project — code or material — that you decide to declare as one. This folder, the one holding `PROJECT.md`, is not a component; it is the project scope itself.
+
+1. **Project name.** Keeps its spaces; the folder need not match.
+
+2. **What the project is**, in a few sentences — including whether software is the whole of it or one part of something larger. An assistant that assumes it is looking at a software project treats everything else as out of scope.
+
+3. **What the project does not currently cover.** This is the one line proven to change what an assistant does; without it, a request you'd exclude arrives looking like ordinary work and gets done. If you haven't decided the boundary, say so and tell me what will settle it and what to do meanwhile — I'll write that instead. Leaving the topic out is the one option I won't take.
+
+4. **Your principles** — the rules that hold across the whole project, in your words. In priority order if you've decided the order. Anything true of only one folder doesn't go here.
+
+5. **Address** — where this scope lives, resolvable from outside this machine (a repository URL, or a synced-store location like `OneDrive, Projects/name`). I'm asking this empty: I haven't observed one, and every component will copy it, so a plausible guess from me would be wrong in a way that's expensive to find. If there is no such address yet, say so and I'll record the local path alone.
+
+6. **Local path.** I propose writing the absolute path above, as observed. If this folder is a stand-in for somewhere else it will eventually live, give me that instead.
+
+7. **Which folders do you declare as components?** Name them, and I'll take the list as complete. A folder you don't name is files inside whichever component contains it, and takes that component's posture. For each one you name, tell me what it is and I'll propose its posture — `Repository` where a platform or framework updates the code in it, `Assets` otherwise — as settled in the summary table, where you can overturn it in a sentence. "None" is a complete answer and a finished setup, not half of one.
+
+I'll ask about the session note only if a component turns out to sit across a mount boundary from this folder. `Local rules` and `Hazards` don't arise in this scope, so I'm not asking after them.
+
+Answer in one block and I'll put the summary table up before writing anything.
