@@ -155,7 +155,7 @@ to one and put that one where it fires. What ships into an adopted project is 41
 a project scope, 34 of them `PROJECT.md` and 7 its two adapters, and 22 for a component across its
 two stubs. The metric is non-blank lines with the blueprint notice and every HTML comment stripped,
 summed across the files a scope ships; an override is not counted, since a folder has one only when
-it has something to add. Re-measured at `0.8.0`, and re-measured at every release from now on, which
+it has something to add. Re-measured at `0.9.0`, and re-measured at every release, which
 is a step in [`.docs/release.md`](.docs/release.md).
 
 `0.6.0` was also the first release validated by resetting a real project to bare folders and
@@ -165,6 +165,11 @@ defects found and fixed on the way.
 `0.8.0` is the first release to remove a rule because it was measured and made no difference, rather
 than because it had never been run. Two copies of one component, differing only in whether it carried
 its own rules, produced the same work on the same task.
+
+`0.9.0` adds the third check, run in both directions before shipping and with every run committed.
+It also puts a measured limit on what any of these checks is worth: two runs of one prompt against
+one unchanged scope disagreed on a row, so a check's result is mechanical only as far as each row is
+fully specified.
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed, and
 [`.docs/decisions/`](.docs/decisions/) for why.

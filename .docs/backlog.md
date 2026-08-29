@@ -9,10 +9,13 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-`0.8.0` is released, tagged and pushed. Working tree clean, nothing half-done. It adopted the second
-razor, cut the platform fragment and the Engine's nine bullets, and wrote down what would make the
-contract `1.0`. The framework then gained a release procedure, [`release.md`](release.md), after the
-release itself showed it needed one.
+`0.9.0` is released, tagged and pushed. Working tree clean, nothing half-done.
+
+Two releases today. `0.8.0` adopted the second razor, cut the platform fragment and the Engine's nine
+bullets, and wrote down what would make the contract `1.0`. `0.9.0` added the third check, run five
+times in both directions before shipping, and the rule in `0009` that governs every check after it.
+Between them the framework gained [`release.md`](release.md), [`runs/`](runs/) and
+[`predictions/`](predictions/).
 
 The table below is the `0.6.0` validation run, kept as the record it is. The WordPress 7 project was
 reset to bare folders and re-adopted from scratch on `0.6.0`, then the Engine component was reset a
@@ -81,8 +84,9 @@ something outside the document, with nothing that re-derives it and no event tha
 the moment the folder moved. The stubs still naming an override after it was deleted. Add the two
 this repository already knew about: a stub pointing at a parent that has moved, and a component whose
 name no longer matches its registry heading. All four are one document making a claim about another
-folder, and a registry-to-disk walk finds every one of them. That is **the third check**, below, and
-it is the whole answer to this half.
+folder, and a registry-to-disk walk finds every one of them. `registry-check` shipped in `0.9.0` and
+is that walk. Its check 1 was run against a deliberately stale local path twice and caught it both
+times, so this half of the class is answered by a mechanism rather than by a plan.
 
 **Shape two, a document disagreeing with something that is not a component.** Two instances, and no
 walk of the registry sees either. The three-forms wording in `architecture.md` was two documents in
@@ -134,72 +138,32 @@ reading holds on a repeat: the work decides, not the account of it.
 
 A refutation goes into `0008`, which says where.
 
-**The third check is written and has never been run.** `blueprints/checks/registry-check.md`, added
-2026-08-29 under [decision 0009](decisions/0009-a-check-declares-its-read-set-in-advance.md). Seven
-checks, registry to disk only, one row per component per check.
+**What `registry-check` still cannot do.** Shipped in `0.9.0` after five runs, three
+pre-registered, all logged in [`runs/`](runs/). Two gaps remain and neither is closable by wording.
 
-**Run once, positive only, 2026-08-29, after three defects were pre-registered by reading it.** The
-predictions are a committed file,
-[`predictions/registry-check-first-run.md`](predictions/registry-check-first-run.md), written before
-the run because a prediction stated after a result is not one. Five defects in total, all repaired
-afterwards in one pass:
+Check 4, the moved-parent case, has never failed on a real defect. Its only failures were the false
+ones from comparing `../` as text, since repaired. Building a scope whose components point at a
+parent that has moved is the test it has not had.
 
-- *Predicted and confirmed.* The evidence rule carried only its presence half, so check 6, an absence
-  check, failed both components with "no evidence" on a scope where both should pass. Predicted to
-  break three rows; it broke one, and the tool absorbed the other two. The diagnosis was right and
-  the inventory was a guess.
-- *Predicted and confirmed, with its discriminator.* Check 4 compared addresses as text, so the
-  contained component failed for pointing at its parent as `../`, which is the correct form, while
-  the component quoting the scope's address verbatim passed. Exactly the predicted split.
-- *Predicted wrongly, diagnosed rightly.* Check 7 was expected to fail every correct project, since
-  the scope's own root is named by no registry line. It passed, because the tool went and found the
-  scope's local path line elsewhere in `PROJECT.md` and offered it as the naming line. The second
-  branch, recorded in advance as also being a finding: the instruction was repaired rather than
-  followed, and the result is a green row with real evidence attached and nothing to warn a reader.
-- *Found by the run.* The count line asked for "Failed checks: N" and got `3`, counting rows, where
-  two checks failed across three rows. Invisible to reading, because it only appears once a table
-  with repeated rows exists.
-- *Found by the run.* Check 2 evidenced the presence of two files by quoting a heading from inside
-  each, which evidences nothing about the row.
+Check 7 cannot be tested by any honest run. A tool that stays inside its read set passes it whether
+the row is well specified or badly specified, which the first run proved by passing a broken version
+of it. Nothing distinguishes a working check 7 from a decorative one.
 
-**Run a second time, 2026-08-29, two arms, pre-registered in
-[`predictions/registry-check-second-run.md`](predictions/registry-check-second-run.md).** The
-repaired prompt returned `Failed rows: 0` and confirmed all four predictions, including the one held
-most loosely. The control arm, the original prompt run again unchanged, is the one that mattered:
-check 6 **passed** both components this time, where the first run failed both. So that defect is real
-by reading and intermittent in effect, and the confirmation it was scored with rested on a single
-observation that does not reproduce. Check 4 failed identically both times and is deterministic.
-Check 7 passed both times by reaching for the same non-registry line, so its diagnosis is stronger,
-not weaker.
+**Are the other two checks under-specified in the same way?** The finding in
+[`checks/README.md`](../blueprints/checks/README.md) came from `registry-check`, and nothing suggests
+it is peculiar to it. `structure-check` has fourteen rows written before the presence-and-absence
+distinction was being watched for, and its check 6 is already recorded here as inviting padding. The
+work is to read all three prompts for rows that cannot be evidenced as written, which is cheap, and
+then to test the suspicious ones, which is not.
 
-**The finding that outlives this check.** `checks/README.md` claimed a mechanical check's result does
-not depend on the tool's judgment. Two runs of one prompt on one scope disagreed on one row and on
-how to count failures, which puts a measured limit on that claim: where a row is under-specified the
-tool supplies the missing rule itself and returns an equally confident table either way. Recorded in
-the checks README, because it applies to all three checks and not to this one.
-
-It stays in `Release`. The negative half has never been run at all: a scope broken on purpose, in a fresh session, to see whether the check catches what it
-was written for. The `WordPress 7` scope supplies the break for free, since the Engine's registry
-block held a stale path four days ago and the real defect is on record.
-
-*Found by reading the repair.* The first fix to check 7 closed the instance and left the class. The
-row was keyed to a component, so putting the scope root in the read set fixed the one folder the run
-had surfaced while any folder belonging to no component still had nowhere to appear: `.docs/`, a
-subfolder of the scope, a stray directory. Check 7 is now a single row covering everything read.
-Worth naming as a habit rather than an incident: a defect arrives as one instance, and repairing what
-was shown is not the same as repairing what it is an instance of.
-
-Worth keeping about the method rather than the check: reading the prompt found three defects in
-twenty minutes and two reproduced, but the run corrected the scope of one, overturned the outcome of
-another while confirming its diagnosis, and found a defect reading had missed. Reading before running
-is cheap and is not a substitute for running. And a summary of a run is not the run: the check 7
-finding lived in a row that a two-row abridgement of the table dropped, and it survived only because
-the raw log was still on disk.
-
-**The checks folder is a blueprint with no version.** `blueprints/checks/` ships prompts that
-change between releases, and unlike the other four blueprints it carries no `Blueprint Version`, so
-[`release.md`](release.md) step 1 cannot record that it moved. Noticed while adding the third check,
-which is a change to that folder that no version will show.
+**A row with no basis for a verdict will produce one anyway.** When `registry-check` failed to find
+a component's folder, the five rows downstream had nothing to read and returned a verdict each. In
+one run all five failed with a bare "no evidence"; in a repeat, four failed and one **passed**, on
+the reasoning that a folder which does not exist contains no `PROJECT.md`. True, green, worthless.
+One planted defect produced one finding and five rows of noise, which on six components would be one
+and twenty-five. Repaired in `registry-check` by a rule making those rows n/a. Kept here because the
+shape is general: any check whose rows depend on an earlier row needs to say what happens when the
+earlier one fails, and neither of the other two checks says.
 
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
@@ -213,7 +177,8 @@ filesystem and two lines in the parent went stale, the registry block and the se
 second is the one worth noting, because an assistant told to fix the block will fix the block. The
 component's own stubs needed nothing, the parent not having moved. Whether this earns a rule waits on
 the second razor: "when a component moves, update its registry block" may be a line an assistant
-would follow without being told. The third check, above, would catch it as a side effect.
+would follow without being told. `registry-check` 1 now catches it, validated against exactly this
+defect on 2026-08-29, so the open question is only whether the framework should also say something.
 
 **Reaching the parent takes more than an ordinary path.** The session note names the side from which
 every local path resolves, and that turns out to be necessary rather than sufficient. Run in the
@@ -238,7 +203,8 @@ its own. Read `REPOSITORY.md` as well.", with `CLAUDE.md` still carrying the `@R
 The run noticed and reported the file missing. `structure-check` 10 does not catch it, because it
 reads "if neither file is present, this check is n/a", so a stub pointing at an override that no
 longer exists passes as not-applicable. Same family as "A component can move": the stubs hold a fact
-that nothing reads back against the disk.
+that nothing reads back against the disk. `registry-check` 5 now reads it, in both directions, and
+has passed a positive run; it has never been run against a component with the defect present.
 
 **When a nested component earns its place.** Worth two stubs and a registry block only when it
 carries something the folder would not otherwise have: a posture different from the one it inherits,
@@ -437,10 +403,21 @@ holds two stubs, identical apart from their heading, and nothing else.
 The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
 scope is the authority on where it now is.
 
+**Start here: is `structure-check` under-specified too?** The cheapest item with the widest reach.
+Read all three prompts for rows that cannot be evidenced as written, and for rows that depend on an
+earlier row without saying what happens when it fails. Both defects are now known to exist, and both
+were found by reading in minutes. Anything suspicious gets a pre-registration and a run, on the
+pattern in [`predictions/`](predictions/), which is three files now and works.
+
+**Then: the moved-parent case.** `registry-check` 4 has never failed on a real defect. Move a scope,
+or build a component pointing at where one used to be, and see whether the row catches it. That is
+the other half of what the check claims.
+
 **Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that
 posture gets its second test and where the assets override may get its first real case. Expect the
 `Unsorted/` folder to be the interesting one.
 
-**Do not start with:** a full framework re-read, or another validation run. `0.6.0` and `0.7.0` were
-both validated on 2026-08-25 and nothing in either is suspected.
+**Do not start with:** a full framework re-read, or a fourth run of `registry-check` against a
+correct scope. It has been run five times, three of them pre-registered, and a sixth positive run
+would tell nobody anything.

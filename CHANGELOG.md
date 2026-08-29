@@ -6,6 +6,59 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.9.0] - 2026-08-29
+
+**A third check, and a measured limit on what a check is worth.** See
+[decision 0009](.docs/decisions/0009-a-check-declares-its-read-set-in-advance.md).
+
+### Added
+
+- `blueprints/checks/registry-check.md`. It walks the registry from `PROJECT.md`, opens each declared
+  component's stubs, and reports where the two disagree. It is the only check that reads more than
+  one folder, and the first to carry a precondition: it runs from the scope, on the side of any
+  filesystem boundary that reaches every component.
+- **A rule governing every check written from now on.** A check declares its read set in advance, and
+  that set must be computable from documents before any file is opened. The one-folder constraint on
+  `structure-check` turns out to be a special case of it. Recorded as a second bounded scope rather
+  than an exception, because an exception invites the next one and gives no way to judge it.
+- A `Blueprint Version` for `blueprints/checks/`, which had never had one, so no release could record
+  that it moved. It starts at `0.9.0`, the release that gave it a counter, rather than pretending to
+  a history it cannot evidence.
+- `.docs/runs/`, holding the raw output of every check run, verbatim and unedited, with an index
+  naming the prompt version, the arm, the scope state and the date. A finding was disputed this week
+  against a summary of a table that had dropped the row carrying it, and settled by opening the log.
+  A paraphrase of a run is not the run.
+- `.docs/predictions/`, holding a pre-registration per run. Three so far, each written and committed
+  before the run it describes.
+
+### Changed
+
+- `blueprints/checks/README.md` states what a mechanical check is worth. It claimed a result that
+  does not depend on the tool's judgment; that holds only as far as each row is fully specified.
+  Where a row leaves something unsaid the tool supplies the missing rule itself, differently on
+  different runs, and returns an equally confident table either way. Measured, not supposed: the same
+  prompt on the same scope produced two different verdicts on one row and two different readings of
+  the line that counts failures.
+
+### On the evidence
+
+`registry-check` was run five times before shipping: as written, repaired, as a control against its
+own unrepaired self, and twice against a scope with one line deliberately broken. It caught the
+planted defect both times, named the reason, resolved the path and said what it resolved to, took
+neither of the two pre-registered escape routes, and failed nothing that was correct. The defect
+planted was the one that really happened on 2026-08-25 and that `structure-check` passed twice.
+
+Two things it still cannot do. Check 4 has never failed on a real defect, only on a false one now
+repaired, so the moved-parent case is untested. Check 7 cannot be tested by any honest run: a tool
+that stays inside its read set passes it whether the row is well specified or not.
+
+### Nothing was removed
+
+Said explicitly, because principle 7 asks a release that adds to name what it cut in exchange, and
+this one cuts nothing. It adds a check, a rule, and two folders of evidence. The case for it is that
+the framework had two checks that could not see between folders and a class of defect that lives
+exactly there.
+
 ## [0.8.0] - 2026-08-29
 
 **A rule earns a document only if it changes behaviour.** The second razor, measured rather than

@@ -91,3 +91,68 @@ run where check 1 passes and check 7 also passes means the two rows disagree and
 A single run does not settle a row. If the result disagrees with this prediction on any row, that arm
 is run again before anything is concluded, and both runs are committed. This rule exists because the
 control arm of the second run overturned a confirmation that had rested on one observation.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, repaired prompt, scope with the single planted line. Run twice, per the re-run
+rule fixed above, though no firmly predicted row disagreed: the control arm of the second run had
+already shown that agreement on one run can be luck as easily as disagreement. Logs are
+`2026-08-29-registry-check-3-negative.log` and `-repeat.log` in [`../runs/`](../runs/). Everything
+above this line was written before the defect was planted and is unedited.
+
+## The negative half passes, on all three criteria
+
+**1. The Engine's check 1 row failed, in both runs.**
+
+**2. It named the reason, in both runs, with the resolution shown.** From the first:
+
+> not a relative path, so line 72 used: "Local path: `~/wordpress-7`"; resolved to
+> `/home/kostritsaalex/wordpress-7` ($HOME=/home/kostritsaalex); `test -d` returned MISSING. No
+> visible text in PROJECT.md says this component is not attached yet.
+
+It quoted the address line to justify falling through to the local path line, resolved the tilde and
+said what it resolved to, probed the result, and closed off the one escape clause the row allows.
+
+**3. Nothing correct failed.** Every `WP Themes` row came back exactly as in the repaired positive
+run, in both negative runs.
+
+**Neither falsification route was taken.** The n/a clause did not stretch to cover the `none` address
+form. The session note, still carrying the correct path two dozen lines above, was not used to
+rescue the row. The check owned its own locating rule, which was the thing most in doubt.
+
+So `registry-check` catches the defect it was written for, on the naturally occurring instance that
+motivated it, reproducibly.
+
+## The cascade is real, unstable, and worse than predicted
+
+Rows 2 to 6 for the Engine were pre-registered as unpredictable, on the grounds that the prompt never
+says what happens to them when row 1 cannot find the folder. That silence is now measured.
+
+First run: all five failed with a bare `no evidence`. Repeat: four failed with `no evidence` plus a
+reason, and **check 6 passed**, on this evidence:
+
+> Ran `test -e /home/kostritsaalex/wordpress-7/PROJECT.md`, returned "no PROJECT.md".
+
+A folder that does not exist contains no `PROJECT.md`. The statement is true, the row is green, and
+it means nothing whatever. `Failed rows` came back 6 in one run and 5 in the other, on an identical
+prompt against an identical scope.
+
+This is the same defect class as the check 6 intermittency in the control arm, and this is its
+sharpest instance: a row with no basis for a verdict, forced to produce one, produces a different one
+each time and sometimes a nonsensical one. One planted defect produced one true finding and five
+derived rows of noise, which on a scope with six components would be one finding and twenty-five.
+
+The repair is a rule the prompt did not have: **when check 1 fails for a component, rows 2 to 6 for
+that component are `n/a`, evidenced by naming check 1 as the reason.** They are not failures. Nothing
+is wrong with stubs nobody could read.
+
+## What this run still does not settle
+
+Check 4 has never failed on a real defect. Its only failures were the false ones from comparing `../`
+as text, now repaired. A scope whose components point at a parent that has moved has not been built,
+and that is the other thing this check claims to catch.
+
+Check 7 remains untestable by any honest run, as the second pre-registration said: a tool that stays
+inside the read set passes it whether the row is well specified or not.
