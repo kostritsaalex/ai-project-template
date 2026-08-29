@@ -60,7 +60,7 @@ Two more were found here and are named as required.
 | 5 | Scope holds `PROJECT.md`, holds no override; list every filename | Which of the two claims a failure refers to. Also why a full listing is the evidence for a question about two named files | B, E | No — needs a run |
 | 6 | Component holds no `PROJECT.md`; list every filename | Same as 5's second half. The only fact needed is whether one named file is present, and the row asks for the whole folder instead | E | No — needs a run |
 | 7 | Both stubs name this component, and name the same one | The matching standard. `registry-check` 3 says "exactly … a difference in wording, case or spacing fails"; this row says only "the same one" | K (mild) | Yes |
-| 8 | Both stubs give a parent address; **three** forms listed | Why this row lists three address forms while row 11, in the same prompt, lists four. The answer is real and correct — a parent always has an address, the fourth form exists only for a component nobody can reach — but it is in `0007`, and the prompt forbids reading outside the folder | K | Yes, but only by someone who already knows |
+| 8 | Both stubs give a parent address; **three** forms listed | Why this row lists three address forms while row 11, in the same prompt, lists four. **Checked against the blueprint, 2026-08-29:** `0001` decides that a project scope may live anywhere "it has an address that resolves from outside the machine it sits on", so a scope may not be addressless and there is no fourth form for a parent. Three is right; the gap is the missing rationale and nothing more | K | Yes, and now settled |
 | 9 | Both stubs say what to do when the parent is unreachable | What counts as saying it. The blueprint's sentence is fixed text, so in practice this is quotable, but the row states no acceptance criterion | — | Yes |
 | 10 | If an override is present: stubs name it, and it carries no parent address and no posture | **What happens when the stubs name an override that is not present.** The row is one-directional and returns n/a when neither file is present, so that case passes silently. It is a known real defect, recorded in the backlog, and `registry-check` 5 was written to catch it in both directions | D, B | Yes — the defect is visible in the wording |
 | 11 | Every registry block: name, posture word, travelling rule, address in one of four forms, `../` rejected, local-path placement, empty-registry case | Which block and which claim a verdict refers to. One row covers the whole registry and every block in it, so a scope with six components gets one result. This is the "a count of checks would hide a component" problem `registry-check` fixed by going per-component | B | No — needs a run |
@@ -94,3 +94,29 @@ what `registry-check` check 6 was, and what the all-`n/a` table nearly became.
    tool choosing a lax standard. Quotable either way.
 10. **Rows 1, 2, 3, 9, 12.** Evidence is a quotation or a reproducible search. A wrong answer is
     visible to anyone who opens the file.
+
+---
+
+## Settled since the reading
+
+**Row 14 — decided, not fixed.** [`0010`](../decisions/0010-the-path-note-stays-optional.md) rejects
+the remedy `0007` used for addresses and records the silence as a declared limit, now written into
+`structure-check`'s own notes. The reasoning turns on the two cases being different: an address is
+load-bearing for every reader, a path note only where a boundary exists. The compromise of gating the
+requirement on the session note is closed by experiment, having been tried before `0.6.0` and having
+caused the row never to run.
+
+**Row 8 — settled by reading the blueprint, and K survives as a shape.** The suspicion was that three
+forms against row 11's four might mean a *missing form* rather than a missing rationale: if a project
+scope could itself be addressless, its components would have nothing valid to write, since a bare
+local path fails row 8 and "none" is not among its three.
+
+It cannot. [`0001`](../decisions/0001-project-scope-need-not-be-a-repository.md) decides that a
+project scope may live anywhere "it has an address that resolves from outside the machine it sits
+on", and `0007` says the gap for an addressless component "runs one way": its stubs still point
+upward with an address that resolves from anywhere. So row 8's three forms are right and complete.
+
+What remains is only the unexplained asymmetry, and **the symptom has never been observed, because
+`structure-check` has never been logged.** That is not evidence of absence. It stays a suspicion
+rather than a defect, and it is free to test the next time this check runs against a component whose
+parent is addressed in a synced store.

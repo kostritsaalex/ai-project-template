@@ -185,6 +185,20 @@ Judge the table, not the commentary.
 
 ---
 
+## Declared limits
+
+**Row 14 cannot tell correct silence from wrong silence.** A document that says nothing about what
+holds its local path up is `n/a`, whether it correctly needs no path note or needs one and lacks it.
+The framework's own `PROJECT.md` carried that second case on 2026-08-25 and this row passed it.
+
+The remedy exists and was rejected with its cost stated, in
+[decision 0010](../../.docs/decisions/0010-the-path-note-stays-optional.md): requiring every document
+that gives a local path to say either what holds it up or that nothing does would land a sentence on
+the majority of projects, which live in one filesystem, to serve the few that span a boundary. This
+is a limit rather than a defect, and it is written down so the two are not confused from outside.
+
+---
+
 ## What this check cannot see
 
 An address that is well formed and wrong. The prompt forbids reading anything outside the folder, so
