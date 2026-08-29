@@ -6,6 +6,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.9.3] - 2026-08-29
+
+**Two instruments repaired: the release step, and the row that never asked one question.**
+
+### Changed
+
+- **The release verification step moves between the commit and the tag.** It was placed before the
+  commit and its commands are written for after it, so on its first real use it passed only because
+  the operator supplied what it left out: `$PREV..HEAD` could not see uncommitted work, so a
+  `--cached` command the procedure does not contain was invented on the spot, and `git status`
+  printed ten modified files against a criterion saying it must print none. A step a tool has to
+  repair in order to pass is a step that was not asking what it meant. Between the commit and the
+  tag, `HEAD` is the tree the tag will name and a clean `git status` means something; after the tag,
+  which is the only other place those commands work, a defect found is already permanent. The step
+  now says that reaching for a command it does not contain is itself the finding.
+- **`registry-check` check 4 names which line it compares against.** The row asked for "the address
+  `PROJECT.md` gives for itself", and the document offers two lines answering to that description: a
+  synced-store address and a local path. Across five logs, one unchanged component's row 4 cited
+  three different comparands while passing every time. The two readings are two different checks, so
+  the row now asks them separately. A relative address resolves and is compared against the folder
+  the check runs in, against no line of text and explicitly not against the local path line, which is
+  a hint. Any other address is compared as text against the `Address:` line, named as that line.
+
+### On the evidence
+
+Check 4's rewrite was run twice, with no plant, on a scope that discriminates as it stands because
+one component carries `../` and the other the synced-store address verbatim. Both runs cited exactly
+what was pre-registered: the relative component citing its stub lines and the resolved path and
+neither line 39 nor line 45, the other citing line 39 and not 45. `Failed rows: 0` both times.
+
+Worth stating precisely, because it is not the usual result: the verdicts were never wrong. Row 4
+passed in all five earlier logs while doing a different thing each time. What was broken was the
+question, and what the runs show is one question being answered twice.
+
+This release was the first cut through the corrected procedure, verification run between the commit
+and the tag, with no command invented.
+
 ## [0.9.2] - 2026-08-29
 
 **The second razor, measured on a check for the first time.** A removal and the run that tested it.

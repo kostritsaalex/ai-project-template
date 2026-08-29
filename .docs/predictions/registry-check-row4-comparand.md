@@ -65,3 +65,26 @@ pass, check 7 lists three folders, `Failed rows: 0`.
 Any row disagreeing with this prediction gets the arm run again before anything is concluded. And
 because the defect being fixed is *variance in the comparand*, a single agreeing run is weak evidence
 by construction: this arm is run twice regardless of whether the first run agrees.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, twice, no plant. **Every prediction confirmed on both runs.**
+
+`WP Themes` row 4 passed citing both stub lines 11, the path `../` resolved to, and that it is this
+folder. **It cited neither line 39 nor line 45**, in either run. The Engine's row 4 passed citing both
+stub lines 12 and `PROJECT.md` line 39, compared character for character, **and not line 45**, in
+either run. `Failed rows: 0` both times.
+
+Across the two runs, line 39 appears in row 4 exactly once each — the Engine's — and line 45 appears
+in row 4 not at all. Under the old wording, five logs had produced three different comparands for one
+unchanged component.
+
+**None of the three falsifiers fired.** No relative-address row cited a line of text, no
+string-comparison row reached for the local path, and neither row failed on a scope nothing had
+changed.
+
+This is a stronger result than a stable verdict: the verdicts were never the problem. Row 4 passed in
+all five earlier logs too, while doing a different thing each time. What was fixed is the row asking
+one question, and what the runs show is the same question being answered twice.

@@ -24,8 +24,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-5-unreachable-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 | `2026-08-29-registry-check-6-cut-clause.log` | `registry-check.md` at `0.9.2`, differing from the `0.9.1` prompt by exactly the cut restatement clause | The second razor measured on a check: does removing a clause that prescribes nothing change anything | Same plant as run 5, restored after | 2026-08-29 |
 | `2026-08-29-registry-check-6-cut-clause-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
+| `2026-08-29-registry-check-7-row4-comparand.log` | `registry-check.md` at `0.9.3`, check 4 rewritten to name which line it compares against | Does the row ask one question | **No plant.** The scope discriminates as it stands: one component carries `../`, the other the synced-store address verbatim | 2026-08-29 |
+| `2026-08-29-registry-check-7-row4-comparand-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 
-All eleven ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+All thirteen ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
 
@@ -48,6 +50,8 @@ c889c6f6960f8d82debaa20e393d709e  2026-08-29-registry-check-4-shipped-repeat.log
 605d88261b6ebfd8a79012ffb5f7dc9e  2026-08-29-registry-check-5-unreachable-repeat.log
 515cf7ea5dd5a319e77992b38e977581  2026-08-29-registry-check-6-cut-clause.log
 d8dd1ebd4b577c9fc1feb8e965684f8b  2026-08-29-registry-check-6-cut-clause-repeat.log
+e1588659e9633cd23a01e751ed882ee0  2026-08-29-registry-check-7-row4-comparand.log
+11d6e5eadeb66b33f9cfc0d4ab367c6e  2026-08-29-registry-check-7-row4-comparand-repeat.log
 ```
 
 ## What they are evidence for
