@@ -27,10 +27,18 @@ A few sentences. Say whether the project is only software or whether software is
 something larger: an assistant that believes it is looking at a software project treats everything
 else as out of scope.
 
-Then the boundary. The second half matters more than it looks, and it is the only rule in this
-framework proven to change what an assistant does: without it, a request the project excludes arrives
-looking like ordinary work and gets done. "Does not currently" is deliberate. It records a present
+Then the boundary, written as a closed inclusion: what the project covers, and then that anything
+else is outside it. The closure sentence is the boundary. Without it the reader has an inventory and
+no rule.
+
+This is the only rule in the framework proven to change what an assistant does: without a boundary, a
+request the project excludes arrives looking like ordinary work and gets done. It is written as an
+inclusion because the complement of a project is endless and nobody can list it, while what a project
+covers is usually one sentence. "Currently" is deliberate wherever it appears. It records a present
 boundary, not a permanent one.
+
+Naming a near miss is allowed and not required: where you already know the adjacent thing people
+assume is inside and is not, say so. Do not attempt the rest of the complement.
 
 If the boundary has not been decided, delete the sentence and write in its place that it has not been
 decided, what will settle it, and what to do meanwhile. Leaving the topic out altogether is worse
@@ -46,7 +54,7 @@ job, one section down, and a copy here has to be repaired by hand every time the
 
 <PROJECT_PURPOSE>
 
-This project does not currently cover <SCOPE_EXCLUDES>.
+This project currently covers <SCOPE_COVERS>. Anything else is outside it.
 
 ---
 

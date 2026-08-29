@@ -6,6 +6,60 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.10.0] - 2026-08-29
+
+**The boundary becomes a closed inclusion, and the blueprint offers two principles of eight.** Two
+decisions, both from the ArtGlina interview, both changing what an adopted project writes. See
+[0011](.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md) and
+[0012](.docs/decisions/0012-two-default-principles-of-eight.md).
+
+### Changed
+
+- **The boundary is written as what the project covers, closed.** `This project currently covers X.
+  Anything else is outside it.` The complaint came from the person answering it: the complement of a
+  project is endless and he can get lost in it, while what it covers took one sentence. The closure
+  sentence is the boundary — without it the reader has an inventory and no rule. Naming a near miss
+  stays available and stops being required.
+- **The cold start check inverts with it, and not only in wording.** It asked the reader to name
+  something the project does not cover, and its worth was that the answer could only come from
+  reading a specific line. Under a closed inclusion "cooking" answers that for almost any project
+  with no reading at all, so the question now asks what the project covers and where that is written,
+  and then for something adjacent outside it. A boundary easier to write is worth little if the check
+  that made it load-bearing can no longer tell whether it was read.
+- **`Principles` gains a default of two, offered rather than pre-filled.** They are named in the
+  blueprint's README, offered aloud in the interview, shown in the summary table as proposed, and
+  written only if kept. Saying nothing leaves the section empty.
+- `procedure.md` Step 4's "ask for it empty" gains its one exception, principles, with the reason:
+  they are not a fact about the world that a wrong guess corrupts, and an owner with none settled is
+  better served by two to reject than by a blank page.
+
+### Removed
+
+- **Six of the eight candidate principles**, each cut against `0008` rather than as a group.
+  *Understand the current architecture* and *Prefer improving existing patterns over introducing new
+  ones* were cut by `0003` already, by name, as behaviour any competent assistant has. *Read relevant
+  documentation* is compelled by the stubs before any task. *Identify the affected scope* collides
+  with this framework's own word for a project scope, in the document that carries the registry.
+  *Keep the framework simple and internally consistent* restates another principle on one half and is
+  enforced by `structure-check` on the other. *Preserve backward compatibility where practical* is
+  empty in a folder of photographs.
+- The exclusions form of the boundary, for new adoptions. **A project already adopted under it stays
+  valid and is not rewritten.** Both forms answer the same question, and a migration would cost every
+  adopted project a rewrite to gain nothing an assistant can act on.
+
+### On the evidence
+
+Neither change has been run. The two surviving principles rest on this framework's own use and have
+never been offered to an owner; the boundary rests on one complaint and an argument about failure
+direction. ArtGlina is adopted next, blind, with both changes live, and the pre-registration says in
+advance what each outcome would mean.
+
+**The argument that decided the boundary, kept because it is the one that transfers.** The two forms
+fail in opposite directions. An exclusions list that misses something leaves it in scope, so an
+assistant does the work and nobody finds out. A closed inclusion that misses something leaves it
+outside, so an assistant asks. Failing towards asking is the direction the framework already chose,
+in the stub's "if you cannot reach it, say so and stop".
+
 ## [0.9.4] - 2026-08-29
 
 **`structure-check` row 4 names the comparison it makes.** The first of its rows repaired and run in

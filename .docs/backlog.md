@@ -9,7 +9,7 @@ Last updated 2026-08-29, after the move into WSL, the repair of the documents it
 
 ## Where we are
 
-`0.9.4` is released, tagged and pushed. Working tree clean, nothing half-done.
+`0.10.0` is released, tagged and pushed. Working tree clean, nothing half-done.
 
 Three releases today. `0.8.0` adopted the second razor and cut the platform fragment. `0.9.0` added
 `registry-check` and the rule in `0009` governing every check after it. `0.9.1` collapsed row 1's

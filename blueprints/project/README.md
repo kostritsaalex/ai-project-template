@@ -2,8 +2,8 @@
 
 The one scope that holds project-wide context and the registry of everything below it.
 
-**Blueprint Version:** 0.7.0  
-**Framework Version:** 0.9.4  
+**Blueprint Version:** 0.10.0  
+**Framework Version:** 0.10.0  
 **Status:** in use in two projects. `0.5.0` moved what a component says about itself into the
 registry, and `0.6.0` cut that line down to one rule.
 
@@ -54,6 +54,24 @@ changelog: the rule above says nothing about them.
 
 ---
 
+## A default for `Principles`, offered and not pre-filled
+
+Two, and they are offered aloud in the interview rather than written into the template. Show them in
+the summary table as proposed, and write only what the owner keeps. Saying nothing leaves the section
+empty, which is a real answer.
+
+- Validate ideas through practical use whenever possible.
+- Avoid speculative additions.
+
+Six more were considered and cut, each for failing the razor in
+[decision 0008](../../.docs/decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md).
+The reasoning is in
+[decision 0012](../../.docs/decisions/0012-two-default-principles-of-eight.md). These two survive
+because neither describes what an assistant does anyway, and neither assumes a codebase: the six cut
+all did.
+
+---
+
 ## What makes this scope different
 
 Every other scope consumes an address. This one publishes one, and every component copies it. Get it
@@ -77,7 +95,7 @@ Examples use a fictional `Northwind` project.
 | --- | --- | --- |
 | `<PROJECT_NAME>` | Name of the project. Keeps its spaces; the folder need not match. | `Northwind Furniture` |
 | `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces. Websites and software are one part of it.` |
-| `<SCOPE_EXCLUDES>` | What the project does not currently cover. The one line proven to change what an assistant does. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. | `hosting and deployment, mobile applications, accounting` |
+| `<SCOPE_COVERS>` | What the project covers, followed by the closure sentence that makes it a boundary. The one line proven to change what an assistant does. A near miss may be named after it and need not be. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. See [decision 0011](../../.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md). | `the main folder and the northwind-storefront repository` |
 | `<PROJECT_PRINCIPLES>` | The rules that hold across the project, in the owner's words. Priorities in order if the order was decided. | `1. Simplicity 2. Maintainability 3. Security` |
 | `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. | `OneDrive, Projects/northwind` |
 | `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |

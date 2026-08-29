@@ -96,6 +96,10 @@ Four things to avoid, each with a tell you can catch in your own draft:
 - **A question about something you can read.** Read it.
 - **A value you have not observed.** Ask for it empty. The Example column in a blueprint describes a
   fictional project, and an address taken from it will look plausible and be wrong.
+  **Principles are the one exception**, and the project blueprint names the two that may be offered.
+  Offer them aloud, show them in the summary table as proposed, and write only what is kept. They are
+  not a fact about the world that a wrong guess corrupts, and an owner with none settled yet is better
+  served by two to reject than by a blank page.
 
 When you ask which components exist, ask which folders the person declares, and take the answer as
 complete. A folder they did not name is files inside whichever component contains it, and it takes
