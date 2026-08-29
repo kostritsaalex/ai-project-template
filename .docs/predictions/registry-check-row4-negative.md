@@ -76,3 +76,41 @@ verified byte-identical before the next is planted, and the whole set verified a
 ## Re-run rule
 
 Any row disagreeing with this prediction gets that arm run again before anything is concluded.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-29, one run per arm. **Both arms confirmed on every point, and the row is not too
+strict.** Logs `…-8-row4-negative-relative.log` and `…-8-row4-negative-string.log`.
+
+**Arm A, the relative branch.** Row 4 failed for `WP Themes`:
+
+> Both resolve to `/mnt/c/Users/kostr/OneDrive/Projects/Development`, which is not this folder
+> (`/mnt/c/Users/kostr/OneDrive/Projects/Development/WordPress-7`).
+
+It quoted both stub lines, gave the resolved path, and named the folder it should have been. **It
+failed on the comparison, not on a missing path**, which was the third too-strict falsifier and the
+one most likely to fire: `../../` resolves to a real directory, and the row correctly treated
+existence as row 1's business.
+
+**Arm B, the string branch.** Row 4 failed for the Engine:
+
+> texts differ (`Archive` vs `Development`).
+
+Both stub lines quoted, `PROJECT.md` line 39 quoted, and the differing segment named rather than left
+for a reader to spot.
+
+**Nothing else failed in either arm.** `Failed rows: 1` in both. Every other row, including the
+unplanted component's row 4, came back as in the positive runs. The strictness did not spread.
+
+**So check 4 has now failed on a real defect, in both of its branches**, and the `0.9.0` changelog's
+note that it never had is retired by this run rather than by argument.
+
+## What this leaves
+
+Nothing in the row changes, so there is no `0.9.4` for it. The two arms tested what the row claims
+and it did what it claims.
+
+Untested still: a scope whose registry and whose components disagree in a way neither branch covers,
+and check 7, which no honest run can exercise.

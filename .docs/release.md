@@ -100,6 +100,11 @@ What each has to show:
 - **V1.** Every file the changelog's top entry claims to have changed appears in the list, and
   nothing in the list is unaccounted for by the entry. This is read, not computed: the entry is
   prose.
+  **When a check prompt is in the list, diff its prompt block and read the diff against what the
+  entry says about it.** `git diff $PREV..HEAD -- blueprints/checks/` is the command. An entry
+  claiming a removal while the block grew is a failure of this step, not a wording preference:
+  `0.9.1` shipped exactly that, stating the cascade as one condition and then restating the three
+  cases it replaced, so three lines became five under a heading that said `Removed`.
 - **V2.** Every `Framework Version` reads the new number. A `Blueprint Version` reads the new number
   if and only if that blueprint appears in V1's list, and the old one otherwise.
 - **V3.** Both lines name the version about to be tagged. This is the check `v0.9.1` failed, and it

@@ -261,25 +261,6 @@ backlog and the changelog disagreeing about which version this is.
 and whose commit ran anyway, and `set -e` fixes that particular script; the step catches the class,
 including the instances that arrive some other way.
 
-**Should the check prompts be measured?** Worth having, on one instance and the project's own
-precedent. The shipped-line metric covers the project scope and the component blueprints, 41 and 22.
-`blueprints/checks/` is outside it and is now the fastest-growing part of the framework: `0.9.1`
-added lines to a prompt while its changelog claimed a removal, `0.9.2` took them back out, and no
-measurement saw either. Principle 7 is prose, and prose is exactly what got it wrong at `0.9.1`.
-
-The cost is small and known, because the existing metric already pays it. A command in
-[`release.md`](release.md) step 3 counting the lines inside each prompt block, a number in the
-`README`, and a re-derivation every release. It would be a second number rather than an extension of
-the first: what ships into an adopted project and what a person pastes into a session are different
-things, and adding them together would measure nothing.
-
-The real cost is the one this repository keeps rediscovering. A number in a document is a derived
-fact, and a derived fact with no trigger goes stale. This one would have a trigger, `release.md`
-step 3, which is the arrangement already working for the metric it would sit beside.
-
-Not decided. It needs one sentence from the owner, and the argument against it is that two numbers
-invite being summed.
-
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
@@ -387,6 +368,22 @@ five verdicts. The challenge was withdrawn by the reviewer as thin: `registry-ch
 in that release, so its internal rules need no separate itemisation under principle 7. The `Removed`
 section written in answer to it stays, because it is true and useful independently of the demand that
 produced it. Recorded so the record does not read as though the demand was sound.
+
+**A shipped-line count for the check prompts, rejected 2026-08-29.** Proposed because
+`blueprints/checks/` is the fastest-growing part of the framework and sits outside the 41-and-22
+metric: `0.9.1` added lines to a prompt while its changelog claimed a removal, and no measurement saw
+it.
+
+Rejected on the first razor. A document carries what cannot be seen, and a line count can be computed
+from the files at any moment. The existing metric earns its place by being a public commitment about
+what an adopted project carries; a count of what somebody pastes into a session promises nobody
+anything. A number in the `README` would also be one more derived fact needing re-derivation every
+release and able to go stale between them.
+
+The instance behind the proposal is caught more cheaply and more precisely by reading the diff of the
+changed prompt against what the entry claims about it, which `release.md` step 7 now requires and
+which V1 already lists the file for. And length was not what broke: two of `registry-check`'s seven
+rows were under-specified, and a shorter prompt would have been just as capable of that.
 
 **The naming question, closed but worth watching.** The pair stays, decided 2026-08-24. Hours later
 the owner's reasoning for calling a theme folder `Assets` included "a repository is technically out

@@ -26,10 +26,19 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-registry-check-6-cut-clause-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
 | `2026-08-29-registry-check-7-row4-comparand.log` | `registry-check.md` at `0.9.3`, check 4 rewritten to name which line it compares against | Does the row ask one question | **No plant.** The scope discriminates as it stands: one component carries `../`, the other the synced-store address verbatim | 2026-08-29 |
 | `2026-08-29-registry-check-7-row4-comparand-repeat.log` | Same | Repeat of the same arm | Same | 2026-08-29 |
+| `2026-08-29-registry-check-8-row4-negative-relative.log` | `registry-check.md` at `0.9.3` | Check 4's negative half, relative branch | **Planted in a component's stubs, not in `PROJECT.md`.** `wp-themes/AGENTS.md` and `CLAUDE.md` line 11, `../` to `../../`, in the scope's own filesystem under OneDrive on the Windows side | 2026-08-29 |
+| `2026-08-29-registry-check-8-row4-negative-string.log` | Same | Check 4's negative half, string branch | **Planted in a component's stubs, not in `PROJECT.md`.** The Engine's `AGENTS.md` and `CLAUDE.md` line 12, one path segment changed, in the WSL filesystem | 2026-08-29 |
 
-All thirteen ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
+All fifteen ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
 filesystem.
+
+**Two of these logs were produced by planting in a component's stubs rather than in `PROJECT.md`.**
+Every other plant edited the scope document; the row-4 negative arms edited the thing the registry is
+checked against, which is the other side of the comparison. A reader comparing these logs to the
+earlier ones would otherwise assume the scope document was the broken thing. The four stub files
+across two filesystems were snapshotted with checksums before anything was planted, each arm's pair
+restored from that snapshot rather than retyped, and all four verified byte-identical afterwards.
 
 **These files need an override to be committed at all.** A global `*.log` ignore excluded all five
 silently on the first attempt, and the commit went through carrying this index and none of the files
@@ -52,6 +61,8 @@ c889c6f6960f8d82debaa20e393d709e  2026-08-29-registry-check-4-shipped-repeat.log
 d8dd1ebd4b577c9fc1feb8e965684f8b  2026-08-29-registry-check-6-cut-clause-repeat.log
 e1588659e9633cd23a01e751ed882ee0  2026-08-29-registry-check-7-row4-comparand.log
 11d6e5eadeb66b33f9cfc0d4ab367c6e  2026-08-29-registry-check-7-row4-comparand-repeat.log
+43d5cce31488a7574bf09b029e7b79cc  2026-08-29-registry-check-8-row4-negative-relative.log
+4c13e40c9817e3ff4e7d20703e1c30c2  2026-08-29-registry-check-8-row4-negative-string.log
 ```
 
 ## What they are evidence for
