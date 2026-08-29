@@ -282,6 +282,38 @@ which is a claim about a past run checkable against nothing. Five of the fourtee
 tool actually produced, and for those the audit says a fresh run is needed rather than appealing to
 that history.
 
+**`.docs/runs/` holds two kinds of file and its index describes one.** Reported by the ArtGlina
+session, which found `2026-08-29-artglina-adoption-judgements.md` in the folder and nothing in
+`runs/README.md` accounting for it. Not a defect: the index's table and its checksum block are about
+`*.log`, and a judgement log is not one. But the index reads as a description of the folder, and a
+reader who trusts it will believe the folder holds only run logs.
+
+Two ways to close it, and they are different claims. Widen the index to name every file in the
+folder, which makes it true and gives it more to keep current. Or say in it that it covers run logs
+only, and where judgement logs live, which keeps it narrow and honest. Not now.
+
+**A blind adoption's blindness rests on a session declining to open a file it can see.** Declared,
+not fixed.
+
+Three surfaces, and none of them is closed by anything but instruction. `artglina-ua`'s git history
+still carries the removed documents and a short run of commit subjects, one naming where the scope
+lives. `.docs/runs/2026-08-29-artglina-adoption-judgements.md` sits in this repository and records
+what the discarded session found: which folders held framework documents, that one held an
+`ASSETS.md`, that two overrides matched byte for byte. And this backlog entry is in the same
+repository as the rest.
+
+**The second of those was avoidable and was not avoided.** The judgement log was written with the
+reasoning "this log lives in the framework repository, which the replacement session must read", used
+to justify keeping three commit subjects out of it, and the rest of the file was left full of the
+same kind of content. The precaution was taken against one sentence and not against the document
+holding it.
+
+The framework has no notion of a place to keep notes about a project it is being applied to, and an
+adoption meant to be blind needs one that the adopting session is not required to open. Whether that
+is a folder outside the repository, a convention about what may be written during a live blind run,
+or nothing at all, is unsettled. What is settled is that the current arrangement protects nobody: the
+material is one `cat` away, in a repository the session is told to read.
+
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
 flip. Nothing notices.
