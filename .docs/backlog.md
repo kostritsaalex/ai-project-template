@@ -72,29 +72,45 @@ one failing it and one passing it, both right.
 
 ## Release
 
-**A derived fact with no trigger goes stale, and this is one defect rather than four.** Four
-instances turned up on 2026-08-29 and the shape is identical in each: a fact that was true when it
-was written, derived from something outside the document, with nothing that re-derives it and no
-event that forces anyone to look.
+**A derived fact with no trigger goes stale, and it comes in two shapes.** Four instances turned up
+on 2026-08-29. The shape is the same in all four: a fact that was true when written, derived from
+something outside the document, with nothing that re-derives it and no event that forces a look. The
+*instrument that could catch it* differs, and the two halves are not one item.
 
-The Engine's local path in the registry, stale the moment the folder moved. The three-forms wording
-in `architecture.md`, left behind by the release that settled the question and correct until `0007`
-was written. The stubs pointing at an override after it was deleted. And the shipped-line metric in
-the `README`, which hid longest of the four because it is a number: it reads as a measurement, so it
-reads as settled, and nobody asks a measurement when it was last taken. Re-measured at `0.8.0` and
-found still correct, which is luck rather than evidence that the class is harmless.
+**Shape one, a scope and a component disagreeing.** The Engine's local path in the registry, stale
+the moment the folder moved. The stubs still naming an override after it was deleted. Add the two
+this repository already knew about: a stub pointing at a parent that has moved, and a component whose
+name no longer matches its registry heading. All four are one document making a claim about another
+folder, and a registry-to-disk walk finds every one of them. That is **the third check**, below, and
+it is the whole answer to this half.
 
-Three of the four were found by reading. None by a check, and no check could have found them: every
-check in `blueprints/checks/` is forbidden from reading outside the folder it audits, and every one
-of these facts is a claim about somewhere else.
+**Shape two, a document disagreeing with something that is not a component.** Two instances, and no
+walk of the registry sees either. The three-forms wording in `architecture.md` was two documents in
+this repository contradicting each other, `architecture.md` against `0007`, with no component
+involved anywhere. The shipped-line metric was a document's claim about this repository's own files.
+Neither is reachable from the registry, because neither is about a component.
 
-Candidates, none settled and not mutually exclusive. Date every derived fact, so staleness is visible
-rather than invisible. Name, beside each, the event that invalidates it. Or re-derive at a moment
-that already exists, which is what [`release.md`](release.md) now does for the metric and only for
-the metric. The third is the cheapest and covers the least.
+Do not read the third check as covering this half. It does not, and "probably the same item" would be
+read next time as "already covered".
 
-Related, and probably the same item once somebody looks properly: **the third check**, above, which
-would walk the registry and resolve what it points at.
+**The instrument for shape two is a reader, and it is a different tool with a different cost.** Three
+of the contradictions found on 2026-08-29 were caught by a session reading the whole repository and
+cross-checking the documents against each other, which is how the `architecture.md` drift surfaced at
+all. That instrument is expensive, needs judgment, and cannot be reduced to a table of quotable rows
+the way `structure-check` is. It also does not fit inside any check prompt, because the check prompts
+are bounded to a folder and this reads everything. It is worth naming rather than folding in: the
+framework's answer to shape two is currently a careful read at the start of a session, and nothing
+else.
+
+One instance of shape two now has a trigger rather than an instrument. The metric is re-derived at
+every release by [`release.md`](release.md), which covers that one fact and no other.
+
+Candidates for the rest, none settled and not mutually exclusive. Date every derived fact so
+staleness is visible. Name, beside each, the event that invalidates it. Or accept that shape two is
+found by reading and make the read a step somewhere.
+
+Worth keeping: re-measuring the metric at `0.8.0` found it still correct. That is luck, not evidence
+that the class is harmless.
 
 **The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
 grounds that an assistant would do the same thing without them. That is a claim about the reader, not
@@ -118,9 +134,23 @@ reading holds on a repeat: the work decides, not the account of it.
 
 A refutation goes into `0008`, which says where.
 
-**The third check.** Walk the registry from `PROJECT.md`, open each component's stubs, compare the
-parent address and the component name against the block. Registry to disk only. Done by hand twice in
-this run, which is what caught the session note and the address wording.
+**The third check is written and has never been run.** `blueprints/checks/registry-check.md`, added
+2026-08-29 under [decision 0009](decisions/0009-a-check-declares-its-read-set-in-advance.md). Seven
+checks, registry to disk only, one row per component per check.
+
+It stays in `Release` rather than moving anywhere, because by this project's own standard a check is
+not working until it has been run both ways round: once against a correct scope, and once against a
+scope broken on purpose, in a fresh session, to see whether it catches what it was written for. The
+`WordPress 7` scope is the subject, and its history supplies the deliberate break for free, since
+the Engine's registry block held a stale path four days ago and the real defect is on record.
+
+Until that happens this is a prompt somebody wrote, which is the state every rule in this framework
+is suspicious of.
+
+**The checks folder is a blueprint with no version.** `blueprints/checks/` ships prompts that
+change between releases, and unlike the other four blueprints it carries no `Blueprint Version`, so
+[`release.md`](release.md) step 1 cannot record that it moved. Noticed while adding the third check,
+which is a change to that folder that no version will show.
 
 **A posture can go stale.** It is settled by whether platform code sits in the folder, and that can
 change: a parent theme, a vendored dependency or a generated directory arrives and the word should
@@ -214,6 +244,12 @@ because it means the absence of a behaviour in one run proves little.
 **A false error is not a reason to retry a write.** An `ENOENT` came back from an edit that had in
 fact applied. The agent read the file rather than trusting either the error or a retry, which is why
 nothing was written twice. Verified independently: one session note, one path note, one Engine block.
+
+**Where platform rules live, closed by not needing an answer.** The item asked for a mechanism: a
+platform rule follows from a platform rather than a folder, so a fragment was copy-pasted into every
+WordPress component and nothing owned it. `0008` removed the fragment, so there is nothing left to
+own. Recorded because the item was deleted from `Release` rather than marked closed, and a question
+that vanishes reads like a question nobody answered.
 
 **The naming question, closed but worth watching.** The pair stays, decided 2026-08-24. Hours later
 the owner's reasoning for calling a theme folder `Assets` included "a repository is technically out

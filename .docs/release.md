@@ -57,6 +57,19 @@ local is a release nobody else has.
 
 ---
 
+## Why this file exists at all
+
+It is the first document written after [`0008`](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md)
+adopted the razor, so it is the first thing the razor should have been aimed at. A razor whose first
+opportunity is skipped is a razor adopted on paper.
+
+It passes. A releasing session demonstrably does not take these steps unprompted: `0.6.0` bumped four
+blueprint versions when one blueprint had changed, and `0.8.0` was a sentence away from shipping a
+number nobody had re-taken. Both were done by a session that knew the framework well. That is the
+difference between a rule and a habit, and it is the only justification this file has.
+
+---
+
 ## What this does not cover
 
 Whether the release is a good idea, whether the version number is right, and whether anything in it
