@@ -17,6 +17,13 @@ them. Nothing under `blueprints/` was touched between `0.16.0` and the attach re
 first structure check and the first registry check on ArtGlina with its components attached, **the
 first cold start against a real adopted project**, and one task run.
 
+**Norse Path was adopted the same day, the second real adoption, and no run log was committed for
+any of it**, so this paragraph is its only record: scope
+`/mnt/c/Users/kostr/OneDrive/Projects/All/NorsePath`, one component `Norse Path Website` at
+`~/Projects/All/norsepath`, both checks zero failed rows, and the ArtGlina excerpt task repeated
+verbatim with one variable changed, which it passed. Its two stubs are **still untracked in that
+working copy as this is written**, which is the defect `0.17.0` repairs.
+
 **Three releases belong to this session**, all `registry-check`, all found by the adoption rather than
 by reading:
 
@@ -798,49 +805,9 @@ and the core rule stayed out of `Local rules`.
 
 ## Now
 
-**Check 6 in `registry-check`: fixed and run, 2026-08-29. Done.** Three pointers from independent
-experiments at one row, which is a quote behind it and no decision to make. It flipped fail to pass
-between the first run and its own control on an unchanged scope; it flipped again between the two
-negative runs; and it is why one negative run counted six failures and the other five. The backlog
-had already recorded the same shape in `structure-check` 6, that it invites invention by asking for a
-full listing when the only fact it needs is whether `PROJECT.md` is present.
-
-**Rewritten, not deleted.** It now tests one path and reports the result, and is told not to list the
-folder. Deleting it was considered and rejected: the row carries a claim no other row makes, that a
-component holding a `PROJECT.md` is a project scope set up as the wrong thing, and nothing in checks
-1 to 5 detects that. Check 2's listing happens to contain the fact but does not judge it, and making
-check 2 judge two things is how a row becomes the kind of thing that flips. The claim is unchanged
-and only the evidence narrowed, so this takes no decision record.
-
-Validated by the two runs against the shipped text: it returned the same verdict on the same
-evidence twice, a single probe of a single path, which is the first time that row has been stable
-across a pair.
-
-`structure-check` 6 has the same shape and is untouched, because it has no reproductions and widening
-this silently is not the same as fixing it. It is the first thing the next session looks at.
-
----
-
-Otherwise empty. The address question was settled in `0.7.0` by
-[decision 0007](decisions/0007-a-component-with-no-address-says-so.md): a fourth form saying plainly
-that no address exists, a check that requires one of the four, and the session note raised to a
-precondition.
-
-**Run and confirmed, 2026-08-25**, both ways round on the `WordPress 7` scope.
-
-Positive: 14/14, with check 11 quoting both blocks and accepting two different address forms, the
-relative `wp-themes/` and the Engine's `none` with its reason. Check 14 ran for the second time in
-its life and passed.
-
-Negative: the Engine's block was deliberately rewritten to `Address: ~/wordpress-7` with the local
-path line deleted, reproducing the invention the second attach had produced, and the check was run
-again in a fresh session. It failed check 11 and nothing else, with the right diagnosis quoted:
-"block address is a bare local path". It noted separately that the block's name, posture word and
-travelling rule were all present, so it isolated the defect rather than rejecting the block whole.
-
-Worth keeping: check 12 quoted the same line and passed it, correctly. Twelve asks what form a path
-is written in, eleven asks what slot it sits in. Two checks reading one line from different angles,
-one failing it and one passing it, both right.
+Empty. `registry-check` check 6 closed in `0.9.0`, the address question in `0.7.0` by
+[`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
+is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
 
 ---
 
@@ -1008,64 +975,6 @@ tests. The consequence either way is already recorded there. What belongs here i
 **every part of this framework that specifies a topic rather than a text is a prediction about a
 model, and the framework has two of them and had labelled one.**
 
-**The interview has a floor of four questions, and it is stated here so it can be seen being
-crossed.** Written 2026-08-29, as a claim that can fail.
-
-If question 1 and question 5 become proposals and question 7 goes with its razor, what remains is:
-**what the project is, its boundary, its principles, and which folders are components.** Nothing else
-in `PROJECT.md` needs a person. The placeholder map established that at twelve of twelve — six from
-questions, three from proposals, two read, and the twelfth is the one under the razor.
-
-So the interview has converged on exactly the set of things that live only in the owner's head, which
-is what `0004` said a document carries in the first place. **The convergence was not designed. It
-fell out of applying the razor question by question**, which is the audit `0013` skipped.
-
-**What breaks this claim**, and either would be a finding rather than an embarrassment:
-
-- A placeholder arriving in `PROJECT.md` that needs a human answer and is not one of these four.
-- One of these four turning out to be derivable. Components is the likeliest candidate and `0005`
-  currently forbids it: being a component is a decision written into the registry, never a property
-  of what is on disk. If that is ever relaxed, the floor is three.
-
-**A floor nobody stated is a floor nobody can notice being crossed.** That is the whole reason this
-is written down rather than left as a count somebody could recompute.
-
-**`<DOCUMENT_OWNER>` is a razor case, and the seventh question may come straight back out.** The
-coverage gap found on 2026-08-29 had two solutions and **only one was weighed.** Add a question, or
-**delete the placeholder.**
-
-`0008` asks of any line whether an assistant does anything differently for knowing it. Applied here:
-`Document Owner` names a person to ask when the document is ambiguous. That is a convenience for a
-human reader rather than something that changes work. An assistant that meets an ambiguous
-`PROJECT.md` reports the ambiguity and stops, with or without a name on it — which is the shape of
-every line `0008` has cut so far.
-
-If it fails, the field leaves `PROJECT.md`, the interview returns to six questions, and **the shipped
-metric drops by a line.** That is the direction this framework has gone every time it has had the
-choice, in `0006` and in `0008` both.
-
-**One change in the batch is justified by the razor and not by a run, and the record says so.** The
-name proposal — deriving the project's name from the folder name and offering it for correction —
-**cannot be measured in a scratch run**, because nothing in a scratch scope can observe an owner
-correcting it. `Artglina` against `ArtGlina`, 4 mentions to 48 in this repository, is a good argument
-that the proposal must invite correction rather than settle a value. **It is not evidence that the
-proposal earns its place.**
-
-Stated separately so that six measured changes do not lend it their credibility. Its falsifier is an
-adoption where the proposed name is accepted uncorrected and turns out wrong, and only an adoption
-can produce it.
-
-**The part worth recording is the process, not the answer.** The question was added without the
-alternative being considered. The coverage check established that the placeholder had no source, and
-the response went straight to sourcing it rather than asking whether it should exist. Both remedies
-were available from the same finding and one of them was never put on the table. **A gap in a
-document is not automatically an argument for filling it**, and this framework has closed two
-questions by finding that the thing in question need not exist — the platform fragment in `0008`, and
-where platform rules live, which vanished with it.
-
-It gets a run or it gets a reasoned cut recorded as reasoned rather than measured. Not now, and not
-as an argument.
-
 **The second razor needs re-measuring when the model or the tool changes.** `0008` cuts rules on the
 grounds that an assistant would do the same thing without them. That is a claim about the reader, not
 a property of the rule, so it can stop being true without anything in this repository changing. The
@@ -1074,8 +983,9 @@ first razor has no such expiry: what is visible in a folder stays visible.
 Nothing re-runs it on its own, and a cost recorded only in a decision rots quietly, which is why it
 is here as well.
 
-The repeat is cheap. Both arms are built, the sandbox recipe and the task are in the plan entry
-below, and the whole thing costs minutes. Re-run it when the model changes, when the tool changes,
+The repeat is cheap. Both arms are built, the sandbox recipe and the task are in
+[`0008`](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md), and the whole thing
+costs minutes. Re-run it when the model changes, when the tool changes,
 or against a weaker model than the one that produced the result, which is the case most likely to
 break it and the one never tried.
 
@@ -1115,19 +1025,6 @@ and twenty-five. Repaired in `registry-check` by a rule making those rows n/a. K
 shape is general: any check whose rows depend on an earlier row needs to say what happens when the
 earlier one fails, and neither of the other two checks says.
 
-**A file can be committed and not be there.** On 2026-08-29 five run logs were copied into
-`.docs/runs/`, added, committed and reported as committed. A global `*.log` ignore had excluded every
-one of them, `git add -A` said nothing, the commit succeeded, and what landed was an index describing
-five files the repository did not contain. Found only by listing `git ls-files` while chasing an
-unrelated question.
-
-It is the same shape as everything else in this section: a document making a claim about something
-outside itself, with nothing reading the claim back. This instance is worse than the others in one
-way, because the tool that could have caught it stayed silent by design. `git add` does not report
-what it declined to add. The repository's `.gitignore` now negates the rule for that folder, which
-fixes the instance; whether anything should read `runs/README.md` back against the folder it
-describes is the open question, and it is the same open question as the metric was.
-
 **A claim that was never established, restated until it looked like one.** The claim that
 `structure-check` "passed twice" a stale registry path reached three documents: `registry-check.md`,
 a pre-registration, and the `0.9.0` changelog. It is false. Those two passes were on 2026-08-25, when
@@ -1166,33 +1063,6 @@ it, and it was plausible enough to survive every reading not looking for it. Now
 [`runs/`](runs/) is committed, a claim about a past run is checkable, which is an argument for citing
 the log whenever a document asserts what a run did.
 
-**`release.md` V2 contradicts step 1, and the repair is one clause. Decided 2026-08-29, to be made
-after the tag.** V2 says a `Blueprint Version` reads the new number *if and only if* that blueprint
-appears in V1's list of changed files. But step 2 requires bumping `Framework Version` in every
-blueprint `README.md`, so **every blueprint README always appears in that list**, and V2 read
-literally then demands every blueprint version move — which is exactly what step 1 forbids in the
-same file. Every release has silently read it as "changed substantively" instead.
-
-The repair: a `Blueprint Version` moves if and only if that blueprint changed in some file other than
-its README's version lines. It is a `.docs/` change and causes no release, so it goes in after the
-tag rather than reopening a verified tree. **Recorded here now so it does not wait on somebody
-noticing it again**, which is what happened for the two releases it has already been wrong for.
-
-Found by running the step rather than by reading it, which is the second time step 7 has produced a
-finding about itself.
-
-**A second clause `release.md` earned the same day, and it goes in with the first.** Step 6 says
-everything a release changes goes in one commit. `0.11.0` is two, with a pre-registration between
-them: the release was committed and verified, then a placeholder check was pre-registered and run,
-then its finding — a seventh interview question — was committed on top. Amending the second commit
-over the first would have squashed the pre-registration and destroyed the only thing that makes a
-prediction worth writing, which is that it demonstrably preceded its runs.
-
-The clause: **a pre-registration committed between the work and the release is not squashed into
-it.** Step 7 verifies `HEAD` either way, so nothing is lost by the split and the provenance is kept.
-Written down so the next session does not have to reach the same conclusion under time pressure, at
-the point in a release where it is most tempting to tidy.
-
 **A document's claim about its own date is checkable and went unchecked.** On 2026-08-29 this session
 dated fifteen documents, eleven run-log filenames and a changelog entry `2026-08-30`, having taken
 the framing that the previous session's work was "yesterday". It was not: `v0.10.2` was tagged at
@@ -1224,21 +1094,6 @@ same error once, in
 [`predictions/registry-check-negative-run.md`](predictions/registry-check-negative-run.md) line 160,
 which is left as written because correcting another session's record silently is worse than leaving
 it visible.
-
-**The release procedure now has a verification step, and it was tested against its own failures.**
-Added to [`release.md`](release.md) as step 6, before the tag, because a release is the moment a
-document's claim about the tree is most likely to be false and it was the one moment nothing checked.
-Four commands: what actually changed since the last tag, every version string, the version named in
-both the changelog and here, and whether anything a document names is untracked, ignored or
-uncommitted.
-
-Run retrospectively against the two tags it was written for, it finds both. Against `v0.9.0` it names
-all five logs the `runs/` index claims and the tree does not hold. Against `v0.9.1` it finds the
-backlog and the changelog disagreeing about which version this is.
-
-`set -e` would have prevented neither. Both defects were produced by a script whose assertion failed
-and whose commit ran anyway, and `set -e` fixes that particular script; the step catches the class,
-including the instances that arrive some other way.
 
 **`structure-check`'s rows are audited and nothing is fixed yet.**
 [`audits/structure-check-rows.md`](audits/structure-check-rows.md), read 2026-08-29, one row per
@@ -1420,32 +1275,6 @@ makes that project the natural arm: one task run there with the principles prese
 section emptied, judged by the work. That is the same design that settled `0008`, and it is available
 for the price of two runs whenever somebody wants it.
 
-**`blueprints/setup/` was a blueprint folder with no version, and it is not one now. Closed in
-`0.13.0`.** `0.10.0` changed `procedure.md` and no version recorded it. This was the same hole
-`checks/` had until `0.9.0` gave it a counter, found the same way, by running `release.md` step 7 and
-reading V1 against V2. The argument for leaving it alone was that nobody adopts anything out of that
-folder; the argument against was that it ships prompts that change between releases, and the owner
-settled it on 2026-08-29 the moment the folder started shipping text a person reads.
-`blueprints/setup/README.md` now carries `Blueprint Version: 0.13.0`, and V2 reports six of six
-blueprint READMEs with both counters.
-
-**Corrected 2026-08-30, having sat here claiming to be open for three releases.** The decision is
-recorded two sections down in this same file, under the `0.11.0` entry, and the two were never read
-against each other. Repaired V3 dates the hole from the tree alone — every tag through `v0.10.2`
-fails on this file and every tag from `v0.11.0` passes — so the instrument that would have closed the
-entry has been printing the answer since it was rewritten this morning.
-
-**Should the backlog name a version at all? Answered 2026-08-30: not by V3.** The second way out was
-taken — the backlog is dropped from V3 entirely and its version line is allowed to lag, on step 0's
-ground that a `.docs/` change never causes a release. See
-[`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
-
-**The first way out, reading the version by pattern rather than by wording, was rejected by the
-evidence that arrived after this was written.** At `0.15.0` and `0.16.0` the grep's first hit was a
-sentence *about* the phrase, and both such sentences quote a version number. A pattern search over
-prose would have matched them too, and returned a wrong version with more confidence than the phrase
-search did. Loosening the target does not help when the document itself discusses the check.
-
 **Every repair this week was correct, and they accumulated where nothing measures.** This is the
 finding tonight, and it sits above any particular row.
 
@@ -1597,11 +1426,6 @@ than rewriting a word in every adopted registry.
 **Recipes are not designed before the core rule reports.** If it does not survive, there is nothing
 for a recipe to carry and the question closes the way the platform-fragment question closed in
 `0008`: by the thing not needing to exist.
-
-**The sharpened posture rule is pulled from the batch.** It says own source is `Assets`; the new axis
-says the opposite. Shipping it and reversing it next release would put in front of the owner a rule
-he has already decided against, and churn is the thing he has been objecting to. It stays in
-`drafts/`.
 
 **Arm J's result stands as it is: superseded, not withdrawn.** The sharpened rule did fix the
 misreading under the old axis, on three folder kinds, stable and correct across every pair. It was
@@ -1945,34 +1769,33 @@ worry was that fragments would multiply and nobody would be reminded to revisit 
 removed the fragment and the folder. A problem about maintaining something can be closed by not
 having it.
 
----
+**Run and confirmed, 2026-08-25**, both ways round on the `WordPress 7` scope.
 
-## Plan for the session after this one
+Positive: 14/14, with check 11 quoting both blocks and accepting two different address forms, the
+relative `wp-themes/` and the Engine's `none` with its reason. Check 14 ran for the second time in
+its life and passed.
 
-`0.7.0` is merged to `main`, tagged and pushed. Working tree clean. Nothing is half-done.
+Negative: the Engine's block was deliberately rewritten to `Address: ~/wordpress-7` with the local
+path line deleted, reproducing the invention the second attach had produced, and the check was run
+again in a fresh session. It failed check 11 and nothing else, with the right diagnosis quoted:
+"block address is a bare local path". It noted separately that the block's name, posture word and
+travelling rule were all present, so it isolated the defect rather than rejecting the block whole.
 
-**Settled, 2026-08-29: the second razor.** Adopted as
-[decision 0008](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md). What
-follows is the record of the run that settled it, kept because the method is reusable and because
-the prediction it carries has to be refutable. The item with the most leverage on the list, because
-it governs every rule the framework will ever gain, and the experiment was already set up. The Engine's
-`REPOSITORY.md` holds nine bullets, eight of which any competent WordPress assistant follows
-unprompted. Pick a task that touches two or three of them, run it twice in fresh sessions, once with
-the file present and once with it renamed away, and compare the work rather than the report. Its
-answer also reshapes the platform-rules question below: if most of the fragment turns out to be
-decoration, where it lives matters much less.
+Worth keeping: check 12 quoted the same line and passed it, correctly. Twelve asks what form a path
+is written in, eleven asks what slot it sits in. Two checks reading one line from different angles,
+one failing it and one passing it, both right.
 
-The task has to be one somebody would plausibly ask for. A task built to trip the bullets proves only
-that they can be tripped.
+**The part worth recording is the process, not the answer.** The question was added without the
+alternative being considered. The coverage check established that the placeholder had no source, and
+the response went straight to sourcing it rather than asking whether it should exist. Both remedies
+were available from the same finding and one of them was never put on the table. **A gap in a
+document is not automatically an argument for filling it**, and this framework has closed two
+questions by finding that the thing in question need not exist — the platform fragment in `0008`, and
+where platform rules live, which vanished with it.
 
-**Status, 2026-08-29: set up, half-run, and not yet answered.** Two copies of the Engine, identical
-but for `REPOSITORY.md` and the three stub lines that point at it: the two sentences naming it in
-`AGENTS.md` and `CLAUDE.md`, and the `@REPOSITORY.md` import. That is the control the razor wants
-rather than the file merely renamed away, and it is still one variable, not two. A component with no
-rules of its own does not carry lines pointing at rules it does not have; a component whose override
-is taken away while the stubs still name it is a broken component, and running that measures the
-breakage instead of the question. The first attempt did exactly that and spent its answer reporting a
-missing file.
+`set -e` would have prevented neither. Both defects were produced by a script whose assertion failed
+and whose commit ran anyway, and `set -e` fixes that particular script; the step catches the class,
+including the instances that arrive some other way.
 
 **Confirm the arms by `diff -r`, not by construction.** Building two trees carefully is a story about
 what they contain; diffing them is a measurement. Run across both copies, 219 MB and some thousands
@@ -1985,105 +1808,14 @@ a/CLAUDE.md 18,21d17   < This folder also sets rules of its own. Read `REPOSITOR
                        < @REPOSITORY.md
 ```
 
-The task: "Add a
-list of the three most recently updated posts to the footer of the site, with each title linking to
-the post." An ordinary request, and it meets bullets 1, 2, 3, 8 and 9 on its own merits, because the
-active theme is third-party, has no `footer.php`, and the posts have to be queried and printed.
-
-The arm with the file honoured all five. It left SellAny untouched and inserted the block through the
-Block Hooks API, used `WP_Query` with `orderby => 'modified'` rather than a raw query, and escaped at
-every boundary with `esc_url`, `esc_html`, `wp_kses_post` and `absint`. It also declined to invent a
-theme edit and said which of its claims it had not verified.
-
 The control ran on 2026-08-29, driven by Alex after the session's own attempts to launch it were
 refused three times by a permission classifier.
 
-**Pre-registered, before the control runs, so the reading cannot be fitted to the result.** What
-counts is the work, not the explanation. Three outcomes, and only two of them are outcomes:
+---
 
-- The control does the same work. Eight of the nine bullets are decoration, and the file is not
-  earning what it costs.
-- The control differs in at least one place. That rule earned its keep, and the difference names
-  which one.
-- The control does the same work without naming any reason for it. This is the first outcome, not a
-  third one. A framework that judges by the work does not get to award a rule credit for an
-  explanation that arm never gave.
+## Plan for the session after this one
 
-**The result: the control did the same work.** Judged by the code rather than by either summary,
-across the five bullets the task touches.
-
-*Third-party code is owned by its updater.* Both wrote a plugin and left SellAny untouched. The
-control got there citing the registry entry for `WordPress 7 Engine`, and named the theme as
-distributed third-party code that an update would overwrite.
-
-*Hooks and documented extension points.* Both used the Block Hooks API through the
-`hooked_block_types` filter, as `last_child` of `core/template-part`, narrowed on the context's
-footer area. Both worked out independently that `block.json`'s `blockHooks` field cannot express the
-area, both said so in a comment, and both cited core by file and line. The control also accepts the
-part's slug when the area term is missing, which is the more robust of the two.
-
-*Native platform functionality.* Both registered from `block.json` with a server-rendered
-`render.php` and no build step. Neither added a dependency or reached for a third-party plugin.
-
-*The data layer rather than raw queries.* Both wrote `new WP_Query` with the same nine arguments in
-the same order. Diffed, the two calls differ in the variable name and in where the post count comes
-from. Neither went near `$wpdb`.
-
-*Escaping at the boundary.* The bullet neither summary settled, and the one most likely to differ. It
-did not. Both escape the link with `esc_url`, the title with `wp_kses_post` behind a
-`wp_strip_all_tags` emptiness fallback, and the heading with `esc_html`, and both pass
-`get_block_wrapper_attributes()` through with the same phpcs-ignore justification. The only asymmetry
-is on the input half: the arm with the file exposes the post count and heading as block attributes
-and sanitizes the count with `absint` and a clamp, while the control hard-codes the count and has no
-input to sanitize. A different surface, not a different standard.
-
-**Under the pre-registration this is the first outcome.** These five bullets did not change the work.
-It is not even the silent version the pre-registration had already refused to count as a third
-outcome: the control produced the same work *and* named a reason while doing it.
-
-**Two boundaries on that reading, and they matter more than the result.**
-
-The rule about platform core is not in the override. It lives in the registry block, and both arms
-carried it, because the registry is the parent and the parent was reachable in both runs. So this
-measured an override against no override, not a framework against none. The control quoting that
-registry entry back is what makes the distinction visible rather than theoretical, and it is the
-single most useful thing the run produced: the layer the framework judges indispensable did fire,
-and the layer under test did not.
-
-And it is one task, one tool, one run per arm, on a file whose bullets are ordinary WordPress
-practice by the entry's own description. A rule written for something an assistant would not
-otherwise know remains untested. What was measured is the case the entry suspected, not the general
-one.
-
-**What this leaves.** `0008` cut the fragment and the `platforms/` folder from this repository, and
-the Engine's `REPOSITORY.md` went with its three stub lines on 2026-08-29, as one operation, because
-the half-done state is what ruined the first control attempt. The Engine is now shaped exactly like
-the control arm, which is the one configuration in this experiment that has actually been run. It
-holds two stubs, identical apart from their heading, and nothing else.
-
-The Engine has since moved inside the WSL home filesystem. Its registry block in the WordPress 7
-scope is the authority on where it now is.
-
-**Start here, and it is a measurement rather than a repair.** Do not rewrite the interview before it
-is reported. Three steps, in order.
-
-**1. Diff what was actually asked against what the blueprint contains.** The interview that reached
-the owner is not the blueprint; it is the blueprint as one tool rendered it, and the difference has
-never been established. Report the split: how many lines are the blueprint's own text, how many the
-tool added. Sentences of the "a plausible guess about your business would read as fact" kind may
-belong to either. **Repairing a file for prose a tool wrote is the error this repository spent
-2026-08-29 cataloguing**, and it is the error most available here.
-
-**2. Check the memory of `0.7` with `git show` rather than by agreeing with it.** The owner recalls
-four or five questions with answer options. If the older interview really was shorter, give the
-numbers from both versions. **That difference is the cost of four releases of correct repairs, and it
-is the most useful number available.** If it turns out the old interview was no shorter, the finding
-above is wrong and should be marked so.
-
-**3. Only then, the candidate rule.** One sentence: the blueprint explains to the assistant, and the
-assistant asks the owner short questions. Reasoning belongs in the file the assistant reads, not in
-the message the owner answers. It is a candidate and not a decision, and it is not applied before
-steps 1 and 2 are reported.
+`0.7.0` is merged to `main`, tagged and pushed. Working tree clean. Nothing is half-done.
 
 **Then: ArtGlina.** Still on the pre-`0.5.0` shape, never migrated. It is the
 only project with a real `Assets` component holding material rather than code, so it is where that
