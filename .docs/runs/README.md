@@ -57,6 +57,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-v12-placeholder-map-{1,2}.log` | `0.12.0` as committed, four questions | The placeholder map re-derived against the cut question set, answers supplied so both reach Step 5 | A three-folder scratch scope, unchanged | 2026-08-30 |
 | `2026-08-30-v12-released-text.log` | Same | Fidelity of the released text before the tag | Same | 2026-08-30 |
 | `2026-08-30-plugin-rule-{with,without}-{1,2}.log` | Registry block with and without the core rule, third attempt | **The subject moved off core to a third-party plugin**, after two attempts died on core: a hard-coded `m/d/Y` in a plugin exposing no hooks, with the fixture validated by execution before the arms | A WordPress install declared as one component; harness output checked per arm | 2026-08-30 |
+| `2026-08-30-v3-{vM1,vT1}.log` | `0.12.0` as shipped | Arm V, the before | S-mixed in a simulated synced store; S-material, five folders, no code | 2026-08-30 |
+| `2026-08-30-v3-w{M1,M2,T1,T2}.log` | `HEAD` + `interview-v3.md`, four questions reworded | Arm W, stopping at the questions | Both scopes, unchanged | 2026-08-30 |
+| `2026-08-30-v3-a{M1,T1}.log` | Same | Arm W with answers supplied, reaching Step 5 — **the arm that tests whether the software fact survives Q1's cut** | Both scopes, unchanged | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -149,6 +152,14 @@ c47c7b7a609b6fba9497f485ae39b510  2026-08-30-v12-placeholder-map-2.log
 8b91c174104a50cffd9965b7f168460d  2026-08-30-plugin-rule-with-2.log
 5bd9304237ff56fa92a736512a7c781a  2026-08-30-plugin-rule-without-1.log
 bbdb540a1404428af8bffc585299797c  2026-08-30-plugin-rule-without-2.log
+581c5cd05a5260c8ecec3e1fe4742013  2026-08-30-v3-aM1.log
+987f8d6b8661be4096d4390dfaadcce6  2026-08-30-v3-aT1.log
+1f56e5b83270fae961090d5ab45b8c72  2026-08-30-v3-vM1.log
+57c058c55d3e193caf615d27c010dff9  2026-08-30-v3-vT1.log
+d3c559668ceccde4d730b65347c02bfc  2026-08-30-v3-wM1.log
+9f2b55340e115f9537d2fc8113c3ac26  2026-08-30-v3-wM2.log
+2f7c8d50137719a22e7188a9db8edaff  2026-08-30-v3-wT1.log
+dce9408a27781163921d5b56650ce5a2  2026-08-30-v3-wT2.log
 ```
 
 ## What they are evidence for

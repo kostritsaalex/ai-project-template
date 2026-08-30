@@ -1,0 +1,30 @@
+## Step 2 — What I found
+
+1. **`PROJECT.md` here:** no. The folder holds no entry point yet.
+2. **Component/project conflict:** not applicable — I was sent to set up a project scope.
+3. **Other AI instruction files:** none, of this framework or any other. Nothing will be overwritten.
+4. **Existing parent claim:** none.
+5. **Local path:** `…/scratchpad/v3/OneDrive/Projects/Test/northwind-crafts` resolves — but only through a symlink. `v3/OneDrive` is a symlink to `v3/store/OneDrive`. The real path is `…/scratchpad/v3/store/OneDrive/Projects/Test/northwind-crafts`. On a machine without that symlink the written path is simply false, so it needs a path note naming the arrangement and the command that creates it. I'll propose that in the summary table.
+
+No `.git` anywhere in the folder.
+
+## Step 3 — Blueprint read
+
+`blueprints/project/README.md`, Project Scope Blueprint **0.12.0**, plus `blueprints/project/PROJECT.md`, `CLAUDE.md` and `AGENTS.md` with their comments, and `blueprints/setup/interview.md` **0.13.0**.
+
+---
+
+## Step 4 — The interview
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — `restoration and photography`, `hosting and deployment`, `content writing`. Not folders or repositories: where the work happens is the registry's job, and question 4 asks it. **If you have not decided this yet, say so and say what would settle it. That is a complete answer and I will write it.** If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders and repositories belong to this project? Name them; this folder is not one, it is the project scope. **Naming one now does not set it up now** — it goes in the registry as belonging to the project and not yet attached, which is a normal entry, and each one is attached later with its own prompt when you are ready. A folder you do not name is files inside whichever component contains it. None is a complete answer.

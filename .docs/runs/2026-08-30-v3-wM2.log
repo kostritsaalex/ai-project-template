@@ -1,0 +1,29 @@
+I can reach the framework and the target folder. Here's what I found before asking anything.
+
+## Step 2 — Look
+
+1. **`PROJECT.md` already here?** No. The folder holds no entry point.
+2. **Component collision?** Not applicable — this prompt sets up a project scope.
+3. **Other AI instruction files?** None, of this framework or any other. The folder holds only `supplier-notes/kilns.md`, `storefront/package.json`, `storefront/src/nav.js`, and `lookbook/2026/{a,b,c}.jpg`. No `.git` anywhere.
+4. **Existing parent claim?** None.
+5. **Does the local path resolve?** The folder resolves, and **only because of a symlink**: `OneDrive` in your home folder points at `store/OneDrive`, and the project sits at `OneDrive/Projects/Test/northwind-crafts` inside it. So the form I mean to write is `~/OneDrive/Projects/Test/northwind-crafts`. One caveat I have to flag rather than paper over: this session is confined to the sandbox root, so I verified the symlink and the folder *through that root*, and was blocked from reading `/home/kostritsaalex` itself. I resolved the arrangement; I did not resolve the literal `~/` spelling. I'll bring this back at the summary for you to settle before I write it.
+6. **Platform/framework code?** Component-only check, skipped.
+
+## Step 3 — Blueprint read
+
+Read `blueprints/project/README.md` (Project Scope Blueprint **0.12.0**, framework 0.12.0) with `PROJECT.md`, `AGENTS.md` and `CLAUDE.md` beside it, comments included; the interview text is `blueprints/setup/interview.md` (**0.13.0**).
+
+---
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — `restoration and photography`, `hosting and deployment`, `content writing`. Not folders or repositories: where the work happens is the registry's job, and question 4 asks it. **If you have not decided this yet, say so and say what would settle it. That is a complete answer and I will write it.** If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders and repositories belong to this project? Name them; this folder is not one, it is the project scope. **Naming one now does not set it up now** — it goes in the registry as belonging to the project and not yet attached, which is a normal entry, and each one is attached later with its own prompt when you are ready. A folder you do not name is files inside whichever component contains it. None is a complete answer.

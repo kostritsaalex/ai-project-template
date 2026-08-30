@@ -1,0 +1,43 @@
+**Step 1 — Access.** All three reachable: the framework, `blueprints/setup/procedure.md` and `new-project.md`, and the target folder. Nothing missing.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this is a project scope, not a component attach.
+3. No other AI instruction files at the root — no `CLAUDE.md`, `AGENTS.md`, `.cursorrules`, or anything of this framework or another. Nothing will be overwritten. No `.docs/` either.
+4. The folder claims no parent. Nothing to conflict with.
+5. The path resolves, **but only through a symlink.** `…/scratchpad/v3/OneDrive` is a symlink to `…/scratchpad/v3/store/OneDrive`. The real folder is `…/scratchpad/v3/store/OneDrive/Projects/Test/northwind-crafts`. On a machine without that symlink, the path as written is simply false. This needs the path note, and I've drafted the command below.
+6. Not applicable — project scope.
+
+**Step 3 — Blueprint.** Read `blueprints/project/README.md` (Blueprint Version 0.12.0) with `PROJECT.md`, `AGENTS.md` and `CLAUDE.md`, and `blueprints/setup/interview.md` (Blueprint Version 0.13.0). Those two disagree, and one of them supplies the `Derived from:` line — flagged in the table.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Northwind Crafts | Proposed from the folder name `northwind-crafts`. A draft — correct it if the studio's name differs. |
+| `<PROJECT_PURPOSE>` | Northwind Crafts is a pottery studio. It makes and sells ceramics, runs a shop site and takes commissions. Software is one part of it, not all of it. | Your answer 1. The shop site makes software a part rather than the whole. |
+| `<SCOPE_COVERS>` | `making, glazing, photography and selling` — followed by "Anything else is outside it." | Your answer 2. |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3, both offered principles kept. |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/Test/northwind-crafts` | Derived: the path resolves inside a store named `OneDrive`. No git remote here, so the store rule is the one that applies. **If that `OneDrive` is not actually a synced store, this becomes `none` with the reason — say so and I'll change it.** |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/OneDrive/Projects/Test/northwind-crafts` | Resolved in Step 2, in this exact form. Not a `~/` path: the folder is not under your home folder, so the blueprint's tilde form would be false here. |
+| `<PATH_NOTE>` | "This path holds up through a symlink. Without it the path above does not resolve: `ln -s …/scratchpad/v3/store/OneDrive …/scratchpad/v3/OneDrive`" | Step 2, item 5. The symlink is real and the path is false without it. |
+| `<SESSION_NOTE>` | Deleted, with a visible line saying a component added elsewhere brings it back. | Settled from the components: both sit inside this folder, on the same side of every boundary, so nothing needs a starting point named. Depends on the row below. |
+| `<COMPONENTS>` | **unknown** | Your answer 4 names two folders but not which two, and I can see three here. One question below. |
+| Component postures | **unknown** | Cannot propose one until the two are named. No block is written without a posture word. |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.12.0` | The project blueprint's own README. `interview.md` says `0.13.0`, but the `Derived from:` line names the project blueprint, so 0.12.0 is the right value. Overturn if the framework version is what you want there. |
+| `<YYYY-MM-DD>` | `2026-08-30` | Today. |
+
+Files: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` at the root. Nothing else, and nothing outside that folder.
+
+The registry will say plainly that both components are declared and not yet attached, and `.docs/` will be recorded as not present.
+
+---
+
+**One question, and it's the only thing blocking the write.**
+
+Which two folders? You said two of them belong to the project, and there are three here. I'm not proposing candidates or guessing from what's inside them — name the two and I'll propose a posture for each in a revised table.
+
+Confirm the table and answer that, and I'll write the three files.

@@ -1,0 +1,25 @@
+All three addresses are reachable: the framework, and the target folder.
+
+**What I found in the target folder**
+
+1. No `PROJECT.md` here.
+2. Not applicable — I was sent to set up a project scope, not attach a component.
+3. No AI instruction files of this framework or any other.
+4. The folder claims no parent.
+5. The path resolves in the exact form I intend to write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/rowan-studio`. No symlink or mount trick holds it up — it sits directly on the `/tmp` tmpfs, so no path note is needed. It is not a git working copy and not inside a synced store, so by `0007` the address is the fourth form: none, with the reason.
+6. Not applicable — component scope only.
+
+I read `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Blueprint Version 0.12.0.
+
+1. **What it is.** A few sentences. Say whether the project is only software, or whether software is one part of something larger.
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — for example `restoration, photography and selling online`, or `hosting and deployment, content writing, SEO`. Where the work happens is the registry's job, not this sentence's. If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders do you declare as components? A component is a folder belonging to this project, code or material; this folder is not one, it is the project scope. Name each one. A folder you do not name is files inside whichever component contains it. None is a complete answer.

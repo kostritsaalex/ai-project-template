@@ -85,3 +85,62 @@ Q1 does not revert to the old wording — his is better and the reason it is bet
 moves rather than the question: the assistant note gets the instruction in stronger terms and the
 arms re-run. **Only if that also fails does the clause go back into the question**, and then the
 record says the razor was wrong here and why.
+
+---
+
+# Results, scored 2026-08-30
+
+Eight runs, logs `2026-08-30-v3-*.log`.
+
+**P1 holds.** Zero added prose in all four arm-W question runs, similarity 1.000.
+
+**P2 holds.** Four questions in every run, both arms, both scopes.
+
+**P3 holds, and it holds by derivation rather than by luck.** Both `W-ans` runs were given *"A pottery
+studio. We make and sell ceramics, run a shop site and take commissions"* — a description that never
+uses the word software — and both wrote the fact into `<PROJECT_PURPOSE>` anyway:
+
+> *"…runs a shop site and takes commissions. **Software is one part of it, not all of it.**"*
+> — source given as *"The shop site makes software a part rather than the whole"* (`aM1`) and
+> *"software-is-a-part derived from 'shop site'"* (`aT1`).
+
+**Both named the derivation unprompted**, which is what separates this from a lucky guess. **The
+clause was cut and the fact survived**, which is `0004` working on a question rather than on a
+document: it was derivable, so asking for it was unnecessary, and asking for it was what made him
+enumerate.
+
+**P4 holds.** Exactly one occurrence of the undecided clause per run — the question's own. No run
+restructured around it, promoted it, or asked it separately.
+
+**P5 holds.** Zero hits across all four runs for candidate-offering or split-the-folder language.
+
+**P6 holds.** Both scope checksums unchanged.
+
+## An incidental finding, not caused by this change
+
+`wM2` listed the scope's file contents in its Step 2 report — *"The folder holds only
+`supplier-notes/kilns.md`, `storefront/package.json`…"* — to justify its "no AI instruction files"
+answer. **`procedure.md` Step 2 forbids it**: *"Do not survey the contents to describe them; nothing
+in these documents describes contents."*
+
+**P5 is not violated**: it listed contents, not candidates, and asked nothing about them. But an
+adjacent rule was breached by one run of four, on a question this change does not touch, so it is
+recorded rather than folded in. One instance, no rate.
+
+`wM2` also flagged that it could verify the simulated store's symlink only through the sandbox root
+and had not resolved the literal `~/` spelling, and said it would bring that to the summary rather
+than paper over it. That is the simulated-store confound from an earlier experiment appearing again,
+and the run handled it correctly.
+
+## What is still unmeasured, and it is the part that matters
+
+**Whether the swap is fixed.** Registered as unmeasurable here before the run and it stayed that way.
+His answers to Q2 and Q4 landed in each other's places; the fix is one sentence telling him that
+naming costs nothing today. **Only his acceptance test shows whether it worked**, and it is his: he
+answers all four from his head, in one message, without hesitating or asking what a question means.
+
+**Whether the shortened examples stop being copied.** Nothing in a scratch run answers the questions,
+so nothing here can copy an example the way he did. The change rests on one observation and is
+recorded as unmeasured.
+
+**Nothing is released.** `blueprints/` is untouched by every arm here, and the draft waits on him.

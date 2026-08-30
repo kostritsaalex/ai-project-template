@@ -1,0 +1,40 @@
+Read: `fw/blueprints/project/README.md` and `fw/blueprints/project/PROJECT.md` — **Project Scope Blueprint 0.12.0** (Framework 0.12.0). Interview text is `blueprints/setup/interview.md` 0.13.0.
+
+**Step 1 — Access.** Framework readable at `.../v3/fw`. Target readable at `.../v3/rowan-studio`. Nothing unreachable.
+
+**Step 2 — Look.**
+
+1. `PROJECT.md` here: no.
+2. Component collision: n/a, this is a project scope.
+3. Other AI instruction files, this framework's or another's: none. Nothing will be overwritten.
+4. Existing parent claim: none.
+5. Path resolves in the exact form I mean to write: yes. `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/rowan-studio` — every component is a real directory, no symlink and no mount anywhere in it. No `~` form applies; it is not under the home folder.
+6. Platform/framework code check: n/a for a project scope.
+
+Not a git working copy, and not inside a synced store — which is what settles the address row below.
+
+## Step 5 — Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | Rowan Studio | Proposed from the folder name, as a draft to correct |
+| `<PROJECT_PURPOSE>` | Rowan Studio is a pottery studio. It makes and sells ceramics, runs a shop site and takes commissions. Software is one part of it, not all of it. | Your answer 1 (software-is-a-part derived from "shop site") |
+| `<SCOPE_COVERS>` | making, glazing, photography and selling — followed by "Anything else is outside it." | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3, both defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `none. No copy of this folder exists off this machine.` | Settled: no git remote and no synced store, so decision `0007`'s fourth form. Never a local path in this slot. |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/rowan-studio` | Resolved in Step 2, written in the form that resolves |
+| `<PATH_NOTE>` | deleted | Settled: the path holds on its own — no symlink, no mount propping it up |
+| `<SESSION_NOTE>` | deleted | Settled: no mount boundary anywhere; both components will sit inside this folder. Adding one elsewhere brings the line back. |
+| `<COMPONENTS>` | **unknown — two blocks, names not yet given** | Your answer 4 gave the count, not the names |
+| Posture, each component | **unknown** | Depends on the names |
+| `<PROJECT_BLUEPRINT_VERSION>` | 0.12.0 | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | 2026-08-30 | Today |
+
+**One thing I need before writing: which two folders?** A registry block is a heading, a posture, and an address, and I have none of the three. I am not going to guess from what is on disk — a folder is a component because you say so. Name the two and tell me for each whether it holds code that a platform or framework updates wholesale (that gives it `Repository`) or not (`Assets`), and I will fill both rows and re-show them as settled.
+
+Two notes, neither a question:
+
+- The three folders you don't name are not components. Normally they would be files inside whichever component contains them, but these sit at the root beside `PROJECT.md`, so they are files in the project scope folder itself. Nothing needs doing about that, and I will not move anything.
+- Naming a component now does not attach it. Each goes in the registry as belonging to the project and not yet wired, and gets its stubs later via `new-component.md`.
+
+Nothing written yet. Confirm the table and give me the two names, and I'll write `PROJECT.md`, `AGENTS.md` and `CLAUDE.md`.

@@ -1,0 +1,29 @@
+**Step 1 — Access.** Both reachable: the framework at `.../v3/fw` and the target folder at `.../v3/rowan-studio`. Nothing unreachable.
+
+**Step 2 — What's here.**
+
+1. No `PROJECT.md` in the target folder.
+2. Not applicable — this prompt sets up a project scope, not a component.
+3. No other AI instruction files, of this framework or any other. Nothing will be overwritten.
+4. The folder claims no parent.
+5. The path resolves exactly as I intend to write it: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/rowan-studio`. No symlink or mount holds it up, and it is not under the home folder, so there is no `~/` form of it. No `.git`, and the folder is not inside a synced store.
+6. Component-only item — skipped.
+
+**Step 3 — Blueprint read.** `blueprints/project/README.md`, Project Scope Blueprint 0.12.0 (with `blueprints/project/PROJECT.md` and its comments), plus `blueprints/setup/interview.md` 0.13.0.
+
+---
+
+**Step 4 — The interview.**
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is outside it."* Name **kinds of work** — `restoration and photography`, `hosting and deployment`, `content writing`. Not folders or repositories: where the work happens is the registry's job, and question 4 asks it. **If you have not decided this yet, say so and say what would settle it. That is a complete answer and I will write it.** If something adjacent is commonly assumed to be inside and is not, name it. That part is optional.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which folders and repositories belong to this project? Name them; this folder is not one, it is the project scope. **Naming one now does not set it up now** — it goes in the registry as belonging to the project and not yet attached, which is a normal entry, and each one is attached later with its own prompt when you are ready. A folder you do not name is files inside whichever component contains it. None is a complete answer.
