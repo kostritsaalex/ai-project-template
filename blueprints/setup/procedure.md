@@ -175,6 +175,11 @@ walk the registry and rewrite that line in each set of stubs. A stale address pa
 Search every file you wrote for `<!--` and for `<` followed by a capital letter. Report both results
 even when empty.
 
+**Commit the files you wrote, and only those, in each folder you wrote into that is under version
+control.** A folder under none needs nothing here; an uncommitted stub is absent from a fresh clone
+and removed by a sweep of untracked files, and no check sees the difference, because a written file
+reads in the working tree exactly like a committed one.
+
 Then say which files you wrote or changed, which answers stayed unknown, that the structure check in
 `../checks/structure-check.md` should run now, and that the cold start check needs a new session,
 because you performed the adoption and your answers would come from this conversation.

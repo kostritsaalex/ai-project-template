@@ -12,10 +12,10 @@ time.
 **The framework was used end to end on a live project for the first time, and it was used rather than
 worked on.** Both ArtGlina components were attached by hand, `structure-check` and `registry-check`
 and the cold start were run against the result, and an ordinary task was given to a session in one of
-them. Nothing under `blueprints/` was touched after `0.16.0`, nothing is bumped and nothing is
-tagged. The four logs are committed: the first structure check and the first registry check on
-ArtGlina with its components attached, **the first cold start against a real adopted project**, and
-one task run.
+them. Nothing under `blueprints/` was touched between `0.16.0` and the attach repair below, which is
+`0.17.0` and the only bump this session did not take from a check. The four logs are committed: the
+first structure check and the first registry check on ArtGlina with its components attached, **the
+first cold start against a real adopted project**, and one task run.
 
 **Three releases belong to this session**, all `registry-check`, all found by the adoption rather than
 by reading:
@@ -26,6 +26,13 @@ by reading:
   first true positive caught its own runner. [`0017`](decisions/0017-a-probe-covers-one-declared-path.md).
 - **`0.16.0`** — material that exists only because of how the check's own text reached the session is
   not a reading of the project. Two instances, two ecosystems. [`0018`](decisions/0018-the-instrument-is-not-part-of-the-sample.md).
+
+**A fourth release followed, the first from the attach procedure rather than from a check:**
+
+- **`0.17.0`** — the attach commits what it wrote, in each folder under version control and nowhere
+  else. Defect 8 of the nine below, two live instances, invisible to both checks.
+  [`0022`](decisions/0022-the-attach-commits-what-it-wrote.md). **Shipped unrun**, arms registered
+  against the next attach.
 
 `v0.12.0` and `v0.13.0` also carry today's date, from the sessions before this one, and have their own
 entries below.
@@ -186,7 +193,9 @@ is not found later as a surprise.
 ### Nine defects in the attach procedure, none of them previously in this file
 
 Seven were found by reading the procedure before either attach ran, in a read-only session that wrote
-nothing. Two could only come from running it. **All nine are recorded and none is repaired.**
+nothing. Two could only come from running it. **All nine are recorded and one is repaired**, number
+8, in `0.17.0` and [`0022`](decisions/0022-the-attach-commits-what-it-wrote.md). The other eight
+stand.
 
 1. **No attach has ever been logged.** The run-log discipline covers every other prompt in the
    framework; the one prompt that writes into a real project has no artefact behind it, and the only
@@ -219,6 +228,14 @@ nothing. Two could only come from running it. **All nine are recorded and none i
    be committed or a fresh clone arrives knowing nothing, and that the resulting multiplication is a
    consequence of the design — depends on a step that exists in no document. Step 8 hands back without
    mentioning git.
+   **Repaired in `0.17.0`.** One instruction in Step 8, after the placeholder search four adoption
+   READMEs already say a commit follows: commit the files you wrote and only those, in each folder you
+   wrote into that is under version control, and nothing where there is none. Step 7 was rejected on
+   those same four READMEs and because it is skipped for a project scope; reporting was rejected
+   because Step 8 already asks for a report of exactly these files and both runs produced one.
+   [`0022`](decisions/0022-the-attach-commits-what-it-wrote.md),
+   [`attach-commits-what-it-wrote.md`](predictions/attach-commits-what-it-wrote.md). **The
+   instruction ships unrun**, which is defect 2 above, once more.
 9. **Nothing says to retire the "not wired yet" sentence.** One blueprint instructs writing it and no
    step removes it. Both runs removed it unprompted, which is what kept it from being a live defect
    today and is not a mechanism.
@@ -232,7 +249,8 @@ its place: every claim above about a run is now checkable against the run.
 **Next, in order.** `structure-check` 6, which now has the reproduction it was waiting for. Then the
 stale first line of `registry-check.md` and `checks/README.md`, deferred five times. Then the
 subtraction pass over the check prompts, four releases overdue. The nine above are the attach
-procedure's own queue and none of them has been weighed against `0008` yet.
+procedure's own queue; number 8 has now been weighed against `0008` and repaired in `0.17.0`, and the
+other eight have not been weighed at all.
 
 ---
 

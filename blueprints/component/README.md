@@ -4,7 +4,7 @@ How a folder is attached to a project. This is the normal way, and for most comp
 only thing that ever gets copied into them.
 
 **Blueprint Version:** 0.6.0  
-**Framework Version:** 0.16.0  
+**Framework Version:** 0.17.0  
 **Status:** new in `0.5.0`. Replaces the default use of the Repository and Assets blueprints.
 
 ---

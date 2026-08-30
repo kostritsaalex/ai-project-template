@@ -6,6 +6,91 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.17.0] - 2026-08-30
+
+**The attach commits what it wrote.** See
+[0022](.docs/decisions/0022-the-attach-commits-what-it-wrote.md).
+
+### Fixed
+
+- **`blueprints/setup/procedure.md` Step 8 now asks for a commit**, of the files the session wrote and
+  only those, in each folder it wrote into that is under version control. Nothing in the procedure had
+  ever asked for one, and two live attaches on 2026-08-30 did not make one: on ArtGlina the stubs were
+  committed by hand afterwards, outside the procedure, and on NorsePath `git status --short` in the
+  component still printed `?? AGENTS.md` and `?? CLAUDE.md` after the attach, both checks and a
+  behaviour test.
+- **What it repairs is invisible to both shipped checks.** `structure-check` and `registry-check` read
+  the working tree, where an untracked file reads exactly like a committed one. A clone of the
+  component arrives with no parent pointer and a sweep of untracked files removes both stubs, with no
+  row failing in either case.
+- **A folder that is not under version control does nothing here**, and the instruction names no tool
+  and no command. [0001](.docs/decisions/0001-project-scope-need-not-be-a-repository.md) admits a
+  project scope that is not a repository, and
+  [0007](.docs/decisions/0007-a-component-with-no-address-says-so.md) settles that local version
+  control and reachability are separate questions.
+
+### Where it went, and where it did not
+
+- **Step 8, not Step 7**, decided on the four adoption READMEs. `component/README.md:114`,
+  `project/README.md:152`, `assets/README.md:91` and `repository/README.md:104` all say *"Before
+  committing, search for `<!--` and for `<` followed by a capital letter"*, and that search is Step 8's
+  first instruction. A commit in Step 7 would run on the wrong side of it. Step 7 is also skipped for a
+  project scope, which writes files into the same kind of folder and leaves them untracked the same
+  way, and its *"attached when both halves are written"* is a definition this release does not reopen.
+- **The session commits rather than reporting.** Step 8 already requires it to *"say which files you
+  wrote or changed"*; both runs produced that report and the stubs stayed untracked in both, so
+  reporting is the weaker form of an instruction that has already failed twice.
+
+### Unchanged, and deliberately so
+
+- **Step 7.** Not touched, including its definition of attachment and its registry example.
+- **The eight other attach defects**, among them the competing four-step adoption procedure in
+  `component/README.md` and the absence of any run log for an attach at all. All nine are recorded in
+  `.docs/backlog.md`; this release repairs one.
+- **Whether a component is a folder or a repository.** Committed stubs travel with every clone, which
+  is the multiplication that question is about. It stays open, and this is the line that changes if it
+  is ever settled the other way.
+
+### Removed
+
+- **Nothing, and this is the fourth release in a row that can say only that.** Principle 7 asks a
+  release that adds to name what it removed in exchange. `procedure.md` goes from **128 to 132
+  non-blank lines**. Nothing in the step became redundant, and taking something out would have meant
+  repairing a second defect, which this release is not doing. The debt is four releases old and the
+  queued subtraction pass over `blueprints/` inherits four more lines than it was promised.
+- **The shipped-line metric is unmoved at 40 and 22**, re-measured rather than carried forward. This
+  release touches the setup procedure, which the metric does not cover — the same gap the previous
+  release stated as a number.
+
+### On the evidence
+
+**Two live instances and no run.** The defect has two instances a week apart in ecosystems that share
+only this framework, and neither check can see either. The repair itself **ships unrun**: every arm
+needs a fresh session against a scope, and the session that wrote the instruction cannot be one. That
+is defect 2 of the nine — *"The shipped procedure was unrun text"* — repeated against principle 6, and
+it is named here rather than left to be noticed. Pre-registered before the edit in
+[`attach-commits-what-it-wrote.md`](.docs/predictions/attach-commits-what-it-wrote.md): three arms
+including a negative half, and three controls not derived from the hypothesis — a project scope in a
+folder with no version control, which must produce no action and no confusion; a repository holding
+unrelated modified files, which tests *"and only those"*; and a session that cannot run commands,
+which must not report a commit it did not make.
+
+### Also in the range since `v0.16.0`, under `.docs/`, none of it causing this release
+
+Step 0 says a change under `.docs/` never causes a release; these are named because one is happening
+anyway, so that every file in the release's own diff is accounted for.
+
+- **Three repairs to `release.md` step 7**, with their prediction files —
+  [0019](.docs/decisions/0019-a-check-compares-fields-not-prose.md),
+  [0020](.docs/decisions/0020-a-check-that-cannot-fail-is-not-a-check.md),
+  [0021](.docs/decisions/0021-a-row-states-what-it-examined.md) — and the rule added to
+  `.docs/handover.md` that every change carries at least one control not derived from its hypothesis,
+  which is the rule this release's controls were written under.
+- **Four run logs and the `runs/` index**, from the live adoption: a structure check, a registry
+  check, the first cold start against a real adopted project, and one task run.
+- **`.docs/backlog.md`**: the nine attach defects found by the two live attaches, an item on evidence
+  that does not exhibit the criterion its row applies, and defect 8 now marked repaired here.
+
 ## [0.16.0] - 2026-08-30
 
 **The delivery of the check's own text is not part of its read set.** See
