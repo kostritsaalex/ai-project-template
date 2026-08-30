@@ -24,8 +24,7 @@ Everything a document says is measured against one test:
 
 An assistant can open a folder and look. The platform, the local URL, the file layout, what the
 folder holds: all visible, so none of it belongs in a document. What survives is the registry, the
-address of the parent, the owner's principles, and what the project covers with everything else
-outside it.
+address of the parent, the owner's principles, and what an agent must never do here.
 
 ---
 

@@ -1,7 +1,7 @@
 # The Interview
 
-**Blueprint Version:** 0.12.0  
-**Framework Version:** 0.12.0
+**Blueprint Version:** 0.13.0  
+**Framework Version:** 0.13.0
 
 The questions a person is asked when a project scope is set up. `procedure.md` Step 4 sends you
 here.
@@ -39,18 +39,25 @@ it. Each proposal names where it comes from, and a proposal with no named source
 - **Whether an override already exists**, from the folder.
 - **The session note**, once the components are known.
 
+**Answer 1 has to tell you whether software is all of this project or one part of it.** Question 1 no
+longer asks that outright: a person describing his business answers it without being asked, and asking
+made one owner enumerate instead. Derive it and write it into `<PROJECT_PURPOSE>`. If a business
+description genuinely leaves it open, that is the one thing worth a follow-up.
+
+**Answer 2 may be "nothing", and that is a complete answer.** Write it as visible text — that no work
+is currently forbidden, and that an assistant meeting something which looks outside the project asks
+before starting it. **Never delete the section**, which reads as correct to every check.
+
 ---
 
 ## The questions
 
-1. **What it is.** A few sentences. Say whether the project is only software, or whether software is
-   one part of something larger.
+1. **What it is.** What is this project about? What business does it represent, or what business
+   tasks does it solve?
 
-2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is
-   outside it."* Name **kinds of work** — for example `restoration, photography and selling online`,
-   or `hosting and deployment, content writing, SEO`. Where the work happens is the registry's job,
-   not this sentence's. If something adjacent is commonly assumed to be inside and is not, name it.
-   That part is optional.
+2. **Agent boundaries.** Is there anything an agent should never do in this project? For example:
+   never set up deployment, never spend money on my behalf, never publish anything publicly. **If
+   there is nothing, say so** — that is a complete answer and I will write it down as such.
 
 3. **Principles.** The rules that hold across the whole project. Two are offered:
 
@@ -59,8 +66,8 @@ it. Each proposal names where it comes from, and a proposal with no named source
 
    Keep both, keep one, replace them with your own, or say none.
 
-4. **Components.** Which folders do you declare as components? A component is a folder belonging to
-   this project, code or material; this folder is not one, it is the project scope. Name each one. A
-   folder you do not name is files inside whichever component contains it. None is a complete answer.
+4. **Components.** Which additional folders and repositories belong to this project? Main project
+   directory doesn't count. Naming one now does not set it up now — each is attached later with its
+   own prompt, when you are ready.
 
 ---

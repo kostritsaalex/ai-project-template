@@ -1,9 +1,20 @@
 # 0011. The boundary is a closed inclusion
 
 **Date:** 2026-08-29  
-**Status:** accepted
+**Status:** superseded in part by [0015](0015-the-boundary-becomes-agent-boundaries.md), 2026-08-30
 
 ---
+
+> **Superseded in part, 2026-08-30.** The boundary is now written as agent boundaries — a list of
+> things an agent should never do — and not as a closed inclusion. See
+> [`0015`](0015-the-boundary-becomes-agent-boundaries.md).
+>
+> **And this record inherited evidence it never re-took.** The staging-deployment refusal cited below
+> as the measured before-and-after was taken on the *exclusions* form this decision replaced — a
+> prohibition-shaped line. `0011` inverted the form and kept the measurement, and ran on it for three
+> releases. What stands here is the argument about failure direction, which is real and which `0015`
+> answers rather than ignores. What does not stand is the implication that a closed inclusion is the
+> form the evidence supports.
 
 ## Context
 

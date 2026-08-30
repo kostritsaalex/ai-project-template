@@ -17,9 +17,8 @@ exists, what the folder holds: all visible, none of it goes in a document and no
 question.
 
 What the documents carry is what no amount of looking reveals. Where the parent is. What the project
-covers, and that anything else is outside it. The owner's principles. The registry of components that
-do not know about each other, and the one word in each block that says how that folder is to be
-treated.
+forbids an agent from doing. The owner's principles. The registry of components that do not know
+about each other, and the one word in each block that says how that folder is to be treated.
 
 So the interview is short by construction. If you find yourself asking about something you could have
 read, stop and read it.

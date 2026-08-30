@@ -13,7 +13,7 @@ registry, and `0.6.0` cut that line down to one rule.
 
 A project passes through up to three states, and takes the documents of the state it is actually in.
 
-**No documents.** The project is still finding its shape and has no rule, boundary or principle
+**No documents.** The project is still finding its shape and has no rule, prohibition or principle
 settled enough to write down, and no second place to work in sight. Adopting anything here is
 premature.
 
@@ -100,7 +100,7 @@ Examples use a fictional `Northwind` project.
 | --- | --- | --- |
 | `<PROJECT_NAME>` | Name of the project. Keeps its spaces; the folder need not match. | `Northwind Furniture` |
 | `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces. Websites and software are one part of it.` |
-| `<SCOPE_COVERS>` | What the project covers, **as kinds of work rather than as places**, followed by the closure sentence that makes it a boundary. The one line proven to change what an assistant does. A near miss may be named after it and need not be. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. See [decision 0011](../../.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md). | `restoration, photography and selling online` |
+| `<AGENT_BOUNDARIES>` | Anything an agent should never do in this project, each written as a prohibition in the owner's words. The one line proven to change what an assistant does, and the measurement was taken on this form. **If nothing is forbidden, write that in visible text and keep the section** — a missing section reads as correct to every check. See [decision 0015](../../.docs/decisions/0015-the-boundary-becomes-agent-boundaries.md). | `never set up deployment, never spend money on my behalf, never publish anything publicly` |
 | `<PROJECT_PRINCIPLES>` | The rules that hold across the project, in the owner's words. Priorities in order if the order was decided. | `1. Simplicity 2. Maintainability 3. Security` |
 | `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. | `OneDrive, Projects/northwind` |
 | `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |

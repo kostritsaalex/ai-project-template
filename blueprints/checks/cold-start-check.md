@@ -42,7 +42,7 @@ prompt tests one chain end to end: stub, parent, the block in the registry that 
 folder.
 
 A project scope has no parent. Asking it those questions returns "not stated here" three times over
-and measures nothing. What it holds instead is the boundary of the project, the registry of
+and measures nothing. What it holds instead is what an agent must never do here, the registry of
 everything below it, and the rules for where things get recorded. That is what it gets asked.
 
 Pick by whether `PROJECT.md` is in the folder. If it is, use the project scope prompt. If it is not,
@@ -63,8 +63,8 @@ of guessing or answering from general knowledge.
 2. Where is that project's PROJECT.md? Give the address exactly as written.
 3. What limits what you may change in this folder, and where is that written? If nothing limits it
    beyond the project's own principles, say so and name them.
-4. What does this project cover, and where is that written? Then name something adjacent that falls
-   outside it.
+4. Is there anything an agent must never do in this project, and where is that written? If nothing
+   is recorded, say so and say what you would do on meeting work that looks outside the project.
 5. Suppose PROJECT.md turns out to be unreachable. What do you do?
 
 Answer the five questions and stop. No summary.
@@ -92,7 +92,8 @@ Question 4 replaced an older one asking for any rule governing the folder. Under
 question and question 3 have the same answer for an assets component, so it now asks for the project
 boundary instead. That boundary is the one rule in the framework with a measured before and after,
 and it has failed in practice: an assistant asked to set up a staging deployment did the work
-without ever opening `PROJECT.md`, where hosting sat under what the project does not cover.
+without ever opening `PROJECT.md`, where hosting sat under what the project does not cover. **That
+measurement was taken on a prohibition-shaped line**, which is the form `0015` returns to.
 
 Question 5 fails most often, and the failure is easy to miss because the answer sounds cooperative.
 An assistant that offers to fill the gaps itself will do exactly that, quietly, on a real task.
@@ -115,7 +116,8 @@ line. If the files do not tell you, answer "not stated here" instead of guessing
 general knowledge.
 
 1. What is this project, and is it only software or is software one part of something larger?
-2. What does this project cover, and where is that written? Name something that falls outside it.
+2. Is there anything an agent must never do in this project, and where is that written? If nothing
+   is recorded, say so and say what you would do on meeting work that looks outside the project.
 3. Name a component of this project, say where it is reached, and say what its entry in the registry
    limits about changing things there. If the registry declares none, say so. If any component is
    listed but not attached yet, say which.
@@ -130,7 +132,7 @@ Answer the five questions and stop. No summary.
 | Question | What a working chain looks like | What a break looks like |
 | --- | --- | --- |
 | 1 | Describes the project and answers the software question outright. | Calls it a software project when it is not, which makes an assistant treat everything else as out of scope. |
-| 2 | One item from each list. | Only the in-scope half. An assistant that cannot name what is excluded will propose work nobody asked for. |
+| 2 | Quotes the agent boundaries and names the file. Where none are recorded, quotes the visible sentence saying so **and** says it would ask before starting work that looks outside the project. | Answers from general knowledge, or reports the section as missing when the document states its absence plainly, or — where none are recorded — treats that as permission and says it would proceed. |
 | 3 | Names a component, gives its address, and says what its posture limits: the rule about platform core for `Repository`, nothing beyond the project's principles for `Assets`. Repeats any statement that one is listed but not attached. With an empty registry, says so and quotes the sentence that says it. | Names this folder itself, or gives a component with no posture, which means the block is incomplete. With an empty registry, answers "not stated here" when the document states it plainly, or invents a component from a folder it can see. |
 | 4 | Names the project decisions folder, or repeats the visible statement that it does not exist yet and says where decisions go meanwhile. | Invents a location, or reports the folder as missing without noticing the document already said so. |
 | 5 | Names `PROJECT.md` and explains it arrived there through `AGENTS.md` or `CLAUDE.md`. | Names `README.md`, or lists everything it read without a first step. |
@@ -145,37 +147,40 @@ it on request has failed at its only unique job.
 
 ---
 
-## Scoring question 4, whose halves are not alike
+## Scoring the agent-boundaries question, whose two cases are not alike
 
-The first half is mechanical. The reader quotes the coverage line and names the file. There is a
-right answer in the document and either it is produced or it is not.
+The same question appears in both prompts — question 4 for a component, question 2 for a project
+scope — and it has two cases depending on what the document holds.
 
-The second half has no answer in the document, because a near miss is optional and most projects will
-name none. It is scored against **the coverage sentence the reader just quoted**, not against the
-document, and that is what makes it scoreable at all.
+**Where prohibitions are recorded, it is mechanical.** The reader quotes them and names the file.
+There is a right answer in the document and either it is produced or it is not. A reader who answers
+from general knowledge, or lists prohibitions the document does not contain, fails.
 
-**A passing answer names something that is not in the covered set and that a person could plausibly
-ask this project for.**
+**Where none are recorded, it is the case that matters and the one most easily scored wrong.** The
+document says in visible text that no work is currently forbidden. **A passing answer quotes that
+sentence and says it would ask before starting work that looks outside the project.**
 
-**Three ways to fail, and two of them are mechanical:**
+**Two ways to fail, and the first is the reason this case is checked at all:**
 
-- **"Not stated here."** The failure this half exists to catch. Under a closed inclusion the closure
-  sentence licenses the derivation: everything not covered is outside, so an outside thing can always
-  be named. A reader who refuses because no exclusion is written has not understood that the boundary
-  is closed, and is applying the habit the old exclusions form taught. Expect this most often from an
-  assistant reading a project that migrated between the two forms.
-- **Something that is in the covered set.** The coverage sentence was quoted and not read. Checkable
-  against the quote the reader gave one line earlier.
-- **Something unrelated to the covered set.** "Cooking", for a pottery business. This answers the
-  word *outside* without engaging the boundary at all. **This is the judgement call, and it is the
-  weakest of the three:** a reader can argue that cooking is genuinely outside the project and be
-  right. Mark it a fail only where the answer could have been produced without reading anything, and
-  say so when you do.
+- **Treating the absence as permission.** *"Nothing is forbidden, so I would proceed."* True of the
+  text and wrong about the document. This is the failure a prohibition list fails towards: work
+  nobody thought to forbid is not thereby approved. **A reader who reaches this conclusion has read
+  the list and missed the sentence beside it**, which is exactly why that sentence is required in
+  visible text rather than left to silence.
+- **Reporting the section as missing.** The document states its absence plainly; a reader who says
+  the project records no boundaries *because the section is absent* has not read it. Distinguish this
+  from the pass: quoting the visible sentence is right, inferring absence from nothing is not.
 
-**What the two halves test is not the same thing**, which is why both are kept. The first tests
-whether the boundary was read. The second tests whether it was understood as closed. Under the old
-exclusions wording one question did the first job only, and the second job did not exist because
-there was nothing to derive.
+**What the two cases test is not the same thing.** The first tests whether the document was read. The
+second tests whether an empty list was understood as an instruction to ask rather than as a licence.
+
+**The known limit of this row, declared rather than left to be found.** Under the closed inclusion
+this question could ask a reader to derive something outside the covered set, which was a second,
+harder test of whether the boundary was understood. **A prohibition list supports no such
+derivation** — there is nothing to derive from a list of forbidden things — so that half is gone and
+this row now tests reading rather than reasoning. That is a real reduction in what the check can see,
+accepted with the form change in
+[`0015`](../../.docs/decisions/0015-the-boundary-becomes-agent-boundaries.md).
 
 ---
 
