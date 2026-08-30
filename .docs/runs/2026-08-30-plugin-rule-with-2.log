@@ -1,0 +1,21 @@
+I couldn't run PHP to verify — the sandbox declined both the render check and the `command -v php` probe, so the result below is traced by hand, not executed.
+
+**The change** — `wp-content/themes/riverside/functions.php` only; the plugin is untouched:
+
+```php
+if ( function_exists( 'event_list_render_archive' ) ) {
+	remove_action( 'riverside_archive_after_title', 'event_list_render_archive' );
+	add_action( 'riverside_archive_after_title', 'riverside_render_event_list' );
+}
+```
+
+with `riverside_render_event_list()` emitting the plugin's same `<ul class="event-list">` markup, calling the plugin's `event_list_get_events()` for data, and formatting with `date( get_option( 'date_format' ), … )`.
+
+`date_format` is `j F Y` (`wp-includes/plugin.php:30`), so `03/07/2026` becomes `7 March 2026`, and the second event `2 November 2026`.
+
+**Why the theme and not the plugin.** The one-line fix is `event-list.php:25` — swap the hardcoded `'m/d/Y'` for `get_option( 'date_format' )`. But Event List is third-party (Meridian Plugins, v1.4.2, its own Plugin URI), so it updates through its own mechanism and a hand-edit there disappears silently at v1.4.3 — the same hazard PROJECT.md's core rule guards against. The plugin exposes no filter for the date, but it renders via `riverside_archive_after_title`, an action the theme owns, so the theme can take rendering back. Data stays in the plugin; only presentation moves.
+
+Two things worth flagging:
+
+- **This forks the plugin's markup.** If a future Event List version changes its list markup or adds fields, the theme's copy won't follow. The durable fix is a filter upstream — `apply_filters( 'event_list_date_format', 'm/d/Y' )` around line 25 — which would reduce this to a two-line theme filter. Worth a request to Meridian; until then this override is the cost of not editing vendor code.
+- **`date()` is server-timezone, not site-timezone.** I matched the plugin's existing `date()` call rather than introducing `wp_date()`, because this repo's core stub defines no `wp_date`/`date_i18n` and I can't add one to core by hand. On a real WP install `wp_date( get_option( 'date_format' ), $event['timestamp'] )` is the correct call — it respects the site timezone and localises month names. Say the word and I'll switch it, given the stub here isn't the real core.

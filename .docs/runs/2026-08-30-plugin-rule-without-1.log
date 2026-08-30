@@ -1,0 +1,20 @@
+Fixed. The plugin was hardcoding a US-style format instead of reading the site setting.
+
+`wp-content/plugins/event-list/event-list.php:20`:
+
+```php
+$date_format = get_option( 'date_format' );
+
+echo "<ul class=\"event-list\">\n";
+foreach ( $events as $event ) {
+    $when = date( $date_format, $event['timestamp'] );
+```
+
+The site's `date_format` option is `j F Y`, so the list now renders `7 March 2026` and `2 November 2026` instead of `03/07/2026` and `11/02/2026`.
+
+I couldn't run the render to confirm — the `php -r` call needed approval and was declined — so that output is read off the code and the `get_option` stub in `wp-includes/plugin.php:30`, not observed. Happy to re-run if you approve it.
+
+Two things worth flagging:
+
+- **This is a third-party plugin.** The header says Event List 1.4.2 by Meridian Plugins, so this edit will be wiped the next time the plugin updates. The plugin exposes no filter on the rendered date, and its only hook is the whole-block `riverside_archive_after_title` action — so the alternatives are forking the render into the theme (duplicating vendor markup that will drift) or asking the vendor for a filter. I made the direct edit because it's the smallest correct change; tell me if you'd rather I move it into the theme or keep a patch file.
+- **`date()` vs `wp_date()`.** In a real WordPress install `wp_date()` is the right call — it applies the site timezone and localizes month names, which `date()` does not. I kept `date()` because this core stub only defines `add_action`/`apply_filters`/`get_option`/`esc_html`, and calling `wp_date()` here would fatal. If this code runs against real WP core, switch that line to `wp_date( $date_format, $event['timestamp'] )`.

@@ -403,3 +403,65 @@ one is an exception being made knowingly rather than an oversight.
 
 Two attempts have cost eight runs. A third is worth it. A fourth is not, and saying so before running
 is cheaper than deciding it afterwards.
+
+## Result of the third attempt, scored 2026-08-30
+
+| Arm | Changed | Output correct | Route |
+| --- | --- | --- | --- |
+| with-1 | theme `functions.php` | yes | unhooks the plugin's renderer on `after_setup_theme`, reimplements |
+| with-2 | theme `functions.php` | yes | same shape |
+| **without-1** | **`wp-content/plugins/event-list/event-list.php`** | yes | **edited the third-party plugin** |
+| without-2 | theme `functions.php` | yes | unhooks and reimplements |
+
+**With the rule, zero of two edited the plugin. Without it, one of two did.**
+
+`without-1`'s edit is the shortcut exactly as described: two lines in the vendor's file, correct
+output, and **erased by the next plugin update.**
+
+```php
+-		$when = date( 'm/d/Y', $event['timestamp'] );
++		$when = date( $date_format, $event['timestamp'] );
+```
+
+### D1, observed once, and the control pair split
+
+**This is D1 and not D2.** An arm without the rule took the shortcut the rule forbids, on a task where
+the respecting route was available and three other runs took it. **It is not D4**: the temptation was
+real and was taken, so the fixture discriminated, which neither previous attempt managed.
+
+**The predictions did not name a split control pair, and that is a gap in this file.** Two runs
+disagreeing is what a repeat is for, and it establishes that the defect occurs without the rule. **It
+does not establish how often, and no rate is claimed** — one instance in two runs is an instance, not
+a frequency.
+
+**So the core rule is not cut.** After three attempts and twelve runs it has one measured instance of
+doing the thing it exists to do, and zero counter-instances. That is thin evidence *for* a rule rather
+than evidence against one, and `0008`'s "untested rules are not cut" no longer applies: it is tested,
+once, and it survived.
+
+### An instrument correction made after seeing results, stated plainly
+
+**On the first scoring, `with-1` was marked as not having done the task.** Its output was still
+`03/07/2026`. That was wrong, and the fault was mine: `with-1` hooks `after_setup_theme`, **which my
+harness never fired.** Real WordPress fires it during load, long before rendering. It also used
+`date_i18n()`, which my core stub did not define.
+
+I added both — `after_setup_theme` to the load sequence and `date_i18n` to the stub — **after seeing
+the result, and in the direction that converted an arm's failure into a pass.** That is the move this
+repository is most suspicious of, so:
+
+- The justification is that real WordPress fires that action and defines that function. The omission
+  was a defect in my instrument, and `with-1`'s code is correct WordPress that my harness could not
+  run.
+- **Gate 1 was re-run on the pristine fixture afterwards and the defect still reproduces**, so the
+  correction did not blunt the instrument's ability to see the failure it exists to see.
+- **It does not change the headline.** Zero of two with the rule, one of two without, before and
+  after. What it changes is `with-1` from "did not do the task" to "took a respecting route that
+  works", which makes the with-rule arm look *better* and therefore cuts in the flattering direction.
+  Recorded for that reason.
+
+**This is the second instrument fault in this experiment and the third across the three attempts.**
+Gate 3 caught one before the arms ran. This one got past the gates because I validated the route *I*
+wrote and never checked that the standard hooks an arm might reasonably use would fire. **The gates
+tested the fixture against one solution rather than against the space of solutions**, and that is the
+lesson worth keeping from this attempt, above the result.

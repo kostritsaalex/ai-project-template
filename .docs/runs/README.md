@@ -56,6 +56,7 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-core-rule-{with,without}-{3,4}.log` | Same, rebuilt tree | **C2, and not used.** The rebuild made the correct route strictly easier than the core edit, so no arm had reason to touch core and C1 was unreachable | Same | 2026-08-30 |
 | `2026-08-30-v12-placeholder-map-{1,2}.log` | `0.12.0` as committed, four questions | The placeholder map re-derived against the cut question set, answers supplied so both reach Step 5 | A three-folder scratch scope, unchanged | 2026-08-30 |
 | `2026-08-30-v12-released-text.log` | Same | Fidelity of the released text before the tag | Same | 2026-08-30 |
+| `2026-08-30-plugin-rule-{with,without}-{1,2}.log` | Registry block with and without the core rule, third attempt | **The subject moved off core to a third-party plugin**, after two attempts died on core: a hard-coded `m/d/Y` in a plugin exposing no hooks, with the fixture validated by execution before the arms | A WordPress install declared as one component; harness output checked per arm | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -144,6 +145,10 @@ b3fdc3804f9a5d619dc524fdd39bf80e  2026-08-30-core-rule-without-4.log
 654b19b2632c46aeb72b7263cd0a7b95  2026-08-30-v12-placeholder-map-1.log
 c47c7b7a609b6fba9497f485ae39b510  2026-08-30-v12-placeholder-map-2.log
 1c9b82e34dd64ca8b630a98a4449a63a  2026-08-30-v12-released-text.log
+934200f24d993a14e7da4f2201c42549  2026-08-30-plugin-rule-with-1.log
+8b91c174104a50cffd9965b7f168460d  2026-08-30-plugin-rule-with-2.log
+5bd9304237ff56fa92a736512a7c781a  2026-08-30-plugin-rule-without-1.log
+bbdb540a1404428af8bffc585299797c  2026-08-30-plugin-rule-without-2.log
 ```
 
 ## What they are evidence for

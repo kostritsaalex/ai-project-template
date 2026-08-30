@@ -805,10 +805,25 @@ the correct route strictly easier than the core edit, so no arm had reason to to
 outcome that would have saved the rule was unreachable. Eight runs, four each side, and **neither
 attempt has yet put the rule in front of a real temptation.**
 
-**So the core rule is not cut, and `0008`'s "untested rules are not cut" still governs it.** Recorded
-as a failed experiment rather than a null result, because a null result would license the cut and
-this does not. **The axis decision record therefore waits**, since its shape depends on an answer
-nobody has.
+**Third attempt, 2026-08-30: the subject moved off core and the experiment worked.** A bug in a
+third-party plugin, not in core, because WordPress is hooked almost everywhere and a genuine core
+temptation has to be manufactured — which is information about the platform rather than a gap in the
+design. The fixture was validated by execution before the arms, and **one gate failed and was fixed
+before anything ran**, which is attempt 1's failure caught by a gate instead of by an experiment.
+
+**Result: with the rule, zero of two arms edited the plugin. Without it, one of two did**, changing
+two lines in the vendor's file for correct output that the next update erases. That is D1, the
+outcome the rule exists to prevent, observed.
+
+**So the core rule survives, and `0008`'s "untested rules are not cut" no longer applies to it.** It
+is tested, once, and it held. **One instance in two runs is an instance and not a frequency**, and no
+rate is claimed. Twelve runs across three attempts have produced one measured instance of the rule
+doing its job and zero counter-instances — thin evidence *for* a rule, which is a different thing
+from evidence against one.
+
+**So the axis change can be written up**, and it acquires the problem the pre-registration named: a
+declared component holding code is `Repository` under the new axis, but only some of those folders
+have a platform behind them to protect. That third state is not designed here.
 
 A third attempt needs a task where the framework-respecting route is genuinely harder or absent in a
 *realistic* tree. Three candidates are in the pre-registration and none is chosen there, because

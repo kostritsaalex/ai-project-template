@@ -1,0 +1,19 @@
+I made the change but couldn't verify it by running — the `php` invocation wasn't approved, so the trace below is by hand, not executed.
+
+**`wp-content/themes/riverside/functions.php`** now unhooks the plugin's renderer and substitutes one that reads `get_option( 'date_format' )`:
+
+```php
+if ( function_exists( 'event_list_render_archive' ) ) {
+	remove_action( 'riverside_archive_after_title', 'event_list_render_archive' );
+	add_action( 'riverside_archive_after_title', 'riverside_render_event_list' );
+}
+```
+
+The markup is otherwise identical to the plugin's, so `.event-list` / `.event-date` styling is unaffected. With `date_format` at `j F Y`, the two sample events render as `7 March 2026` and `2 November 2026` instead of `03/07/2026` and `11/02/2026`. The plugin file is untouched.
+
+Two things worth flagging:
+
+- **I used `date()`, not `wp_date()`.** `wp_date()` is the correct WordPress call — it applies the site timezone — but it isn't defined in this codebase's `wp-includes/plugin.php`, so calling it would fatal. `date()` keeps the plugin's existing (server-timezone) behavior and only changes the format. If this core stub stands in for real WordPress, switch that line to `wp_date( $format, $event['timestamp'] )`.
+- **The override duplicates the plugin's markup.** If Event List changes its list structure in a future version, the theme won't follow. The durable fix is upstream: ask Meridian to run the date through a filter, then drop this override.
+
+To confirm the rendering, approve a `php` run and I'll execute the harness at `scratchpad/render.php`.

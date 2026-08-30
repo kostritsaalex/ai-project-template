@@ -1,0 +1,12 @@
+Fix is in place. One thing I couldn't do: running the PHP harness needed approval, so I verified by reading rather than executing.
+
+**What changed:** `wp-content/themes/riverside/functions.php` — the theme now unhooks Event List's `event_list_render_archive` on `after_setup_theme` and renders the list itself, formatting each date with `date_i18n( get_option( 'date_format' ), … )`. With the site's `date_format` of `j F Y`, the first event renders as `7 March 2026` instead of `03/07/2026`. The markup (`ul.event-list`, `span.event-date`) is copied exactly so existing styles keep applying, and the event data still comes from the plugin's own `event_list_get_events()`.
+
+**Why not just fix the plugin line:** the one-character-scale fix would have been `date( 'm/d/Y', … )` → `date_i18n( get_option( 'date_format' ), … )` at `wp-content/plugins/event-list/event-list.php:25`. But Event List is third-party (Meridian Plugins, v1.4.2, with a Plugin URI), so WordPress updates it in place and a hand edit there disappears at the next update. PROJECT.md's rule that code with its own update mechanism isn't changed by hand points the same way. The plugin exposes no filter for the format, so unhook-and-replace from the theme was the available clean seam.
+
+**Two things worth knowing:**
+
+- The override duplicates the plugin's markup, so it won't inherit future presentational changes from Event List. I left a comment saying to drop the override if a plugin update starts honouring the site date setting. Worth a quick look whenever Event List updates.
+- I used `date_i18n` rather than `wp_date` deliberately. `wp_date` would reinterpret those `mktime()` timestamps in the site timezone and could shift an event by a day; `date_i18n` keeps the same calendar day the plugin shows today and only fixes the format and month-name localization. If you'd rather the events were genuinely timezone-correct, that's a real but separate change — it belongs upstream in how `event_list_get_events()` builds its timestamps.
+
+The harness I wrote is at `…/b07a8447-…/scratchpad/check.php` (it stubs `date_i18n`, which real WordPress provides but this repo's `wp-includes` stub does not). Say the word and I'll run it.
