@@ -13,12 +13,17 @@ Everything in this pass is under `.docs/`, so by step 0 nothing is bumped and no
 [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md) and
 [`predictions/release-v4-tracked-logs.md`](predictions/release-v4-tracked-logs.md).
 
-**The count that decided it, taken by running the command against all twenty tags rather than by
-reading the record.** It has fired **once**, at `v0.9.0`, on five names — and that one is a **true
-positive**: the index named five logs the tree did not contain. It is retrospective; the command was
-written into `release.md` for `0.9.2`, in `5af7bf7`, in response to that defect after it had been
-found by hand. In the nine releases where it was actually in force it has never fired. This is the
-opposite of V3's record and it decided the razor the opposite way.
+**The count, taken by running the command against all twenty tags rather than by reading the
+record.** It has fired **once**, at `v0.9.0`, on five names — and that one is a **true positive**:
+the index named five logs the tree did not contain. It is retrospective; the command was written into
+`release.md` for `0.9.2`, in `5af7bf7`, in response to that defect after it had been found by hand.
+In the nine releases where it was actually in force it has never fired.
+
+**The count is not what decided the razor, and saying so was the correction of 2026-08-30.** Live
+true positives are zero for this command and zero for V3's, so one-to-nothing separates them by
+nothing. What decided it is that **nothing else in the repository reads `.docs/runs/README.md`**,
+where V3's cut half guarded the backlog version line that step 0 already makes a convenience shipped
+to nobody. `0020`'s Decision was restated to say that.
 
 **It could not tell a pass from a blind spot, and both were zero bytes.** `v0.1.0`–`v0.8.0` have no
 `.docs/runs/README.md` at all and print nothing; `v0.9.1`–`v0.16.0` have a full index and print

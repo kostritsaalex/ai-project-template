@@ -48,12 +48,26 @@ also its blind spot. Giving it a second, independently-derived side makes the tw
 objects rather than different readings of the same empty string.
 
 **Razor [`0008`](0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md): the command stays,
-and is repaired.** Removal was on the table on its merits and is rejected on the record. It has one
-true positive across twenty tags against V3's zero; the defect it caught produced a bad tag that
-nothing else in the step would have caught; and the artefact it guards is hand-maintained and has
-grown from 5 names to 99, which is where a clerical omission hides. This is the opposite shape from
-[`0019`](0019-a-check-compares-fields-not-prose.md), where the half with a record of catching nothing
-was cut. The record decided both, in opposite directions.
+and is repaired.** Removal was on the table on its merits and is rejected on the record.
+
+**The basis is that nothing else guarantees the fact. It is not the firing count.** This paragraph
+first read *"it has one true positive across twenty tags against V3's zero"*, and that is weaker than
+it sounds. The `v0.9.0` firing is retrospective: the defect was found by hand and the command was
+written afterwards, and in the nine releases where it was actually in force it never fired. **Live
+true positives are zero for this command and zero for V3's.** A score of one to nothing, where the
+one was scored before the game started, does not separate the two rows, and it is not what decided
+this.
+
+**What decides it is the fact recorded above**: nothing else in the repository reads
+`.docs/runs/README.md`, and no `git` command in step 7 sees a name whose file is neither on disk nor
+tracked. The asymmetry with [`0019`](0019-a-check-compares-fields-not-prose.md) is there and not in
+the tally — the half cut there guarded the backlog's version line, which step 0 makes a convenience
+that is shipped to nobody and may lag, so its absence costs nothing. The record decided both, in
+opposite directions, on what the guarded fact is worth rather than on how often each row spoke.
+
+**The two supporting facts stand as written.** The retrospective defect did produce a bad tag that
+nothing else in the step would have caught, and the artefact is hand-maintained and has grown from 5
+names to 99, which is where a clerical omission hides.
 
 **The key stays; the vacuity goes.** The checksum block's format remains what the index is read by —
 it is the only machine-readable form the index has. What changes is that the other side now comes

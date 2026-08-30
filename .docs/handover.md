@@ -37,6 +37,24 @@ settles it. A pass can be produced by not looking, and an `n/a` paragraph more e
 why every `n/a` behaviour this framework has shipped was run twice and why check 6 flipped between
 runs for a week before anyone noticed. Spend the repeat where the evidence is silence.
 
+**Every change carries at least one control that is not derived from the hypothesis.** The
+pre-registered arms come out of the same understanding that produced the change, so they test
+whether the change does what its author meant. They cannot test whether its author meant the right
+thing, and that is the failure that keeps happening here. Before running, name a case the change
+would break **if the understanding behind it were wrong** — a case its predecessor covered, an input
+the new shape has no reason to handle, the same question asked from the other side — and run it
+alongside the registered arms.
+
+This is not caution, it is the only arm with a record. Two changes running, the unregistered control
+found a real defect in the repair *after every pre-registered arm had held*: `0019`'s first shipped
+command skipped a non-version changelog heading and compared against the release below it, and
+`0020`'s first version resolved both sides to bare filenames and lost coverage its predecessor had.
+Five times in this project's log a check's defect has surfaced that way rather than by review, and
+none of the five came from the arms that were written down first.
+
+**Disclose it like any other run.** A control found this way goes in the report as unregistered, with
+what it broke, and the prediction file is not edited afterwards to make it look foreseen.
+
 **A correct repair still costs something, and the cost lands where nothing counts.** Every change
 made on 2026-08-29 was defensible and most had a run behind it. Each also added justification, which
 is what a careful repair does. The sum was an interview the owner refused to answer, saying
