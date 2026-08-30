@@ -87,13 +87,25 @@ Run all four. Each prints its own evidence; read it rather than trusting an exit
 here does not answer its question and you find yourself typing another one, stop: the step is wrong
 and the command you reached for is the finding.
 
+**Every row states positively what it examined and how much of it**, in a line it prints whether it
+passes or fails: the range compared, the files counted, the two set counts. A row that prints only
+its failures cannot tell a clean pass from an examination that never happened, because both are the
+empty string. **A row whose whole output is nothing has not passed; it has not run.** The line is not
+the verdict and does not replace reading what is under it. It says there was something to read.
+
 ```bash
-PREV=$(git describe --tags --abbrev=0)
+PREV=$(git describe --tags --abbrev=0) || PREV=NO-PREVIOUS-TAG
 
 # V1. What this release actually changed.
-git diff --name-only $PREV..HEAD
+CHANGED=$(git diff --name-only "$PREV..HEAD")
+echo "V1 range $PREV..HEAD, $(grep -c . <<<"$CHANGED") files changed"
+grep . <<<"$CHANGED"
 
 # V2. Every version string, so the new number is where it belongs and nowhere else.
+BPR=$(ls blueprints/*/README.md)
+echo "V2 $(grep -c . <<<"$BPR") blueprint READMEs, \
+$(grep -l 'Blueprint Version:' $BPR /dev/null | grep -c .) with Blueprint Version, \
+$(grep -l 'Framework Version:' $BPR /dev/null | grep -c .) with Framework Version"
 grep -rn "Blueprint Version:\|Framework Version:" blueprints/*/README.md
 
 # V3. The version this release calls itself, against the version it ships.
@@ -112,17 +124,22 @@ comm -13 <(grep . <<<"$IDX") <(grep . <<<"$TREE") | sed 's/^/TRACKED, NOT NAMED:
 
 What each has to show:
 
-- **V1.** Every file the changelog's top entry claims to have changed appears in the list, and
-  nothing in the list is unaccounted for by the entry. This is read, not computed: the entry is
-  prose.
+- **V1.** The line names the range and the count. Every file the changelog's top entry claims to
+  have changed appears in the list, and nothing in the list is unaccounted for by the entry. This is
+  read, not computed: the entry is prose.
+  **Read the range before the list.** `NO-PREVIOUS-TAG..HEAD` is no release diff at all, and any tag
+  but the previous release is the wrong baseline. Neither is visible in a list of filenames.
   **When a check prompt is in the list, diff its prompt block and read the diff against what the
   entry says about it.** `git diff $PREV..HEAD -- blueprints/checks/` is the command. An entry
   claiming a removal while the block grew is a failure of this step, not a wording preference:
   `0.9.1` shipped exactly that, stating the cascade as one condition and then restating the three
   cases it replaced, so three lines became five under a heading that said `Removed`.
-- **V2.** Every `Framework Version` reads the new number. **A `Blueprint Version` reads the new
-  number if and only if that blueprint changed in some file other than its `README.md`'s version
-  lines**, and the old one otherwise.
+- **V2.** **All three numbers are equal**, or a label has been reworded or a blueprint has arrived
+  with no version block, and the field is gone from the check rather than from the tree. Nothing else
+  in the step reads `Blueprint Version:`, so that half has no second reader.
+  Then: every `Framework Version` reads the new number. **A `Blueprint Version` reads the new number
+  if and only if that blueprint changed in some file other than its `README.md`'s version lines**,
+  and the old one otherwise.
   That wording is deliberate and replaces "appears in V1's list", which contradicted step 1 in this
   same file: step 2 bumps `Framework Version` in every blueprint `README.md`, so every blueprint
   always appears in V1's list, and the old wording therefore demanded that every `Blueprint Version`
@@ -132,20 +149,17 @@ What each has to show:
   does not carry that number; a top entry that is not a version prints `MISSING` and lists every
   blueprint, which is why the version is taken from the first `##` heading and not from the first one
   that happens to look like a version. Whether the number is the intended one is the reader's, and the only judgement here.
-  **It compares two fields because it used to grep prose.** The old row matched a fixed phrase in the
-  backlog. It fired five times, caught nothing, and by `0.16.0` was returning the sentence written to
-  complain about it. The backlog is no longer read here and its version line may lag: a `.docs/`
-  change never causes a release, so that line is a convenience. What replaced it supplies V2's missing
-  referent — V2 asks whether every `Framework Version` reads the new number, and V2's own output never
-  says what the new number is. See [`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
+  It compares two fields rather than grepping prose, and supplies V2's missing referent: V2 asks
+  whether every `Framework Version` reads the new number, and V2's own output never says what the new
+  number is. The backlog is no longer read here and its version line may lag, which a `.docs/` change
+  never causing a release makes a convenience. See
+  [`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
 - **V4.** The first two commands print nothing. A file present on disk and excluded by an ignore
   rule is the case worth catching, because `git add` does not report what it declined to add.
-  **The third prints a count line in every outcome**, and a pass is two equal counts with no names
-  under either label. It compares two sets because it used to compare one set against nothing: keyed
-  on the checksum block's two-space format alone, it printed the empty string both when every log
-  was tracked and when the block matched nothing at all, so one `sed` over that whitespace blinded
-  it without touching a fact it guards. Both directions are in scope. This is the check `v0.9.0`
-  failed. See [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md).
+  **The third prints two counts**, and a pass is two equal counts with no names under either label.
+  Equal counts with names under both is a third outcome and a real one: the sets are the same size
+  and disagree. Both directions are in scope. This is the check `v0.9.0` failed. See
+  [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md).
 
 If anything fails here, amend the commit and run it again. That is what this step is placed before
 the tag to make possible.

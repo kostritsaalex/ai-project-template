@@ -2,11 +2,48 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after `release.md` V4's third command was repaired into a two-sided comparison.
+Last updated 2026-08-30, after step 7 was given one requirement that every row state what it examined.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**Step 7 has one governing requirement now: every row states positively what it examined and how much
+of it, and V1 and V2 are its first two conformances.** Not a release — everything is under `.docs/`.
+See [`0021`](decisions/0021-a-row-states-what-it-examined.md) and
+[`predictions/release-v1-v2-positive-output.md`](predictions/release-v1-v2-positive-output.md).
+
+**Both vacuous passes were demonstrated and both are closed.** V1 with `$PREV` empty exited 0 on zero
+bytes; it now prints `V1 range NO-PREVIOUS-TAG..HEAD` and the diff fails loudly. V2 with a field
+label reworded printed zero bytes; it now prints three counts, and the partial rewording — only
+`**Blueprint Version:**`, which leaves six healthy-looking lines and takes every `Blueprint Version`
+out of the check — is the case the denominator exists for. **V3 catches the full rewording and not
+the partial one**, because V3 never reads that field.
+
+**The pre-registration was falsified, and that is the finding.** It said V2 would fire at no tag.
+**It fires at ten of twenty**, `v0.1.0`–`v0.10.2`, all real: `blueprints/setup/README.md` shipped for
+ten releases with no `Blueprint Version`, which `0.11.0`'s changelog records as having been found by
+hand. The old V2 could not have seen it — a file contributing no lines to a `grep -rn` is invisible
+without a count of the files. Retroactive, but **not the case the repair was written for**, which
+makes it a different kind of retroactive from `v0.9.0`'s. Live true positives stay zero for every row
+in step 7.
+
+**An unregistered control found a defect in the repair, the second change running and the sixth in
+this log.** With no blueprint `README.md`s, `grep -l` got no file operand and read stdin — pasted
+into a terminal, step 7 would hang. It hung on `0 blueprint READMEs`, the exact *"nothing to check"*
+outcome the requirement exists to expose. Both `grep -l` calls gained `/dev/null`; every affected arm
+was re-run against the shipped form and the prediction was not edited. **This was the first
+application of the control rule now in [`handover.md`](handover.md)**, added in the same pass.
+
+**Three found and not acted on.** Step 2 of `release.md` says *"all four blueprint READMEs"* and
+there are six — a stale count in a procedure, one step above the pass that is about stale counts.
+`grep -rn` returns the six files in an unstable order across identical runs, which predates this
+change. And `registry-check.md:258` names this class in prose with a reader's warning rather than a
+distinguishing output, which belongs to the queued subtraction pass over `blueprints/`.
+
+**The step grew: 145 non-blank lines to 158**, +13, with 3 removed against 19 added. The queued
+subtraction pass over step 7 inherits a larger file than it was promised.
+
 
 **`release.md` V4's third command can no longer pass vacuously, and this is not a release.**
 Everything in this pass is under `.docs/`, so by step 0 nothing is bumped and nothing is tagged. See
@@ -64,8 +101,8 @@ by name. `v0.9.0` still fires with five; every tag from `v0.9.1` on passes with 
 Principle 7 asks what was removed in exchange and the answer for this pass is nothing. The argument
 was put in `0020` rather than beside the command, which is the only reason it is 7 and not 12.
 
-**Two more rows in `release.md` share the vacuous-pass class, demonstrated rather than argued, and
-deliberately not acted on.** That is the next change if it is wanted.
+**Two more rows in `release.md` shared the vacuous-pass class. Both were closed by
+[`0021`](decisions/0021-a-row-states-what-it-examined.md); the demonstrations that opened them:**
 
 - **V1 passes vacuously if `$PREV` is empty.** `git describe --tags --abbrev=0` failing leaves
   `git diff --name-only ..HEAD`, which git reads as `HEAD..HEAD` and which prints nothing — reported
