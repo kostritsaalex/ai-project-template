@@ -207,3 +207,31 @@ Knowing the question is being asked may make him read past the examples delibera
 bias the answer toward cutting them. Asking afterwards avoids that bias and loses the answer, since
 he cannot un-read them. **The bias is accepted and named**, and if he reports that he could have
 answered without them, the record notes that he knew the question was coming.
+
+## Second thing registered before he answers: does the `Northwind` device come back?
+
+**Written 2026-08-30, before the acceptance test.** The examples razor case above asks whether
+question 2's examples are needed at all. **This asks a different question about the same three lines:
+whether they should belong to somebody else.**
+
+Twice an example has been answered instead of the question — once by a tool, across four releases of
+folder-list boundaries, and once by the owner, who returned both of question 2's examples verbatim
+joined by its own *or*. **The framework's own device against exactly that is the fictional `Northwind`
+project**: an example visibly belonging to another project cannot be copied without lying about your
+own. It is still in the placeholder table and it was dropped when these examples went abstract.
+
+The three shipped examples — *never set up deployment, never spend money on my behalf, never publish
+anything publicly* — are the owner's own and carry no owner.
+
+**His acceptance test decides it, and the reading is fixed now:**
+
+- **If he reaches to copy one again** — his answer contains one of the three examples, or is built
+  from them — **the device is needed**, and that is the evidence for restoring it: question 2's
+  examples become Northwind's prohibitions rather than unattributed ones.
+- **If he answers from his own project** without reusing them, the device is not needed here and the
+  abstract form stands. **That is not evidence the device is useless in general**, only that these
+  three examples did not require it.
+
+**The two questions interact and the order matters.** If the examples are cut entirely on the first
+question, this one is moot. So the first is read before this one, and this is only reached if they
+stay.
