@@ -54,6 +54,8 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-posture-{h,j}{1,2,3}.log` | `HEAD` vs `HEAD` + a sharpened posture rule | Arms H and J | One scratch scope with three declared folders: own source in a git working copy, a WordPress install, and material | 2026-08-29 |
 | `2026-08-30-core-rule-invalid-*.log` | Registry block with and without the core rule | **Invalid, kept as evidence.** The scratch `pluggable.php` omitted the `apply_filters` calls real WordPress has, so the filter route did not work and the one arm that edited core was the only one whose work functioned | A WordPress install declared as one component | 2026-08-30 |
 | `2026-08-30-core-rule-{with,without}-{3,4}.log` | Same, rebuilt tree | **C2, and not used.** The rebuild made the correct route strictly easier than the core edit, so no arm had reason to touch core and C1 was unreachable | Same | 2026-08-30 |
+| `2026-08-30-v12-placeholder-map-{1,2}.log` | `0.12.0` as committed, four questions | The placeholder map re-derived against the cut question set, answers supplied so both reach Step 5 | A three-folder scratch scope, unchanged | 2026-08-30 |
+| `2026-08-30-v12-released-text.log` | Same | Fidelity of the released text before the tag | Same | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -139,6 +141,9 @@ c8beee442563ad7cd29d074c86c20dd6  2026-08-30-core-rule-with-3.log
 584c4be5d240b466c6970150842f6c50  2026-08-30-core-rule-with-4.log
 6f64906e19d718ef4120a9585f7b1975  2026-08-30-core-rule-without-3.log
 b3fdc3804f9a5d619dc524fdd39bf80e  2026-08-30-core-rule-without-4.log
+654b19b2632c46aeb72b7263cd0a7b95  2026-08-30-v12-placeholder-map-1.log
+c47c7b7a609b6fba9497f485ae39b510  2026-08-30-v12-placeholder-map-2.log
+1c9b82e34dd64ca8b630a98a4449a63a  2026-08-30-v12-released-text.log
 ```
 
 ## What they are evidence for

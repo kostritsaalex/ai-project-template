@@ -159,11 +159,11 @@ by ordinary carelessness, found by a check before a person found it.
 
 The architecture is in use in two real projects and changes through use. Every release from `0.3.0`
 to `0.5.0` removed more than it added. `0.6.0` was the first to spend a line: it cut four rules down
-to one and put that one where it fires. What ships into an adopted project is 41 non-blank lines for
-a project scope, 34 of them `PROJECT.md` and 7 its two adapters, and 22 for a component across its
+to one and put that one where it fires. What ships into an adopted project is 40 non-blank lines for
+a project scope, 33 of them `PROJECT.md` and 7 its two adapters, and 22 for a component across its
 two stubs. The metric is non-blank lines with the blueprint notice and every HTML comment stripped,
 summed across the files a scope ships; an override is not counted, since a folder has one only when
-it has something to add. Re-measured at `0.10.2`, and re-measured at every release, which
+it has something to add. Re-measured at `0.12.0`, and re-measured at every release, which
 is a step in [`.docs/release.md`](.docs/release.md).
 
 `0.6.0` was also the first release validated by resetting a real project to bare folders and

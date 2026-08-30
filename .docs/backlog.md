@@ -8,9 +8,13 @@ Last updated 2026-08-29, after the interview was measured rather than repaired.
 
 ## Where we are, 2026-08-29
 
-**`0.11.0` is released, tagged and pushed.** Tagged on `2150f70`, after V1 to V4 passed on the
-committed tree and after the released text was run twice — once at six questions, once at seven after
-a placeholder check added one.
+**`0.12.0` is released, tagged and pushed.** Four questions, after the per-question razor audit
+`0013` never performed. `<DOCUMENT_OWNER>` cut, the boundary example corrected in three places, and
+the shipped metric down to 40 and 22 — its first movement since `0.7.0`.
+
+**Five releases are provisional and all five wait on one thing: the owner reading this question set
+and accepting it.** He has cancelled every adoption until he has. Nothing is queued and the queue
+does not move until he reads them.
 
 **Three items wait for the batch after it, none blocking:** the two `release.md` clauses below, and
 the `<DOCUMENT_OWNER>` razor case, which may take the seventh question straight back out.

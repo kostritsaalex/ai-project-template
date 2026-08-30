@@ -1,0 +1,45 @@
+**Step 1 — Access.** Both reachable: the framework at `/home/kostritsaalex/Projects/Frameworks/ai-project-template`, and the target folder `…/scratchpad/v12scope`.
+
+**Step 2 — Look.**
+
+1. No `PROJECT.md` here. This folder is not already a project scope.
+2. Not applicable — this is a project scope, not a component attachment.
+3. No other AI instruction files anywhere in the folder, of this framework or another. Nothing will be overwritten.
+4. The folder claims no parent. No conflict.
+5. The path resolves exactly as I mean to write it: `realpath` returns the same string, so no symlink or mount stands behind it. It sits on `tmpfs` mounted at `/tmp` — see the remark under the table.
+6. Not applicable — component setup only.
+
+The folder holds `storefront/`, `lookbook/` and `notes/`. I am not describing their contents and not proposing any of them as a component beyond what you named.
+
+**Step 3 — Blueprint read.** `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, Blueprint Version 0.12.0 (Framework 0.12.0).
+
+**Step 4 — Asked and answered.** Your four answers are recorded below.
+
+---
+
+## Step 5 — Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `v12scope` | Folder name, offered as a draft. **Most likely row to overturn** — the workshop's real name is not visible from here. |
+| `<PROJECT_PURPOSE>` | "A small furniture workshop. It restores mid-century pieces, photographs them and sells them through a shop site. Software is one part of it, not all of it." | Your answer 1 |
+| `<SCOPE_COVERS>` | `restoration, photography and selling online` — giving "This project currently covers restoration, photography and selling online. Anything else is outside it." | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | Your answer 3 — both defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `none. No copy of this folder exists off this machine.` | Settled from decision `0007`, fourth form: no git remote, no synced store, no containing folder that travels |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v12scope` | Resolved in Step 2, in this exact form. Not under `~`, so written absolute |
+| `<PATH_NOTE>` | **Deleted** | Settled from Step 2: the path resolves on its own, with no symlink or mount arrangement to name and no command that would recreate one |
+| `<SESSION_NOTE>` | **Deleted**, plus a visible line saying that a component placed on another filesystem brings it back | Settled from your answer 4: both components sit inside this folder, so nothing crosses a boundary |
+| `<COMPONENTS>` — block 1 | `## v12scope Storefront` — *Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand.* / `Address: storefront` | Your answer 4; posture proposed from your answer 1 (the shop site is software) |
+| `<COMPONENTS>` — block 2 | `## v12scope Lookbook` — *Assets. Live material. Work here as the task requires.* / `Address: lookbook` | Your answer 4; posture proposed from your answer 1 (photographs are material, not code a platform updates) |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.12.0` | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | `2026-08-30` | Today |
+| `.docs/` line | Visible text saying neither `.docs/` nor `.docs/decisions/` exists yet | Step 2: absent |
+
+Files: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` in the root. None exist, so nothing gets overwritten.
+
+**Two remarks, neither a question.**
+
+- Component names carry the project name, so correcting row 1 rewrites the two registry headings with it. Cheapest to settle now, before the stubs exist.
+- `/tmp` is `tmpfs` here, so this folder does not survive a reboot. That is not a path note — there is no arrangement to name and no command to recreate — but it is worth knowing, and it is the same fact that makes `Address: none` correct.
+
+Nothing is written yet. Confirm the table, or overturn any row in a sentence.

@@ -162,3 +162,18 @@ blueprint; a run that reinstates it is a finding, not a courtesy.
 keeping the rule that the shipped bytes are run bytes.
 
 **T4.** Nothing written into the scope.
+
+## Result of the `0.12.0` re-run, scored 2026-08-30
+
+**T1 holds.** Both runs produced a Step 5 table covering **all eleven** placeholders, including
+`<YYYY-MM-DD>` as `2026-08-30`, sourced "Today". No placeholder came out without a source, so the
+`<DOCUMENT_OWNER>` shape did not recur under four questions.
+
+**T2 holds.** Zero mentions of a document owner across all three runs. Neither run asked for one nor
+reinstated the header line.
+
+**T3 holds.** 0 added prose, similarity 1.000, four questions.
+
+**T4 holds.** Scope checksum `0c00b4979692efee7e4015ef5f54227e` unchanged.
+
+Eleven runs of the mechanism now carry zero added prose, across four subjects and five scopes.

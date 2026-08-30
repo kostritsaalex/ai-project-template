@@ -6,6 +6,91 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.12.0] - 2026-08-30
+
+**Seven questions become four.** `0.11.0` shipped the interview as text and never ran the razor over
+its contents. See [0014](.docs/decisions/0014-the-razor-runs-over-the-questions-one-at-a-time.md).
+
+### Changed
+
+- **The interview is four questions**: what the project is, its boundary, its principles, which
+  folders are components. Each was judged against `0004` on its own — *could an assistant that read
+  the folder have proposed this?* — which is the audit `0013` named as its basis and never performed.
+- **The name and the address become proposals**, and **every proposal names its source in the
+  assistant note.** The address rule is narrow because a wrong one is worse than a question: a
+  synced-store root gives `OneDrive, <path within the store>`; a git remote gives that remote
+  normalised to a URL with its scheme, and if it cannot be normalised to one of `0007`'s four forms
+  the assistant **asks**; with neither, `0007`'s `none` form with the reason.
+- **The boundary is answered in kinds of work, and the example now says so.** `restoration,
+  photography and selling online`, not a list of folders.
+
+### Removed
+
+- **`<DOCUMENT_OWNER>`**, from the blueprint header, the placeholder table and the interview. It
+  names a person to ask when a document is ambiguous, which is a convenience for a human reader; an
+  assistant meeting an ambiguous `PROJECT.md` reports it and stops either way. **This is a reasoned
+  cut recorded as reasoned rather than measured** — the only change here with no run behind it, and
+  the first to revisit if a project needs the line.
+- Three questions, and the apparatus that asked them.
+
+### Fixed
+
+- **`0011`'s worked example and the blueprint's placeholder table both taught the opposite of their
+  own rule.** `0.10.0` inverted the boundary and changed the example from `hosting and deployment,
+  mobile applications, accounting` — kinds of work — to `the main folder and the northwind-storefront
+  repository` — places. It recorded the rule change and not the example change, and **every adoption
+  for four releases followed the example**, answering the boundary with a folder list that duplicates
+  the registry. Found by the owner as a feeling that two questions overlapped, and established in git.
+- `release.md` V2, which contradicted step 1 in the same file: step 2 bumps `Framework Version` in
+  every blueprint `README.md`, so every blueprint always appeared in V1's list and V2 read literally
+  demanded that every `Blueprint Version` move. It now reads "changed in some file other than its
+  `README.md`'s version lines", which is how every release had silently read it.
+
+### Added
+
+- `release.md` step 6 gains one exception: **a pre-registration committed between the work and the
+  release is not squashed into it.**
+- `handover.md`: **judging by the artefact means judging whether the artefact works.** A diff in the
+  right files is not work.
+
+**The shipped-line metric moves for the first time since `0.7.0`: 40 non-blank lines for a project
+scope, 33 of them `PROJECT.md`, and 22 for a component.**
+
+### On the evidence
+
+Nineteen runs across three pre-registrations.
+
+**Fidelity: zero added prose in every script run**, similarity 1.000 — eleven runs of the mechanism
+now, four subjects, five scopes. **Four questions, never five**, on three scopes. **The address on all
+three branches, twice each**, both git runs normalising the SSH remote and citing `0007` unprompted;
+the registered falsifier did not fire, having fired once on this repository before shipping.
+
+**The placeholder map was re-derived rather than assumed**, because it is what found the last gap:
+eleven placeholders, four from questions, five from proposals, two read, all sourced in both runs.
+
+**What did not carry this, named rather than left to disappear.** The claim that the question block
+varies with the folder was this session's own best argument after an earlier experiment came out
+indeterminate, and **a control arm refuted it at −3.5%.** The name proposal is justified by the razor
+and not by a run, since nothing in a scratch run can observe an owner correcting a name.
+
+**Fidelity, not sufficiency.** No run answered these questions and no `PROJECT.md` was produced.
+**`0.12.0` is provisional, as `0.10.0` through `0.11.0` are, and all five wait on the owner's approval
+of this question set rather than on scheduling** — he has cancelled every adoption until he has read
+it and accepted it.
+
+### Also in this release, from `.docs/` and causing no version of their own
+
+A third shape of stale fact: **an example contradicting the rule it illustrates.** `0004` cuts facts
+and `0008` cuts rules; an example is neither, and it can contradict its rule while both read correctly
+alone. Its instrument is a reader, and nothing is being built for it.
+
+The posture axis was reversed by the owner the same day and **is deliberately not in this release.** A
+sharpened posture rule was measured and worked — the old wording proposed `Repository` for a folder of
+own source in three of three runs, stably wrong — and was pulled, because it says the opposite of the
+new axis and shipping then reversing it is churn. The axis change waits on whether the core rule earns
+its place, which **two experiments failed to establish**, in opposite directions: one with an invalid
+tree, one with a task that left no shortcut to take.
+
 ## [0.11.0] - 2026-08-29
 
 **The interview ships as text.** The framework shipped no interview at all, and nobody had noticed.
