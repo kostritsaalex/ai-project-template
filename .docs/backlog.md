@@ -655,6 +655,32 @@ is a folder outside the repository, a convention about what may be written durin
 or nothing at all, is unsettled. What is settled is that the current arrangement protects nobody: the
 material is one `cat` away, in a repository the session is told to read.
 
+**A measured mitigation stopped working, and nothing changed to make it stop. 2026-08-30.**
+
+`new-project.md` records *"Say what a component is before asking for the first one"* as a measured
+finding: without that sentence the person counts the project folder as component one and has to
+correct themselves mid-block. The sentence was carried into `interview.md`'s question 4 — *"this
+folder is not one, it is the project scope"* — and **the owner read it and named the project folder
+as a component anyway.**
+
+**The mitigation was present and did not work.** No wording changed, no release intervened; the same
+sentence that had prevented the failure stopped preventing it. His replacement is an instruction
+where ours was a statement of fact: *"Main project directory doesn't count."*
+
+**The general shape, and it is worth more than the fix.** A finding measured once is a claim about a
+reader on an occasion. It can stop being true with nothing in the repository changing — which is what
+`0008` already says about rules and what nobody had said about *mitigations*. And **the only reason
+this one was caught is that the person it was written for did the thing it forbids.** Nothing else
+would have reported it: every check passes, the sentence is present, and the document is correct.
+
+**The boundary's own evidence was taken on the form `0011` replaced.** Found while listing every
+place that mentions the boundary. `cold-start-check.md` cites the staging-deployment run — the single
+most evidenced behaviour in this repository — as *"hosting sat under what the project does not
+cover"*, and `WordPress 7`'s document still carries the exclusions list it was measured on. **So the
+one measurement justifying a boundary at all was taken on a prohibition-shaped line, not on a closed
+inclusion.** `0011` inverted the form and inherited the evidence without re-taking it. That is an
+argument for the owner's reversal that nobody has made, and it is checkable rather than rhetorical.
+
 **The boundary reframe, tried and rejected 2026-08-30, by the answer it produced.** Cost no run and
 is recorded for that reason.
 
