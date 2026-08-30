@@ -97,7 +97,7 @@ git diff --name-only $PREV..HEAD
 grep -rn "Blueprint Version:\|Framework Version:" blueprints/*/README.md
 
 # V3. The version this release calls itself, against the version it ships.
-CL=$(grep -m1 -oE '^## \[[0-9.]+\]' CHANGELOG.md | tr -cd '0-9.'); echo "CHANGELOG ${CL:-MISSING}"
+CL=$(grep -m1 '^## ' CHANGELOG.md | grep -oE '[0-9]+\.[0-9]+\.[0-9]+'); echo "CHANGELOG ${CL:-MISSING}"
 grep -L "Framework Version:\*\* ${CL:-NO-VERSION}" blueprints/*/README.md
 
 # V4. Nothing this release documents is untracked, ignored, or uncommitted.
@@ -127,8 +127,9 @@ What each has to show:
   move on every release. Every release had silently read it the way it is now written. Found by
   running the step rather than by reading it, on `0.11.0`.
 - **V3.** The version prints, and no file is listed under it. Any blueprint `README.md` that appears
-  does not carry that number; a heading that is not a version prints `MISSING` and lists every
-  blueprint. Whether the number is the intended one is the reader's, and the only judgement here.
+  does not carry that number; a top entry that is not a version prints `MISSING` and lists every
+  blueprint, which is why the version is taken from the first `##` heading and not from the first one
+  that happens to look like a version. Whether the number is the intended one is the reader's, and the only judgement here.
   **It compares two fields because it used to grep prose.** The old row matched a fixed phrase in the
   backlog. It fired five times, caught nothing, and by `0.16.0` was returning the sentence written to
   complain about it. The backlog is no longer read here and its version line may lag: a `.docs/`

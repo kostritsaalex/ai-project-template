@@ -85,8 +85,8 @@ nothing to compare against gets something to compare against.
 ## Consequences
 
 **The step shrinks, and the amount was measured.** `release.md` falls from 140 non-blank lines to
-137. V3's command block is three lines before and three after; its commentary falls from twelve to
-nine. The paragraphs explaining how to interpret a drifting grep are gone, and nothing replaced them.
+138. V3's command block is three lines before and three after; its commentary falls from twelve to
+ten. The paragraphs explaining how to interpret a drifting grep are gone, and nothing replaced them.
 
 **The first attempt at this decision grew the file by eight lines while claiming a cut of six.** The
 replacement was a seven-line shell loop printing one annotated line per blueprint. It was correct and
@@ -95,6 +95,20 @@ the same comparison in one line and reports only the failures.
 
 **The backlog's version line is now uncheckable by design.** If it is ever wanted back, it must
 arrive as a field, not as a sentence.
+
+**Run against all twenty tags, the repaired row has two true positives where the old one had none.**
+`v0.1.0`–`v0.8.0` fail on `blueprints/checks/README.md` and `v0.1.0`–`v0.10.2` on
+`blueprints/setup/README.md`: two blueprint folders that shipped without a version counter, gaining
+one at `0.9.0` and `0.11.0` respectively. Both holes were found by hand at the time and one is still
+open in the backlog. The row reproduces both, with the right dates, from the tree alone. Every tag
+from `v0.11.0` on passes, including three of the four trees that broke the old row.
+
+**The row's first committed form had the defect it exists to remove**, and an unregistered negative
+control found it: taking the version from the first *version-shaped* heading meant a top entry that
+was not a version was skipped and the previous release's number compared instead, so a changelog with
+no current entry passed. It now reads the first `##` heading whatever it is. A comparison must fail
+when it has nothing to compare, and writing that down in this record did not prevent writing the
+opposite into the command.
 
 **The rule generalises and is not applied here.** V1 compares a file list against changelog prose and
 says so in its own text; it is the same shape. Whether that is repairable or is irreducibly a

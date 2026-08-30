@@ -49,14 +49,49 @@ written against a seven-line loop printing one line per blueprint; the shipped c
 the five expected verdicts are about which trees pass and which fail, and those are independent of
 how the row prints. Every one of them was checked against the shipped form.
 
-**Verified both ways round, six runs.** V3 passes on the tree as it stands. Two disclosed plants in
-scratch copies — a changelog heading moved to `0.17.0`, and one blueprint `README.md` set back to
-`0.15.0` — both fail, naming the file and both numbers. And the four trees that broke the old step,
-`0.10.1`, `0.11.0`, `0.15.0` and `0.16.0`, all pass under the new one, which is the direct test that a
-correct release cannot fail it.
+**Verified both ways round, and running it changed two of the pre-registered answers.**
 
-**A subtraction, measured rather than asserted.** `release.md` goes from 140 non-blank lines to 137.
-V3's command block is 3 lines before and 3 after; its commentary falls from 12 to 9. **The first
+| Run | Pre-registered | Observed |
+| --- | --- | --- |
+| The tree as it stands | V3 passes | **Pass.** `CHANGELOG 0.16.0`, no blueprint listed. V1, V2, V4 beside it: V2 and V4 clean, V1 lists this pass's own four `.docs/` files, expected because this is not a release |
+| Plant: changelog heading moved to `0.17.0` | V3 fails | **Fail**, all six blueprints listed |
+| Plant: one blueprint `README.md` set back to `0.15.0` | V3 fails | **Fail**, exactly that one file listed |
+| Unregistered extra: a top entry that is not a version | not registered | **Fail** as intended only after a repair — see below |
+| `0.11.0`, `0.15.0`, `0.16.0` — three of the four trees that broke the old step | pass | **Pass** |
+| `0.10.1` — the fourth | pass | **Fail**, and correctly |
+
+**The extra control found a defect in the repair, in the form that had already been committed.** The
+first shipped command took the version from the first *version-shaped* heading,
+`grep -m1 -oE '^## \[[0-9.]+\]'`. Given a top entry that is not a version it silently skipped down to
+the previous release's heading and compared against **that**, passing on a changelog whose top entry
+names no version at all. The old V3 had the same shape bounded by `head -40`. It now takes the first
+`##` heading whatever it is and extracts a version from that, so a non-version top entry yields
+`MISSING` and lists every blueprint. **Found by running an unregistered control rather than by
+reading the command**, which is the fourth time in this project's log that a check's defect surfaced
+that way and not by review.
+
+**`0.10.1` fails, and it is a true positive — the first in V3's life.** Not the backlog: repaired V3
+never reads the backlog. It names `blueprints/setup/README.md`, which at that tag carried **no
+version fields at all**. That is the hole this backlog already records — *"`blueprints/setup/` is a
+blueprint folder with no version, and it just moved. `0.10.0` changed `procedure.md` and no version
+records it"* — found by hand at the time and still open. The pre-registration predicted a pass and
+was wrong.
+
+**Run against all twenty tags, the repaired step dates both known version-counter holes from the tree
+alone.** `v0.1.0` through `v0.8.0` fail on `blueprints/checks/README.md`, which gained its counter at
+`0.9.0`; `v0.1.0` through `v0.10.2` fail on `blueprints/setup/README.md`, which gained one at
+`0.11.0`. **Every tag from `v0.11.0` on passes.** Two independently-found holes, reproduced with the
+right dates by a command that knows nothing about either — which is better evidence that the row
+measures a real fact than any of its own runs could be.
+
+**What is still uncaught, stated plainly.** `v0.9.1`'s actual defect was its backlog naming `0.9.0`
+while its changelog named `0.9.1`. Repaired V3 does not catch it — that tag fails on `setup/README.md`,
+a different defect entirely — and **nothing else in step 7 catches it either.** That is the accepted
+cost of dropping the backlog, pre-registered as such before the runs, and it is not dressed up as
+coverage by the `v0.9.1` failure.
+
+**A subtraction, measured rather than asserted.** `release.md` goes from 140 non-blank lines to 138.
+V3's command block is 3 lines before and 3 after; its commentary falls from 12 to 10. **The first
 draft of this pass got it backwards** — the replacement was a seven-line shell loop and the file grew
 by 8, while the text claimed a cut of 6. Caught by measuring before committing, which is the only
 reason the claim in this paragraph is worth anything.
