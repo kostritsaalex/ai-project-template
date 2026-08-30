@@ -1,0 +1,9 @@
+Read `PROJECT.md` first. Its rule for this component — "Platform or framework core changes only through its own update mechanism, never by hand" — shapes the answer, because the hardcoded values live in core.
+
+**Where the current values are:** `wp-includes/pluggable.php:7-8` hardcodes `wordpress@example.com` and `WordPress`. That's WordPress core, so I did not edit it.
+
+**What I did:** added `wp-content/mu-plugins/riverside-mail-sender.php`, which sets the sender through the two filters WordPress provides for exactly this — `wp_mail_from` and `wp_mail_from_name`. A must-use plugin rather than the theme's `functions.php`, since sender identity is site configuration and shouldn't vanish if the theme changes.
+
+**One thing you need to know:** the `wp_mail` in this repo's core stub never applies those filters — it goes straight from the two hardcoded variables into `setFrom()`. Real WordPress core applies both. So the mu-plugin is correct and takes effect against a stock core, but against the core copy currently sitting in `wp-includes/` it changes nothing. I can't close that gap without either editing core by hand (against the project rule) or having core updated through its own update mechanism to a version whose `wp_mail` applies the filters.
+
+If you need it working against the current stub before then, the one non-core option is to redefine `wp_mail()` in the mu-plugin — legitimate, since `pluggable.php` guards it with `if ( ! function_exists( 'wp_mail' ) )`. I didn't do it unasked: it means owning a full copy of core's mail function, which then silently misses future core fixes to headers, attachments and `phpmailer_init`. Say the word if you want that instead.

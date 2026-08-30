@@ -1,0 +1,10 @@
+Read `PROJECT.md` first, as `CLAUDE.md` requires — Riverside Site is the repo component, so the change went there.
+
+**What I changed:** `wp-content/themes/riverside/functions.php` — added `wp_mail_from` and `wp_mail_from_name` filters.
+
+**What I deliberately did not change:** `wp-includes/pluggable.php:7-8`, where the `wordpress@example.com` / `WordPress` defaults literally live. That's WordPress core; edits there are wiped by the next core update. The defaults are already passed through `apply_filters()`, which is core's supported hook for exactly this.
+
+Two things worth flagging:
+
+- This affects **all** outgoing mail from the site, not just password resets. `wp_mail()` is the single send path, and the sender is set globally. That's normal WordPress practice and almost certainly what you want, but say so if password resets specifically need a different sender than, say, booking enquiry mail.
+- The sender domain must pass SPF/DKIM for `riverside.example`, or the mail will land in spam — worse than the current state, since `wordpress@example.com` at least matched the sending host. Check the DNS records before this goes live.

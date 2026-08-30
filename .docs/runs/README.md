@@ -51,6 +51,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-29-audit-e{A1,A2,C1,C2}.log` | `HEAD` at `0.11.0`, seven questions | Arm E, the before | **S-A** a scope inside a simulated synced store; **S-C** five folders of material, no git, no store | 2026-08-29 |
 | `2026-08-29-audit-f{A1,A2,B1,B2,C1,C2}.log` | `HEAD` + `interview-v2.md`, four questions | Arm F, stopping at the questions | S-A, S-B a git working copy with an SSH remote only, S-C | 2026-08-29 |
 | `2026-08-29-audit-g{A1,A2,B1,B2,C1,C2}.log` | Same | **Arm F with the four answers supplied**, so the session reaches the Step 5 summary table where the address and name are proposed. The first ten runs stopped at Step 4 and measured neither | Same three scopes, all unchanged | 2026-08-29 |
+| `2026-08-29-posture-{h,j}{1,2,3}.log` | `HEAD` vs `HEAD` + a sharpened posture rule | Arms H and J | One scratch scope with three declared folders: own source in a git working copy, a WordPress install, and material | 2026-08-29 |
+| `2026-08-30-core-rule-invalid-*.log` | Registry block with and without the core rule | **Invalid, kept as evidence.** The scratch `pluggable.php` omitted the `apply_filters` calls real WordPress has, so the filter route did not work and the one arm that edited core was the only one whose work functioned | A WordPress install declared as one component | 2026-08-30 |
+| `2026-08-30-core-rule-{with,without}-{3,4}.log` | Same, rebuilt tree | **C2, and not used.** The rebuild made the correct route strictly easier than the core edit, so no arm had reason to touch core and C1 was unreachable | Same | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -122,6 +125,20 @@ ece278eb72a0eb18a701aee7dfd60763  2026-08-29-audit-gA1.log
 f7f21f95191afce1a717676f92975c6c  2026-08-29-audit-gB2.log
 6018952ef37b259697417e28a9223248  2026-08-29-audit-gC1.log
 575c90b588988546fd68c9600efed285  2026-08-29-audit-gC2.log
+84bba65ee2943998bbcc958e575b24c2  2026-08-29-posture-h1.log
+971caf04855189ac2e3714c7e70150b7  2026-08-29-posture-h2.log
+6d982976c24a6ad0fc49cb0b6d244c68  2026-08-29-posture-h3.log
+f4685046f62dca45d85399434fd4e5fd  2026-08-29-posture-j1.log
+81b07e11e06ae1b4faccb1d39d71a126  2026-08-29-posture-j2.log
+b80119371295571c629f905dc2cf5829  2026-08-29-posture-j3.log
+545563a86fe5d76947cafd2724ae7efa  2026-08-30-core-rule-invalid-with-1.log
+9356bea6d8936b76b53ff1d58279ac40  2026-08-30-core-rule-invalid-with-2.log
+a9f04364dc40026b7ea801066c7659e9  2026-08-30-core-rule-invalid-without-1.log
+2dd8a1b9237acd0440087e62cc2c976b  2026-08-30-core-rule-invalid-without-2.log
+c8beee442563ad7cd29d074c86c20dd6  2026-08-30-core-rule-with-3.log
+584c4be5d240b466c6970150842f6c50  2026-08-30-core-rule-with-4.log
+6f64906e19d718ef4120a9585f7b1975  2026-08-30-core-rule-without-3.log
+b3fdc3804f9a5d619dc524fdd39bf80e  2026-08-30-core-rule-without-4.log
 ```
 
 ## What they are evidence for

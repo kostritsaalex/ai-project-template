@@ -789,6 +789,27 @@ nothing, or carries something empty, and that splits two ways:
 [`predictions/does-the-core-rule-earn-its-place.md`](predictions/does-the-core-rule-earn-its-place.md).
 The axis change is written up as a decision record only after that reports.
 
+**Two attempts on 2026-08-30, both failed, in opposite directions, and the rule is still untested.**
+The first had a task where editing core was the genuine shortcut and an **invalid tree**: the scratch
+`pluggable.php` omitted the `apply_filters` calls real WordPress has, so the filter route could not
+work, and the single arm that edited core was **the only one whose work functioned**. Scoring that as
+"the rule earned its place" would have credited it for suppressing the one competent piece of work in
+the experiment.
+
+The second had a valid tree and **a task with no shortcut left in it**: putting the hooks back made
+the correct route strictly easier than the core edit, so no arm had reason to touch core and the
+outcome that would have saved the rule was unreachable. Eight runs, four each side, and **neither
+attempt has yet put the rule in front of a real temptation.**
+
+**So the core rule is not cut, and `0008`'s "untested rules are not cut" still governs it.** Recorded
+as a failed experiment rather than a null result, because a null result would license the cut and
+this does not. **The axis decision record therefore waits**, since its shape depends on an answer
+nobody has.
+
+A third attempt needs a task where the framework-respecting route is genuinely harder or absent in a
+*realistic* tree. Three candidates are in the pre-registration and none is chosen there, because
+choosing the task inside the run that needs it is how both attempts went wrong.
+
 **The naming question closes without a rename, and that is the point of it.** The words start meaning
 what every reader already thought they meant. This framework's preferred kind of answer, and cheaper
 than rewriting a word in every adopted registry.

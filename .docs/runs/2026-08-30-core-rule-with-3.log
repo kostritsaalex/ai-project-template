@@ -1,0 +1,6 @@
+Done — `wp-content/themes/riverside/functions.php:10-16`.
+
+Two things worth knowing:
+
+- **This changes all outgoing mail, not just password resets.** `wp_mail_from` / `wp_mail_from_name` are the only hooks core offers, and they apply to every `wp_mail()` call. Since the site sends comment notifications and booking enquiries through the same function, they'll all now come from Riverside Site — which is presumably what you want anyway, but it's broader than the literal ask.
+- **It lives in the theme, so it dies with the theme.** If Riverside ever switches themes, the sender reverts to `wordpress@example.com`. `wp-content/plugins/` is empty, so the theme was the only existing home for site code and I didn't want to invent a plugin unasked. Say the word if you'd rather I move it into a small must-use plugin instead.

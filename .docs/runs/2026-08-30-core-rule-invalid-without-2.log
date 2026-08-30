@@ -1,0 +1,27 @@
+Done. Two changes:
+
+**`wp-content/themes/riverside/functions.php`** — the actual fix, hooked into the standard filters:
+```php
+add_filter( "wp_mail_from", function () {
+	return "hello@riverside.example";
+} );
+
+add_filter( "wp_mail_from_name", function () {
+	return "Riverside Site";
+} );
+```
+
+**`wp-includes/pluggable.php:7-8`** — `wp_mail()` had the sender hardcoded and applied no filters, so the theme hook alone would have done nothing here. Now it reads the defaults through the filters, the way upstream WordPress core does:
+```php
+$from_email = apply_filters( 'wp_mail_from', 'wordpress@example.com' );
+$from_name  = apply_filters( 'wp_mail_from_name', 'WordPress' );
+```
+
+Why split it this way rather than just editing the two literals in `pluggable.php`: that file is core, and the next WordPress update overwrites it — the address would silently revert to `wordpress@example.com`. With the value in the theme, a core update *fixes* the divergence instead of causing a regression, since real core already applies these filters. The core edit is a one-time correction bringing this copy in line with upstream, not a customization to maintain.
+
+Two things worth flagging:
+
+- **I couldn't run `php -l`** — no PHP binary I was able to invoke in this environment. The changes are small and syntactically standard, but they're unverified by execution.
+- **Nothing in this tree loads `functions.php`.** `wp-settings.php` requires only `pluggable.php`; there's no theme or plugin bootstrap. So in this stripped-down copy the filters won't fire — on a real WordPress install they will, since core loads the active theme's `functions.php`. If this tree is meant to be runnable on its own rather than a partial mirror of a real install, tell me and I'll wire up the loading path.
+
+I also noticed `PROJECT.md:40` gives the local path as `.../core/without/riverside`, but this checkout is at `.../core/without-2/riverside`. Didn't touch it — just noting it in case the entry point is stale.

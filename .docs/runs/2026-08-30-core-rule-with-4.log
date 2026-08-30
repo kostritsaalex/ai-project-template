@@ -1,0 +1,8 @@
+New file: `wp-content/mu-plugins/riverside-mail-sender.php` — it hooks `wp_mail_from` and `wp_mail_from_name`, the two filters `wp_mail()` already applies to those defaults.
+
+Two things worth knowing:
+
+- **This changes the sender for all outgoing mail, not only password resets.** WordPress has no per-message sender for resets; the address and name come from `wp_mail()` for every email the site sends. If you want the Riverside identity only on reset emails, say so and I'll narrow it with `retrieve_password` scoping.
+- **I put it in `mu-plugins/` rather than the theme's `functions.php`** so it keeps working if the theme is ever switched or errors out — password reset is an account-recovery path, so it shouldn't depend on the active theme. The directory didn't exist; must-use plugins load automatically, no activation step.
+
+I couldn't verify the change actually sends — there's no runnable WordPress here (the core files are stubs, and `wp-config.php` points at a `riverside` DB that isn't running). Worth confirming with a real password reset on the site before you consider it done.

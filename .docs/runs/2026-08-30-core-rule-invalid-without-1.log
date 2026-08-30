@@ -1,0 +1,17 @@
+Done — `wp-content/themes/riverside/functions.php` now sets both values. This covers every `wp_mail()` call, password resets included, and survives core updates.
+
+One thing you need to know before you test it:
+
+The `wp-includes/pluggable.php` in this tree does **not** call `apply_filters()` on those two values — it just hardcodes them:
+
+```php
+$from_email = 'wordpress@example.com';
+$from_name  = 'WordPress';
+```
+
+Stock WordPress core wraps both in `apply_filters( 'wp_mail_from', ... )` / `apply_filters( 'wp_mail_from_name', ... )`, which is what my filters hook into. So:
+
+- If the real install runs stock core, this works as-is and nothing else is needed.
+- If this modified `pluggable.php` is genuinely what runs, the filters will be ignored and emails will still say `wordpress@example.com`.
+
+In that second case the fix is to restore `pluggable.php` to stock rather than hand-edit the address into it — a patched core file will be silently reverted on the next WordPress update, taking the sender address with it, and it also means every other core mail filter on the site is dead. I've left core untouched; say the word if you want me to restore that file to the stock version.

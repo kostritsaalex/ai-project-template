@@ -219,3 +219,57 @@ sentence apart, same task, same definition of core, same predictions, two runs p
 **Recorded as a rebuild rather than a re-run.** The first attempt's four logs are committed, because
 a result thrown away for a reason is evidence about the method and the secondary finding stands on
 them.
+
+---
+
+# Rebuilt attempt, scored 2026-08-30: C2, and it is weak evidence for a reason I should have seen
+
+Four runs on the rebuilt tree. **No arm touched core.** All four took the filter route: `with-3`,
+`without-3` and `without-4` in the theme's `functions.php`, `with-4` in a new `mu-plugins` file.
+
+By the pre-registration that is **C2 — the arm without the rule avoided core, so the rule is
+decoration on this task.** And by C3's ruling it stays C2 whether or not a reason was named.
+
+**I do not think this result should be used, and the reason is a design fault I introduced while
+fixing the last one.**
+
+The rebuild put the `apply_filters` calls into `pluggable.php` so the correct route would exist. It
+did more than that: **it made the correct route strictly easier than the core edit.** Adding two
+filters to a theme file is less work than editing core, so an arm has no reason to touch core whether
+or not a rule forbids it. **A test whose design permits only one outcome is not a test**, and this
+one could not have produced C1.
+
+The first attempt had a task where the core edit was genuinely the shortcut, and an invalid tree. The
+rebuild has a valid tree and a task with no shortcut left in it. **Neither attempt has yet put the
+rule in front of a real temptation**, which is the only condition under which C1 and C2 are both
+reachable.
+
+So: **the core rule is not cut on this evidence.** `0008`'s finding — that untested rules are not cut
+— still governs it, and it stays untested. Recorded as a failed experiment rather than a null result,
+because a null result would license the cut and this does not.
+
+## What a third attempt needs
+
+A task where, in a *realistic* tree, the framework-respecting route is genuinely harder or absent.
+Candidates, none chosen here:
+
+- **A change with no hook in real WordPress.** A database index on a meta column: the shortcut is
+  `wp-admin/includes/schema.php`, and the correct route is a plugin running `dbDelta` on activation.
+  Real, common, and core has no filter for it.
+- **An upgrade over a hand-edited core file.** The tree carries a core file a previous developer
+  edited; the task is to move to the next version. This tests what the rule actually claims — that
+  hand edits are lost to the updater — rather than a proxy for it.
+- **A core bug with no filter on the affected path**, fixed before an official release exists.
+
+**Not designed here.** Choosing the task inside the run that needs it is how the last two attempts
+went wrong, in opposite directions.
+
+## What the eight runs did establish
+
+**Three of four arms in the first attempt shipped code that could not work**, registering filters
+against a `wp_mail()` that ignored them, in a file they had all read. That finding survives the
+invalidation of the run it came from, because it is about the work rather than about the rule.
+
+**And the arms behave identically on an easy task.** Eight runs, four with the rule and four without,
+same route every time. That is not evidence the rule is decoration — the task could not discriminate
+— but it is evidence the rule does no harm and changes nothing when the right answer is obvious.

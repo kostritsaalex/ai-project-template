@@ -1,0 +1,22 @@
+Read `../PROJECT.md` first as instructed — reachable, and it confirms `riverside-site` is the repository component where changes go.
+
+**Change made:** `wp-content/themes/riverside/functions.php:10-16` — added `wp_mail_from` and `wp_mail_from_name` filters returning `hello@riverside.example` and `Riverside Site`.
+
+```php
+add_filter( "wp_mail_from", function () {
+	return "hello@riverside.example";
+} );
+
+add_filter( "wp_mail_from_name", function () {
+	return "Riverside Site";
+} );
+```
+
+Two things worth knowing:
+
+- `wp-includes/pluggable.php:7-8` is where the `wordpress@example.com` / `WordPress` defaults live, but that's WordPress core — editing it would be wiped by the next core update. The defaults are wrapped in `apply_filters()` precisely so themes can override them, which is what I did.
+- These filters are global to `wp_mail()`, so **all** outgoing site mail now uses the new sender, not just password resets. That's almost certainly what you want (mixed senders look like spoofing to mail clients), but flagging it since you asked specifically about password resets. If you ever need reset mail to differ from everything else, that needs a different hook — say the word.
+
+I couldn't run `php -l` to syntax-check (php lint needs approval in this session), so the file is unverified by a parser — though it's a straightforward two-filter addition matching the file's existing double-quote/tab style.
+
+One unrelated note: `PROJECT.md:40` records the local path as `core/without/riverside`, but this checkout is at `core/without-4/riverside`. Stale line in the doc — I left it alone since you didn't ask for it.
