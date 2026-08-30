@@ -1758,6 +1758,74 @@ that hold none of them, and a task run claimed `REPOSITORY.md` notes that nothin
 it does not. None changed a verdict. Check 6 invites this by asking for a full listing when the fact
 it needs is whether `PROJECT.md` is present.
 
+**A row can pass while its evidence does not exhibit the criterion the row applies.** Two rows on
+two checks, both from the `NorsePath` attach of 2026-08-30, both with the correct verdict and zero
+failed rows on either check.
+
+`structure-check` row 12 requires a local path to start with `~/`, fails an absolute path, and says
+to quote the path. Row 12 passed, and its evidence quoted `/OneDrive/Projects/All/NorsePath`. Read
+literally, the quotation fails the row it passed. **The files are right.** `sed -n '15p' | cat -A`
+on both stubs in `~/Projects/All/norsepath` gives ``Usually on a machine that has it:
+`~/OneDrive/Projects/All/NorsePath`$``, and the scope's own `PROJECT.md` carries the tilde on both
+of its path lines, 41 and 63. **Where the tilde was lost is undetermined and stays undetermined
+here.** The report crossed three links — the check, the rendering of it, a paste into another window
+— and **no run log for either NorsePath check was committed**: `runs/` holds none, the working tree
+is clean, and the string `norsepath` appears nowhere in this repository. With no bytes to read,
+naming a link would be a guess, and the framework's own rule is that a failure is a fact you can
+open.
+
+`registry-check` row 2 asks for the root-level filenames, in a command that names that folder and no
+other path. On NorsePath it named `ls -a` and listed the root, dotfiles included — `.git`, `.ddev`
+and the rest — which is the best evidence that row has produced. **Row 2's text has not changed
+since `0.15.0`** ([`0017`](decisions/0017-a-probe-covers-one-declared-path.md)), and on that
+unchanged text the four ArtGlina runs against the real scope produced four different readings: full
+listings in logs [13](runs/2026-08-30-registry-check-13-artglina-one-path.log),
+[16](runs/2026-08-30-registry-check-16-artglina-pasted.log) and
+[17](runs/2026-08-30-registry-check-17-artglina-path-load.log), worded three ways, and a named
+command in [19](runs/2026-08-30-registry-check-19-artglina-attached.log). The weakest reading is
+older than the current text and worth keeping for what it shows:
+[log 10-sandboxed](runs/2026-08-30-registry-check-10-artglina-sandboxed.log), where the session
+sandbox refused `ls` and row 2 became five path probes whose two cells are **byte-identical apart
+from the path and the component name** — for two folders logs 10 and 13 show differ, one holding
+`vendor` and the other an entry whose name is not valid UTF-8. Same row, evidence ranging from a
+command anyone can re-run to a probe that could not have shown a difference if there was one. **The
+variance sits in the run rather than in the row.** Good evidence is available without being
+required, and so is not reliably produced.
+
+**What it breaks is the log as a record, and today that is all.** Both verdicts were right, both
+artefacts were right, no defect passed and nothing correct failed. The cost is paid later, by a
+reader reconstructing why a row passed: they get a quotation that contradicts the rule it passed
+under, or a listing they cannot reproduce, and no way to tell either from a real defect.
+
+**What would settle it.** A row whose evidence exhibits the criterion it is judged by — the bytes as
+read, and the command that produced them named — so that checking the evidence against the row is a
+comparison rather than an act of trust. Whether that is one requirement over the prompt block or a
+clause per row is deliberately not settled here.
+
+**[`0021`](decisions/0021-a-row-states-what-it-examined.md) does not cover this, and the boundary is
+its own.** That rule makes a row say positively what it examined and how much of it, against rows
+whose empty output could not tell a clean pass from an examination that never happened. Here the
+examination happened and the output is positive; what fails is the fit between the quotation and the
+rule. `0021` says so itself — *"The line is not the verdict. It says there was something to read;
+the reading is still the reader's"* — and its control C2 was built to keep that distinction,
+printing a passing count line above a real defect. This item is the other half of that sentence, and
+it is about the two shipped checks rather than `release.md` step 7.
+
+**Adjacent to "A check's evidence is not self-validating" above, and not the same item.** That one
+is about detail that does not exist — invented dotfiles, a claim about a file that says no such
+thing. Row 12's quotation belongs to both families, since the string it quotes is in no file; row
+2's does not, because every listing was true. The shared part is that no row is required to produce
+evidence its own criterion can be read off.
+
+**Below the queued subtraction pass over the check prompts, not above.** Three reasons, none of them
+that this is unimportant. It costs nothing today, so under
+[`0008`](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md) it has not yet
+shown that it changes behaviour, and the two rows it names are passing rows. Any repair adds text to
+prompt blocks that have grown three releases running with nothing removed, and the pass is already
+four releases overdue and already inheriting more than it was promised. And a rule written now would
+be written against row text the pass is about to rewrite; written after, it is one edit against
+settled text. If a wrong verdict ever rests on evidence of this kind, it moves to `Now` that day.
+
 ---
 
 ## Recorded, not tasks
