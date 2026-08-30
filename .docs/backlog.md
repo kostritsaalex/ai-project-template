@@ -1402,12 +1402,20 @@ makes that project the natural arm: one task run there with the principles prese
 section emptied, judged by the work. That is the same design that settled `0008`, and it is available
 for the price of two runs whenever somebody wants it.
 
-**`blueprints/setup/` is a blueprint folder with no version, and it just moved.** `0.10.0` changed
-`procedure.md` and no version records it. This is the same hole `checks/` had until `0.9.0` gave it a
-counter, found the same way, by running `release.md` step 7 and reading V1 against V2. The setup
-folder is not a blueprint anyone adopts — nothing is copied out of it — which is the argument for
-leaving it alone, and it ships prompts that change between releases, which is the argument against.
-Decide it the next time that folder changes.
+**`blueprints/setup/` was a blueprint folder with no version, and it is not one now. Closed in
+`0.13.0`.** `0.10.0` changed `procedure.md` and no version recorded it. This was the same hole
+`checks/` had until `0.9.0` gave it a counter, found the same way, by running `release.md` step 7 and
+reading V1 against V2. The argument for leaving it alone was that nobody adopts anything out of that
+folder; the argument against was that it ships prompts that change between releases, and the owner
+settled it on 2026-08-29 the moment the folder started shipping text a person reads.
+`blueprints/setup/README.md` now carries `Blueprint Version: 0.13.0`, and V2 reports six of six
+blueprint READMEs with both counters.
+
+**Corrected 2026-08-30, having sat here claiming to be open for three releases.** The decision is
+recorded two sections down in this same file, under the `0.11.0` entry, and the two were never read
+against each other. Repaired V3 dates the hole from the tree alone — every tag through `v0.10.2`
+fails on this file and every tag from `v0.11.0` passes — so the instrument that would have closed the
+entry has been printing the answer since it was rewritten this morning.
 
 **Should the backlog name a version at all? Answered 2026-08-30: not by V3.** The second way out was
 taken — the backlog is dropped from V3 entirely and its version line is allowed to lag, on step 0's
