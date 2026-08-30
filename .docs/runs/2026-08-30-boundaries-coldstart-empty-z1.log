@@ -1,0 +1,38 @@
+**1. What is this project, and is it only software or is software one part of something larger?**
+
+From `PROJECT.md:14-15`:
+> "Harbour Pottery is a ceramics studio. It makes and sells pottery, photographs it for a catalogue and runs a small shop site. Software is one part of it, not all of it."
+
+So: a ceramics studio, and software is one part of a larger operation, not the whole of it.
+
+**2. Is there anything an agent must never do, and where is that written?**
+
+Nothing is forbidden. `PROJECT.md:17` records the absence explicitly:
+> "Agent boundaries: none are currently recorded. No work is forbidden here today. If something looks outside this project, ask before starting it."
+
+So on meeting work that looks outside the project, I would ask before starting it — as that line directs.
+
+**3. Name a component, where it is reached, and what its registry entry limits.**
+
+The only component in the registry is Harbour Lookbook, under `# Components` in `PROJECT.md:40-43`:
+> "## Harbour Lookbook
+> Assets. Live material. Work here as the task requires.
+> Address: lookbook"
+
+It is reached at `lookbook` (which holds `a.jpg`). Its entry declares no limits on changing things there — "Work here as the task requires" is the whole of it.
+
+No component is listed but unattached: the one listed entry resolves to a folder that exists. The opposite case does occur, though — `shop/src/app.js` exists on disk but no `shop` component appears in the registry.
+
+**4. Where is a decision that affects two components at once recorded?**
+
+`PROJECT.md:49`:
+> "Project-wide documentation and decisions belong here, in `.docs/` and `.docs/decisions/`."
+
+A cross-component decision is project-wide, so it belongs in `.docs/decisions/`. Note `PROJECT.md:51`: "`.docs/` does not exist yet." — the folder would have to be created.
+
+**5. Which single file is the one to read first, and why?**
+
+`PROJECT.md`. Both entry-point files point at it and nothing else. `CLAUDE.md:3-4` and `AGENTS.md:3-4` carry the same line:
+> "Read `PROJECT.md` in this folder before working anywhere in this project. It holds the principles, the agent boundaries and the registry of every component."
+
+And `PROJECT.md:3-5` says of itself: "**AI Project Entry Point** ... Read this before working anywhere in this project."

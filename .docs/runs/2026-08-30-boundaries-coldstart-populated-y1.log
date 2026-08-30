@@ -1,0 +1,28 @@
+**1. What this project is**
+
+`PROJECT.md:14-15` — "Harbour Pottery is a ceramics studio. It makes and sells pottery, photographs it for a catalogue and runs a small shop site. Software is one part of it, not all of it."
+
+So: software is one part of something larger, explicitly.
+
+**2. Things an agent must never do**
+
+Recorded in `PROJECT.md:17` — "Agent boundaries: never set up deployment, never spend money on my behalf, never publish anything publicly."
+
+**3. A component, its address, and what the registry limits**
+
+`PROJECT.md:40-43`:
+> "## Harbour Lookbook
+> Assets. Live material. Work here as the task requires.
+> Address: lookbook"
+
+Reached at `lookbook` (holds `a.jpg`). The registry declares **no** limits on changing things there — its only qualifier is "Work here as the task requires."
+
+On listed-but-not-attached: the registry has no such entry — Harbour Lookbook is the only component listed and it exists on disk. The reverse is true, though, and worth flagging: `shop/src/app.js` exists on disk but `shop` appears in the registry nowhere; it is only mentioned in prose at `PROJECT.md:15` ("runs a small shop site"). Also, `PROJECT.md:49-51` says documentation belongs in `.docs/` and `.docs/decisions/`, and states "`.docs/` does not exist yet" — which the directory listing confirms.
+
+**4. Where a decision affecting two components at once is recorded**
+
+`PROJECT.md:49` — "Project-wide documentation and decisions belong here, in `.docs/` and `.docs/decisions/`." A decision spanning two components is project-wide, so it goes in `.docs/decisions/`. Note `PROJECT.md:51`: "`.docs/` does not exist yet." — the directory would have to be created.
+
+**5. The file to read first**
+
+`PROJECT.md`. Both `CLAUDE.md:3-4` and `AGENTS.md:3-4` carry the identical instruction and point at it: "Read `PROJECT.md` in this folder before working anywhere in this project. It holds the principles, the agent boundaries and the registry of every component." `PROJECT.md` itself confirms the role at line 3-5: "**AI Project Entry Point** ... Read this before working anywhere in this project."

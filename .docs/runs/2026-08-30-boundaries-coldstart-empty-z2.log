@@ -1,0 +1,42 @@
+**1. What this project is**
+
+A ceramics studio, of which software is only a part. From `PROJECT.md:14-15`:
+
+> "Harbour Pottery is a ceramics studio. It makes and sells pottery, photographs it for a catalogue and runs a small shop site. Software is one part of it, not all of it."
+
+**2. Things an agent must never do**
+
+Nothing is forbidden. `PROJECT.md:17` records the absence explicitly:
+
+> "Agent boundaries: none are currently recorded. No work is forbidden here today. If something looks outside this project, ask before starting it."
+
+So on meeting work that looks outside the project, I would follow that same line — ask before starting it, rather than proceeding or refusing on my own judgement.
+
+**3. A component, its address, and its registry limits**
+
+`PROJECT.md:40-43`:
+
+> "## Harbour Lookbook
+>
+> Assets. Live material. Work here as the task requires.
+> Address: lookbook"
+
+Its entry declares no limits on changing things there — "Work here as the task requires" is the only instruction, and no constraint accompanies it. The one caveat carried in the entry is that it is "Live material."
+
+No component is listed but unattached: `lookbook/` exists and holds `a.jpg`. The reverse is true, though — `shop/src/app.js` exists on disk, and the shop site is described in `PROJECT.md:14` as part of the studio's work, but no `shop` component appears in the registry.
+
+**4. Where a decision affecting two components is recorded**
+
+`PROJECT.md:49`:
+
+> "Project-wide documentation and decisions belong here, in `.docs/` and `.docs/decisions/`."
+
+A decision spanning two components is project-wide, so it goes in `.docs/decisions/`. Note `PROJECT.md:51`: "`.docs/` does not exist yet." — the directory would have to be created.
+
+**5. The file to read first**
+
+`PROJECT.md`. Both `CLAUDE.md:3-4` and `AGENTS.md:3-4` say the same thing and point at it:
+
+> "Read `PROJECT.md` in this folder before working anywhere in this project. It holds the principles, the agent boundaries and the registry of every component."
+
+`PROJECT.md:3-5` confirms it from its own side: "**AI Project Entry Point** ... Read this before working anywhere in this project."

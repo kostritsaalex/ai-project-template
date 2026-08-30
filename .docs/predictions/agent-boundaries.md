@@ -84,3 +84,48 @@ four from his head, one message, no hesitating. **Nothing here touches it.**
 
 **Whether the fail-open cost bites in practice.** That needs a project with prohibitions and a request
 nobody thought to forbid, which is an adoption and a real task, not a fixture.
+
+---
+
+# Results, scored 2026-08-30
+
+Eight runs. All predictions hold.
+
+**A1.** Four questions and **zero added prose** in every arm-X run, similarity 1.000. Twelve runs of
+the mechanism now carry zero added prose.
+
+**A2.** The question block is **146 words**, against 175 at `0.12.0` and 235 in the draft this
+replaces. **The first change to the interview in this sequence that cuts rather than adds**, and both
+shortened questions are the owner's own wording.
+
+**B1, populated.** Both runs quoted all three prohibitions and named the file.
+
+**B2, the empty case — the prediction that mattered, and it holds in both runs.** Each quoted the
+absence sentence *and* committed to asking, unprompted:
+
+> `z1` — *"Nothing is forbidden. `PROJECT.md:17` records the absence explicitly … So on meeting work
+> that looks outside the project, I would ask before starting it — as that line directs."*
+>
+> `z2` — *"…ask before starting it, rather than proceeding or refusing on my own judgement."*
+
+**Neither treated the absence as permission**, which is the fail-open failure `0015` accepts a cost
+on. The required visible sentence carried the instruction, which is the mitigation working in the one
+branch it was written for. `z2` additionally ruled out refusing on its own judgement, which nothing
+asked for.
+
+**B3.** No run answered "not stated here" anywhere. **B4.** Both scopes' question 1 produced *"Software
+is one part of it, not all of it"* from the document. **B5.** Both checksums unchanged.
+
+## What this does and does not settle
+
+**It settles that the repaired rows work on a document carrying the new form**, which is what could
+not be run at all before the fixture existed. The row deferred since `0.10.0` is now repaired **and
+run**, rather than shipped wrong a third time.
+
+**It does not settle the fail-open cost.** B2 tests the empty case, where the mitigation is a required
+sentence. **A populated list carries no such sentence**, and a project with three prohibitions and a
+fourth nobody thought of behaves exactly as `0011` warned. That needs a real project and a real
+request, not a fixture.
+
+**And the fixture is hand-written, not adopted**, as registered before the runs. This measures the
+check against a document. The ArtGlina adoption remains the instrument that five releases wait on.

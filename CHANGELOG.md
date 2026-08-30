@@ -6,6 +6,78 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.13.0] - 2026-08-30
+
+**The boundary becomes agent boundaries.** See
+[0015](.docs/decisions/0015-the-boundary-becomes-agent-boundaries.md), which supersedes part of
+[0011](.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md).
+
+### Changed
+
+- **`PROJECT.md` carries `Agent boundaries` instead of a closed inclusion** — anything an agent should
+  never do here, each written as a prohibition in the owner's words. `<SCOPE_COVERS>` becomes
+  `<AGENT_BOUNDARIES>`; the old name no longer described what goes there.
+- **The interview asks it in his words**, with three examples from different categories so a reader
+  sees the kind rather than a line to copy. Question 4 is his too: *"Which additional folders and
+  repositories belong to this project? Main project directory doesn't count."*
+- **Where nothing is forbidden, the section says so in visible text and is never deleted.** This is
+  the branch [0010](.docs/decisions/0010-the-path-note-stays-optional.md) is about: silence reads as
+  correct to every check.
+- **The cold start check's rows are rewritten in both prompts.** The project prompt's question 2 and
+  the component prompt's question 4 are the same question, and only one of them had ever been named
+  in a change list.
+
+### Fixed
+
+- **A row wrong since `0.10.0`.** `cold-start-check.md`'s project-scope reading row still read *"one
+  item from each list"*, the two-list wording from before the closed inclusion. Found on 2026-08-29,
+  deferred knowingly because checks were out of scope, and repaired here rather than shipped wrong a
+  third time — the file was being rewritten regardless, so this was the same edit surface rather than
+  a passenger.
+
+### Removed
+
+- `0.10.1`'s scoring section for the derived half of the boundary question. **A prohibition list
+  supports no derivation**, so that half is gone and the row now tests reading rather than reasoning.
+  Declared in the check as a reduction in what it can see.
+
+**The question block falls to 146 words**, from 175 at `0.12.0` and 235 in the draft this replaces.
+**The first change to the interview in this sequence that cuts rather than adds**, and both shortened
+questions are the owner's own wording. The shipped metric is unchanged at **40 and 22**.
+
+### On the evidence
+
+Eight runs, one pre-registration, every prediction held.
+
+**The finding that decides this, and it was not known when `0011` was written.** The one measurement
+justifying a boundary at all — an assistant refusing to build a staging deployment — **was taken on a
+prohibition-shaped line**, and `WordPress 7` still carries it. **`0011` inverted the form and
+inherited the evidence without re-taking it**, for three releases. So this is not a preference traded
+against measured behaviour: it returns the line to the shape its evidence was gathered on.
+
+**The empty case was the prediction that mattered and it held twice.** Both cold-start runs against a
+document recording no prohibitions quoted the absence sentence *and* committed to asking, unprompted,
+rather than treating the absence as permission.
+
+**The cost, stated rather than traded away.** A prohibition list fails open: work nobody thought to
+forbid is permitted. The required absence sentence answers that for an empty list and **a populated
+list carries no such sentence**, so a project with three prohibitions and a fourth nobody thought of
+behaves as `0011` warned. Accepted because the alternative was an invented closure, which fails in
+both directions at once.
+
+**The fixture is hand-written, not adopted**, registered as a limit before the runs. This measures the
+check against a document. **`0.13.0` is provisional as the four before it are, and all five wait on
+the owner's approval of the question set.**
+
+### Also in this release, from `.docs/` and causing no version of their own
+
+**A measured mitigation stopped working with nothing changed to make it stop.** `new-project.md`
+records *"say what a component is before asking for the first one"* as measured; the sentence was in
+question 4 and the owner named the project folder as a component anyway. `0008` says a rule's
+justification can expire because it is a claim about a reader — **nobody had said the same about a
+mitigation**, and the only instrument that caught it was the person it was written for doing the
+thing it forbids.
+
 ## [0.12.0] - 2026-08-30
 
 **Seven questions become four.** `0.11.0` shipped the interview as text and never ran the razor over

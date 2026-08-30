@@ -1,0 +1,37 @@
+I could not read the framework at the path you gave. It is outside this session's allowed working directories:
+
+```
+/tmp/.../scratchpad/v3/fw   → blocked, both by Read and by shell
+```
+
+I did **not** reconstruct anything from memory. Instead I read the real blueprint files from the checkout that *is* readable here: `/home/kostritsaalex/Projects/Frameworks/ai-project-template`. If `v3/fw` is a different version of the framework, say so now and I'll stop until I can reach it.
+
+**Step 2 — what I found by looking**
+
+1. No `PROJECT.md` in `rowan-studio`. It is not already a project scope.
+2. Not applicable — I was sent to set up a project scope, not attach a component.
+3. No AI instruction files of any framework: no `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, nothing.
+4. The folder claims no parent.
+5. The path resolves exactly as written: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/8a559101-7c29-4fe3-ac8b-f05b0b9eae34/scratchpad/v3/rowan-studio`. No symlink and no mount holds it up — but it sits on **tmpfs**, which is wiped on reboot. There is no command that recreates it. Flagging it now; it affects what I write for the local path, and I'll come back to it in the summary.
+6. Not applicable — project scope, not a component.
+
+No `.git`, no remote, and the folder is not inside a synced store.
+
+**Step 3 — blueprint read**
+
+`blueprints/project/README.md`, Blueprint Version **0.12.0**, and `blueprints/project/PROJECT.md` with all comments; questions built from `blueprints/setup/interview.md`, version **0.13.0**.
+
+---
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.

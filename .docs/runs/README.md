@@ -60,6 +60,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-v3-{vM1,vT1}.log` | `0.12.0` as shipped | Arm V, the before | S-mixed in a simulated synced store; S-material, five folders, no code | 2026-08-30 |
 | `2026-08-30-v3-w{M1,M2,T1,T2}.log` | `HEAD` + `interview-v3.md`, four questions reworded | Arm W, stopping at the questions | Both scopes, unchanged | 2026-08-30 |
 | `2026-08-30-v3-a{M1,T1}.log` | Same | Arm W with answers supplied, reaching Step 5 — **the arm that tests whether the software fact survives Q1's cut** | Both scopes, unchanged | 2026-08-30 |
+| `2026-08-30-boundaries-interview-x{1,2,3,4}.log` | The agent-boundaries interview, four questions, 146 words | Fidelity | The two scratch scopes | 2026-08-30 |
+| `2026-08-30-boundaries-coldstart-populated-y{1,2}.log` | `cold-start-check.md` project prompt, rows repaired for the new form | **The first run of these rows against any document carrying it** | A hand-written scope with three prohibitions — not an adopted project, which is the declared limit | 2026-08-30 |
+| `2026-08-30-boundaries-coldstart-empty-z{1,2}.log` | Same | **The empty case**, the branch `0010` warns about: a stated absence a reader can take as permission | A hand-written scope recording no prohibitions and the visible sentence saying so | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -160,6 +163,14 @@ d3c559668ceccde4d730b65347c02bfc  2026-08-30-v3-wM1.log
 9f2b55340e115f9537d2fc8113c3ac26  2026-08-30-v3-wM2.log
 2f7c8d50137719a22e7188a9db8edaff  2026-08-30-v3-wT1.log
 dce9408a27781163921d5b56650ce5a2  2026-08-30-v3-wT2.log
+615519e2c7f03649b76b7658ba6ef6ee  2026-08-30-boundaries-coldstart-empty-z1.log
+9a31b2045357d4e467bc38d8b16ec38a  2026-08-30-boundaries-coldstart-empty-z2.log
+498960335f9dfd5f5e4efd3c2d6212c5  2026-08-30-boundaries-coldstart-populated-y1.log
+c7ab2bbb8a740c4cf1ebeef6929577e4  2026-08-30-boundaries-coldstart-populated-y2.log
+be18cd947b8ce2fd23f7917156207220  2026-08-30-boundaries-interview-x1.log
+7324890a9a64e96571ef3736397ea75c  2026-08-30-boundaries-interview-x2.log
+0a3895d3c22a6861344cbd199c7f73ea  2026-08-30-boundaries-interview-x3.log
+5d3badf6156ea0285a1051254da274f9  2026-08-30-boundaries-interview-x4.log
 ```
 
 ## What they are evidence for

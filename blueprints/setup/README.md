@@ -1,7 +1,7 @@
 # Setup Prompts
 
-**Blueprint Version:** 0.12.0  
-**Framework Version:** 0.12.0
+**Blueprint Version:** 0.13.0  
+**Framework Version:** 0.13.0
 
 Two prompts that adopt a blueprint by interview. Instead of opening each file and working through
 its placeholders by hand, you paste one prompt, answer questions in blocks, and get filled files.

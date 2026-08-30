@@ -1,0 +1,29 @@
+**1. What this project is**
+
+`PROJECT.md:14-15` — "Harbour Pottery is a ceramics studio. It makes and sells pottery, photographs it for a catalogue and runs a small shop site. Software is one part of it, not all of it."
+
+So: software is one part of a larger physical studio business, not the whole of it.
+
+**2. Things an agent must never do**
+
+Yes, recorded in `PROJECT.md:17`: "Agent boundaries: never set up deployment, never spend money on my behalf, never publish anything publicly."
+
+**3. A component, its address, and what the registry limits**
+
+`PROJECT.md:40-43`:
+
+> ## Harbour Lookbook
+> Assets. Live material. Work here as the task requires.
+> Address: lookbook
+
+Reached at `lookbook` (contains `lookbook/a.jpg`). Its entry declares no restriction on changing things — "Work here as the task requires" — so the registry places no limit on that component beyond the project-wide boundaries in question 2.
+
+Listed but not attached: none. Harbour Lookbook is the only registry entry and its address exists. The reverse is true, though, and worth flagging: `shop/src/app.js` exists on disk and `PROJECT.md:14` mentions the studio "runs a small shop site", but no `shop` component appears in the Components registry.
+
+**4. Where a decision affecting two components at once is recorded**
+
+`PROJECT.md:49` — "Project-wide documentation and decisions belong here, in `.docs/` and `.docs/decisions/`." A cross-component decision is project-wide, so it goes in `.docs/decisions/`. Note `PROJECT.md:52`: "`.docs/` does not exist yet." — it would have to be created.
+
+**5. The file to read first**
+
+`PROJECT.md`. Both entry points point at it: `CLAUDE.md:3-4` and `AGENTS.md:3-4` say "Read `PROJECT.md` in this folder before working anywhere in this project. It holds the principles, the agent boundaries and the registry of every component." `PROJECT.md:3-5` confirms it: "**AI Project Entry Point** / Read this before working anywhere in this project."
