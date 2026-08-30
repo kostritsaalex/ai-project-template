@@ -235,3 +235,60 @@ anything publicly* — are the owner's own and carry no owner.
 **The two questions interact and the order matters.** If the examples are cut entirely on the first
 question, this one is moot. So the first is read before this one, and this is only reached if they
 stay.
+
+---
+
+# The acceptance test, scored 2026-08-30
+
+**It passed.** He answered all four in one message, with no follow-up and no request for a
+clarification. That was his criterion, set by him, and it is the thing five provisional releases were
+waiting on.
+
+## The Northwind device: not decided, because the run was not clean
+
+**He did not copy an example.** Last time he returned both of question 2's examples verbatim, joined
+by its own *or*; this time he wrote *"no known boundaries as of today"* — his own words about his own
+project.
+
+**Two variables changed, so this cannot be attributed.** The examples changed (two paired sentences
+became three short unattributed lines) **and the question's whole form changed** (a closed inclusion
+became a prohibition). The pre-registration above reads a non-copying answer as *"the abstract form
+stands"*. **That reading is not available here**, because the abstract form is not the only thing that
+could have produced it, and the likelier cause is that a question he could answer left him nothing to
+reach for.
+
+**So the device question stays open and the evidence for it stays at two instances.** Recorded as
+unresolved rather than scored, because scoring a confounded arm is the error this repository has
+spent four days cataloguing.
+
+## The examples razor case: still unanswered
+
+He was asked whether he could have answered question 2 with no examples present. **That answer did not
+come back.** It remains the cheapest thing available — one sentence from him settles whether three
+lines stay in the shipped interview — and it is cheap now and expensive once he has stopped thinking
+about it.
+
+## The mitigation that had stopped working, replaced by his own wording, and it worked
+
+Last time he named the project folder as a component **despite the sentence forbidding it** — the
+measured mitigation from `new-project.md` failing on the person it was written for. **This time he did
+not.** *"Main project directory doesn't count"* is his wording, an instruction where ours was a
+statement of fact, and it held where the measured one had stopped holding.
+
+**One instance, and the same caution the mitigation itself now carries**: a finding measured once is a
+claim about a reader on an occasion. His wording has now worked once, which is exactly the evidence
+the sentence it replaced had before it stopped working.
+
+## His answer is the empty case, which is the branch the fixture was built for
+
+*"No known boundaries as of today."* **That is the branch `0010` warns about and the one the
+cold-start fixture was built to test**, and it was tested twice before he answered: both runs quoted
+the absence sentence and committed to asking rather than treating it as permission.
+
+**So the check was validated on exactly the branch that then occurred**, which is the fixture being
+well chosen rather than lucky — it was built because that branch was the most likely to be scored
+wrong, not because anyone knew he would produce it.
+
+**And it means the fail-open cost stays untested by this adoption.** That cost lives in a *populated*
+list, which carries no absence sentence. ArtGlina will carry an empty one, so the case `0011` warned
+about will not be exercised, and the record should not later read the adoption as having cleared it.
