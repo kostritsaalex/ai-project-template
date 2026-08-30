@@ -3,7 +3,7 @@
 The optional third file for a `Repository` component, when that folder has rules of its own.
 
 **Blueprint Version:** 0.7.0  
-**Framework Version:** 0.11.0  
+**Framework Version:** 0.12.0  
 **Status:** in use in two components. Demoted in `0.5.0` from the normal way to attach a component
 to the exception.
 

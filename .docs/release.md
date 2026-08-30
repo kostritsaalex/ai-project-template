@@ -58,7 +58,14 @@ entry links to it. A rule that changed without a record is a rule nobody can arg
 decoration. A release that only adds should say so explicitly rather than leaving the omission to be
 noticed.
 
-**6. Commit.** Everything the release changes, in one commit. Nothing is verified before this point,
+**6. Commit.** Everything the release changes, in one commit.
+
+**One exception, and it is not a licence to split a release.** A pre-registration committed between
+the work and the release is not squashed into it. `0.11.0` is two commits with one between them: the
+release was committed and verified, a placeholder check was then pre-registered and run, and its
+finding was committed on top. Amending over the pre-registration would have destroyed the only thing
+that makes a prediction worth writing, which is that it demonstrably preceded its runs. Step 7
+verifies `HEAD` either way, so nothing is lost by the split. Nothing is verified before this point,
 because until the work is committed there is no tree to verify: `$PREV..HEAD` cannot see uncommitted
 files and a dirty `git status` is expected rather than diagnostic.
 
@@ -111,8 +118,14 @@ What each has to show:
   claiming a removal while the block grew is a failure of this step, not a wording preference:
   `0.9.1` shipped exactly that, stating the cascade as one condition and then restating the three
   cases it replaced, so three lines became five under a heading that said `Removed`.
-- **V2.** Every `Framework Version` reads the new number. A `Blueprint Version` reads the new number
-  if and only if that blueprint appears in V1's list, and the old one otherwise.
+- **V2.** Every `Framework Version` reads the new number. **A `Blueprint Version` reads the new
+  number if and only if that blueprint changed in some file other than its `README.md`'s version
+  lines**, and the old one otherwise.
+  That wording is deliberate and replaces "appears in V1's list", which contradicted step 1 in this
+  same file: step 2 bumps `Framework Version` in every blueprint `README.md`, so every blueprint
+  always appears in V1's list, and the old wording therefore demanded that every `Blueprint Version`
+  move on every release. Every release had silently read it the way it is now written. Found by
+  running the step rather than by reading it, on `0.11.0`.
 - **V3.** Both lines name the version about to be tagged. This is the check `v0.9.1` failed, and it
   failed it in a way worth knowing: run against that tag, the backlog grep returns nothing at all,
   because the section had been rewritten and no longer contained the phrase. So the row fires on an

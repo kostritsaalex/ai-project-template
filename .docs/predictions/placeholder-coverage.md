@@ -134,3 +134,31 @@ them with no source named, and that unnamed source is exactly where the defect w
 
 This is the cheapest slice of the sufficiency test and the only part that needed no adoption. It
 found a real defect in a released tree before it was tagged, for the price of two runs.
+
+---
+
+# Re-run against the four-question interview, pre-registered 2026-08-30 before the `0.12.0` tag
+
+`0.12.0` cuts three questions and `<DOCUMENT_OWNER>` with them. **The map has to be re-derived, not
+assumed**, because this check is what found the last gap and the question set has changed twice
+since.
+
+The map as it now stands, eleven placeholders:
+
+| Source | Placeholders |
+| --- | --- |
+| **question** (4) | `<PROJECT_PURPOSE>` `<SCOPE_COVERS>` `<PROJECT_PRINCIPLES>` `<COMPONENTS>` |
+| **proposal** (5) | `<PROJECT_NAME>` `<PROJECT_SCOPE_ADDRESS>` `<PROJECT_LOCAL_PATH>` `<PATH_NOTE>` `<SESSION_NOTE>` |
+| **read** (2) | `<PROJECT_BLUEPRINT_VERSION>` `<YYYY-MM-DD>` |
+
+**T1.** Two runs, answers supplied, reach Step 5 and fill every one of the eleven. **Any placeholder
+without a source is the `<DOCUMENT_OWNER>` finding again**, and the response is the same: it becomes
+a question or a proposal with a named source, and the release does not go out as drafted.
+
+**T2.** No run asks for a document owner, or writes one into the header. The line is gone from the
+blueprint; a run that reinstates it is a finding, not a courtesy.
+
+**T3.** One further run of the released text with writing disabled: **0 added prose, four questions**,
+keeping the rule that the shipped bytes are run bytes.
+
+**T4.** Nothing written into the scope.

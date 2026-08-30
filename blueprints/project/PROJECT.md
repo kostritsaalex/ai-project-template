@@ -15,8 +15,7 @@
 > Read this before working anywhere in this project.
 >
 > **Derived from:** Project Blueprint <PROJECT_BLUEPRINT_VERSION>  
-> **Last Updated:** <YYYY-MM-DD>  
-> **Document Owner:** <DOCUMENT_OWNER>
+> **Last Updated:** <YYYY-MM-DD>
 
 ---
 
@@ -36,6 +35,10 @@ request the project excludes arrives looking like ordinary work and gets done. I
 inclusion because the complement of a project is endless and nobody can list it, while what a project
 covers is usually one sentence. "Currently" is deliberate wherever it appears. It records a present
 boundary, not a permanent one.
+
+**Name kinds of work, not places.** `restoration, photography and selling online`, not `the main
+folder and the shop repository`. Where the work happens is the registry's job one section down, and a
+boundary written as a list of folders duplicates it while answering nothing.
 
 Naming a near miss is allowed and not required: where you already know the adjacent thing people
 assume is inside and is not, say so. Do not attempt the rest of the complement.

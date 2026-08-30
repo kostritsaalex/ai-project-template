@@ -75,7 +75,7 @@ which version you read.
 
 ## Step 4. Ask
 
-Ask the seven questions in [`interview.md`](interview.md) **verbatim and in order, in one message.**
+Ask the four questions in [`interview.md`](interview.md) **verbatim and in order, in one message.**
 Do not introduce them, gloss them, add clarifications, or add questions of your own. If something is
 missing from them, that is a defect in that file and it is reported after the interview rather than
 patched into the message.
@@ -84,7 +84,7 @@ The posture is not a question. Whether platform or framework code sits in the fo
 propose the posture from what you saw, put it in the summary table as settled, and let it be
 overturned there.
 
-Take the answer to question 6 as complete. A folder the person did not name is files inside whichever
+Take the answer to question 4 as complete. A folder the person did not name is files inside whichever
 component contains it, and it takes that component's posture. Do not offer a subfolder you noticed as
 a candidate, and do not ask whether a component should be split into smaller ones.
 

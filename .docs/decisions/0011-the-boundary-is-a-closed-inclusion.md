@@ -32,8 +32,17 @@ thing checkable.
 **The boundary is written as a closed inclusion.**
 
 ```text
-This project covers the main folder and the artglina.com.ua repository. Anything else is outside it.
+This project covers restoration, photography and selling online. Anything else is outside it.
 ```
+
+**Corrected 2026-08-30.** This example originally read *"the main folder and the artglina.com.ua
+repository"* — a list of places. So did the blueprint's placeholder table, which `0.10.0` changed from
+`hosting and deployment, mobile applications, accounting` to `the main folder and the
+northwind-storefront repository` in the same release, without recording that the example had changed
+category. Every adoption afterwards answered the boundary with a folder list, which duplicates the
+registry and answers nothing, and it went four releases before anyone noticed — as a feeling that two
+questions overlapped. The rule here was always right; the example beside it taught the opposite. See
+the third shape in [`../backlog.md`](../backlog.md).
 
 The closure sentence is not decoration and is not optional. *Anything else is outside it* is what
 turns a list into a boundary; without it the reader has an inventory and no rule.

@@ -1,7 +1,7 @@
 # Adoption Checks
 
 **Blueprint Version:** 0.10.1  
-**Framework Version:** 0.11.0
+**Framework Version:** 0.12.0
 
 Three prompts for verifying a blueprint after it has been adopted. They apply to every blueprint, so
 they live here rather than being repeated in each one.

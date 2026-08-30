@@ -2,8 +2,8 @@
 
 The one scope that holds project-wide context and the registry of everything below it.
 
-**Blueprint Version:** 0.10.2  
-**Framework Version:** 0.11.0  
+**Blueprint Version:** 0.12.0  
+**Framework Version:** 0.12.0  
 **Status:** in use in two projects. `0.5.0` moved what a component says about itself into the
 registry, and `0.6.0` cut that line down to one rule.
 
@@ -100,7 +100,7 @@ Examples use a fictional `Northwind` project.
 | --- | --- | --- |
 | `<PROJECT_NAME>` | Name of the project. Keeps its spaces; the folder need not match. | `Northwind Furniture` |
 | `<PROJECT_PURPOSE>` | What the project is, in a few sentences, including whether software is all of it or part of it. | `Northwind is a furniture workshop selling restored mid-century pieces. Websites and software are one part of it.` |
-| `<SCOPE_COVERS>` | What the project covers, followed by the closure sentence that makes it a boundary. The one line proven to change what an assistant does. A near miss may be named after it and need not be. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. See [decision 0011](../../.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md). | `the main folder and the northwind-storefront repository` |
+| `<SCOPE_COVERS>` | What the project covers, **as kinds of work rather than as places**, followed by the closure sentence that makes it a boundary. The one line proven to change what an assistant does. A near miss may be named after it and need not be. Undecided is an answer: replace the whole sentence with what will settle it and what to do meanwhile, and never leave the topic out. See [decision 0011](../../.docs/decisions/0011-the-boundary-is-a-closed-inclusion.md). | `restoration, photography and selling online` |
 | `<PROJECT_PRINCIPLES>` | The rules that hold across the project, in the owner's words. Priorities in order if the order was decided. | `1. Simplicity 2. Maintainability 3. Security` |
 | `<PROJECT_SCOPE_ADDRESS>` | Where this document lives, resolvable from outside the machine. | `OneDrive, Projects/northwind` |
 | `<PROJECT_LOCAL_PATH>` | Where the scope usually sits on a machine that has it. Relative to the home folder, no username after the tilde. Delete if it adds nothing. | `~/OneDrive/Projects/northwind` |
@@ -109,7 +109,6 @@ Examples use a fictional `Northwind` project.
 | `<COMPONENTS>` | One block per component: name, posture, address, local path. | see the comment in that section |
 | `<PROJECT_BLUEPRINT_VERSION>` | Blueprint version this scope started from. | `0.7.0` |
 | `<YYYY-MM-DD>` | Date of the last update. | `2026-08-23` |
-| `<DOCUMENT_OWNER>` | Person responsible for this document. | `Alex` |
 
 ### Paths and folder names
 

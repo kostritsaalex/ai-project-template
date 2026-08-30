@@ -53,6 +53,18 @@ in "Failed checks: 0" contained a detail that does not exist: folders listed in 
 holds none of them, and a claim about the contents of a file that says no such thing. None changed a
 verdict. All three were caught only by opening the files.
 
+**Judging by the artefact means judging whether the artefact works.** A sharpening of the rule
+above, and it cost an experiment to learn. On 2026-08-30 four arms were asked to change the sender on
+a WordPress install's outgoing mail. Three registered the correct filters and **shipped code that
+could not run**: the tree's `wp_mail()` ignored those filters, in a file all four had read. Only the
+fourth checked whether its own fix could take effect, and it was the arm a file-level scoring would
+have marked as the violation.
+
+**A diff in the right files is not work.** Where a run's verdict turns on what it produced, the
+verdict has to include whether the thing functions, and that is a different act from reading the
+diff. The same run also showed the cost of not doing it: the naive scoring pointed at the opposite
+conclusion from the correct one, in the direction most flattering to the framework.
+
 **Two runs of one prompt differ.** The same attach prompt, on the same folder, offered a
 "use the WordPress platform fragment" option once and not the next time. The absence of a behaviour
 in a single run proves nothing.

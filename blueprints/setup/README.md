@@ -1,7 +1,7 @@
 # Setup Prompts
 
-**Blueprint Version:** 0.11.0  
-**Framework Version:** 0.11.0
+**Blueprint Version:** 0.12.0  
+**Framework Version:** 0.12.0
 
 Two prompts that adopt a blueprint by interview. Instead of opening each file and working through
 its placeholders by hand, you paste one prompt, answer questions in blocks, and get filled files.
@@ -18,7 +18,7 @@ creates, checks verify.
 [`procedure.md`](procedure.md) holds the shared procedure. You never paste it; both prompts send the
 assistant to read it.
 
-[`interview.md`](interview.md) holds the seven questions a project scope is asked, as text rather than
+[`interview.md`](interview.md) holds the four questions a project scope is asked, as text rather than
 as topics, and `procedure.md` Step 4 sends the assistant there. **The component interview is still
 built from topics**, which is a known asymmetry recorded in
 [decision 0013](../../.docs/decisions/0013-the-interview-ships-as-text.md).
