@@ -58,6 +58,12 @@ and mark the row fail.
 Resolving a path is computing, not inferring. Where a row below tells you to resolve one, do it, and
 give what it resolved to as part of the evidence.
 
+Every probe of the filesystem below covers one declared path and no other. One declared path, one
+command: no command names two of them, and no glob, brace expansion or wildcard whose resolution can
+reach outside the path it was pointed at. The parent directory of a declared path is not itself a
+declared path, so a command that names it has read it, and row 7 lists the folders you opened rather
+than the folders you meant to open.
+
 Do not infer, do not assume, do not fill a gap from what such a document usually contains. Where two
 documents disagree, both are quoted and the row fails; it is not your job to decide which is right.
 
@@ -65,17 +71,18 @@ Checks:
 
 1. The component's folder exists where the registry says. Say which line you used to locate it: the
    address when it is a relative path, otherwise the local path line beneath it. Quote that line and
-   say whether the folder is there. A folder that is not there fails, unless PROJECT.md says in
-   visible text that this component is not attached yet, which is n/a.
+   say whether the folder is there. Probe that one folder, in a command that names it and no other
+   path. A folder that is not there fails, unless PROJECT.md says in visible text that this component
+   is not attached yet, which is n/a.
    A component whose address is a URL or a synced-store location, with no local path line and no
    folder you can reach, is n/a rather than a failure: nothing in the registry claimed it was on this
    machine.
    Unless this row confirmed the folder exists, rows 2 to 6 for that component are n/a and name this
    row as the reason. They are not failures: nothing is wrong with stubs nobody could read, and a
    folder that does not exist will satisfy an absence check for no useful reason.
-2. That folder holds both stubs, AGENTS.md and CLAUDE.md. List the root-level filenames you found.
-   This row is evidenced by that listing. Do not quote a line from inside the files: their contents
-   are not what the row asks about.
+2. That folder holds both stubs, AGENTS.md and CLAUDE.md. List the root-level filenames you found,
+   in a command that names that folder and no other path. This row is evidenced by that listing. Do
+   not quote a line from inside the files: their contents are not what the row asks about.
    Both present is a pass. Exactly one present fails, and say which is missing: a component half
    attached is a defect.
    Neither present, in a folder row 1 confirmed, is not a failure. That component is declared, not
@@ -100,12 +107,13 @@ Checks:
    This is the row that catches a project scope that has moved and left its components pointing at
    where it used to be.
 5. Overrides agree in both directions. If a stub names REPOSITORY.md or ASSETS.md, that file is
-   present in the same folder. If such a file is present, both stubs name it. Either half alone
-   fails, and say which half is missing. If no stub names one and none is present, this is n/a.
-6. The component folder holds no file named PROJECT.md. Test for that one path and give the result
-   as the evidence. Do not list the folder: the fact this row needs is whether one named file is
-   there, and a listing buries it among everything else. A component holding a PROJECT.md is a
-   project scope and has been set up as the wrong thing.
+   present in the same folder. If such a file is present, both stubs name it. Test for each such file
+   by its own path in that component's folder, one path per command. Either half alone fails, and say
+   which half is missing. If no stub names one and none is present, this is n/a.
+6. The component folder holds no file named PROJECT.md. Test for that one path, in a command that
+   names it and no other path, and give the result as the evidence. Do not list the folder: the fact
+   this row needs is whether one named file is there, and a listing buries it among everything else.
+   A component holding a PROJECT.md is a project scope and has been set up as the wrong thing.
 7. One row, not one per component. Put "(read set)" in the Component column. This row audits your
    own reading, so it covers every folder you opened and not only the ones a component sits in.
    List in the evidence every folder you opened, without exception, including this scope's own root
@@ -185,6 +193,23 @@ the read set closed the case the run exposed and left the class open: while the 
 component, a folder belonging to no component had nowhere to appear, so `.docs/`, a subfolder of the
 scope, or a stray directory could be read and never be listed. The row is now a single one covering
 everything read, which is what it always meant.
+
+**The rows that probe a path now say so at the moment they probe it.** Row 7's first true positive
+was a run of this check: on 2026-08-30 the operator ran it against a real scope in a fresh session,
+and row 7 failed naming a folder no registry line names. That folder was the parent of both
+components, and it was read because one command tested both of their paths at once. Nothing was
+wrong with row 7 and nothing about it changed. What was wrong is that the read set is declared once,
+before the checks, and the rows that type a command carried no marker at the point where the
+declaration has to be obeyed. Rows 1, 2, 5 and 6 are the rows that touch the filesystem — 3 and 4
+read and compute, 7 opens nothing of its own — and each now says that its probe covers one declared
+path and takes its own command. What a command can reach is now bounded by the same set the check
+declares.
+
+That is the third instance of one shape in this file. The prompt says to paste its text, and that
+instruction sits inside the file a session has to open in order to read it. The prompt said what a
+non-attached component is, and had no state for the one the interview made normal. The prompt
+declares a read set, and the rows that act on it carried nothing at the moment of acting. Each time
+the rule existed, was correct, and was written somewhere other than where it had to be obeyed.
 
 The last line counts rows rather than checks. With one row per component per check, a count of
 checks hides which component failed, and the first run made the ambiguity visible by answering

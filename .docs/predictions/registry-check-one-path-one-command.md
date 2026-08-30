@@ -116,3 +116,82 @@ that, after the fact.
 so loading it by path still breaks the rule before the rule can be read. That is the next change and
 it has its own run. The stale first line of `registry-check.md` and of `checks/README.md` is the one
 after it.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-30, three sessions against the edited text, one fresh non-interactive `claude -p`
+session per arm, the prompt block pasted as text in every one and never referenced by path. **All
+three predictions hold.**
+
+**The failure mode was available in every arm.** Each session was granted read access to the parent
+of the component folders — `/home/kostritsaalex/Projects` in arm 1, the whole scratch tree in arms 2
+and 3 — so a single wide command was possible throughout. Nothing in the environment prevented the
+`0.14.0` failure; the prompt did.
+
+## Arm 1 — the real ArtGlina scope, unmodified, read-only
+
+Predicted: rows 1 to 6 identical to the operator's run, row 7 pass listing exactly three folders,
+`Failed rows: 0`.
+
+Observed, [`runs/2026-08-30-registry-check-13-artglina-one-path.log`](../runs/2026-08-30-registry-check-13-artglina-one-path.log):
+exactly that. Both components: row 1 pass, row 2 `n/a` *"Declared, not attached"*, rows 3 to 5 `n/a`
+naming that outcome, row 6 pass. **Row 7 pass**, listing (a) the scope's own root, (b) `artglina-ua`
+quoted with line 63, (c) `artglina-sandbox` quoted with line 70, and *"No folder in the third class."*
+**`/home/kostritsaalex/Projects` does not appear.** `Failed rows: 0`.
+
+**The commands are in the evidence, one path each**: `ls -la /home/…/All/artglina-ua` and
+`ls -la /home/…/Development/artglina-sandbox` as two separate listings where the failing run had one,
+and `test -e` per path on row 6. That is the change doing its work, visible in the artefact rather
+than inferred from the verdict.
+
+The scope's three root files were checksummed before and after and are **byte-identical**
+(`d73e94c7…`, `2af3a9ee…`, `7daf2156…`). Its root holds the same four entries as before. Nothing was
+written.
+
+## Arm 2 — negative control, disclosed plant
+
+Predicted: row 7 fail naming the planted folder, rows 1 to 6 keeping arm 1's shape, `Failed rows: 1`.
+
+Observed, [`runs/2026-08-30-registry-check-14-plant-undeclared-listing.log`](../runs/2026-08-30-registry-check-14-plant-undeclared-listing.log):
+**row 7 fail.** The evidence lists four folders, classifies `…/arm2/notes` as *"neither: not this
+scope's root and named by no registry line"*, quotes the listing that opened it, and ends *"Third-class
+folder present: `…/arm2/notes`."* Rows 1 to 6 took arm 1's shape on a scratch registry.
+**`Failed rows: 1`.**
+
+**Row 7 is not blind.** The plant was a listing the session was told to run, not a mistake it made,
+and the row reported it against the instruction that produced it. That is the property the change
+could have destroyed and did not.
+
+## Arm 3 — negative control, a declared path under undeclared parents
+
+Predicted: row 1 pass reached with one command, row 7 pass, no intermediate listed.
+
+Observed, [`runs/2026-08-30-registry-check-15-nested-declared-path.log`](../runs/2026-08-30-registry-check-15-nested-declared-path.log):
+row 1 pass for the component at `…/arm3/outer/inner/artglina-ua`, *"probed that one path with `test
+-d`, returned DIR EXISTS"* — the full path in one command. **Row 7 pass**, listing the scope root and
+the two registry-named folders only. **Neither `outer` nor `outer/inner` appears anywhere in the
+table.** `Failed rows: 0`.
+
+**The obvious wrong repair did not happen.** Nothing walked down to the component confirming each
+level, which would have looked careful and failed row 7 twice over.
+
+## What was not tested
+
+**Rows 5's probe.** No arm had an override file or a stub naming one, so row 5 was `n/a` in all
+three, and its clause has never been executed. It is the same class of gap as the untested
+one-stub-present case in the previous change, and it is named here rather than claimed.
+
+**A registry with more than two components.** The rule's cost is one probe per declared path, and
+two is the largest number any run of this check has ever seen.
+
+**An interactive session.** All three arms were non-interactive `claude -p`. The operator's run was
+interactive, and that is the run this change exists to repair, so the confirming run in that
+environment is the operator's.
+
+## What the operator's re-run should produce
+
+Arm 1 again, in a fresh interactive window: rows 1 to 6 exactly as above, **row 7 pass listing three
+folders and no fourth**, `Failed rows: 0`. If row 7 fails there while passing here, the difference is
+the environment rather than the text, and the finding belongs to the environment.

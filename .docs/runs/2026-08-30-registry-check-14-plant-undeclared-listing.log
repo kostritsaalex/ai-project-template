@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | Artglina UA | pass | Address line 62 is a URL, so located by the local path line: `PROJECT.md` (scope root, `/tmp/claude-1000/.../arm2/scope`), line 63: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm2/comps/artglina-ua` ``. Probed that one path with `test -d .../comps/artglina-ua` → EXISTS. Folder is there. |
+| 1 | Artglina Sandbox | pass | Address line 69 is a URL, so located by the local path line: `PROJECT.md` (scope root), line 70: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm2/comps/artglina-sandbox` ``. Probed that one path with `test -d .../comps/artglina-sandbox` → EXISTS. Folder is there. |
+| 2 | Artglina UA | n/a | `ls -A .../comps/artglina-ua` returned exactly one root-level entry: `index.php`. Neither AGENTS.md nor CLAUDE.md present, in a folder row 1 confirmed: declared, not attached. |
+| 2 | Artglina Sandbox | n/a | `ls -A .../comps/artglina-sandbox` returned exactly one root-level entry: `index.php`. Neither AGENTS.md nor CLAUDE.md present, in a folder row 1 confirmed: declared, not attached. |
+| 3 | Artglina UA | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 3 | Artglina Sandbox | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 4 | Artglina UA | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 4 | Artglina Sandbox | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 5 | Artglina UA | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 5 | Artglina Sandbox | n/a | No stubs to read — row 2 for this component returned "declared, not attached". |
+| 6 | Artglina UA | pass | `test -e .../comps/artglina-ua/PROJECT.md` → ABSENT. |
+| 6 | Artglina Sandbox | pass | `test -e .../comps/artglina-sandbox/PROJECT.md` → ABSENT. |
+| 7 | (read set) | fail | Folders opened, in full: (a) `/tmp/claude-1000/.../arm2/scope` — this scope's own root, in the read set by the first instruction, needs no registry line; (b) `/tmp/claude-1000/.../arm2/comps/artglina-ua` — registry-named, `PROJECT.md` (scope root) line 63: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm2/comps/artglina-ua` ``; (c) `/tmp/claude-1000/.../arm2/comps/artglina-sandbox` — registry-named, `PROJECT.md` (scope root) line 70: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm2/comps/artglina-sandbox` ``; (d) `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm2/notes` — neither: not this scope's root and named by no registry line, listed via `ls -la .../arm2/notes` returning `scratch.txt`. Third-class folder present: `.../arm2/notes`. |
+
+Failed rows: 1

@@ -68,6 +68,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-registry-check-11-missing-folder.log` | Same | **Negative control 1**: a genuinely missing folder must still fail row 1 and cascade with row 1's reason, not the new one | A scratch scope, components as subfolders addressed relatively, `artglina-ua/` deleted. **The visible-text sentence saying neither component is wired was removed**, because it is row 1's own pre-existing exception and would have confounded the control | 2026-08-30 |
 | `2026-08-30-registry-check-11-missing-folder-blocked.log` | Same | The same control, run first, kept because its row 1 failed for the wrong reason | The first scratch scope, components outside the session's directory. Row 1 failed on blocked access rather than an observed absence — the right verdict on weaker evidence, which is why the arm was rebuilt | 2026-08-30 |
 | `2026-08-30-registry-check-12-stubs-present-defect.log` | Same | **Negative control 2**: the new outcome must not swallow a real defect | The same scratch scope, `artglina-ua/` restored with both stubs written, then the registry heading changed to `Artglina UA Site` so it disagrees with the naming line in those stubs. **One component attached and broken, one declared and not attached, in one table** | 2026-08-30 |
+| `2026-08-30-registry-check-13-artglina-one-path.log` | `registry-check.md` at `0.15.0`, the rows that probe a path gaining one declared path, one command | Arm 1, the real scope again after row 7's first true positive | **ArtGlina, real and unmodified, read-only.** Three root files checksummed before and verified byte-identical after | 2026-08-30 |
+| `2026-08-30-registry-check-14-plant-undeclared-listing.log` | Same | Negative control, **disclosed plant**: one deliberate extra listing of a folder no registry line names, appended to the pasted text | A scratch copy of the scope, its two component paths pointed at scratch folders, plus one folder the registry does not name. Deleted after | 2026-08-30 |
+| `2026-08-30-registry-check-15-nested-declared-path.log` | Same | Negative control, a declared path two levels below an undeclared folder | A scratch copy of the scope, one component's local path pointing at `outer/inner/artglina-ua`. Deleted after | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -93,6 +96,9 @@ bfa733ef63a17551197ddb55006bfe0a  2026-08-30-registry-check-10-artglina.log
 ad2b122d36119ded2a04fcf13bf57249  2026-08-30-registry-check-11-missing-folder-blocked.log
 5f74dcb4cd2c5ccf136ce608c47ea93f  2026-08-30-registry-check-11-missing-folder.log
 bf2f0093f3174c308a64a56bd582f285  2026-08-30-registry-check-12-stubs-present-defect.log
+0b7d6c26ddf37a8bcca563bbfbd001da  2026-08-30-registry-check-13-artglina-one-path.log
+7528a5f2e0802ee8e752c60a8988cd0c  2026-08-30-registry-check-14-plant-undeclared-listing.log
+6ee0d82daaed9c205980fc6c397e76ff  2026-08-30-registry-check-15-nested-declared-path.log
 b67b4df0208b0a9461f18e77871858e7  2026-08-29-registry-check-1-original.log
 cf722de35201272594e2f9b27cd9a778  2026-08-29-registry-check-2-repaired.log
 6bdd042245658a913d25c0aadaf40d8c  2026-08-29-registry-check-2-control.log
@@ -244,6 +250,16 @@ to support. Both results are scored in
 `claude -p`, one fresh non-interactive session each, the prompt block pasted from
 `registry-check.md`'s raw text rather than referenced by path — which is why row 7 passes in all
 five, and why it failed on the ArtGlina run that prompted the change.
+
+**The three `2026-08-30-registry-check-1{3,4,5}` logs are the `0.15.0` change**, and they exist
+because row 7 caught its own runner. The operator's interactive run against ArtGlina failed row 7 on
+`/home/kostritsaalex/Projects`, a folder no registry line names, read by one command that tested both
+component paths at once. These three ran against the repaired text, one fresh `claude -p` session
+each, **with the parent granted in every arm** so that the failing command remained available and the
+prompt was the only thing preventing it. Arm 1 lists three folders and no fourth; the disclosed plant
+still fails row 7 and names the folder; a component two levels below an undeclared folder is reached
+by one command and its intermediates appear nowhere. Pre-registered before the edit existed, in
+[`../predictions/registry-check-one-path-one-command.md`](../predictions/registry-check-one-path-one-command.md).
 
 Predictions for all three arms were written before the edit existed, in
 [`../predictions/registry-check-declared-not-attached.md`](../predictions/registry-check-declared-not-attached.md),

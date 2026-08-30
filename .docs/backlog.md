@@ -2,11 +2,59 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after the first adoption found a check failing a correct project.
+Last updated 2026-08-30, after row 7 caught its own runner reading a folder no registry line names.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**`0.15.0` is released and tagged. It is not pushed: the operator pushes it.** One rule added to
+`registry-check`, in the rows that probe the filesystem: **a probe covers one declared path and no
+other, one declared path one command**, no glob or brace expansion that can reach outside the path it
+was pointed at, and the parent of a declared path is not a declared path. See
+[`0017`](decisions/0017-a-probe-covers-one-declared-path.md).
+
+**Row 7 caught its own runner, and that is the whole story.** The operator re-ran `registry-check`
+against the real ArtGlina scope in a fresh session with no part in building `0.14.0`. Rows 1 through
+6 matched the pre-registration exactly, both components. **Row 7 failed**, naming
+`/home/kostritsaalex/Projects` — the common parent of the two component paths, read because one
+command tested both at once. **Its first true positive in its life.**
+
+**Row 7 was not touched, and permitting parents of declared paths was refused.** The instrument read
+correctly; the procedure it measured was wrong. Adjusting an instrument immediately after its first
+correct reading is the failure this log already records once.
+
+**The row that actually broke was row 1**, not the ones anyone would have guessed. The rows that
+touch the filesystem are 1, 2, 5 and 6, read off the prompt rather than assumed: 3 quotes stubs
+already in the read set, 4 resolves and compares, 7 opens nothing of its own.
+
+**Third instance of one shape, and the shape now has a name.** A rule existed, was correct, and was
+written somewhere other than where it had to be obeyed — the paste instruction inside the file it
+tells you not to open, the non-attached state the interview made normal, and now the read set the
+probing rows act on. **Worth applying to the other two checks before their own first true positive
+arrives.**
+
+**Two debts opened by this release, both named in the changelog rather than left to be noticed.**
+The prompt block grew from 80 to 87 non-blank lines and nothing was removed in exchange, the second
+release in a row that can say only that; check prompts remain the documents no metric protects.
+And **row 5's new clause has never been executed** — no arm had an override file or a stub naming
+one, so row 5 was `n/a` in all three runs.
+
+**A drift in `release.md` V3, found by running it.** The step greps the backlog for
+*"released, tagged and pushed"*, and this release is deliberately not pushed, so the phrase is false
+here and the grep returns the `0.14.0` line instead — a wrong version, silently. That is the third
+time V3 has been caught on the wording of a line a person may legitimately write differently, after
+`v0.9.1` and `0.10.1`. **It is a finding about the step, not about this release**, and it is recorded
+here rather than repaired, because `.docs/` changes never cause a release and this one is not being
+rewritten otherwise.
+
+**Next, in order.** The check's own file is outside its declared read set, so loading it by path
+breaks the rule before the rule can be read; that is the change after this one. Then the stale first
+line of `registry-check.md` and `checks/README.md`, deferred twice now for the same reason.
+
+---
+
+## Where we were, earlier on 2026-08-30
 
 **`0.14.0` is released, tagged and pushed.** One condition changed in `registry-check`: a component
 whose folder exists and whose two stubs are absent is **declared, not attached**, and the rows that

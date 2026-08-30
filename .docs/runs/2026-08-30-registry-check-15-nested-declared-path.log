@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | Artglina UA | pass | Address is a URL, so located by the local path line beneath it: PROJECT.md (scope root) line 63: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm3/outer/inner/artglina-ua` `` — probed that one path with `test -d`, returned "DIR EXISTS"; folder is there |
+| 1 | Artglina Sandbox | pass | Address is a URL, so located by the local path line beneath it: PROJECT.md (scope root) line 70: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm3/comps/artglina-sandbox` `` — probed that one path with `test -d`, returned "DIR EXISTS"; folder is there |
+| 2 | Artglina UA | n/a | `ls -1a` of the artglina-ua folder returned root-level entries: `.`, `..`, `index.php` — neither AGENTS.md nor CLAUDE.md present; component is declared, not attached |
+| 2 | Artglina Sandbox | n/a | `ls -1a` of the artglina-sandbox folder returned root-level entries: `.`, `..`, `index.php` — neither AGENTS.md nor CLAUDE.md present; component is declared, not attached |
+| 3 | Artglina UA | n/a | Row 2 returned n/a (neither stub present), so there is no stub to name the component |
+| 3 | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so there is no stub to name the component |
+| 4 | Artglina UA | n/a | Row 2 returned n/a (neither stub present), so there is no stub carrying a parent address |
+| 4 | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so there is no stub carrying a parent address |
+| 5 | Artglina UA | n/a | Row 2 returned n/a (neither stub present), so no stub names an override |
+| 5 | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so no stub names an override |
+| 6 | Artglina UA | pass | Tested the single path `…/arm3/outer/inner/artglina-ua/PROJECT.md` with `test -e`, returned "PROJECT.md ABSENT" |
+| 6 | Artglina Sandbox | pass | Tested the single path `…/arm3/comps/artglina-sandbox/PROJECT.md` with `test -e`, returned "PROJECT.md ABSENT" |
+| 7 | (read set) | pass | Folders opened, all of them: (a) `…/scratchpad/scratch/arm3/scope` — this scope's own root, in the read set by the first instruction, no registry line needed; (b) `…/scratchpad/scratch/arm3/outer/inner/artglina-ua` — a folder the registry named, PROJECT.md (scope root) line 63: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm3/outer/inner/artglina-ua` ``; (c) `…/scratchpad/scratch/arm3/comps/artglina-sandbox` — a folder the registry named, PROJECT.md (scope root) line 70: ``Local path: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/ec68fca3-e6eb-4764-8a53-d189b5844964/scratchpad/scratch/arm3/comps/artglina-sandbox` ``. No folder in the third class |
+
+Failed rows: 0

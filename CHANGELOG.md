@@ -6,6 +6,89 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.15.0] - 2026-08-30
+
+**One declared path, one command, in the rows of `registry-check` that probe the filesystem.** See
+[0017](.docs/decisions/0017-a-probe-covers-one-declared-path.md).
+
+### Fixed
+
+- **A probe covers one declared path and no other.** The prompt's governing text now says it once:
+  no command names two declared paths, no glob, brace expansion or wildcard whose resolution can
+  reach outside the path it was pointed at, and **the parent directory of a declared path is not
+  itself a declared path**.
+- **The rows that probe a path say so at the moment they probe it.** Rows 1, 2, 5 and 6 each gained
+  one clause. **Which rows those are was read off the prompt rather than assumed**: row 3 quotes
+  stubs already in the read set, row 4 resolves and compares, row 7 opens nothing of its own. **The
+  row that actually broke was row 1**, whose evidence in the `0.14.0` logs is *"listed it, the folder
+  is there"*, once per component and once per command.
+
+### Unchanged, and deliberately so
+
+- **Row 7.** It was not defective. On 2026-08-30 it produced **its first true positive in its life**:
+  the operator's fresh interactive run against ArtGlina failed it, naming
+  `/home/kostritsaalex/Projects` — the common parent of both component paths, read because one
+  command tested both. **Permitting parents of declared paths was rejected outright.** Adjusting an
+  instrument immediately after its first correct reading is a failure already recorded in this
+  project's own log. The procedure it measured changed; the instrument did not.
+- **The read-set definition, the first line of `registry-check.md`, and `checks/README.md`'s framing.**
+  Two further changes, each with its own run, both still in the backlog.
+- **No row added, none removed.** Rows 3 and 4 are untouched.
+
+### Removed
+
+- **Nothing, and this is the second release in a row that can say only that.** Principle 7 asks a
+  release that adds to name what it removed in exchange. This one adds five lines of governing text
+  and four clauses; the prompt block goes from **80 to 87 non-blank lines**, the file from 170 to
+  192. Nothing in it became redundant: row 6's *"Do not list the folder"* bounds the shape of
+  evidence, not the reach of a command, and the two rules are independent. Named here rather than
+  left to be noticed, and carried to the backlog as a debt, because check prompts are exactly the
+  documents no metric protects.
+
+### On the evidence
+
+**Three runs against the edited text, one fresh `claude -p` session each, one pre-registration
+written before the edit existed**, in
+[`predictions/registry-check-one-path-one-command.md`](.docs/predictions/registry-check-one-path-one-command.md).
+Every prediction held.
+
+**The failure mode was available in all three.** Each session was granted read access to the parent
+of the component folders, so the wide command that broke row 7 remained possible; the prompt is the
+only thing that prevented it.
+
+- **The real ArtGlina scope, unmodified.** Rows 1 to 6 identical to the operator's failing run, both
+  components. **Row 7 pass**, three folders listed, no fourth. `Failed rows: 0`. Two separate
+  listings in the evidence where the failing run had one. The scope's three root files are
+  **byte-identical** before and after.
+- **Negative control, disclosed plant.** One deliberate extra listing of a folder no registry line
+  names. **Row 7 still fails and still names it.** The change did not make the row blind, which is
+  the property it could have destroyed.
+- **Negative control, a declared path two levels below an undeclared folder.** Reached and confirmed
+  by **one command on the full path**; neither intermediate appears anywhere in the table. The
+  plausible wrong repair — walk down confirming each level — would have failed row 7 twice.
+
+Logs in [`runs/`](.docs/runs/), indexed with checksums. Scratch copies deleted.
+
+**The shipped metric was re-measured and is unchanged at 40 and 22.** Nothing in
+`blueprints/project/` or `blueprints/component/` was touched.
+
+### The shape this is the third instance of
+
+**A rule existed, was correct, and was written somewhere other than where it had to be obeyed.** The
+prompt says to paste its text, and that instruction sits inside the file a session must open to read
+it. The prompt said what a non-attached component is, and had no state for the one `0.13.0` made
+normal. The prompt declares a read set, and the rows that act on it carried nothing at the moment of
+acting. Row 7 caught the first and the third; six failed rows caught the second.
+
+### Known, deferred, not fixed here
+
+- **The check's own file is still outside its declared read set.** Loading it by path breaks the rule
+  before the rule can be read. Its own change, its own run, and it is next.
+- **The stale first line** of `registry-check.md` and of `checks/README.md`, deferred at `0.14.0` and
+  deferred again for the same reason: it is a second variable.
+- **Row 5's clause has never been executed.** No arm had an override file or a stub naming one, so
+  row 5 was `n/a` in all three runs. Named rather than claimed.
+
 ## [0.14.0] - 2026-08-30
 
 **Declared, not attached is a second non-attached outcome in `registry-check`.** See
