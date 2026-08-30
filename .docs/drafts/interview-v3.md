@@ -47,11 +47,11 @@ description genuinely leaves it open, that is the one thing worth a follow-up.
    tasks does it solve?
 
 2. **Boundary.** Finish this sentence: *"This project currently covers ______. Anything else is
-   outside it."* Name **kinds of work** — `restoration and photography`, `hosting and deployment`,
-   `content writing`. Not folders or repositories: where the work happens is the registry's job, and
-   question 4 asks it. **If you have not decided this yet, say so and say what would settle it. That
-   is a complete answer and I will write it.** If something adjacent is commonly assumed to be inside
-   and is not, name it. That part is optional.
+   outside it."* **This is the sentence an assistant quotes when it declines work that is not part of
+   this project.** Name **kinds of work** — `restoration and photography`, `hosting and deployment`,
+   `content writing` — not folders or repositories, which question 4 asks for. **If you have not
+   decided this yet, say so and say what would settle it; that is a complete answer.** If something
+   adjacent is commonly assumed to be inside and is not, name it. That part is optional.
 
 3. **Principles.** The rules that hold across the whole project. Two are offered:
 
@@ -91,6 +91,22 @@ skipped it, and the list came out at the previous question instead.
 `new-component.md` as the next step. **The question never said so**, so a person reading it had no
 way to know that naming a folder costs nothing today. Now it says so. "Declare" is gone with it, and
 "repositories" is added because that is the word he used for two of the three things he named.
+
+**Question 2 says what the line is for, and that is the substantive change here.** It said how to
+write the line, what shape it takes, that folders belong to question 4, and that undecided is allowed
+— **and nothing about why a person is being asked.** A reframe was tried in conversation and rejected
+by the answer it produced: asked *"what kinds of work should an assistant not start without asking
+you?"* the owner answered *"do not touch core files in the platform repository"*, which is the
+`Repository` posture's travelling rule and already lives in the registry block. **The reframe pulled a
+component-level rule up into the project-level boundary**, the folder-list collision one layer over.
+
+Told instead that the line is what an assistant quotes when it declines work, he produced a complete
+boundary in a breath. **He was not missing an answer; he was missing what the line is for.** By `0004`
+a purpose is exactly what no amount of looking at the folder reveals.
+
+**Paid for rather than added.** Two clauses in the same question were trimmed to make room, so the
+question is not longer than the version he first read. The evidence is one person on one occasion and
+the only measure is his acceptance test.
 
 **Question 2 surfaces the undecided option.** The blueprint has always allowed *not decided yet*, and
 asks for what would settle it and what to do meanwhile — **but that lives in a comment the assistant

@@ -655,6 +655,43 @@ is a folder outside the repository, a convention about what may be written durin
 or nothing at all, is unsettled. What is settled is that the current arrangement protects nobody: the
 material is one `cat` away, in a repository the session is told to read.
 
+**The boundary reframe, tried and rejected 2026-08-30, by the answer it produced.** Cost no run and
+is recorded for that reason.
+
+The candidate put to the owner in conversation was *"what kinds of work should an assistant not start
+without asking you?"* He said he would answer it faster — and then answered it: **"do not touch core
+files in the platform repository."**
+
+**That is not a project boundary.** It is the `Repository` posture's travelling rule, it already lives
+in the registry block, and it was measured on 2026-08-30: with it, zero of two arms edited third-party
+code; without it, one of two did. **So the reframe pulls a component-level rule up into the
+project-level boundary** — the same collision as the folder lists, one layer over. A question phrased
+as "what should an assistant not do" elicits rules about how to work, and the registry already owns
+those.
+
+Rejected by what it produced rather than by argument, which is the cheapest kind of rejection
+available and the kind this framework should prefer.
+
+**What his answer actually shows, and it is the finding.** His second sentence: *"otherwise there are
+no boundaries, at least for ArtGlina."* That is a complete boundary and a wide one — the project
+covers the pottery business, making, selling, the site, its marketing and photography, and everything
+else is outside. **The line still does its job**: asked for accounting, or another client's site, an
+assistant quotes it and stops.
+
+**He was not missing an answer. He was missing what the line is for.** Told that it is the sentence an
+assistant quotes when it declines work, he produced one in a breath.
+
+**So the change is a purpose clause, not an example and not a reshape.** Question 2 said how to write
+the line, what shape it takes, that folders belong to question 4, and that undecided is allowed —
+**and nothing about why a person is being asked at all.** By `0004` a purpose is exactly the kind of
+thing no amount of looking at the folder reveals, so it belongs in the question.
+
+**The risk, stated rather than assumed:** it adds words to the one thing this sequence has spent three
+days cutting, and the evidence is one person on one occasion. Paid for by trimming two clauses in the
+same question, so the question is not longer than it was. **The measure is his own acceptance test and
+there is no other** — whether he answers question 2 from his head, in one message, without hesitating.
+Nothing in a scratch run can see it.
+
 **The exclusions question is unbounded, and the person answering it says so.** From the ArtGlina
 interview: it is easier to say what a project covers than what it does not, because the complement is
 endless. That is a fair complaint about the question rather than about the line it produces, and the

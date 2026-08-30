@@ -185,3 +185,23 @@ One run of four listed the scope's file contents, which `procedure.md` Step 2 fo
 an adjacent rule, and this change does not touch it. **It is not repaired inside this work** — it
 belongs to whatever pass looks at Step 2, and fixing it here would put an unrun change into a release
 the owner is about to read.
+
+## Amendment before the test: question 2 gains a purpose clause
+
+**The reframe was tried in conversation and rejected by the answer it produced** — see the backlog.
+What replaced it is one clause saying what the line is for: *this is the sentence an assistant quotes
+when it declines work that is not part of this project.*
+
+**Paid for by trimming two clauses in the same question**, so the question is no longer than the
+version he first read.
+
+**No scratch run measures this.** A purpose clause changes whether a person knows what he is being
+asked for, and nothing in these arms answers the questions. **His acceptance test is the only
+instrument**: whether he answers question 2 from his head, in one message, without hesitating.
+
+**One risk to the examples question, registered now.** He is being asked explicitly whether he could
+have answered question 2 with no example present, and he is being asked **before** he answers.
+Knowing the question is being asked may make him read past the examples deliberately, which would
+bias the answer toward cutting them. Asking afterwards avoids that bias and loses the answer, since
+he cannot un-read them. **The bias is accepted and named**, and if he reports that he could have
+answered without them, the record notes that he knew the question was coming.
