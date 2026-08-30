@@ -38,6 +38,17 @@ Do not descend into subfolders. Do not read a component's contents. Do not follo
 parent address anywhere. If the registry names no components, every check below is n/a and you say
 so in one line.
 
+The read set governs what you consult about the project under check. Whatever you read only because
+of how this check's own text reached you is outside it and is not a reading of the project: this
+file, when you were given its path instead of its text, and any attachment or spool file your
+harness wrote in order to hand you the pasted prompt. The exemption covers these instructions and
+nothing else — a file of the project under check, and every other file of the framework this check
+ships in, is judged by the read set exactly as before, wherever it sits.
+
+Exempt is not invisible. Where row 7 asks for every folder you opened, list these too and name the
+file, classified as the check's own instructions: a fourth class beside the three that row names,
+and a pass.
+
 Do not modify any file.
 
 Answer with one table and nothing else. Columns: Check, Component, Result, Evidence.
@@ -210,6 +221,26 @@ instruction sits inside the file a session has to open in order to read it. The 
 non-attached component is, and had no state for the one the interview made normal. The prompt
 declares a read set, and the rows that act on it carried nothing at the moment of acting. Each time
 the rule existed, was correct, and was written somewhere other than where it had to be obeyed.
+
+**The delivery of this check's own text is not a reading of the project.** Row 7 failed twice on it,
+in two ecosystems. Once when the check was loaded by giving its path, so the session had to open this
+file to learn the procedure — and the instruction to paste the text instead sits inside the file,
+unreachable until after the rule has been broken. Once in Codex, an agent that had never seen this
+framework, which spooled the pasted prompt to its own attachments folder and named that folder. Rows
+1 through 6 produced identical verdicts there, which is what raised the second failure from one
+harness's quirk to a property of this check.
+
+Nothing about row 7 changed. What changed is the definition of what it audits: the read set covers
+what you consult about the project, and material that exists only because of how these instructions
+reached you is outside it. **Exempt is not invisible** — the read is still listed and the file still
+named, in a fourth class. A rule that let it be dropped from the list would have attacked the one
+thing this row cannot see. Weakening the row was considered and refused; see
+[decision 0018](../../.docs/decisions/0018-the-instrument-is-not-part-of-the-sample.md).
+
+**The first of those three is now closed, and it took a second ecosystem to close it.** The other two
+were repaired by moving the rule to where it is obeyed. This one could not be: no wording inside a
+file reaches a session before it opens the file. What moved instead was the boundary — the read set
+covers the project, not the delivery — and that is a different repair for the same shape.
 
 The last line counts rows rather than checks. With one row per component per check, a count of
 checks hides which component failed, and the first run made the ambiguity visible by answering

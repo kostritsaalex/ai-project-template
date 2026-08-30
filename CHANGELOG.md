@@ -6,6 +6,123 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.16.0] - 2026-08-30
+
+**The delivery of the check's own text is not part of its read set.** See
+[0018](.docs/decisions/0018-the-instrument-is-not-part-of-the-sample.md).
+
+### Fixed
+
+- **The read set governs what a check consults about the project under check.** Material that exists
+  only because of how the check's own text reached the session is outside it: `registry-check.md`
+  itself when the session was given its path instead of its text, and a harness's attachment or spool
+  storage holding the pasted prompt.
+- **The exemption covers the check's own instructions and nothing else.** A file of the project under
+  check is judged by the read set exactly as before, wherever it sits, and so is every other file of
+  this framework — the other checks, their README, the blueprints. Reading one of those is still a
+  third-class read and still fails row 7.
+- **Exempt is not invisible.** The exemption adds a **fourth class** to the three row 7 names, and
+  requires the read to be listed and the file named. A rule that let the session drop it from the list
+  would have attacked the one thing row 7 cannot see, which is a folder opened and left off.
+- **Loading the check by giving its path is now a supported way of running it.** That was the
+  operator's original mistake, and it was never a mistake about the project.
+
+### Where this was written, and where it was not
+
+- **The read set is declared per check, three times, and audited once**, established by reading the
+  files rather than assumed. [0009](.docs/decisions/0009-a-check-declares-its-read-set-in-advance.md)
+  states the rule but is a decision record no running session reads; `structure-check` declares one
+  folder's root and **has no row that audits it**; `registry-check` declares its set and **row 7
+  audits it**; `cold-start-check` declares none, because following the chain outward is what it
+  measures.
+- **The change went into `registry-check.md` alone.** In `structure-check.md` the same words would be
+  a clause that **cannot execute** — its prohibition is real and breaks identically on a path load,
+  but nothing there reports what was opened, so no output would differ. Available the day
+  `structure-check` grows an audit row. `cold-start-check`'s analogous hazard is already covered under
+  its own name, as a **hint**.
+
+### Unchanged, and deliberately so
+
+- **Row 7.** Not touched. **Weakening it was considered and rejected**, in three forms: permitting
+  anything opened before the prompt was read, which would also cover a session that browsed the
+  project first; dropping the *"without exception"* listing requirement, which the row's own text
+  names as the failure it exists to catch; and making it advisory, which audits nothing. It has one
+  confirmed true positive on its record, from `0.15.0`. **Adjusting an instrument immediately after
+  its first correct reading is a failure already in this project's log.** The fourth class is added in
+  the read-set declaration, and the row inherits it.
+- **[0009](.docs/decisions/0009-a-check-declares-its-read-set-in-advance.md).** It says what kind of
+  thing a read-set declaration is, and that is unchanged: the set is still computable from documents
+  before any file is opened. `0018` says what the set is a set *of*.
+- **The first line of `registry-check.md`, `checks/README.md`'s framing, and `release.md` V3.** Three
+  separate changes, still in the backlog. `checks/README.md` moves here only in its two version lines.
+- **No row added, none removed.**
+
+### Removed
+
+- **Nothing, and this is the third release in a row that can say only that.** Principle 7 asks a
+  release that adds to name what it removed in exchange. The prompt block goes from **87 to 96
+  non-blank lines**. Nothing in it became redundant: the read-set declaration bounds what is
+  consulted, and the new paragraphs bound what counts as consulting. Named here rather than left to be
+  noticed, and the debt is now three releases old.
+- **The shipped-line metric is unmoved at 40 and 22**, re-measured rather than carried forward. This
+  release touches a check prompt, which the metric does not cover — which is the debt above, stated as
+  a number.
+
+### On the evidence
+
+**Two instances in two ecosystems, which is what made this a property of the check rather than an
+operator's mistake.** Instance 1 is the operator's path-load run against ArtGlina, recorded under
+`0.14.0` as deferred. Instance 2 is the operator's **Codex** run of the same shipped text, in an
+ecosystem with **no knowledge of this framework**: rows 1 through 6 produced **identical verdicts**,
+including *declared, not attached* and both cascade branches, and **row 7 failed** naming
+`/home/kostritsaalex/.codex/attachments/<uuid>`, that harness's own spool for the pasted prompt, whose
+contents the operator confirmed. Rows 1 to 6 agreeing across ecosystems is a second finding: the
+check's text reads the same way outside the framework that produced it.
+
+**Three runs against the edited text, one fresh `claude -p` session each, one pre-registration written
+and committed before the edit existed**, in
+[`.docs/predictions/registry-check-instrument-not-sample.md`](.docs/predictions/registry-check-instrument-not-sample.md).
+The parent of both component folders was granted in every arm, and the whole framework repository in
+the path-load arm, so the failing reads remained available throughout.
+
+- **Arm 1, real ArtGlina, text pasted.** Rows 1 to 6 identical to `0.15.0`; **row 7 pass, three
+  folders, no fourth**; `Failed rows: 0`. The change moves nothing when the delivery leaves no trace.
+- **Arm 2, real ArtGlina, the check's path given and no text — the arm that decides.** Rows 1 to 6
+  identical to arm 1; **row 7 pass, its evidence naming
+  `…/blueprints/checks/registry-check.md` in full and classifying it as *"the check's own
+  instructions, given as a path rather than text; fourth class, exempt, a pass"***; `Failed rows: 0`.
+  **Not a silent pass**: the file is named, not dropped. Granted the whole framework repository, the
+  session opened one file in it.
+- **Arm 3, negative control, disclosed plant.** **Row 7 fail**, naming the planted folder in the third
+  class; `Failed rows: 1`. The session recorded that it opened the folder *because the prompt's own
+  closing line said to* — and still refused to exempt it, because it was project material and not the
+  check's instructions. **Row 7 is not blind.**
+
+ArtGlina was read-only throughout; its three root files were checksummed before and verified
+byte-identical after, matching the `0.15.0` values. The scratch tree was deleted.
+
+### Clauses that shipped without executing
+
+- **The spool half of the exemption.** Three arms executed the **path** half. **Claude Code does not
+  spool a pasted prompt to disk**, so the attachment-and-spool half cannot be run in this ecosystem at
+  all — which is exactly why the second instance had to come from another one. **The operator's Codex
+  re-run is the only thing that can execute it.** Until then, half of this change is argued rather
+  than measured.
+- **Row 5's probe clause, for the third release running.** No arm had an override file or a stub
+  naming one, so row 5 was `n/a` in all three. Shipped through `0.15.0` and `0.16.0` unexecuted.
+
+### What the operator's re-runs should produce
+
+- **Claude Code, pasted:** arm 1. Row 7 **pass**, three folders, no fourth. `Failed rows: 0`. The
+  fourth class may be mentioned and reported empty; that is not a failure, and it is what arm 1 did
+  here against a prediction that expected silence.
+- **Claude Code, path given:** arm 2. Row 7 **pass**, naming `registry-check.md`. `Failed rows: 0`.
+- **Codex, pasted: row 7 should now pass.** Rows 1 to 6 unchanged from its earlier run. Row 7 should
+  **list `/home/kostritsaalex/.codex/attachments/<uuid>` and classify it as the check's own
+  instructions** — the fourth class, a pass — rather than as *"neither"*. `Failed rows: 0`. If it
+  drops the folder from the list instead, the exemption reads as permission to stop reporting. If it
+  still fails, the wording does not reach what that harness does, and the finding is the wording's.
+
 ## [0.15.0] - 2026-08-30
 
 **One declared path, one command, in the rows of `registry-check` that probe the filesystem.** See

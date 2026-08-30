@@ -71,6 +71,9 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-registry-check-13-artglina-one-path.log` | `registry-check.md` at `0.15.0`, the rows that probe a path gaining one declared path, one command | Arm 1, the real scope again after row 7's first true positive | **ArtGlina, real and unmodified, read-only.** Three root files checksummed before and verified byte-identical after | 2026-08-30 |
 | `2026-08-30-registry-check-14-plant-undeclared-listing.log` | Same | Negative control, **disclosed plant**: one deliberate extra listing of a folder no registry line names, appended to the pasted text | A scratch copy of the scope, its two component paths pointed at scratch folders, plus one folder the registry does not name. Deleted after | 2026-08-30 |
 | `2026-08-30-registry-check-15-nested-declared-path.log` | Same | Negative control, a declared path two levels below an undeclared folder | A scratch copy of the scope, one component's local path pointing at `outer/inner/artglina-ua`. Deleted after | 2026-08-30 |
+| `2026-08-30-registry-check-16-artglina-pasted.log` | `registry-check.md` at `0.16.0`, the read set exempting the delivery of the check's own text | Arm 1, the control: the change must move nothing when the delivery leaves no trace | **ArtGlina, real and unmodified, read-only.** Three root files checksummed before and verified byte-identical after | 2026-08-30 |
+| `2026-08-30-registry-check-17-artglina-path-load.log` | Same | **Arm 2, the arm that decides the change.** The check loaded the way the operator originally loaded it: its path given, no text | Same scope, same session shape, only the delivery differs | 2026-08-30 |
+| `2026-08-30-registry-check-18-plant-exemption-not-blind.log` | Same | Negative control, **disclosed plant**: one deliberate extra listing of a folder no registry line names, appended to the pasted text | A scratch copy of the scope, its two component paths pointed at scratch folders, plus one folder the registry does not name. Deleted after | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -99,6 +102,9 @@ bf2f0093f3174c308a64a56bd582f285  2026-08-30-registry-check-12-stubs-present-def
 0b7d6c26ddf37a8bcca563bbfbd001da  2026-08-30-registry-check-13-artglina-one-path.log
 7528a5f2e0802ee8e752c60a8988cd0c  2026-08-30-registry-check-14-plant-undeclared-listing.log
 6ee0d82daaed9c205980fc6c397e76ff  2026-08-30-registry-check-15-nested-declared-path.log
+98009f25ca2aa304753b95276359ac23  2026-08-30-registry-check-16-artglina-pasted.log
+aaa5cdc7cab73841e26ce3d0add92a59  2026-08-30-registry-check-17-artglina-path-load.log
+f8b392dd7406098b79dd3d7b42e09a01  2026-08-30-registry-check-18-plant-exemption-not-blind.log
 b67b4df0208b0a9461f18e77871858e7  2026-08-29-registry-check-1-original.log
 cf722de35201272594e2f9b27cd9a778  2026-08-29-registry-check-2-repaired.log
 6bdd042245658a913d25c0aadaf40d8c  2026-08-29-registry-check-2-control.log
@@ -260,6 +266,16 @@ prompt was the only thing preventing it. Arm 1 lists three folders and no fourth
 still fails row 7 and names the folder; a component two levels below an undeclared folder is reached
 by one command and its intermediates appear nowhere. Pre-registered before the edit existed, in
 [`../predictions/registry-check-one-path-one-command.md`](../predictions/registry-check-one-path-one-command.md).
+
+**The three `2026-08-30-registry-check-1{6,7,8}` logs are the `0.16.0` change**, and the middle one
+is the point of it. Row 7 had failed twice on the delivery of the check's own text rather than on
+anything in the project: once when the operator gave its path, and once in Codex, which spooled the
+pasted prompt to `~/.codex/attachments/<uuid>` and named that folder. Log 17 is the path load run
+again against the exempting text — **row 7 passes and names `registry-check.md` in a fourth class**,
+which is the whole difference between an exemption and a blind spot. Log 16 holds the `0.15.0` result
+fixed on a paste, and log 18 shows the row still failing on a planted folder it was told to open.
+Pre-registered before the edit existed, in
+[`../predictions/registry-check-instrument-not-sample.md`](../predictions/registry-check-instrument-not-sample.md).
 
 Predictions for all three arms were written before the edit existed, in
 [`../predictions/registry-check-declared-not-attached.md`](../predictions/registry-check-declared-not-attached.md),

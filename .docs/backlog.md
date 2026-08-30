@@ -2,11 +2,76 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after row 7 caught its own runner reading a folder no registry line names.
+Last updated 2026-08-30, after the same row failed in a second ecosystem on that harness's own spool.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**`0.16.0` is released and tagged. It is not pushed: the operator pushes it.** One exemption added to
+`registry-check`'s read set: **material that exists only because of how the check's own text reached
+the session is not a reading of the project** — the check's own file when its path was given instead
+of its text, and a harness's attachment or spool holding the pasted prompt. See
+[`0018`](decisions/0018-the-instrument-is-not-part-of-the-sample.md).
+
+**Two instances, two ecosystems, and the second is why this is a rule.** Row 7 failed on the
+operator's path-load run against ArtGlina, and then failed again when the operator ran the same
+shipped text through **Codex**, naming `/home/kostritsaalex/.codex/attachments/<uuid>` — that
+harness's own storage for the pasted prompt. Codex has no knowledge of this framework. One operator
+loading a file the wrong way is a mistake to correct in the operator; the same row failing from a
+harness this project has never seen, on an unchanged scope, is the check counting the instrument as
+part of the sample.
+
+**Rows 1 to 6 produced identical verdicts in Codex**, including *declared, not attached* and both
+cascade branches. That is external evidence that the check's text reads the same way outside the
+framework that produced it, and it is a finding in its own right.
+
+**Row 7 was not touched and weakening it was refused.** Three cheaper repairs were on the table —
+permitting anything opened before the prompt was read, dropping the *"without exception"* listing
+requirement, making the row advisory — and each costs the row the thing it was written for. It has one
+confirmed true positive, from `0.15.0`. **Exempt is not invisible:** the exemption adds a fourth class
+and still requires the read to be listed and the file named.
+
+**Where the read set is defined, established by reading rather than guessed.** Per check, three times,
+audited once: `0009` states the rule but is a decision record no running session reads;
+`structure-check` declares one folder's root and **has no row that audits it**; `registry-check`
+declares its set and row 7 audits it; `cold-start-check` declares none. **The change went into
+`registry-check.md` alone**, because in `structure-check` the same words would be a clause nothing can
+execute. Available there the day it grows an audit row.
+
+**Loading the check by its path is now supported.** The operator's original mistake was never a
+mistake about the project.
+
+**Half of this change is argued rather than measured.** Three `claude -p` arms executed the **path**
+half: control unmoved, path load passing row 7 **and naming the file**, disclosed plant still failing
+row 7. **Claude Code does not spool a pasted prompt to disk**, so the spool half cannot be executed in
+this ecosystem — which is why the second instance had to come from another. **The operator's Codex
+re-run is the only thing that can execute it, and row 7 should pass there**, listing the attachments
+folder in the fourth class.
+
+**Three debts, carried and named.** The prompt block went from 87 to 96 non-blank lines with nothing
+removed — **third release in a row**, and check prompts remain the documents no metric protects. Row
+5's probe clause has now shipped through two releases **without ever executing**. And the shipped-line
+metric is unmoved at 40 and 22, re-measured, because it does not cover check prompts at all.
+
+**`release.md` V3 failed again, and this time it returned a quotation of itself.** The step greps the
+backlog for a fixed phrase about a release being pushed. This release is deliberately not pushed, so
+the phrase is absent here — and the grep's first hit is now the sentence in the `0.15.0` section that
+*describes this very drift*, quoting the phrase in order to complain about it. V3 answered its own
+question with its own complaint. **Fourth occurrence**, after `v0.9.1`, `0.10.1` and `0.15.0`, and the
+first where the step returns a confident wrong line rather than nothing. Both places were read by hand
+instead, as the step's own commentary directs, and both name `0.16.0`. Recorded, not repaired: it is a
+finding about the step, `.docs/` changes never cause a release, and V3 is queued as its own change
+with its own variable.
+
+**Next, in order.** The stale first line of `registry-check.md` and of `checks/README.md`, deferred
+three times now for the same reason. Then `release.md` V3, whose grep is keyed on a phrase that has
+now drifted twice. Then the shape below, applied to the other two checks before their own first true
+positive arrives.
+
+---
+
+## Where we were, earlier on 2026-08-30
 
 **`0.15.0` is released and tagged. It is not pushed: the operator pushes it.** One rule added to
 `registry-check`, in the rows that probe the filesystem: **a probe covers one declared path and no
