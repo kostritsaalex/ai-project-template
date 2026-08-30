@@ -150,3 +150,38 @@ so nothing here can copy an example the way he did. The change rests on one obse
 recorded as unmeasured.
 
 **Nothing is released.** `blueprints/` is untouched by every arm here, and the draft waits on him.
+
+---
+
+# Registered before he answers: are question 2's examples needed at all?
+
+**Written 2026-08-30, before the owner's acceptance test, so the reading is not chosen afterwards.**
+
+**The shortening treats the symptom.** The examples were cut from two full sentences joined by *or* to
+three short fragments after he answered question 2 with both of the old ones verbatim. **A short
+example is copied as readily as a long one.** What that observation showed is not that the examples
+were too long — it is that **an example in that question gets answered instead of the question.**
+
+So the question is whether they are needed at all. `0004` says a document carries what cannot be seen;
+by the per-question audit's extension, **a question carries what the person cannot supply without
+it.** An example that has now taught the wrong thing twice — once to an assistant, across four
+releases of folder-list boundaries, and once to the person answering — is a candidate for cutting
+rather than trimming.
+
+**His acceptance test settles it at no cost.** He has been asked to notice whether he could have
+answered question 2 with no example present.
+
+- **If he could: the examples are cut.** They fail the razor, he supplied the answer without them, and
+  they have a measured history of being copied instead of read.
+- **If he could not: they stay**, and the record says why, which is more than they have now. Today
+  they are in the question because an earlier draft put them there.
+
+**Registered as a razor case and not as a wording preference**, so neither outcome can be read as the
+other afterwards. The shortened form is what he is testing; the question is whether any form survives.
+
+## The Step 2 breach stays a note
+
+One run of four listed the scope's file contents, which `procedure.md` Step 2 forbids. One instance,
+an adjacent rule, and this change does not touch it. **It is not repaired inside this work** — it
+belongs to whatever pass looks at Step 2, and fixing it here would put an unrun change into a release
+the owner is about to read.

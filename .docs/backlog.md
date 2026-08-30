@@ -312,6 +312,18 @@ like his own**, and the only signal was that it matched the prompt too exactly.
 menu. Question 2's examples are now three short fragments and no *or*, which is a change made on this
 observation alone and has not been measured. Recorded as unmeasured.
 
+**And the shortening treats the symptom, so the examples are a razor case.** A short example is copied
+as readily as a long one. What the observation showed is that **an example in that question gets
+answered instead of the question**, which is an argument for cutting rather than trimming. `0004` says
+a document carries what cannot be seen; a question carries what the person cannot supply without it,
+and these have now taught the wrong thing twice — to an assistant across four releases, and to the
+person answering.
+
+**The owner's acceptance test settles it for free**, and the reading is registered before he answers,
+in [`predictions/interview-v3.md`](predictions/interview-v3.md): if he could have answered question 2
+with no example present, they are cut; if he could not, they stay and the record says why, which is
+more than they have now.
+
 **The general form, and it is why this shape keeps earning its place:** an example is the part of a
 document most likely to be copied and the part nothing checks. `0004` cuts facts, `0008` cuts rules,
 and neither reaches an example, so the only instrument is a reader comparing it against the rule it
