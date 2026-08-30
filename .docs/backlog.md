@@ -294,6 +294,30 @@ compares what each one teaches. **Nothing is being built for this.** It is named
 person changing a rule looks at the example beside it, and so that the next audit has a word for the
 shape.
 
+**Shape three, third instance, and the first where the behaviour was a person's. 2026-08-30.**
+
+Reported through the review: **the owner's draft answer to the boundary question was both of the
+question's own examples, verbatim, joined by its own "or".** The question offered `restoration,
+photography and selling online` or `hosting and deployment, content writing, SEO`, and the answer
+came back as those, joined that way. This session did not see the answer and records the observation
+as arriving rather than as its own.
+
+The two earlier instances were an example teaching a *tool* the wrong thing: `0.10.0`'s boundary
+example turning four releases of adoptions into folder lists, and the same example reaching `0011`.
+**This one taught a person**, and it is worth separating because the remedies differ. A tool copying
+an example is caught by reading the run. **A person copying an example produces an answer that looks
+like his own**, and the only signal was that it matched the prompt too exactly.
+
+**What follows for examples in anything a person reads.** Two full sentences joined by *or* read as a
+menu. Question 2's examples are now three short fragments and no *or*, which is a change made on this
+observation alone and has not been measured. Recorded as unmeasured.
+
+**The general form, and it is why this shape keeps earning its place:** an example is the part of a
+document most likely to be copied and the part nothing checks. `0004` cuts facts, `0008` cuts rules,
+and neither reaches an example, so the only instrument is a reader comparing it against the rule it
+sits beside — and now, where the reader is a person, comparing an answer against the example that
+preceded it.
+
 **The instrument for shape two is a reader, and it is a different tool with a different cost.** Three
 of the contradictions found on 2026-08-29 were caught by a session reading the whole repository and
 cross-checking the documents against each other, which is how the `architecture.md` drift surfaced at
