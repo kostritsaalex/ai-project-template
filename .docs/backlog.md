@@ -8,7 +8,12 @@ Last updated 2026-08-29, after the interview was measured rather than repaired.
 
 ## Where we are, 2026-08-29
 
-**`0.13.0` is committed and deliberately not tagged; the owner reads the question set first. `0.12.0` was released, tagged and pushed.** Four questions, after the per-question razor audit
+**`0.13.0` is released, tagged and pushed**, after the owner answered all four questions in one
+message with no follow-up. **That acceptance test was his criterion and it is what five provisional
+releases were waiting on.**
+
+**The adoption is now unblocked and it is the sufficiency test for every provisional release at
+once** — `0.10.0`, `0.10.1`, `0.10.2`, `0.11.0` and `0.13.0`. Five releases, one instrument. Four questions, after the per-question razor audit
 `0013` never performed. `<DOCUMENT_OWNER>` cut, the boundary example corrected in three places, and
 the shipped metric down to 40 and 22 — its first movement since `0.7.0`.
 
