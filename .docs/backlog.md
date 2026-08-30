@@ -756,6 +756,57 @@ be wrong", an instruction about its own draft. The interview rendered it to the 
 asking this blank rather than drafting it — a plausible guess about your business would read as
 fact."* Nothing was wrong with either sentence. The second should never have existed.
 
+**The posture axis is reversed by the owner, 2026-08-30, and it supersedes part of `0006`.**
+
+**A folder declared as a component that holds code is `Repository`. Material is `Assets`.** Code in a
+folder nobody declared stays what `0005` already makes it: files, taking the posture of whatever
+contains them. A folder of plugins inside an assets folder is `Assets` and always was.
+
+His reasoning, and it outruns an intuition: where the difficulty is knowing what counts as platform
+core, **that is a fact about a platform** and belongs in something per-platform rather than in a
+criterion every reader has to apply.
+
+**The evidence is measured and it is on his side.** Four independent readers took `Repository` to mean
+content rather than ownership — the owner in August, `gB1`, and all three arm H runs, whose stated
+reasoning never touched the axis at all. And the remedy that worked reads *"a folder of your own
+source code is `Assets` even when it is a git repository"*, **a sentence whose only job is to
+counteract the impression the word gives.** A rule everybody reads the same way, where that reading is
+coherent and useful, is usually a wrong rule rather than five wrong readers.
+
+**What it forces, and why it reorders the work.** `0006` cut the postures to a floor plus one rule,
+and that rule is `Repository`'s core rule. **On a folder of somebody's own source that rule is
+empty** — no core, no updater — and `0006` and `0010` both hold that a rule ordinary work makes
+vacuous teaches an assistant the document can be ignored. So under the new axis `Repository` carries
+nothing, or carries something empty, and that splits two ways:
+
+- **If the core rule earns its place**, it attaches to folders backed by a platform, which is the
+  ownership axis. The new axis cannot carry it and the framework needs a third state or an override.
+- **If it does not**, `Repository` carries nothing, the two postures differ by a word alone, and
+  `0008` cuts a word that changes no behaviour. The postures collapse to one, or to none, and a
+  registry block becomes a name and an address.
+
+**Either way the core rule decides the shape, so it runs first**, pre-registered in
+[`predictions/does-the-core-rule-earn-its-place.md`](predictions/does-the-core-rule-earn-its-place.md).
+The axis change is written up as a decision record only after that reports.
+
+**The naming question closes without a rename, and that is the point of it.** The words start meaning
+what every reader already thought they meant. This framework's preferred kind of answer, and cheaper
+than rewriting a word in every adopted registry.
+
+**Recipes are not designed before the core rule reports.** If it does not survive, there is nothing
+for a recipe to carry and the question closes the way the platform-fragment question closed in
+`0008`: by the thing not needing to exist.
+
+**The sharpened posture rule is pulled from the batch.** It says own source is `Assets`; the new axis
+says the opposite. Shipping it and reversing it next release would put in front of the owner a rule
+he has already decided against, and churn is the thing he has been objecting to. It stays in
+`drafts/`.
+
+**Arm J's result stands as it is: superseded, not withdrawn.** The sharpened rule did fix the
+misreading under the old axis, on three folder kinds, stable and correct across every pair. It was
+overtaken by a decision rather than by a defect, and the distinction matters because the run is still
+the evidence that the old wording was stably wrong.
+
 **The posture proposal returned opposite verdicts on identical input.** Found 2026-08-29 as an
 incidental result of the interview audit runs, in `2026-08-29-audit-gB1.log` and `-gB2.log`. Same
 folder, same supplied answers, one framework: `gB1` proposed `Repository. Things get changed here…`
