@@ -2,11 +2,90 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after the same row failed in a second ecosystem on that harness's own spool.
+Last updated 2026-08-30, after `release.md` V3 was repaired by subtraction.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**`release.md` V3 no longer greps prose, and this is not a release.** Everything in this pass is under
+`.docs/`, so by step 0 nothing is bumped and nothing is tagged. See
+[`0019`](decisions/0019-a-check-compares-fields-not-prose.md) and
+[`predictions/release-v3-comparison.md`](predictions/release-v3-comparison.md).
+
+**The count that decided it, taken by running both commands against all twenty tags rather than by
+reading the record.** V3 has fired **five** times, not four: retrospectively against `v0.9.1`, then on
+`0.10.1`, `0.11.0`, `0.15.0` and `0.16.0`. **Zero true positives.** In all four release-time firings
+the release was correct and the step was wrong. **`0.11.0` was in no record** — its grep's first hit
+was line 12 of the backlog, a sentence quoting the phrase in order to explain it, naming no version.
+The same shape as `0.15.0` and `0.16.0`, one release after the grep was loosened, unnoticed at the
+time.
+
+**The one occasion the guarded fact was genuinely absent is `v0.9.1`, and V3 returned nothing there —
+the same output as its four false alarms.** The defect was found by opening the backlog. A step whose
+signal for *"defect"* is identical to its signal for *"the sentence moved"* was carrying no
+information.
+
+**Removal was considered on its merits and half of it was carried out.** The backlog grep is deleted
+outright, with the five paragraphs of commentary that existed only to warn about it. Nothing checks
+the backlog's version line now and it may lag: accepted, on step 0's own ground that a `.docs/` change
+never causes a release, so that line is a convenience and is not shipped to anybody.
+
+**What survives is a comparison between two fields**, `CHANGELOG.md`'s top heading and the
+`Framework Version:` in every blueprint `README.md`, computed rather than printed for reading. It
+closes a real gap rather than restating V2: **V2's criterion is *"every `Framework Version` reads the
+new number"* and V2's output never says what the new number is.** A release whose changelog named a
+version the fields did not carry passed V1, V2 and V4 as written.
+
+**The empty case is handled deliberately, because it is the hole this pass exists to close.** A
+`CHANGELOG` with no version heading prints `MISSING` and lists every blueprint, rather than matching
+everything and passing silently. A comparison that cannot tell *"all agree"* from *"nothing to
+compare"* is the defect being removed, and reintroducing it in the replacement would have been the
+whole pass wasted.
+
+**One deviation from the pre-registration, recorded rather than tidied away.** The prediction was
+written against a seven-line loop printing one line per blueprint; the shipped command is
+`grep -L`, which lists only the blueprints that disagree. The committed prediction is **not edited** —
+the five expected verdicts are about which trees pass and which fail, and those are independent of
+how the row prints. Every one of them was checked against the shipped form.
+
+**Verified both ways round, six runs.** V3 passes on the tree as it stands. Two disclosed plants in
+scratch copies — a changelog heading moved to `0.17.0`, and one blueprint `README.md` set back to
+`0.15.0` — both fail, naming the file and both numbers. And the four trees that broke the old step,
+`0.10.1`, `0.11.0`, `0.15.0` and `0.16.0`, all pass under the new one, which is the direct test that a
+correct release cannot fail it.
+
+**A subtraction, measured rather than asserted.** `release.md` goes from 140 non-blank lines to 137.
+V3's command block is 3 lines before and 3 after; its commentary falls from 12 to 9. **The first
+draft of this pass got it backwards** — the replacement was a seven-line shell loop and the file grew
+by 8, while the text claimed a cut of 6. Caught by measuring before committing, which is the only
+reason the claim in this paragraph is worth anything.
+
+**Two findings from the V1/V2/V4 sweep, reported and deliberately not acted on.**
+
+- **V1 is the same shape and says so.** It compares a file list against the changelog entry, and its
+  own text reads *"This is read, not computed: the entry is prose."* Unlike old V3 it puts both sides
+  in front of the reader whole, so it cannot return a confident wrong line — it can only be read
+  carelessly. Whether that is repairable or is irreducibly judgement is its own question.
+- **V2 is not the same shape.** It greps two fixed field labels, not a wording. Its `0.11.0` defect
+  was a wrong criterion, not a drifted phrase.
+- **V4 is not prose-keyed but shares the silent-failure class.** Its third command is
+  `grep -oE '^[0-9a-f]{32}  \S+' .docs/runs/README.md`, keyed on a hand-maintained two-space checksum
+  format. Today it matches 99 rows against 99 logs on disk. If that block is ever reformatted the grep
+  matches nothing and **V4 passes vacuously**, with no output distinguishing *"all tracked"* from
+  *"nothing to check"* — the same failure that made old V3 useless. A row count printed beside the
+  result would close it. Not done here: separate variable.
+
+**`release.md` step 2 says "all four blueprint READMEs" and there are six.** Found by writing V3's
+loop. Not corrected in this pass; it is step 2's wording, not V3's.
+
+**Next, in order.** The stale first line of `registry-check.md` and of `checks/README.md`, deferred
+four times now. Then the subtraction pass over the check prompts, three releases overdue. Then V4's
+vacuous-pass hole and the V1 question above, each on its own.
+
+---
+
+## Where we were, earlier on 2026-08-30
 
 **`0.16.0` is released and tagged. It is not pushed: the operator pushes it.** One exemption added to
 `registry-check`'s read set: **material that exists only because of how the check's own text reached
@@ -943,16 +1022,16 @@ folder is not a blueprint anyone adopts — nothing is copied out of it — whic
 leaving it alone, and it ships prompts that change between releases, which is the argument against.
 Decide it the next time that folder changes.
 
-**Should the backlog name a version at all?** V3 has now gone silent twice from one cause: it greps
-the backlog for a phrase, and the phrase gets rewritten by ordinary editing. Loosening the grep bought
-one degree of freedom and no more.
+**Should the backlog name a version at all? Answered 2026-08-30: not by V3.** The second way out was
+taken — the backlog is dropped from V3 entirely and its version line is allowed to lag, on step 0's
+ground that a `.docs/` change never causes a release. See
+[`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
 
-The question underneath is whether that line should be checked at all. `release.md` step 0 says a
-change under `.docs/` never causes a release, which makes the backlog's version line a convenience
-rather than something a tag depends on. Two ways out, and they are different claims. Make V3 read the
-version by pattern rather than by wording, which keeps the cross-check and stops it depending on
-prose. Or drop the backlog from V3 entirely and let that line lag, on the ground that a convenience
-does not need verifying and the changelog is the claim. Not now.
+**The first way out, reading the version by pattern rather than by wording, was rejected by the
+evidence that arrived after this was written.** At `0.15.0` and `0.16.0` the grep's first hit was a
+sentence *about* the phrase, and both such sentences quote a version number. A pattern search over
+prose would have matched them too, and returned a wrong version with more confidence than the phrase
+search did. Loosening the target does not help when the document itself discusses the check.
 
 **Every repair this week was correct, and they accumulated where nothing measures.** This is the
 finding tonight, and it sits above any particular row.

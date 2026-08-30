@@ -96,9 +96,9 @@ git diff --name-only $PREV..HEAD
 # V2. Every version string, so the new number is where it belongs and nowhere else.
 grep -rn "Blueprint Version:\|Framework Version:" blueprints/*/README.md
 
-# V3. The version this release calls itself, in both places that name it.
-head -40 CHANGELOG.md | grep -m1 '^## \['
-grep -m1 "released, tagged and pushed" .docs/backlog.md
+# V3. The version this release calls itself, against the version it ships.
+CL=$(grep -m1 -oE '^## \[[0-9.]+\]' CHANGELOG.md | tr -cd '0-9.'); echo "CHANGELOG ${CL:-MISSING}"
+grep -L "Framework Version:\*\* ${CL:-NO-VERSION}" blueprints/*/README.md
 
 # V4. Nothing this release documents is untracked, ignored, or uncommitted.
 git status --porcelain
@@ -126,18 +126,15 @@ What each has to show:
   always appears in V1's list, and the old wording therefore demanded that every `Blueprint Version`
   move on every release. Every release had silently read it the way it is now written. Found by
   running the step rather than by reading it, on `0.11.0`.
-- **V3.** Both lines name the version about to be tagged. This is the check `v0.9.1` failed, and it
-  failed it in a way worth knowing: run against that tag, the backlog grep returns nothing at all,
-  because the section had been rewritten and no longer contained the phrase. So the row fires on an
-  absent line as readily as on a wrong number, which is the right behaviour and is also a warning.
-  The command is keyed on a phrase a person can rewrite without noticing. If it returns nothing, look
-  at the backlog before concluding anything: the line may be missing, or it may simply be worded
-  differently now.
-  **That warning fired one release after it was written, on the release that wrote it.** `0.10.1`
-  changed the backlog line from "`0.10.0` **is** released" to "`0.10.0` and `0.10.1` **are**
-  released", and V3 went silent against a backlog that was perfectly correct. The command now greps
-  "released, tagged and pushed" without the leading verb, which matches both. It is still keyed on a
-  phrase and will still drift; the fix bought one degree of freedom, not immunity.
+- **V3.** The version prints, and no file is listed under it. Any blueprint `README.md` that appears
+  does not carry that number; a heading that is not a version prints `MISSING` and lists every
+  blueprint. Whether the number is the intended one is the reader's, and the only judgement here.
+  **It compares two fields because it used to grep prose.** The old row matched a fixed phrase in the
+  backlog. It fired five times, caught nothing, and by `0.16.0` was returning the sentence written to
+  complain about it. The backlog is no longer read here and its version line may lag: a `.docs/`
+  change never causes a release, so that line is a convenience. What replaced it supplies V2's missing
+  referent — V2 asks whether every `Framework Version` reads the new number, and V2's own output never
+  says what the new number is. See [`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
 - **V4.** All three commands print nothing. A file present on disk and excluded by an ignore rule is
   the case worth catching, because `git add` does not report what it declined to add. This is the
   check `v0.9.0` failed.
@@ -146,8 +143,8 @@ If anything fails here, amend the commit and run it again. That is what this ste
 the tag to make possible.
 
 **If anything is edited after this step runs, the step runs again before the tag.** That is the whole
-reason it sits where it sits. `0.10.1` was tagged after V3 had passed and after the backlog had been
-edited, and V3 would have failed on that edit. It was found by hand afterwards, when the tag already
+reason it sits where it sits. `0.10.1` was tagged after step 7 had passed and after the backlog had
+been edited, and the step as it then stood would have failed on that edit. It was found by hand afterwards, when the tag already
 existed.
 
 **8. Tag and push both.** `git tag -a vX.Y.Z`, then push `main` and the tag. A tag that stays local
