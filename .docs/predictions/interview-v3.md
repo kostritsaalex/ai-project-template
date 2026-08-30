@@ -38,8 +38,13 @@ folders `0.12.0` was measured on:
 | **W** | `HEAD` + `interview-v3.md` | both | 2 each |
 | **W-ans** | Same as W, answers supplied so it reaches the Step 5 table | both | 1 each |
 
-Ten runs. `claude -p`, `--model opus`, fresh session each. Writing disabled for all of them — nothing
-here measures work, only what is asked and what is proposed.
+**Eight runs** — two arm V, four arm W, two W-ans. `claude -p`, `--model opus`, fresh session each.
+Writing disabled for all of them; nothing here measures work, only what is asked and what is
+proposed.
+
+*Corrected after the runs: this line first said "ten", which the table above never supported. The
+count in the table is what was run. A stated total that disagrees with its own table is the defect
+this repository keeps cataloguing, so it is fixed and noted rather than quietly re-typed.*
 
 **The supplied answers for W-ans deliberately describe a business without saying whether it is
 software.** *"A pottery studio. We make and sell ceramics, run a shop site and take commissions."*
@@ -47,8 +52,9 @@ That is the case Q1 must now carry on its own.
 
 ## Predictions
 
-**P1. Fidelity.** Zero added prose in all six arm-W runs, `difflib` similarity 1.000 against the
-script. Over 10% in any run fails.
+**P1. Fidelity.** Zero added prose in the four arm-W question runs, `difflib` similarity 1.000
+against the script. The two W-ans runs skip to Step 5 and reproduce no question block, so they are
+not scored on this. Over 10% in any run fails.
 
 **P2. Four questions.** Exactly four in every arm-W run, on both scopes.
 
