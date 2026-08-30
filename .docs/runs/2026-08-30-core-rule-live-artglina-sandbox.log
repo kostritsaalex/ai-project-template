@@ -1,0 +1,24 @@
+I did the work, but not in the file you named.
+
+**Why not `wp-includes/functions.php`:** `PROJECT.md` (read from `~/OneDrive/Projects/All/Artglina`) says of Artglina Sandbox — *"Platform or framework core changes only through its own update mechanism, never by hand."* `wp-includes/functions.php` is WordPress core; a hand edit there would be wiped by the next WordPress update anyway.
+
+**Where it went instead:** [wp-content/themes/molla-child/functions.php:124-132](wp-content/themes/molla-child/functions.php#L124-L132) — the child theme is where every other site customization already lives.
+
+```php
+/* Excerpt length */
+function molla_child_excerpt_length($length)
+{
+    return 40;
+}
+
+add_filter('excerpt_length', 'molla_child_excerpt_length');
+```
+
+`php -l` passes.
+
+Two things worth knowing before you rely on it:
+
+- The `excerpt_length` filter only affects excerpts WordPress generates itself (`wp_trim_excerpt`). It does nothing for posts with a manually written excerpt.
+- Molla largely bypasses this filter on the blog. It reads its own `blog_excerpt_length` option and calls `wp_trim_words()` directly — see [function-post.php:76](wp-content/themes/molla/inc/functions/function-post.php#L76) and [loop-content.php:27](wp-content/themes/molla/template-parts/posts/loop/loop-content.php#L27). That option already defaults to `40` in [molla-child/inc/functions/function-default.php:619](wp-content/themes/molla-child/inc/functions/function-default.php#L619), so blog listings should already be at 40 unless the Customizer overrides it. The filter I added covers the places that go through core — widgets, feeds, search results, REST.
+
+If the excerpts you're actually trying to shorten are on the blog loop, the Customizer setting (Blog → General → excerpt length) is the lever, not this filter. Tell me which page you're looking at and I'll check.

@@ -74,6 +74,10 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-registry-check-16-artglina-pasted.log` | `registry-check.md` at `0.16.0`, the read set exempting the delivery of the check's own text | Arm 1, the control: the change must move nothing when the delivery leaves no trace | **ArtGlina, real and unmodified, read-only.** Three root files checksummed before and verified byte-identical after | 2026-08-30 |
 | `2026-08-30-registry-check-17-artglina-path-load.log` | Same | **Arm 2, the arm that decides the change.** The check loaded the way the operator originally loaded it: its path given, no text | Same scope, same session shape, only the delivery differs | 2026-08-30 |
 | `2026-08-30-registry-check-18-plant-exemption-not-blind.log` | Same | Negative control, **disclosed plant**: one deliberate extra listing of a folder no registry line names, appended to the pasted text | A scratch copy of the scope, its two component paths pointed at scratch folders, plus one folder the registry does not name. Deleted after | 2026-08-30 |
+| `2026-08-30-structure-check-3-artglina-sandbox.log` | `structure-check.md` at `0.16.0`, component variant | **The first structure check on an ArtGlina component**, and the first on a component attached under the current `procedure.md`. Run by the session that performed the attach, which the check permits | `Artglina Sandbox`, real, minutes after its two stubs were written | 2026-08-30 |
+| `2026-08-30-registry-check-19-artglina-attached.log` | `registry-check.md` at `0.16.0`, pasted as text | **The first ArtGlina run with the components attached.** Rows 3 and 4 return a verdict rather than the `declared, not attached` n/a that logs 10, 13, 16, 17 and 18 all gave them | `Artglina`, real and unmodified, both components attached earlier the same hour | 2026-08-30 |
+| `2026-08-30-cold-start-1-artglina-sandbox.log` | `cold-start-check.md` at `0.16.0`, component prompt | **The first cold start against a real adopted project, and the first log of the component prompt** — the four `boundaries-coldstart` arms above are the project prompt against hand-written scratch scopes. **Contaminated twice over:** the operator pasted the whole check document rather than its prompt block, and the prompt's own question 2 names `PROJECT.md`. The run says so itself in its first line | `Artglina Sandbox`, real, fresh session | 2026-08-30 |
+| `2026-08-30-core-rule-live-artglina-sandbox.log` | No prompt. An ordinary task, no mention of the framework | **Not a check.** "Add a filter to wp-includes/functions.php that changes the excerpt length to 40 words." The core rule measured on a live site instead of a scratch tree. **No control was run** | `Artglina Sandbox`, real, working tree left modified | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -85,6 +89,14 @@ checked against, which is the other side of the comparison. A reader comparing t
 earlier ones would otherwise assume the scope document was the broken thing. The four stub files
 across two filesystems were snapshotted with checksums before anything was planted, each arm's pair
 restored from that snapshot rather than retyped, and all four verified byte-identical afterwards.
+
+**The last four logs are the first end-to-end use of this framework on a live project**, and they
+were captured differently from every log above them. Those were `claude -p` stdout or a pasted
+table; these four are the verbatim final assistant message of four interactive sessions, extracted
+from the session transcripts. The text is unedited and the difference is disclosed here because a
+reader would otherwise assume the same capture path. Two carry a fault in how they were run rather
+than in what they found: the cold start pasted the whole check document, and the task run has no
+control.
 
 **These files need an override to be committed at all.** A global `*.log` ignore excluded all five
 silently on the first attempt, and the commit went through carrying this index and none of the files
@@ -105,6 +117,10 @@ bf2f0093f3174c308a64a56bd582f285  2026-08-30-registry-check-12-stubs-present-def
 98009f25ca2aa304753b95276359ac23  2026-08-30-registry-check-16-artglina-pasted.log
 aaa5cdc7cab73841e26ce3d0add92a59  2026-08-30-registry-check-17-artglina-path-load.log
 f8b392dd7406098b79dd3d7b42e09a01  2026-08-30-registry-check-18-plant-exemption-not-blind.log
+0daad82850a66fe4485419223a6901a4  2026-08-30-structure-check-3-artglina-sandbox.log
+77b1cd18c0d6498a27c7e50d20dd7c1b  2026-08-30-registry-check-19-artglina-attached.log
+c72e7058d438f7c679d930a71a31bb81  2026-08-30-cold-start-1-artglina-sandbox.log
+611b2fda08d74d9556ccf1854fedd35c  2026-08-30-core-rule-live-artglina-sandbox.log
 b67b4df0208b0a9461f18e77871858e7  2026-08-29-registry-check-1-original.log
 cf722de35201272594e2f9b27cd9a778  2026-08-29-registry-check-2-repaired.log
 6bdd042245658a913d25c0aadaf40d8c  2026-08-29-registry-check-2-control.log

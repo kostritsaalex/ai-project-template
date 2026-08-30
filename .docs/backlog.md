@@ -2,11 +2,241 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after step 7 was given one requirement that every row state what it examined.
+Last updated 2026-08-30, after the framework was used end to end on a live project for the first
+time.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**The framework was used end to end on a live project for the first time, and it was used rather than
+worked on.** Both ArtGlina components were attached by hand, `structure-check` and `registry-check`
+and the cold start were run against the result, and an ordinary task was given to a session in one of
+them. Nothing under `blueprints/` was touched after `0.16.0`, nothing is bumped and nothing is
+tagged. The four logs are committed: the first structure check and the first registry check on
+ArtGlina with its components attached, **the first cold start against a real adopted project**, and
+one task run.
+
+**Three releases belong to this session**, all `registry-check`, all found by the adoption rather than
+by reading:
+
+- **`0.14.0`** — a component whose folder exists and whose stubs are absent is *declared, not
+  attached*, and the rows that read a stub go `n/a` naming that outcome. [`0016`](decisions/0016-declared-is-a-second-non-attached-outcome.md).
+- **`0.15.0`** — a probe covers one declared path and no other, one declared path one command. Row 7's
+  first true positive caught its own runner. [`0017`](decisions/0017-a-probe-covers-one-declared-path.md).
+- **`0.16.0`** — material that exists only because of how the check's own text reached the session is
+  not a reading of the project. Two instances, two ecosystems. [`0018`](decisions/0018-the-instrument-is-not-part-of-the-sample.md).
+
+`v0.12.0` and `v0.13.0` also carry today's date, from the sessions before this one, and have their own
+entries below.
+
+**Three `.docs/`-only changes followed, none of them a release**, each one row of `release.md` step 7
+that could pass without looking:
+
+- **V3 compares two fields instead of grepping the backlog's prose.** Five firings, zero true
+  positives; the backlog is dropped from the row entirely. [`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
+- **V4's third command compares two sides instead of one against nothing.** One `sed` over a
+  whitespace convention had blinded it. [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md).
+- **Step 7 requires every row to state what it examined**, which closes V1 and V2 as well.
+  [`0021`](decisions/0021-a-row-states-what-it-examined.md).
+
+---
+
+### The attach, run twice
+
+**This was the first run of the current `procedure.md` text.** It has changed seven times since the
+last attach on 2026-08-25 — `d66ceb1`, `a4da843`, `3363d09`, `dfadccb`, `2150f70`, `e6b33bc`,
+`911fcee` — across `0.8.0`, `0.10.0`, `0.11.0`, `0.12.0` and `0.13.0`, including the whole Step 4
+rewrite. `new-component.md` itself has not changed since `6217abe`. Principle 6 says an idea earns its
+place by being run; Steps 4, 6 and 7 had not been.
+
+**Both runs asked two questions, not four**, which is what `new-component.md` specifies and not what
+`procedure.md` Step 4 says first. **The two renderings differed**: the sandbox run put both questions
+as a picker with the expected answers pre-filled as options, the `artglina-ua` run put them as plain
+text. Same two questions, same order, different surface — which is the first live measurement of the
+asymmetry Step 4 declares out loud, that the component interview still ships as topics rather than as
+text. It did not cost anything here. It is the thing that would.
+
+**Both registry blocks already existed**, written when the scope was adopted on `0.13.0`, so the
+upward half of Step 7 was not a block to add. It was **one sentence of repair in each run**, and the
+sandbox run said so in its own words: *"the whole upward half of the wiring is one sentence of repair
+rather than a new entry."*
+
+**Both runs found the "not wired yet" sentence themselves and neither was told to.**
+`blueprints/project/README.md:146` instructs an adopting session to *"say plainly which do not exist
+or are not wired yet"*; no step anywhere retires that sentence when the wiring lands. The sandbox run
+rewrote it to name only `Artglina UA`, and the `artglina-ua` run removed what was left, each after
+reasoning that it *"becomes false the moment I write the stubs."* Two runs routed around a hole in the
+procedure. **A defect a capable tool routes around is still a defect**, and it is the class this
+backlog already names as the one nothing will ever report.
+
+**One operator slip, recorded because it is the shape the checks exist for.** The first `artglina-ua`
+attach was launched with the sandbox's path in the component slot and was interrupted at Step 2. The
+session had already reported that the folder carried no stubs and that the registry block matched —
+both true of the folder it was actually given. Nothing in the prompt could have caught it.
+
+---
+
+### The checks
+
+**`structure-check` 14 of 14 in the sandbox**, run by the session that performed the attach, which
+the check permits. [`runs/2026-08-30-structure-check-3-artglina-sandbox.log`](runs/2026-08-30-structure-check-3-artglina-sandbox.log).
+**Row 6 reproduced the padding shape on a live component**: it listed 34 root filenames to establish
+that one file is absent. `registry-check` 6 was rewritten on 2026-08-29 to test one path and told not
+to list the folder; `structure-check` 6 still says *"List every filename in the folder root"* and was
+left alone for having no reproductions. **It has one now**, and it is the item `Now` already names as
+the first thing the next session looks at.
+
+**`registry-check` on the parent, zero failed rows**, both components, `0.16.0` text pasted.
+[`runs/2026-08-30-registry-check-19-artglina-attached.log`](runs/2026-08-30-registry-check-19-artglina-attached.log).
+
+**Rows 3 and 4 returned a verdict for the first time on this project.** In all five earlier ArtGlina
+runs — logs 10, 13, 16, 17 and 18 — rows 3, 4 and 5 were `n/a` naming *declared, not attached*,
+because there were no stubs to read. Row 3 matched both naming lines against both headings. Row 4
+took its synced-store branch, comparing `OneDrive, Projects/All/Artglina` character for character
+against the scope's own `Address:` line. **Neither is a first for the check itself** — both rows were
+exercised on `WordPress 7` in 2026-08-29's runs, row 4 on that scope's synced-store address in run 7.
+What is new is that ArtGlina's registry now has something for them to read.
+
+**Row 5 was `n/a` again, and the count reported at the close was six releases running. The tags say
+nine.** The row has read overrides in both directions since `0.9.2`; `0008` removed the Engine's
+`REPOSITORY.md` just before `0.10.0`, and no component in any registry has carried an override since.
+So the row has produced no verdict from `0.10.0` through `0.16.0`, which is nine releases and not six,
+and its probe clause added in `0.15.0` has still never executed. **The discrepancy is recorded rather
+than resolved**, because the difference between six and nine is which release you start counting from
+and nobody has said. Either way the point stands and is worse at nine: a row `n/a` across every
+release since `0.10.0` and through one live adoption has one positive run behind it, on a component
+that no longer exists in that shape, and no evidence at all that it catches anything.
+
+---
+
+### The cold start, and its contamination
+
+**The chain resolved across the mount boundary.** From `~/Projects/Development/artglina-sandbox` in
+the WSL filesystem the session read the stub, followed `OneDrive, Projects/All/Artglina` to
+`~/OneDrive/Projects/All/Artglina/PROJECT.md` on the `/mnt/c` drvfs mount, and quoted the registry
+block's core rule back.
+[`runs/2026-08-30-cold-start-1-artglina-sandbox.log`](runs/2026-08-30-cold-start-1-artglina-sandbox.log).
+
+**It read the parent with `cat` in a shell, not with a file-reading tool**, and that is what makes it
+a qualification rather than a refutation of the item in `Release` below. On 2026-08-29 a session
+started in the Engine's folder could not open `PROJECT.md` at all: the path resolved and the tool
+refused it for sitting outside the session's directory. Today, same harness, the same crossing
+succeeded because the session reached for a shell. **The refusal is a property of one tool surface
+inside a harness, not of the harness**, and an assistant that shells out is not stopped by it. The
+item stays where it is and gains this line; nothing here says the sandboxed case has gone away.
+
+**The run is contaminated twice over and proves less than it looks.**
+
+- **By the operator.** The whole check document was pasted into the session, not its prompt block.
+  The check's own conditions forbid exactly that — *"do not say which file to read, do not paste file
+  contents into the chat, do not mention the framework"* — and the document names `PROJECT.md`,
+  `AGENTS.md`, `CLAUDE.md`, the registry and both postures. The run opens by saying so itself before
+  answering anything.
+- **By the check.** The component prompt's question 2 is *"Where is that project's PROJECT.md?"*, so
+  the instrument names the file in the question. The blueprint already concedes half of this — it
+  dropped question 5 from the component prompt because *"asking which file comes first answers
+  itself"* — and did not apply the same reading to question 2. **How much this costs is not settled
+  here.** The answer still has to cite a source and quote a line, so a stub that carried nothing would
+  still fail; what cannot be measured is whether the assistant would have gone looking unprompted.
+  Recorded as a defect in the instrument, with that limit stated rather than the stronger claim.
+
+**So today produced no clean cold start**, and the framework's own conditions are what say so.
+
+---
+
+### The behaviour test
+
+**A session in the sandbox, given `"Add a filter to wp-includes/functions.php that changes the excerpt
+length to 40 words"` with no mention of the framework, read the chain unprompted, refused the named
+file, and put the filter in the child theme.**
+[`runs/2026-08-30-core-rule-live-artglina-sandbox.log`](runs/2026-08-30-core-rule-live-artglina-sandbox.log).
+
+Its first action, before listing its own folder, was to look for `PROJECT.md` in OneDrive. It cited
+the registry block by name — *"Platform or framework core changes only through its own update
+mechanism, never by hand"* — and wrote the filter to
+`wp-content/themes/molla-child/functions.php`, then reported two limits of the filter that nobody had
+asked about. `php -l` passed.
+
+**This is the core rule's first instance on a real site**, after three scratch attempts, two of which
+failed as experiments. It is also the only instrument used today that the framework did not
+contaminate, because the task mentions nothing.
+
+**It is not isolated, and there are three reasons, not one.**
+
+- **The control was not run.** The same task in a folder with no stubs, which is the one arm that
+  separates the rule from what the model does anyway. It costs one session and it was not spent.
+- **The agent gave a second reason of its own**: *"a hand edit there would be wiped by the next
+  WordPress update anyway."* Calling that independent is generous. It is the core rule's own
+  rationale arrived at without the rule, which is precisely the outcome a no-stubs control exists to
+  detect, and precisely why its absence matters here more than usual.
+- **The stub was not discovered, it was injected.** Claude Code loads `CLAUDE.md` into context on its
+  own. So this run measures the hop from stub to parent to registry block, which is real and is what
+  the framework claims; it does not measure whether a session finds the stub.
+
+**One instance, one task, one run, no control.** Recorded as evidence and not as a result.
+
+**It left the working tree modified.** `wp-content/themes/molla-child/functions.php` in
+`~/Projects/Development/artglina-sandbox` carries the filter, uncommitted, on a working copy of a live
+site. Nobody asked for it to be reverted and this record does not revert it; it is named so that it
+is not found later as a surprise.
+
+---
+
+### Nine defects in the attach procedure, none of them previously in this file
+
+Seven were found by reading the procedure before either attach ran, in a read-only session that wrote
+nothing. Two could only come from running it. **All nine are recorded and none is repaired.**
+
+1. **No attach has ever been logged.** The run-log discipline covers every other prompt in the
+   framework; the one prompt that writes into a real project has no artefact behind it, and the only
+   record of its three earlier runs is prose in this file. Today's two attaches are also unlogged:
+   `runs/` holds check runs, and what an attach would produce is not one.
+2. **The shipped procedure was unrun text.** Seven commits to `procedure.md` since the last attach,
+   Steps 4, 6 and 7 among them, none of it run until today.
+3. **Step 4 gives an order the component case then contradicts.** It opens *"Ask the four questions in
+   `interview.md` verbatim and in order"* and qualifies it four paragraphs later. An assistant told to
+   read the whole file meets the order first, and those four questions are a project-scope interview.
+4. **Two competing procedures for one job.** `blueprints/component/README.md` § "How to adopt" is a
+   four-step version with no Step 2 look, no summary table, no both-halves-or-neither warning and no
+   session-note check. Step 6 sends the assistant into it, so both are live at once.
+5. **A stub has no slot for a path note.** ArtGlina's `~/OneDrive/...` is true only because of a
+   symlink over a drvfs mount. The parent records the arrangement and the command; the four component
+   placeholders have nowhere to carry it, so a stub writes a path that is simply false on a machine
+   without the symlink, with no signal. That is the failure `0007` wrote the path note to prevent, on
+   the one line every component actually carries.
+6. **The stub address rule is missing `0007`'s fourth form.** `structure-check` row 8 admits three
+   forms for the parent address and fails a bare local path; row 11 admits four for the registry. A
+   scope with no copy off the machine can write a valid registry and cannot give its components a
+   stub address that passes row 8.
+7. **Step 7's registry example carries no `Local path:` line.** The `Northwind Brand Assets` block
+   shows name, posture and address only, while `registry-check` row 1 locates a folder by the local
+   path whenever the address is a URL — which is both ArtGlina blocks. The example teaches a block the
+   check cannot resolve. Third instance of shape three: an example contradicting the rule it
+   illustrates.
+8. **Nothing says to commit the stubs, and neither run did.** `AGENTS.md` and `CLAUDE.md` are
+   untracked in both working copies as this is written. The argument recorded below — that stubs must
+   be committed or a fresh clone arrives knowing nothing, and that the resulting multiplication is a
+   consequence of the design — depends on a step that exists in no document. Step 8 hands back without
+   mentioning git.
+9. **Nothing says to retire the "not wired yet" sentence.** One blueprint instructs writing it and no
+   step removes it. Both runs removed it unprompted, which is what kept it from being a live defect
+   today and is not a mechanism.
+
+---
+
+**What this record costs.** `backlog.md` grows and `runs/` gains four files. Nothing was removed in
+exchange, and principle 7's answer for this pass is nothing. The four logs are the part that earns
+its place: every claim above about a run is now checkable against the run.
+
+**Next, in order.** `structure-check` 6, which now has the reproduction it was waiting for. Then the
+stale first line of `registry-check.md` and `checks/README.md`, deferred five times. Then the
+subtraction pass over the check prompts, four releases overdue. The nine above are the attach
+procedure's own queue and none of them has been weighed against `0008` yet.
+
+---
+
+## Where we were, earlier on 2026-08-30
 
 **Step 7 has one governing requirement now: every row states positively what it examined and how much
 of it, and V1 and V2 are its first two conformances.** Not a release — everything is under `.docs/`.
@@ -631,13 +861,16 @@ while the blueprint it reads one step later asks for coverage. **This is the que
 refused in the first aborted adoption**, still in the file that produces the interview. Repaired
 2026-08-29 in its own commit, `3363d09`, ahead of any redesign.
 
-*The fourth instance, open.* `cold-start-check.md` line 133 is the project-scope reading note for
-question 2, and it still says "One item from each list" and "an assistant that cannot name what is
-excluded". Under a closed inclusion there is one list, not two. The *question* at line 118 was
-inverted correctly and its reading note was not. **Not repaired: the checks were out of scope on
-2026-08-29 by instruction, and this needs deciding beside `0.10.1`'s scoring section for the
-component's question 4, which is the same question in the other prompt and did get the treatment.**
-One question in two prompts, one of which was scored and one of which was left in the old language.
+*The fourth instance, closed in `0.13.0`.* `cold-start-check.md`'s project-scope reading note for
+question 2 said "One item from each list" and "an assistant that cannot name what is excluded", when
+under a closed inclusion there is one list and not two. The *question* had been inverted correctly in
+`0.10.0` and its reading note had not. **Marked open here until 2026-08-30, when it was checked and
+found already repaired.** `911fcee` reworked all twelve boundary sites for
+[`0015`](decisions/0015-the-boundary-becomes-agent-boundaries.md), and the two-list wording went with
+the question it annotated: the row now reads on agent boundaries and on what an assistant does where
+none are recorded. **It was fixed as a passenger rather than on its own ticket**, which is why nobody
+noticed it close, and the entry sat here claiming to be open for one release. That is the item's own
+class turning up in the item: a derived fact with nothing that re-derives it.
 
 **What these two add to the class, and it is not more of the same.** Every earlier instance was a
 workshop document going stale: `architecture.md` against `0007`, the metric against the tree. These
@@ -1003,12 +1236,18 @@ which is the one thing the pair exists to prevent.
 
 Decisions come one at a time, each with its own pre-registration where it needs a run.
 
-**No logs exist for `structure-check`.** The audit went looking for them. `.docs/runs/` holds fifteen
-files, all `registry-check`, and none were ever deleted; the `0.6.0` and `0.7.0` runs predate the
-folder. What survives is the backlog's own "14/14 twice before the fixes" and the prose beside it,
-which is a claim about a past run checkable against nothing. Five of the fourteen rows turn on what a
-tool actually produced, and for those the audit says a fresh run is needed rather than appealing to
-that history.
+**No logs existed for `structure-check` when the audit ran.** It went looking for them: `.docs/runs/`
+held fifteen files, all `registry-check`, and none were ever deleted; the `0.6.0` and `0.7.0` runs
+predate the folder. What survived was the backlog's own "14/14 twice before the fixes" and the prose
+beside it, which is a claim about a past run checkable against nothing. Five of the fourteen rows turn
+on what a tool actually produced, and for those the audit says a fresh run is needed rather than
+appealing to that history.
+
+**Corrected 2026-08-30, because the sentence was written in the present tense and stopped being
+true.** Five `structure-check` logs were committed later on 2026-08-29 — the deleted-override pair and
+the three row-4 arms — and a sixth on 2026-08-30, the first against a live attached component. **They
+do not answer the audit.** All six are row 4 and row 10 arms or a single positive pass; the five rows
+the audit says need a fresh run still have none.
 
 **`.docs/runs/` holds two kinds of file and its index describes one.** Reported by the ArtGlina
 session, which found `2026-08-29-artglina-adoption-judgements.md` in the folder and nothing in
@@ -1756,6 +1995,15 @@ steps 1 and 2 are reported.
 only project with a real `Assets` component holding material rather than code, so it is where that
 posture gets its second test and where the assets override may get its first real case. Expect the
 `Unsorted/` folder to be the interesting one.
+
+**Corrected 2026-08-30. Both halves of that expectation were wrong.** ArtGlina was adopted on
+`0.13.0` and both its components were attached on 2026-08-30, so it is no longer on the pre-`0.5.0`
+shape. And the two components it declares are `Artglina UA` and `Artglina Sandbox`, both
+`Repository`: **no `Assets` component was declared and no `Unsorted/` folder entered the registry.**
+So the `Assets` posture still has exactly one end-to-end run, on a folder of theme sources, and the
+assets override has still never been used at all — which is what [`handover.md`](handover.md) says
+under "Where the evidence is thin", and it stays true. The paragraph above is left standing because a
+prediction that missed is worth more visible than deleted.
 
 **Do not start with:** a full framework re-read, or a fourth run of `registry-check` against a
 correct scope. It has been run five times, three of them pre-registered, and a sixth positive run

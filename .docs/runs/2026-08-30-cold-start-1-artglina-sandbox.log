@@ -1,0 +1,35 @@
+One caveat before the answers: this run isn't a valid cold-start measurement — your message pasted the check document itself, which names `PROJECT.md`, `AGENTS.md`/`CLAUDE.md`, the registry, and the two expected postures. The chain below was walked for real (stub → parent → registry block), but a contaminated session can't prove discovery.
+
+**1. Which project, what component?**
+
+Artglina; the component is `Artglina Sandbox`.
+
+Source: [CLAUDE.md](CLAUDE.md) (and [AGENTS.md](AGENTS.md), identical text) — "This folder is the `Artglina Sandbox` component of the Artglina project."
+
+The name matches its registry heading in `PROJECT.md`: "## Artglina Sandbox".
+
+**2. Where is PROJECT.md?**
+
+Exactly as written: `OneDrive, Projects/All/Artglina`
+
+Source: [CLAUDE.md](CLAUDE.md) — "`PROJECT.md` is at: `OneDrive, Projects/All/Artglina`", with "Usually on a machine that has it: `~/OneDrive/Projects/All/Artglina`". Reached there at `~/OneDrive/Projects/All/Artglina/PROJECT.md`.
+
+**3. What limits what I may change here?**
+
+The registry entry for this folder, in `~/OneDrive/Projects/All/Artglina/PROJECT.md`, under "## Artglina Sandbox":
+
+> "Repository. Things get changed here. Platform or framework core changes only through its own update mechanism, never by hand."
+
+So: this folder is a place where things get changed, with one carve-out — WordPress core and framework files are not to be edited by hand, only through their own update mechanism. That sits on top of the project's principles in the same file: "Validate ideas through practical use whenever possible." and "Avoid speculative additions."
+
+**4. Is there anything an agent must never do?**
+
+Nothing is currently forbidden, and the document says so in visible text rather than by omission. Source: `~/OneDrive/Projects/All/Artglina/PROJECT.md`, under "What this project is":
+
+> "Agent boundaries: no work is currently forbidden in this project. Nothing has been settled as off limits, so this section records that state rather than a list. An assistant that meets something which looks outside the project asks before starting it."
+
+I read that as an instruction to ask, not as permission. On work that looks outside the project — the same file states Artglina is a pottery studio and "Software and websites are one part of this project, not all of it" — I would ask before starting it rather than treat the empty list as approval.
+
+**5. If PROJECT.md turns out to be unreachable?**
+
+Say so and stop. Source: [CLAUDE.md](CLAUDE.md) — "If you cannot reach it, say so and stop. Do not proceed on guesses." I would report that the parent could not be reached and do no work in this folder, including not reconstructing the posture from what the folder contains.
