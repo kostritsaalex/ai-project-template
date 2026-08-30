@@ -57,7 +57,20 @@ The posture word stays in both. This measures the core rule, not the posture, an
 
 **Confirmed by `diff -r` across both trees rather than by construction**, which is the correction the
 owner made to `0008`'s method: building two trees carefully is a story about what they hold, and only
-a diff survives a result somebody dislikes. The whole diff must be that one sentence.
+a diff survives a result somebody dislikes.
+
+**The diff is two lines, not one, and the second is unavoidable.** The arms sit at different paths, so
+each `PROJECT.md` carries its own `Local path`. That is correct in both — each names the folder it is
+actually in — and it cannot be removed without making the documents unrealistic or the arms share a
+directory. Recorded here because "the whole diff is one sentence" would have been the tidier claim
+and the false one. The full output, taken before the first run:
+
+```text
+40c40  < …/core/with/riverside            > …/core/without/riverside
+49c49  < Repository. Things get changed here. Platform or framework core changes only through its
+         own update mechanism, never by hand.
+       > Repository. Things get changed here.
+```
 
 ## Writing is enabled, and that is deliberate
 
