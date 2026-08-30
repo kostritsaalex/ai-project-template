@@ -104,9 +104,29 @@ Told instead that the line is what an assistant quotes when it declines work, he
 boundary in a breath. **He was not missing an answer; he was missing what the line is for.** By `0004`
 a purpose is exactly what no amount of looking at the folder reveals.
 
-**Paid for rather than added.** Two clauses in the same question were trimmed to make room, so the
-question is not longer than the version he first read. The evidence is one person on one occasion and
-the only measure is his acceptance test.
+**It was not paid for, and I claimed it was.** Two clauses were trimmed to make room, which is why the
+purpose clause cost six words rather than twenty. But the claim that the question is no longer than
+the version he read is **false**, and measurement caught it:
+
+| | v0.12.0, the version he read | v3 now |
+| --- | --- | --- |
+| Q1 what it is | 23 | 21 |
+| **Q2 boundary** | **63** | **94** |
+| Q3 principles | 37 | 37 |
+| **Q4 components** | **52** | **83** |
+| **whole block** | **175** | **235** |
+
+**Q2 is up 49% and the block is up 34%**, in the one thing this sequence has spent three days
+cutting. Q4's growth is the naming-is-not-attaching sentence and Q2's is the undecided clause, the
+kinds-of-work sharpening and now the purpose clause.
+
+Every one of those additions has a reason and two of them came from watching him fail to answer. That
+is exactly the shape the backlog's closing finding describes: **every repair correct, and the sum
+larger than the thing anybody agreed to.** Stated here rather than discovered later, and it is a
+question for the owner rather than something to fix by trimming again.
+
+The evidence for the purpose clause is one person on one occasion and the only measure is his
+acceptance test.
 
 **Question 2 surfaces the undecided option.** The blueprint has always allowed *not decided yet*, and
 asks for what would settle it and what to do meanwhile — **but that lives in a comment the assistant

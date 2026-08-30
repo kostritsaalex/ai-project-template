@@ -687,8 +687,18 @@ the line, what shape it takes, that folders belong to question 4, and that undec
 thing no amount of looking at the folder reveals, so it belongs in the question.
 
 **The risk, stated rather than assumed:** it adds words to the one thing this sequence has spent three
-days cutting, and the evidence is one person on one occasion. Paid for by trimming two clauses in the
-same question, so the question is not longer than it was. **The measure is his own acceptance test and
+days cutting, and the evidence is one person on one occasion.
+
+**It was claimed to be paid for by trimming, and it was not.** Measured against `v0.12.0`, the version
+he actually read: **Q2 63 → 94 words, Q4 52 → 83, the whole question block 175 → 235, up 34%.** The
+trimming was real and cut the purpose clause's cost from twenty words to six; the claim that the
+question ended no longer was false and is corrected wherever it was written.
+
+**This is the closing finding happening again, in the place it warned about.** Every addition has a
+reason — the undecided clause, the kinds-of-work sharpening, naming-is-not-attaching, the purpose
+clause — and two came from watching him fail to answer. The sum is a third more words in the one thing
+being cut. **It goes to the owner as a question rather than being fixed by another trim**, because
+trimming is what produced the false claim. **The measure is his own acceptance test and
 there is no other** — whether he answers question 2 from his head, in one message, without hesitating.
 Nothing in a scratch run can see it.
 

@@ -192,8 +192,10 @@ the owner is about to read.
 What replaced it is one clause saying what the line is for: *this is the sentence an assistant quotes
 when it declines work that is not part of this project.*
 
-**Paid for by trimming two clauses in the same question**, so the question is no longer than the
-version he first read.
+**I wrote that this was paid for by trimming, and measurement showed it was not.** The trimming was
+real and made the clause cost six words instead of twenty, but the question is **longer** than the
+version he read: Q2 63 → 94 words, the whole block 175 → 235, up 34%. Corrected here rather than left
+standing, and carried to the owner as a question rather than fixed by another trim.
 
 **No scratch run measures this.** A purpose clause changes whether a person knows what he is being
 asked for, and nothing in these arms answers the questions. **His acceptance test is the only
