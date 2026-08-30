@@ -103,9 +103,11 @@ grep -L "Framework Version:\*\* ${CL:-NO-VERSION}" blueprints/*/README.md
 # V4. Nothing this release documents is untracked, ignored, or uncommitted.
 git status --porcelain
 git status --porcelain --ignored=matching .docs/ blueprints/ | grep '^!!'
-grep -oE '^[0-9a-f]{32}  \S+' .docs/runs/README.md | awk '{print $2}' | while read f; do
-  git ls-files --error-unmatch ".docs/runs/$f" >/dev/null 2>&1 || echo "NOT TRACKED: $f"
-done
+IDX=$(grep -oE '^[0-9a-f]{32}  \S+' .docs/runs/README.md | awk '{print $2}' | sort -u)
+TREE=$(git ls-files .docs/runs/ | grep '\.log$' | sed 's|^\.docs/runs/||' | sort -u)
+echo "runs index: $(grep -c . <<<"$IDX") named, $(grep -c . <<<"$TREE") tracked"
+comm -23 <(grep . <<<"$IDX") <(grep . <<<"$TREE") | sed 's/^/NAMED, NOT TRACKED: /'
+comm -13 <(grep . <<<"$IDX") <(grep . <<<"$TREE") | sed 's/^/TRACKED, NOT NAMED: /'
 ```
 
 What each has to show:
@@ -136,9 +138,14 @@ What each has to show:
   change never causes a release, so that line is a convenience. What replaced it supplies V2's missing
   referent — V2 asks whether every `Framework Version` reads the new number, and V2's own output never
   says what the new number is. See [`0019`](decisions/0019-a-check-compares-fields-not-prose.md).
-- **V4.** All three commands print nothing. A file present on disk and excluded by an ignore rule is
-  the case worth catching, because `git add` does not report what it declined to add. This is the
-  check `v0.9.0` failed.
+- **V4.** The first two commands print nothing. A file present on disk and excluded by an ignore
+  rule is the case worth catching, because `git add` does not report what it declined to add.
+  **The third prints a count line in every outcome**, and a pass is two equal counts with no names
+  under either label. It compares two sets because it used to compare one set against nothing: keyed
+  on the checksum block's two-space format alone, it printed the empty string both when every log
+  was tracked and when the block matched nothing at all, so one `sed` over that whitespace blinded
+  it without touching a fact it guards. Both directions are in scope. This is the check `v0.9.0`
+  failed. See [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md).
 
 If anything fails here, amend the commit and run it again. That is what this step is placed before
 the tag to make possible.

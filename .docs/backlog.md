@@ -2,11 +2,80 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after `release.md` V3 was repaired by subtraction.
+Last updated 2026-08-30, after `release.md` V4's third command was repaired into a two-sided comparison.
 
 ---
 
 ## Where we are, 2026-08-30
+
+**`release.md` V4's third command can no longer pass vacuously, and this is not a release.**
+Everything in this pass is under `.docs/`, so by step 0 nothing is bumped and nothing is tagged. See
+[`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md) and
+[`predictions/release-v4-tracked-logs.md`](predictions/release-v4-tracked-logs.md).
+
+**The count that decided it, taken by running the command against all twenty tags rather than by
+reading the record.** It has fired **once**, at `v0.9.0`, on five names — and that one is a **true
+positive**: the index named five logs the tree did not contain. It is retrospective; the command was
+written into `release.md` for `0.9.2`, in `5af7bf7`, in response to that defect after it had been
+found by hand. In the nine releases where it was actually in force it has never fired. This is the
+opposite of V3's record and it decided the razor the opposite way.
+
+**It could not tell a pass from a blind spot, and both were zero bytes.** `v0.1.0`–`v0.8.0` have no
+`.docs/runs/README.md` at all and print nothing; `v0.9.1`–`v0.16.0` have a full index and print
+nothing. Byte-identical. **And not only historical**: on a scratch copy of `HEAD` with the checksum
+block's two spaces changed to one — 99 lines touched, every log present and tracked, no defect
+introduced — it printed zero bytes again. One `sed` over a whitespace convention blinded it.
+
+**Nothing else in step 7 guarantees the fact.** `git status --porcelain` sees a log present but not
+added and a tracked log deleted from disk; the ignored sweep sees one present and excluded by a rule.
+None of the three sees a name in the index whose file is neither on disk nor in git, which is the
+`v0.9.0` defect exactly.
+
+**The repair is a second side, not a louder warning.** The checksum block stays the key — it is the
+only machine-readable form the index has — and the other side now comes from `git ls-files`. A person
+can still break the key by reformatting; they can no longer break it silently, because the tree's
+count does not move when the block's format does. Every outcome prints a labelled count line:
+`99 named, 99 tracked` is a pass, `0 named, 0 tracked` says there was nothing to check, and
+`0 named, 99 tracked` with 99 names under it is a blinded key. **`TRACKED, NOT NAMED` is declared in
+scope**: a committed log the index does not name is invisible to the other two commands, and without
+that direction the reformat case would report a bare count with no names.
+
+**An unregistered control found a defect in the repair before it was committed — the fifth time in
+this project's log that a check's defect surfaced that way and not by review.** The first version
+resolved both sides to bare filenames. A log moved into a subfolder of `.docs/runs/`, with the block
+still naming it bare, therefore **passed** — a case the old command caught, because it resolved each
+name against `.docs/runs/` exactly. The repair had quietly lost coverage its predecessor had. It now
+strips only the `.docs/runs/` prefix, and that arm fails naming both sides, with **equal counts and
+disagreeing sets** — which is why the count line alone is not the check. **The shipped command is not
+byte-identical to the pre-registered one**; they differ by that one `sed` expression, changed after
+P1–P5 were run and re-run against the corrected form. The prediction was not edited.
+
+**All five pre-registered arms held**, and the four plants were run in scratch copies of `HEAD`,
+deleted after: tree as it stands `99 named, 99 tracked` and nothing else; reformatted block 100 lines
+of failure; one named log removed, failing by name; one tracked log the block does not name, failing
+by name. `v0.9.0` still fires with five; every tag from `v0.9.1` on passes with equal counts.
+
+**The step grows by 7 non-blank lines, 138 to 145**, command block 3 to 5 and commentary 3 to 8.
+Principle 7 asks what was removed in exchange and the answer for this pass is nothing. The argument
+was put in `0020` rather than beside the command, which is the only reason it is 7 and not 12.
+
+**Two more rows in `release.md` share the vacuous-pass class, demonstrated rather than argued, and
+deliberately not acted on.** That is the next change if it is wanted.
+
+- **V1 passes vacuously if `$PREV` is empty.** `git describe --tags --abbrev=0` failing leaves
+  `git diff --name-only ..HEAD`, which git reads as `HEAD..HEAD` and which prints nothing — reported
+  to the reader as *"this release changed nothing."* Confirmed by running it with `PREV=""`.
+- **V2 passes vacuously if either field label is ever reworded.** On a scratch copy of `HEAD` with
+  `Version:` lowercased in all six blueprint `README.md`s, `grep -rn "Blueprint Version:\|Framework
+  Version:"` prints zero bytes, and V2's criterion is read against no output at all.
+- **V3 and V4 are now both hardened against it**, V3 by printing `MISSING` and listing every
+  blueprint, V4 by printing both counts.
+- **Among the shipped checks, `registry-check.md` already names the class in its own text** — *"A
+  green table can mean nothing was audited… If no row says `pass`, nothing was checked"* — but its
+  remedy is a warning to the reader rather than an output that distinguishes the two. `structure-check.md`
+  and `cold-start-check.md` do not share it: both require an absence row's pass to carry the search
+  and its result as evidence, which is the correct pattern. Not touched; `blueprints/` is out of scope
+  for this pass.
 
 **`release.md` V3 no longer greps prose, and this is not a release.** Everything in this pass is under
 `.docs/`, so by step 0 nothing is bumped and nothing is tagged. See
@@ -109,7 +178,9 @@ reason the claim in this paragraph is worth anything.
   format. Today it matches 99 rows against 99 logs on disk. If that block is ever reformatted the grep
   matches nothing and **V4 passes vacuously**, with no output distinguishing *"all tracked"* from
   *"nothing to check"* — the same failure that made old V3 useless. A row count printed beside the
-  result would close it. Not done here: separate variable.
+  result would close it. Not done here: separate variable. **Done, 2026-08-30, in
+  [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md); the remedy predicted here is
+  the one that shipped.**
 
 **`release.md` step 2 says "all four blueprint READMEs" and there are six.** Found by writing V3's
 loop. Not corrected in this pass; it is step 2's wording, not V3's.
