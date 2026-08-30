@@ -6,6 +6,71 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.14.0] - 2026-08-30
+
+**Declared, not attached is a second non-attached outcome in `registry-check`.** See
+[0016](.docs/decisions/0016-declared-is-a-second-non-attached-outcome.md).
+
+### Fixed
+
+- **`registry-check` no longer fails a correct newly adopted scope.** A component whose folder exists
+  and whose two stubs are both absent is **declared, not attached**. Row 2 is `n/a` and says so, and
+  rows 3 to 5 — the rows that read a stub — are `n/a` naming that outcome. Row 6 tests one path and
+  reads no stub, so it still runs and still returns a verdict.
+- **Exactly one stub present still fails**, and the row now says which one is missing. A component
+  half attached is a defect under any reading.
+
+### Unchanged, and deliberately so
+
+- **Row 1's cascade.** *"Unless this row confirmed the folder exists, rows 2 to 6 ... are n/a"* is
+  correct for the condition it covers and is not touched. The two outcomes now cascade differently,
+  over different rows, each `n/a` naming its own reason. A deleted folder reporting *"declared, not
+  attached"* would report a broken registry as a normal early state, and that is what negative
+  control 2 was built to catch.
+- **Row 7, the other two checks, and the structure of the file.** One condition changed, no row
+  added.
+
+### Removed
+
+- **Nothing.** Principle 7 asks a release that adds to name what it removed in exchange, and this one
+  removes nothing: it is six lines of prompt and three paragraphs of commentary, added to repair a
+  check that fails correct projects. Named here rather than left to be noticed.
+
+### On the evidence
+
+**Five runs against the shipped text, across three arms**, one pre-registration written before the
+edit existed, in
+[`predictions/registry-check-declared-not-attached.md`](.docs/predictions/registry-check-declared-not-attached.md).
+Every prediction held. Two arms were run twice — once because a sandboxed session could not produce
+row 2's listing, once because a missing folder failed row 1 on blocked access rather than an observed
+absence. Both pairs agree on every verdict; the second of each pair is the one whose evidence
+demonstrates what the arm was for. All five logs are in
+[`runs/`](.docs/runs/), indexed with checksums.
+
+**The state this repairs did not exist in the corpus the check was built against.** `registry-check`
+was written and validated nine times against `WordPress 7`, the framework's own subject, where every
+declared component was already attached. **`0.13.0`'s interview made declared-and-unattached the
+normal first state of a new project**, because naming a component does not attach it. ArtGlina was
+the first adoption after that release and produced **seven failed rows on a scope `structure-check`
+passed 14 of 14** — six of them from this cause, and the seventh from the read-set question deferred
+below.
+
+**A cascade condition is only as good as the cases in the corpus that could separate it from its
+symptoms.** This one was written correctly and was still keyed on a symptom, because every run
+happened on the one scope where the symptom and the condition coincide.
+
+### Known, deferred, not fixed here
+
+- **The first line of `registry-check.md` still says to run it *"after the components it declares
+  have been attached"***, and `checks/README.md` says the same. That framing is now narrower than
+  what the check does. Deferred knowingly: this release changes one condition, the file is not being
+  rewritten otherwise, and a wording pass over two files is a second variable. Recorded in the
+  backlog.
+- **Row 7's failure on the ArtGlina run.** The operator loaded the check by path, so the session had
+  to open `blueprints/checks/registry-check.md` to learn the procedure, and that file is outside the
+  declared read set. The instruction to paste the text sits inside the file, reachable only after the
+  rule has been broken. Its own change, its own run.
+
 ## [0.13.0] - 2026-08-30
 
 **The boundary becomes agent boundaries.** See

@@ -63,6 +63,11 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-boundaries-interview-x{1,2,3,4}.log` | The agent-boundaries interview, four questions, 146 words | Fidelity | The two scratch scopes | 2026-08-30 |
 | `2026-08-30-boundaries-coldstart-populated-y{1,2}.log` | `cold-start-check.md` project prompt, rows repaired for the new form | **The first run of these rows against any document carrying it** | A hand-written scope with three prohibitions — not an adopted project, which is the declared limit | 2026-08-30 |
 | `2026-08-30-boundaries-coldstart-empty-z{1,2}.log` | Same | **The empty case**, the branch `0010` warns about: a stated absence a reader can take as permission | A hand-written scope recording no prohibitions and the visible sentence saying so | 2026-08-30 |
+| `2026-08-30-registry-check-10-artglina.log` | `registry-check.md` at `0.14.0`, row 2 carrying the declared-not-attached clause | **The change's own subject**: the scope that produced 7 failed rows on `0.13.0` | **`Artglina`, real and unmodified, read-only.** Two components declared, both folders present, neither carrying stubs. Three root files verified byte-identical before and after every run | 2026-08-30 |
+| `2026-08-30-registry-check-10-artglina-sandboxed.log` | Same | The same arm, run first, kept because it is a different reading of row 2 | Same scope. The session sandbox refused `ls` outside its own directory, so row 2's evidence is a set of path probes rather than the listing the row asks for. The repeat above granted the two registry-named folders and got the listing | 2026-08-30 |
+| `2026-08-30-registry-check-11-missing-folder.log` | Same | **Negative control 1**: a genuinely missing folder must still fail row 1 and cascade with row 1's reason, not the new one | A scratch scope, components as subfolders addressed relatively, `artglina-ua/` deleted. **The visible-text sentence saying neither component is wired was removed**, because it is row 1's own pre-existing exception and would have confounded the control | 2026-08-30 |
+| `2026-08-30-registry-check-11-missing-folder-blocked.log` | Same | The same control, run first, kept because its row 1 failed for the wrong reason | The first scratch scope, components outside the session's directory. Row 1 failed on blocked access rather than an observed absence — the right verdict on weaker evidence, which is why the arm was rebuilt | 2026-08-30 |
+| `2026-08-30-registry-check-12-stubs-present-defect.log` | Same | **Negative control 2**: the new outcome must not swallow a real defect | The same scratch scope, `artglina-ua/` restored with both stubs written, then the registry heading changed to `Artglina UA Site` so it disagrees with the naming line in those stubs. **One component attached and broken, one declared and not attached, in one table** | 2026-08-30 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -83,6 +88,11 @@ it describes. The repository's `.gitignore` now negates it. If a log added later
 Checksums at commit time, so a later edit is detectable:
 
 ```text
+e2113e36892734d131400fd0b59da44a  2026-08-30-registry-check-10-artglina-sandboxed.log
+bfa733ef63a17551197ddb55006bfe0a  2026-08-30-registry-check-10-artglina.log
+ad2b122d36119ded2a04fcf13bf57249  2026-08-30-registry-check-11-missing-folder-blocked.log
+5f74dcb4cd2c5ccf136ce608c47ea93f  2026-08-30-registry-check-11-missing-folder.log
+bf2f0093f3174c308a64a56bd582f285  2026-08-30-registry-check-12-stubs-present-defect.log
 b67b4df0208b0a9461f18e77871858e7  2026-08-29-registry-check-1-original.log
 cf722de35201272594e2f9b27cd9a778  2026-08-29-registry-check-2-repaired.log
 6bdd042245658a913d25c0aadaf40d8c  2026-08-29-registry-check-2-control.log
@@ -229,3 +239,13 @@ In all four script runs the question block is byte-identical to the script — `
 completely different scope, which **weakens** the folder-variance finding these logs were partly meant
 to support. Both results are scored in
 [`../predictions/does-a-shipped-script-stay-shipped.md`](../predictions/does-a-shipped-script-stay-shipped.md).
+
+**The five `2026-08-30-registry-check-1{0,1,2}` logs are the `0.14.0` change.** They were produced by
+`claude -p`, one fresh non-interactive session each, the prompt block pasted from
+`registry-check.md`'s raw text rather than referenced by path — which is why row 7 passes in all
+five, and why it failed on the ArtGlina run that prompted the change.
+
+Predictions for all three arms were written before the edit existed, in
+[`../predictions/registry-check-declared-not-attached.md`](../predictions/registry-check-declared-not-attached.md),
+and every one held. Two arms were run twice for the reasons the index gives, and in both pairs the
+verdicts agree; what differs is the quality of the evidence, not the result.

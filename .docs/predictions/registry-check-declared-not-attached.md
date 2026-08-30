@@ -92,3 +92,77 @@ the component is not attached, which is the condition row 1 already honours for 
 ArtGlina's registry does carry such a sentence. It is not taken because the blueprint only
 encourages that sentence and does not supply it, so a correct new project whose owner omitted it
 would fail, and because it is a second variable.
+
+---
+
+# Outcome
+
+**Run:** 2026-08-30, five sessions against the shipped `0.14.0` text, prompt pasted from the file's
+raw text in every one. **All three predictions hold.**
+
+## Arm 1 — ArtGlina, real and unmodified
+
+Predicted: rows 1 and 6 pass, rows 2 to 5 `n/a` naming declared, not attached, `Failed rows: 0`.
+
+Observed, [`runs/2026-08-30-registry-check-10-artglina.log`](../runs/2026-08-30-registry-check-10-artglina.log):
+exactly that, for both components. Row 2's evidence is the full root listing with *"Neither AGENTS.md
+nor CLAUDE.md present: declared, not attached"*; rows 3, 4 and 5 read *"No stubs to read: check 2
+returned n/a (declared, not attached)"*. Row 1 pass, row 6 pass. **`Failed rows: 0`**, against 7 on
+`0.13.0`. Row 7 passed, which was recorded and not predicted.
+
+The scope's three root files were checksummed before the first run and verified byte-identical after
+the last. Nothing was written.
+
+**One deviation worth recording, in the first of the two runs.** The session sandbox refused `ls`
+outside its own directory, so row 2 answered by probing four paths instead of listing the root — the
+right verdict on evidence the row does not ask for. The repeat granted the two registry-named folders,
+which is exactly the declared read set, and got the listing. Both logs are kept. The verdicts are
+identical; only the evidence differs, and the difference is environmental rather than a property of
+the clause.
+
+## Arm 2 — negative control, missing folder
+
+Predicted: row 1 fail, rows 2 to 6 `n/a` **naming row 1**, not naming the new outcome.
+
+Observed, [`runs/2026-08-30-registry-check-11-missing-folder.log`](../runs/2026-08-30-registry-check-11-missing-folder.log):
+row 1 fail — *"`test -d` returned artglina-ua: NOT PRESENT. No visible text in PROJECT.md says this
+component is not attached yet"* — and rows 2 to 6 all `n/a` reading *"Row 1 did not confirm the folder
+exists, so this row is n/a per row 1."* **No row named declared, not attached.** The intact component
+in the same table took the new outcome. **`Failed rows: 1`.**
+
+**The two cascades are visibly separate in one table**, which is what this arm existed to establish.
+
+**The first attempt at this arm failed for the wrong reason and was rebuilt.** With the components
+outside the session's directory, row 1 failed on *blocked access* rather than an observed absence —
+the predicted verdict on evidence that does not demonstrate it. Kept as
+[`runs/2026-08-30-registry-check-11-missing-folder-blocked.log`](../runs/2026-08-30-registry-check-11-missing-folder-blocked.log)
+rather than discarded.
+
+**One deliberate plant beyond the deleted folder**, in both attempts: ArtGlina's sentence *"Neither
+component is wired to this scope yet"* was removed from the scratch copy. That sentence is row 1's own
+pre-existing exception, which turns a missing folder into `n/a`, and leaving it in would have tested
+that clause rather than this one.
+
+## Arm 3 — negative control, real defect under stubs that are present
+
+Predicted: row 2 pass, row 3 fail, the new clause not reaching that component.
+
+Observed, [`runs/2026-08-30-registry-check-12-stubs-present-defect.log`](../runs/2026-08-30-registry-check-12-stubs-present-defect.log):
+row 2 pass (*"Listed root of artglina-ua: AGENTS.md, CLAUDE.md. Both stubs present"*), **row 3 fail**,
+quoting the heading `## Artglina UA Site` against both stubs' `Artglina UA`. Rows 4 and 6 pass, row 5
+`n/a` on its own terms. **`Failed rows: 1`.**
+
+**The table carries both behaviours at once**: one component attached and broken, one declared and not
+attached, each row reaching the right one. That is the strongest of the three results, because a
+clause keyed on the wrong fact would have had to reach across.
+
+## What was not tested
+
+**Exactly one stub present.** The clause fails that case and says which stub is missing, and no arm
+ran it. It is a third negative control and it was not pre-registered, so it is named here rather than
+claimed.
+
+**Whether the evidence wording holds under a sandboxed session.** In the first arm 1 run, rows 3 to 5
+named row 2 and the fact rather than the outcome by name. The clause says *"naming that outcome as the
+reason"*, and four of the five logs do name it. This is a wording drift of the kind the cut-clause run
+warned about, not a verdict difference, and it is recorded rather than repaired.

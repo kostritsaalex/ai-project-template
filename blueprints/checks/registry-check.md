@@ -76,6 +76,12 @@ Checks:
 2. That folder holds both stubs, AGENTS.md and CLAUDE.md. List the root-level filenames you found.
    This row is evidenced by that listing. Do not quote a line from inside the files: their contents
    are not what the row asks about.
+   Both present is a pass. Exactly one present fails, and say which is missing: a component half
+   attached is a defect.
+   Neither present, in a folder row 1 confirmed, is not a failure. That component is declared, not
+   attached: the registry names it and nothing in its folder points back. This row is n/a and says
+   so, and rows 3 to 5 for that component are n/a naming that outcome as the reason. Row 6 still
+   runs and still returns a verdict, because it does not read a stub.
 3. Both stubs name this component, and the name matches its registry heading in PROJECT.md exactly.
    Quote the heading and the naming line from each stub. A difference in wording, case or spacing
    fails: the heading is what the registry is keyed on.
@@ -129,6 +135,24 @@ No check caught it, and no check could have. `structure-check` had passed that b
 2026-08-25, when the path it named was still correct; it was not passing a stale path, and it cannot
 read one, because it may not look outside the folder it audits. Between the move and the discovery no
 check ran at all, and none existed that would have helped. That gap is what this file is for.
+
+Check 2 carries the second of the two non-attached outcomes, and the two are not the same fact. Row
+1's cascade covers a folder that is not there: nothing downstream can be read, row 6 included,
+because a folder that does not exist satisfies an absence check for no useful reason. Row 2 covers a
+folder that is there and holds neither stub, which is a component the registry declares and nothing
+attaches. That state did not exist when this check was written — the framework's own scope had every
+component attached — and the interview shipped at `0.13.0` made it the normal first state of a new
+project, because naming a component does not attach it. Adopted on it, ArtGlina produced six failed
+rows from this cause alone, on a scope `structure-check` passed 14 of 14.
+
+The two outcomes cascade differently because they are different conditions. Row 1's reaches rows 2 to
+6; row 2's reaches 3 to 5 and leaves row 6 to run, since row 6 tests one path and reads no stub. Each
+n/a names its own reason, and a table where a deleted folder reported "declared, not attached" would
+be reporting a broken registry as a normal early state.
+
+What it cannot tell apart: a component never attached, and one attached and then stripped of both
+stubs. The registry carries no field saying which, so no row here can separate them. Exactly one stub
+present still fails, because a component half attached is a defect under either reading.
 
 Check 4 fails in the direction that costs most. A component pointing at where its scope used to be
 passes `structure-check` 8, which confirms the shape of an address and is forbidden from resolving

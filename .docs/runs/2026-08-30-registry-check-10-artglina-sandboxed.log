@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1. Folder exists | Artglina UA | pass | Address on PROJECT.md:62 is a URL, so located by the local path line — PROJECT.md (this scope's root, `/mnt/c/Users/kostr/OneDrive/Projects/All/Artglina`), line 63: "Local path: `~/Projects/All/artglina-ua`"; resolved to `/home/kostritsaalex/Projects/All/artglina-ua`; `test -d` → UA_DIR_EXISTS, folder is there |
+| 1. Folder exists | Artglina Sandbox | pass | Address on PROJECT.md:69 is a URL, so located by the local path line — PROJECT.md (this scope's root), line 70: "Local path: `~/Projects/Development/artglina-sandbox`"; resolved to `/home/kostritsaalex/Projects/Development/artglina-sandbox`; `test -d` → SANDBOX_DIR_EXISTS, folder is there |
+| 2. Both stubs present | Artglina UA | n/a | Session sandbox refused `ls` and `find` outside the working directory, so the root was probed by direct path test instead of a listing: in `/home/kostritsaalex/Projects/All/artglina-ua`, AGENTS.md absent, CLAUDE.md absent (also probed: REPOSITORY.md absent, ASSETS.md absent, PROJECT.md absent). Neither stub present in a folder row 1 confirmed: declared, not attached |
+| 2. Both stubs present | Artglina Sandbox | n/a | Session sandbox refused `ls` and `find` outside the working directory, so the root was probed by direct path test instead of a listing: in `/home/kostritsaalex/Projects/Development/artglina-sandbox`, AGENTS.md absent, CLAUDE.md absent (also probed: REPOSITORY.md absent, ASSETS.md absent, PROJECT.md absent). Neither stub present in a folder row 1 confirmed: declared, not attached |
+| 3. Stubs name the component | Artglina UA | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/All/artglina-ua` to read |
+| 3. Stubs name the component | Artglina Sandbox | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/Development/artglina-sandbox` to read |
+| 4. Stubs give parent address | Artglina UA | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/All/artglina-ua` to read |
+| 4. Stubs give parent address | Artglina Sandbox | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/Development/artglina-sandbox` to read |
+| 5. Overrides agree both ways | Artglina UA | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/All/artglina-ua` to read |
+| 5. Overrides agree both ways | Artglina Sandbox | n/a | Row 2 returned n/a: no stubs in `/home/kostritsaalex/Projects/Development/artglina-sandbox` to read |
+| 6. No PROJECT.md in folder | Artglina UA | pass | Tested the one path `/home/kostritsaalex/Projects/All/artglina-ua/PROJECT.md` with `test -e` → UA_PROJECT_ABSENT |
+| 6. No PROJECT.md in folder | Artglina Sandbox | pass | Tested the one path `/home/kostritsaalex/Projects/Development/artglina-sandbox/PROJECT.md` with `test -e` → SB_PROJECT_ABSENT |
+| 7. Read set | (read set) | pass | Folders opened, all of them: (a) `/mnt/c/Users/kostr/OneDrive/Projects/All/Artglina` — this scope's own root, in the read set by the first instruction, no registry line needed; (b) `/home/kostritsaalex/Projects/All/artglina-ua` — named by PROJECT.md (this scope's root) line 63: "Local path: `~/Projects/All/artglina-ua`"; (c) `/home/kostritsaalex/Projects/Development/artglina-sandbox` — named by PROJECT.md (this scope's root) line 70: "Local path: `~/Projects/Development/artglina-sandbox`". No folder in the third class |
+
+Failed rows: 0

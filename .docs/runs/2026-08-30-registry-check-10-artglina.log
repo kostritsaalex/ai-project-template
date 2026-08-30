@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1 | Artglina UA | pass | Address on PROJECT.md line 62 is a URL, so located by the local path line: PROJECT.md (/mnt/c/Users/kostr/OneDrive/Projects/All/Artglina), line 63: "Local path: `~/Projects/All/artglina-ua`" — resolved to /home/kostritsaalex/Projects/All/artglina-ua; listed it, the folder is there (wp-admin, wp-content, composer.json, …). |
+| 1 | Artglina Sandbox | pass | Address on PROJECT.md line 69 is a URL, so located by the local path line: PROJECT.md (/mnt/c/Users/kostr/OneDrive/Projects/All/Artglina), line 70: "Local path: `~/Projects/Development/artglina-sandbox`" — resolved to /home/kostritsaalex/Projects/Development/artglina-sandbox; listed it, the folder is there (wp-admin, wp-content, composer.json, …). |
+| 2 | Artglina UA | n/a | Listed the root of /home/kostritsaalex/Projects/All/artglina-ua: .claude, .ddev, .editorconfig, .git, .gitattributes, .gitignore, .vscode, .well-known, aios-bootstrap.php, composer.json, composer.lock, favicon.ico, googled63a258301ee1d03.html, index.php, malcare-waf.php, vendor, wp-activate.php, wp-admin, wp-blog-header.php, wp-comments-post.php, wp-config-ddev.php, wp-config.php, wp-content, wp-cron.php, wp-includes, wp-links-opml.php, wp-load.php, wp-login.php, wp-mail.php, wp-settings.php, wp-signup.php, wp-trackback.php, xmlrpc.php. Neither AGENTS.md nor CLAUDE.md present: declared, not attached. |
+| 2 | Artglina Sandbox | n/a | Listed the root of /home/kostritsaalex/Projects/Development/artglina-sandbox: .claude, .ddev, .editorconfig, .git, .gitattributes, .gitignore, .vscode, .well-known, aios-bootstrap.php, composer.json, composer.lock, favicon.ico, googled63a258301ee1d03.html, index.php, malcare-waf.php, wp-activate.php, wp-admin, wp-blog-header.php, wp-comments-post.php, wp-config-ddev.php, wp-config.php, wp-content, wp-cron.php, wp-includes, wp-links-opml.php, wp-load.php, wp-login.php, wp-mail.php, wp-settings.php, wp-signup.php, wp-trackback.php, xmlrpc.php, "?." . Neither AGENTS.md nor CLAUDE.md present: declared, not attached. |
+| 3 | Artglina UA | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 3 | Artglina Sandbox | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 4 | Artglina UA | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 4 | Artglina Sandbox | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 5 | Artglina UA | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 5 | Artglina Sandbox | n/a | No stubs to read: check 2 returned n/a (declared, not attached). |
+| 6 | Artglina UA | pass | Tested the single path /home/kostritsaalex/Projects/All/artglina-ua/PROJECT.md: ABSENT. |
+| 6 | Artglina Sandbox | pass | Tested the single path /home/kostritsaalex/Projects/Development/artglina-sandbox/PROJECT.md: ABSENT. |
+| 7 | (read set) | pass | Folders opened, all of them: (a) /mnt/c/Users/kostr/OneDrive/Projects/All/Artglina — this scope's own root; (b) /home/kostritsaalex/Projects/All/artglina-ua — named by the registry, PROJECT.md line 63: "Local path: `~/Projects/All/artglina-ua`"; (c) /home/kostritsaalex/Projects/Development/artglina-sandbox — named by the registry, PROJECT.md line 70: "Local path: `~/Projects/Development/artglina-sandbox`". None in the third class. |
+
+Failed rows: 0

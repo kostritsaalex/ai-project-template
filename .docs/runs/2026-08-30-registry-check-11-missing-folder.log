@@ -1,0 +1,17 @@
+| Check | Component | Result | Evidence |
+|---|---|---|---|
+| 1. Folder exists where registry says | Artglina UA | fail | Located by the address line (relative path): `Artglina/PROJECT.md:62` — "Address: `artglina-ua/`". Resolved to `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/d847c5bf-47cf-48c1-9682-bfad44fa20d3/scratchpad/scratch2/Artglina/artglina-ua`. `test -d` returned "artglina-ua: NOT PRESENT". No visible text in PROJECT.md says this component is not attached yet. |
+| 1. Folder exists where registry says | Artglina Sandbox | pass | Located by the address line (relative path): `Artglina/PROJECT.md:68` — "Address: `artglina-sandbox/`". Resolved to `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/d847c5bf-47cf-48c1-9682-bfad44fa20d3/scratchpad/scratch2/Artglina/artglina-sandbox`. `test -d` returned "artglina-sandbox: DIR EXISTS". |
+| 2. Both stubs AGENTS.md and CLAUDE.md present | Artglina UA | n/a | Row 1 did not confirm the folder exists, so this row is n/a per row 1. |
+| 2. Both stubs AGENTS.md and CLAUDE.md present | Artglina Sandbox | n/a | Root-level listing of `artglina-sandbox` (`ls -a`) returned only `.` and `..` — no files at all. Neither stub present in a folder row 1 confirmed: declared, not attached. |
+| 3. Both stubs name the component, matching registry heading | Artglina UA | n/a | Row 1 did not confirm the folder exists, so this row is n/a per row 1. |
+| 3. Both stubs name the component, matching registry heading | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so this row is n/a per row 2. |
+| 4. Both stubs give parent address pointing at this scope | Artglina UA | n/a | Row 1 did not confirm the folder exists, so this row is n/a per row 1. |
+| 4. Both stubs give parent address pointing at this scope | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so this row is n/a per row 2. |
+| 5. Overrides agree in both directions | Artglina UA | n/a | Row 1 did not confirm the folder exists, so this row is n/a per row 1. |
+| 5. Overrides agree in both directions | Artglina Sandbox | n/a | Row 2 returned n/a (neither stub present), so this row is n/a per row 2. |
+| 6. No PROJECT.md in component folder | Artglina UA | n/a | Row 1 did not confirm the folder exists, so this row is n/a per row 1. |
+| 6. No PROJECT.md in component folder | Artglina Sandbox | pass | Tested the single path `artglina-sandbox/PROJECT.md`; result: "artglina-sandbox/PROJECT.md: does not exist". |
+| 7. Read-set audit | (read set) | pass | Folders opened: (1) `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/d847c5bf-47cf-48c1-9682-bfad44fa20d3/scratchpad/scratch2/Artglina` — this scope's own root, in the read set by the first instruction, needs no registry line. (2) `.../Artglina/artglina-sandbox` — a folder the registry named, `Artglina/PROJECT.md:68` — "Address: `artglina-sandbox/`". No folder in the third class. |
+
+Failed rows: 1

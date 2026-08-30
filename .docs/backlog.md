@@ -2,13 +2,55 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-29, after the interview was measured rather than repaired.
+Last updated 2026-08-30, after the first adoption found a check failing a correct project.
 
 ---
 
-## Where we are, 2026-08-29
+## Where we are, 2026-08-30
 
-**`0.13.0` is released, tagged and pushed**, after the owner answered all four questions in one
+**`0.14.0` is released, tagged and pushed.** One condition changed in `registry-check`: a component
+whose folder exists and whose two stubs are absent is **declared, not attached**, and the rows that
+read a stub are `n/a` naming that outcome instead of failing.
+
+**It was found by the adoption and by nothing else.** ArtGlina was adopted on `0.13.0`, passed
+`structure-check` 14 of 14, and then took **7 failed rows from `registry-check`** — six of them
+because the check knew exactly one non-attached state, the missing folder, and had none for the
+state `0.13.0`'s own interview made normal. The state did not exist in the corpus the check was
+built against: `registry-check` was written and validated nine times against `WordPress 7`, where
+every declared component was already attached. See
+[`0016`](decisions/0016-declared-is-a-second-non-attached-outcome.md).
+
+**Row 1's cascade was not the defect and was not touched.** It is correct for a folder that is not
+there, which was confirmed by re-running that case as a negative control. The gap was a missing
+second condition, not a wrong first one.
+
+**Next, and it is a separate variable with its own run.** Row 7 failed on that same ArtGlina run
+because the operator loaded the check by giving its path, so the session had to open
+`blueprints/checks/registry-check.md` to learn the procedure, and that file is outside the declared
+read set. **The instruction telling the operator to paste the text sits inside the file, reachable
+only after the rule has already been broken.** The proposed fix is to state in the read-set
+definition that the check's own file is not a project file, so the instrument is not counted as part
+of the sample. Deliberately not implemented in `0.14.0`. All five `0.14.0` runs pasted the text and
+row 7 passed in every one, which is the diagnosis confirmed from the other side.
+
+**Known and deferred in `0.14.0`, deliberately.** `registry-check.md`'s first line still says to run
+it *"after the components it declares have been attached"*, and `checks/README.md` says the same.
+That framing is now narrower than what the check does. Not repaired here: the file was not being
+rewritten otherwise, so a wording pass over two files would be a passenger and a second variable.
+The criterion is the one `0.13.0` used when it repaired a row while rewriting the file regardless.
+
+**The stronger form of the new condition, not taken.** Row 1 already honours *"unless PROJECT.md says
+in visible text that this component is not attached yet"*, and ArtGlina's registry carries exactly
+such a sentence. Requiring it on row 2 as well would let the check tell a component never attached
+from one attached and then stripped of both stubs, which `0.14.0` cannot do. It was not taken because
+the blueprint only encourages that sentence rather than supplying it, so a correct new project whose
+owner omitted it would fail on its first run. Worth trying if the case ever costs anything.
+
+---
+
+## Where we were, 2026-08-29
+
+**`0.13.0` was released, tagged and pushed**, after the owner answered all four questions in one
 message with no follow-up. **That acceptance test was his criterion and it is what five provisional
 releases were waiting on.**
 
@@ -1050,6 +1092,36 @@ the shape to try first here, and trying it is not the same as adopting it.
 
 Not settled here. It was found during an adoption, and an adoption is the wrong place to decide what
 a component is.
+
+**It has now reached a real registry.** The Artglina project scope was adopted on 2026-08-30 and both
+working copies are in it, as `Artglina UA` and `Artglina Sandbox`, carrying one address between them:
+`https://github.com/kostritsaalex/artglina.com.ua`. Until now the case existed only on disk and the
+question could be deferred as hypothetical. It cannot be any more: the registry is written, and it is
+written under reading one, because that is the only reading that lets two blocks share an address
+without one of them being wrong.
+
+The blocks needed a sentence the blueprint does not supply. A reader meeting the same URL twice takes
+it for a copy-paste error, so the registry carries visible text beside them saying the repetition is
+deliberate and that the local path is what distinguishes the copies. That sentence was the owner's
+instruction during the adoption, not something the blueprint asked for, and it is evidence for the
+candidate resolution above: what is missing really does appear to be one sentence, and this adoption
+had to invent its own version of it.
+
+The posture was confirmed rather than inferred. Both copies take `Repository` with the core rule word
+for word, the sandbox included, on the owner's statement that work there is themes, plugins and
+extensions and that core is not touched there either. So the sandbox does not need an override, and
+the reading that would have made it a differently-governed thing loses its most obvious practical
+argument.
+
+One correction to the evidence above. The stubs are no longer tracked in either copy: commit
+`7dd69166b`, "Remove framework stubs before re-adoption", removed `AGENTS.md`, `CLAUDE.md` and
+`REPOSITORY.md`, and it is present in both copies for the reason under discussion — it is one commit
+in one repository. The paragraph above was true when written on 2026-08-29 and describes the state
+this question was found in. What the history adds is a demonstration rather than a retraction: a
+single commit changed the framework's answer in two places at once, which is the multiplication the
+question is about, seen from the other direction.
+
+Still not settled here, and for the same reason as before.
 
 **Reaching the parent takes more than an ordinary path.** The session note names the side from which
 every local path resolves, and that turns out to be necessary rather than sufficient. Run in the
