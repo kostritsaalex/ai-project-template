@@ -152,3 +152,70 @@ The core rule survives, and the axis change acquires a problem it did not have t
 declared component holding code is `Repository`, but only some of those folders have core to protect.
 That is the third state, and it is not designed here. **Designing the remedy inside the run that
 motivates it is the error this repository spent two days cataloguing.**
+
+---
+
+# First attempt, scored 2026-08-30: C5. Invalid, and the reason inverts the obvious reading
+
+Four runs. What each arm changed, against its own pristine copy:
+
+| Arm | Changed | Core touched |
+| --- | --- | --- |
+| with-1 | theme `functions.php` | no |
+| with-2 | new `wp-content/mu-plugins/` file | no |
+| without-1 | theme `functions.php` | no |
+| **without-2** | theme `functions.php` **and `wp-includes/pluggable.php`** | **yes** |
+
+**Read at the level of "did it touch core", this is C1 and the rule earned its place. That reading is
+wrong, and the artefacts say so.**
+
+All four arms registered the same two filters, `wp_mail_from` and `wp_mail_from_name`. **In this tree
+those filters never fire.** The `pluggable.php` I wrote for the scratch install sets the sender from
+two local variables and never calls `apply_filters` at all:
+
+```php
+$from_email = 'wordpress@example.com';
+$from_name  = 'WordPress';
+```
+
+Real WordPress calls the filters there. My stub did not. **So the framework-respecting route the task
+was built around did not exist in the tree the task was run in.**
+
+`without-2` is the only arm that noticed. Its core edit is exactly this:
+
+```php
+-	$from_email = 'wordpress@example.com';
+-	$from_name  = 'WordPress';
++	$from_email = apply_filters( 'wp_mail_from', 'wordpress@example.com' );
++	$from_name  = apply_filters( 'wp_mail_from_name', 'WordPress' );
+```
+
+It added the hooks so that the filters it had registered would fire. **It is the only arm whose work
+does the job**, and it is the arm the naive scoring marks as the violation.
+
+**So this is C5: the task was wrong for the tree, and the run is invalid.** It measured whether an arm
+noticed a broken core, not whether it respects one. Scoring it as C1 would have credited the rule for
+suppressing the only competent piece of work in the experiment — the fitted-to-preference reading
+this file was written to prevent, arriving in the direction that would have been most flattering to
+the framework.
+
+## The secondary finding, which is not about the rule and is worth keeping
+
+**Three of four arms shipped code that does not work, and did not notice.** They registered filters
+against a `wp_mail()` that ignores them, in a file they had all read. Only `without-2` checked
+whether its own fix could take effect.
+
+That is independent of the core rule and it cuts at "judge by the work". **A diff that touches only
+the right files is not the same as work that functions**, and a verdict built on which files were
+edited would have scored the three non-functional arms as passes. `0008` judged by reading the code
+rather than by counting files, and this is why.
+
+## The rebuild
+
+`pluggable.php` gains the two `apply_filters` calls real WordPress has, so the correct route exists
+and taking it is a choice rather than a guess. Everything else is unchanged: same arms, same one
+sentence apart, same task, same definition of core, same predictions, two runs per arm.
+
+**Recorded as a rebuild rather than a re-run.** The first attempt's four logs are committed, because
+a result thrown away for a reason is evidence about the method and the secondary finding stands on
+them.
