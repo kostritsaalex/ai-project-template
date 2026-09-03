@@ -2,7 +2,16 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-09-03, after `0.18.0` and the `.docs/` pass that followed it.
+Last updated 2026-09-03, after `0.18.0` and the two `.docs/` passes that followed it.
+
+**The backlog has three sections and they mean different things.** `Now` is what has a quote behind
+it and needs no decision. `Release` needs a decision or an experiment. `Recorded, not tasks` is
+evidence worth keeping that nobody has to act on.
+
+*Moved here 2026-09-03. It was written only in `handover.md`, which uses the three sections nowhere
+and is due for deletion, so the definition of the sections this file is made of would have died with
+a file nobody has decided about. It still stands unedited at `handover.md:106-108`: **one fact in two
+files, deliberately**, and the copy there goes when that file goes.*
 
 ---
 
@@ -30,6 +39,13 @@ scope unprompted, and neither `0.18.0` run does.
   `interview-v2-as-installed.md`, `interview-v3.md` — and a session drawing wording from one would
   reinstate the defect. One superseded note at the top of each. **Whether `drafts/` is maintained at
   all is not answered**, and the folder holds five more files nobody has audited against anything.
+
+**Then a second `.docs/`-only pass the same day, correcting part of the one above.** The note added to
+`interview-v2-as-installed.md` was reverted and the file is byte-identical to `17cb60a` again: its job
+is to be the record of what arm F ran, and an edited record costs the class rather than the file. The
+warning it carried moved to a new [`drafts/README.md`](drafts/README.md), which states the two classes
+the folder holds and the contract on each. **So the bullet above is now true of two files, not three.**
+The pass also moved the section definitions out of `handover.md` and both `Now` items into `Release`.
 
 ---
 
@@ -319,6 +335,16 @@ under [`runs/`](runs/). What existed in none of those is under `Recorded, not ta
 
 ## Now
 
+**Empty.** Both items that stood here moved to `Release` on 2026-09-03. Each says in its own text that
+it needs the owner, and this section is what needs no decision. `registry-check` check 6 closed in
+`0.9.0`, the address question in `0.7.0` by
+[`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
+is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
+
+---
+
+## Release
+
 **Is `.docs/drafts/` maintained, and by what rule?** Raised 2026-09-03 and not answered. Three of its
 files carried a rule `0.18.0` removed, unmarked, in a folder a session may draw wording from; they now
 carry a note. The folder holds five more — `interview.md`, `interview-as-installed.md`,
@@ -328,6 +354,23 @@ reconstruct is not evidence and the files should never be edited; or drafts are 
 copy**, so a stale rule in one is a live hazard. `interview-v2-as-installed.md` is both at once, and
 its note says so. The candidate answers are a `README.md` in the folder stating which it is, or
 deleting what no prediction cites. Owner's decision, not scheduled.
+
+*Moved from `Now` 2026-09-03. It ends "Owner's decision, not scheduled", and `Now` is what needs no
+decision. Nothing above is reworded.*
+
+**Partly answered the same day, and the rest stands.** [`drafts/README.md`](drafts/README.md) is the
+first of the two candidate answers, written: it states the two classes, puts each of the folder's
+eight other files in one or the other, and gives the criterion. **What that changes.** "They now carry a note" is true of two
+files now, not three — the note on `interview-v2-as-installed.md` was reverted and the README carries
+the warning for it, so "`interview-v2-as-installed.md` is both at once, and its note says so" is right
+about the tension and wrong about where it is recorded. The five unaudited files have now been read
+and classed, so "audited against nothing" no longer holds; `step-4-replacement.diff` and
+`step-4-v2.diff` went to the record class, `interview.md` and `new-project-sharpened-posture.md` to
+the drafts. **What it does not answer.** Whether the folder is maintained at all, and the second
+candidate — deleting what no prediction cites — which nothing in this pass touched and which stays the
+owner's. One thing the reading added: `interview-v3.md` was itself installed for arm W
+(`runs/README.md:61`) with no as-installed copy ever committed, so arm W's tree is already not exactly
+reconstructible and the file has since been edited.
 
 **The summary table shows the address without saying what confirming it commits to.** Filed
 2026-09-03, not scheduled, and the owner's decision rather than a session's. A person whose address
@@ -341,13 +384,8 @@ set on the razor, and a fifth question would undo that and falsify its *"four qu
 `0.18.0` reached the branch where the address cannot be derived and deliberately did not touch the
 branch where it can.
 
-Otherwise empty. `registry-check` check 6 closed in `0.9.0`, the address question in `0.7.0` by
-[`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
-is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
-
----
-
-## Release
+*Moved from `Now` 2026-09-03. It says in its own second sentence that it is "the owner's decision
+rather than a session's", and `Now` is what needs no decision. Unchanged otherwise.*
 
 **A derived fact with no trigger goes stale, and it comes in two shapes.** Four instances turned up
 on 2026-08-29. The shape is the same in all four: a fact that was true when written, derived from
