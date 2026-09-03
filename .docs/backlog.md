@@ -2,7 +2,7 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-09-03, after `0.18.0` and the two `.docs/` passes that followed it.
+Last updated 2026-09-03, after `0.18.0` and the three `.docs/` passes that followed it.
 
 **The backlog has three sections and they mean different things.** `Now` is what has a quote behind
 it and needs no decision. `Release` needs a decision or an experiment. `Recorded, not tasks` is
@@ -15,41 +15,7 @@ files, deliberately**, and the copy there goes when that file goes.*
 
 ---
 
-## Where we are, 2026-09-03
-
-**`0.18.0` made a project scope's address required.** The interview had written `0007`'s fourth form
-whenever neither derivation rule fired, and `0007` is about components: a scope adopted that way could
-give its components no stub address that `structure-check` row 8 accepts.
-[`0023`](decisions/0023-a-project-scope-address-is-required.md). Six runs, five pre-registered. **The
-control carried it** — the same store scope run against `0.17.0` offered the fourth form on a project
-scope unprompted, and neither `0.18.0` run does.
-
-**Then a `.docs/`-only pass, no release, closing what `0.18.0` disclosed about itself.** Three items:
-
-- **The stop had never been run in isolation.** `0.18.0`'s shared prompt told every session to reach
-  the Step 5 table, so A1's two runs split on which instruction to obey and *"wrote nothing"* was true
-  by construction. Re-run against `v0.18.0` unmodified with that instruction gone and **`Write`
-  enabled**: neither run wrote anything, both stopped at the address of their own accord, and neither
-  reached a summary table. [`predictions/the-stop-run-in-isolation.md`](predictions/the-stop-run-in-isolation.md),
-  two logs.
-- **`0014` carried the displaced rule with no mark.** Its Decision still ended *"with neither, the
-  answer is `0007`'s fourth form"*. Marked at the clause rather than at the Status line, because only
-  the clause moved. `handover.md`: superseded records are marked rather than deleted.
-- **Three drafts still carry the removed sub-bullet** — `interview-v2.md`,
-  `interview-v2-as-installed.md`, `interview-v3.md` — and a session drawing wording from one would
-  reinstate the defect. One superseded note at the top of each. **Whether `drafts/` is maintained at
-  all is not answered**, and the folder holds five more files nobody has audited against anything.
-
-**Then a second `.docs/`-only pass the same day, correcting part of the one above.** The note added to
-`interview-v2-as-installed.md` was reverted and the file is byte-identical to `17cb60a` again: its job
-is to be the record of what arm F ran, and an edited record costs the class rather than the file. The
-warning it carried moved to a new [`drafts/README.md`](drafts/README.md), which states the two classes
-the folder holds and the contract on each. **So the bullet above is now true of two files, not three.**
-The pass also moved the section definitions out of `handover.md` and both `Now` items into `Release`.
-
----
-
-## Where we are, 2026-08-30
+## The first end-to-end live use, 2026-08-30: the record, and the queue it ends on
 
 **The framework was used end to end on a live project for the first time, and it was used rather than
 worked on.** Both ArtGlina components were attached by hand, `structure-check` and `registry-check`
@@ -309,6 +275,19 @@ One line per release day, newest first. The detail is in [`../CHANGELOG.md`](../
 is ordered by version rather than by day, in the decision each release names, and in the run logs
 under [`runs/`](runs/). What existed in none of those is under `Recorded, not tasks`.
 
+- **2026-09-03, after `0.18.0`.** Three `.docs/`-only passes, none of them a release. The first ran
+  the stop in isolation — `Write` enabled, no competing instruction, neither run writing anything or
+  reaching a summary table — and marked `0014` at the clause `0023` displaced.
+  [`predictions/the-stop-run-in-isolation.md`](predictions/the-stop-run-in-isolation.md), scored under
+  [`runs/`](runs/README.md), two logs. The second **reverted the note that pass had put on
+  `interview-v2-as-installed.md`, back to byte-identical with `17cb60a`** — an edited record of
+  installed text costs the class rather than the file — and moved what it carried into
+  [`drafts/README.md`](drafts/README.md). The third folded this day's journal entry into this list and
+  renamed the 2026-08-30 one to what it holds.
+- **2026-09-03.** `0.18.0`, a project scope's address is required and the interview asks where neither
+  rule derives it. Six runs, five pre-registered. **The control carried it** — the same store scope run
+  against `0.17.0` offered the fourth form on a project scope unprompted, and neither `0.18.0` run
+  does. [`0023`](decisions/0023-a-project-scope-address-is-required.md).
 - **2026-08-30, after `0.16.0`.** Three `.docs/`-only repairs to `release.md` step 7, none of them a
   release: V3 compares two fields instead of grepping prose,
   [`0019`](decisions/0019-a-check-compares-fields-not-prose.md); V4's third command compares two
