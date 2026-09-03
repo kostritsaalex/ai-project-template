@@ -6,6 +6,104 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 where practical.
 
+## [0.18.0] - 2026-09-03
+
+**A project scope's address is required, and where it cannot be derived the interview asks for it.**
+See [0023](.docs/decisions/0023-a-project-scope-address-is-required.md).
+
+### Fixed
+
+- **`blueprints/setup/interview.md` stops writing `0007`'s fourth form into a project scope.** The
+  third sub-bullet under "The address" instructed it whenever neither derivation rule fired.
+  [0007](.docs/decisions/0007-a-component-with-no-address-says-so.md) does not say that: its title is
+  *"A component with no address says so"*, its Decision binds the form to `structure-check` **11**,
+  the registry row, and its Consequences state the asymmetry — *"**A component with no address is
+  still a component.** The gap runs one way."*
+- **What it broke was the component, not the scope.** `procedure.md` Step 7 has a component's stubs
+  carry *"the parent's address, copied from the parent's own text rather than retyped"* and ends
+  *"Nothing else in the parent changes when a component is attached"*, while `structure-check` row 8
+  admits three forms for that value and `blueprints/component/README.md`'s
+  `<CANONICAL_PROJECT_SCOPE_ADDRESS>` defines the same three. A scope adopted with the fourth form
+  could give its components no stub address that passes row 8, and the attach was forbidden from
+  repairing the parent.
+- **The branch that replaces it already existed and was unreachable.** `interview.md` has read *"If
+  neither yields a value, ask for it"* since `0.12.0`, and the sub-bullet always yielded a value.
+  That line is unchanged; what changed is that a run can now reach it.
+- **The asking branch carries its own explanation**, because `interview.md` and `procedure.md` Step 4
+  both forbid a session from adding one — *"Do not introduce them, gloss them, add clarifications, or
+  add questions of your own"*. The text names what qualifies, that `git init` alone does not, per
+  `0007`'s *"Local version control and reachability are separate questions"*, and that setup stops.
+
+### Removed
+
+- **The fourth form as an option for a project scope**, which is the rule this release exists to
+  remove. It remains the rule for a component block, unchanged, in `structure-check` 11 and
+  `architecture.md`.
+- **Attach defect 6 in `.docs/backlog.md`, deleted.** It held that `structure-check` row 8 was too
+  narrow at three forms. The repair was upstream of it and row 8 was right. **Its number is held
+  rather than reused**, because [0022](.docs/decisions/0022-the-attach-commits-what-it-wrote.md), the
+  `0.17.0` entry above and two predictions all cite these defects by number, and renumbering would
+  make four documents false.
+- **And what it did not remove, said plainly.** `interview.md` grows by twenty-two lines, and this
+  release is a net addition to that file. The growth is in setup text, which is not shipped into an
+  adopted project, so **the shipped-line metric does not see it** — re-measured at 40 and 22,
+  unchanged. That is a reason for care rather than comfort: nothing measures the setup path.
+
+### Not touched, deliberately
+
+- **`structure-check` row 8, row 11, and `component/README.md`'s placeholder.** Three forms, four
+  forms and three forms are each correct; `.docs/audits/structure-check-rows.md` settled row 8 on
+  [0001](.docs/decisions/0001-project-scope-need-not-be-a-repository.md) — *"a scope may not be
+  addressless and there is no fourth form for a parent. Three is right"*. **No check row is added and
+  none is widened.**
+- **The four questions.** No fifth, no merge, no rewording, so
+  [0014](.docs/decisions/0014-the-razor-runs-over-the-questions-one-at-a-time.md)'s measured *"four
+  questions, never five"* and its fidelity result both stand. `0014` does state the rule this release
+  removes, at its Decision section; that clause is displaced by `0023`, its file is not edited, and
+  the record says so rather than leaving two documents to disagree.
+- **`procedure.md`.** It defines no gate for an answer that stops adoption — Step 5 admits *unknown*
+  as a provenance — and Step 7 has eight unclosed defects. The stop is written into `interview.md`,
+  bounded to the one value, and the gap is stated in `0023` rather than filled.
+
+### Measured
+
+- **Six runs, five pre-registered before the edit existed** in
+  [`.docs/predictions/the-scope-address-is-required.md`](.docs/predictions/the-scope-address-is-required.md),
+  all logged under [`.docs/runs/`](.docs/runs/README.md). Arm A1 twice, control C1 once, control C2
+  twice, plus one before-run added mid-experiment and labelled as added.
+- **A1 passes all four criteria in both runs.** The address is asked for; **the fourth form's word
+  appears as a value in neither log**; the message names what qualifies, that `git init` alone does
+  not, and that setup stops; no local path reaches the address slot.
+- **The control carried the release.** C2 — a folder in a store, the path this change must not touch
+  — behaves identically before and after: same address proposed, nothing asked, four questions in
+  every run. But the same scope run against `0.17.0` **offered the fourth form on a project scope
+  unprompted**, on the arm this change was not aimed at. The defect is reproduced in the wild and
+  absent from both `0.18.0` runs.
+- **Disclosed against it:** one of three registered words reached the person in one of three
+  C2-family runs, in a clause naming which derivation rule fired; A1's two runs diverge on the stop
+  because the shared run prompt told every session to reach the Step 5 table, and both named the
+  conflict rather than resolving it silently; and **C1 never reached its own question**, the session
+  having rejected the simulated store and derived from the git remote alone.
+
+### Also in this release, and none of it caused it
+
+Per `release.md` step 0, a change under `.docs/` never causes a release. These ride with one that is
+happening anyway, and are listed because step 7's V1 requires every file in the diff to be accounted
+for.
+
+- **`.docs/architecture.md`**: the line *"A location on one person's machine is not an address in any
+  of these senses. Write the fourth form instead"* gains the qualification the paragraph four lines
+  below it already carried, that the fourth form is what a component carries.
+- **`.docs/backlog.md`**: attach defect 6 deleted; the new item above filed under `Now` and not
+  scheduled; and four records added, of which two came out of this release's own runs — that
+  `interview.md`'s two derivation rules test the shape of a path rather than whether the store
+  resolves, **raised by the `0.17.0` before-run too, so it predates this change**, and that which rule
+  wins when both fire is unsettled and C1 could not reach the question.
+- **`.docs/runs/`**: six logs and their index rows, checksums and narrative.
+- **The six blueprint `README.md` files** carry the `Framework Version` bump this release is, per
+  `release.md` step 2. Only `blueprints/setup/` also moves its `Blueprint Version`, because
+  `interview.md` is the one blueprint file that changed.
+
 ## [0.17.0] - 2026-08-30
 
 **The attach commits what it wrote.** See

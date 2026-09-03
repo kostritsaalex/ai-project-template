@@ -1,0 +1,63 @@
+I read both files, plus what the procedure sends me on to read. Here is the run in order.
+
+## Step 1. Access
+
+All three addresses are reachable.
+
+- Framework: `…/scratchpad/fw` — readable, contains `blueprints/` with `project/`, `component/`, `setup/`, `assets/`, `repository/`, `checks/`.
+- Target scope: `…/scratchpad/plain/pinewood-ceramics` — readable and writable.
+
+Nothing to name as unreachable.
+
+## Step 2. Look
+
+1. **`PROJECT.md` already here?** No. The root holds no files at all, only five folders: `archive-2025/`, `client-briefs/`, `exhibition-prints/`, `glaze-tests/`, `supplier-notes/`.
+2. **Sent to attach a component into an existing project scope?** No — this is the project prompt, and there is no `PROJECT.md` to collide with.
+3. **Other AI instruction files present, of this framework or another?** None. No `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or stub of any kind, at the root or one level down. Nothing would be overwritten.
+4. **Does the folder already claim a parent?** No. There is no parent claim to match or contradict.
+5. **Does the local path resolve in the exact form I would write it?** Yes: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/plain/pinewood-ceramics` resolves, and `pwd -P` returns it unchanged, so no symlink or mount is holding it up and no path note is owed on its account. It is not a `~/`-relative path and cannot be written as one. It is under `/tmp`, which is `tmpfs` here — the path is true but not durable, and there is no git repository at or above it.
+6. **Platform or framework code in the folder?** Not applicable. That item exists to propose a component's posture, and a project scope has none.
+
+## Step 3. Blueprint
+
+Read `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included, plus `blueprints/setup/interview.md`. The project blueprint reports **Blueprint Version 0.13.0, Framework Version 0.17.0**; `interview.md` reports 0.13.0 for both. I built my questions from those files.
+
+## Step 4. Ask
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.
+
+---
+
+## Continuing with your answers
+
+Your four answers settle their four values. A ceramics business selling finished pieces and running two exhibitions a year, with software one part of it and not all of it; nothing forbidden, written as visible text saying so; both offered principles kept; and no components, so the registry is empty, which the blueprint calls a finished setup rather than half of one. With no component anywhere, no session note is owed either.
+
+The remaining values are mine to propose from a named source, and one of them cannot be proposed. The address is derived by exactly two rules, and neither fires here:
+
+- **Not inside a synced store.** The scope sits under `/tmp/claude-1000/…/scratchpad/plain/`. There is a `scratchpad/OneDrive/` folder one level up from `plain/`, and a `~/OneDrive` in your home directory, but this folder is inside neither of them, so there is no store name and no path within a store to read.
+- **Not a git working copy.** No `.git` at the folder or at any level above it up to `/`, and therefore no remote to normalise.
+
+`0007`'s fourth form is not available to a project scope, because this is the document every component's stubs point at, so its address is the one that has to resolve. That leaves nothing to derive and nothing I may substitute, so setup stops here rather than reaching the summary table with the address marked unknown:
+
+> This folder has no address yet, and a project needs one before I can set it up. Every folder you later add to this project keeps its own copy of this address, and that copy is how anyone working in one of those folders finds their way back here. So it has to be something that works from a different machine, rather than a path on this one.
+>
+> Two things count. A git remote you have pushed to, which gives an address like `https://github.com/you/northwind`. Or a folder inside a synced store — OneDrive, Google Drive, Dropbox — which gives one like `OneDrive, Projects/northwind`.
+>
+> `git init` on its own does not count. It gives this folder a history and leaves it in exactly one place, and what is being asked for is a second place.
+>
+> Set one of those up, or move the folder into one, and tell me when it is done. I will read the address from the folder rather than from your description. Until then there is nothing I can write, so setup stops here.
+
+I wrote no file, and I stopped short of the Step 5 table on purpose. You asked me to go as far as that table and also said neither of your two notes changes the procedure; the procedure ends the setup at this value instead, so honouring the second instruction meant not reaching the table. Everything above is held and goes into it unchanged once the address exists — the four answers, the name draft `Pinewood Ceramics` from the folder name, the local path as resolved in Step 2, no path note, no session note, and an empty registry.
+
+One note on `interview.md` itself, reported here rather than patched into the question message: nothing was missing from the four questions for this project. The only defect I found is the version disagreement in Step 3 above — `interview.md` says Framework Version 0.13.0 where `blueprints/project/README.md` says 0.17.0.

@@ -1,0 +1,61 @@
+## Step 1. Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw` — readable, blueprint library present (`blueprints/{setup,project,component,assets,repository,checks}`).
+- Project scope target: `…/scratchpad/OneDrive/Projects/millbrook` — readable.
+
+## Step 2. Look
+
+1. **`PROJECT.md` here?** No.
+2. **Sent to attach a component?** No — this is a project scope, so the clash rule does not apply.
+3. **Other AI instruction files?** None, of this framework or any other. Nothing to overwrite.
+4. **Existing parent claim?** None.
+5. **Does the local path resolve, in the form I mean to write?** Partly, and this needs your word at Step 5. The folder resolves at its literal absolute path under the session scratchpad. The form the blueprint asks for, `~/OneDrive/Projects/millbrook`, **does not resolve on this machine**: `~/OneDrive` is a real symlink (`/home/kostritsaalex/OneDrive → /mnt/c/Users/kostr/OneDrive`) and `~/OneDrive/Projects` exists, but there is no `millbrook` inside it. So the two are different folders, and I will not write the tilde form as though it were the one I resolved.
+6. Component-only check — not applicable.
+
+The folder holds three subfolders. I am not listing them as candidates; per the procedure a folder is a component only because you say so.
+
+## Step 3. Blueprint read
+
+`blueprints/project/README.md` (Blueprint Version 0.13.0, Framework 0.17.0) and `blueprints/project/PROJECT.md`, comments included, plus `blueprints/setup/interview.md` (0.13.0).
+
+## Step 4. The interview
+
+> 1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+>
+> 2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+>
+> 3. **Principles.** The rules that hold across the whole project. Two are offered:
+>
+>    - Validate ideas through practical use whenever possible.
+>    - Avoid speculative additions.
+>
+>    Keep both, keep one, replace them with your own, or say none.
+>
+> 4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.
+
+---
+
+Taking your answers as given.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `Millbrook` | Folder name, offered as a draft — correct it if the business has a longer name |
+| `<PROJECT_PURPOSE>` | Millbrook is a small ceramics business. It sells finished pieces, runs two exhibitions a year, and keeps the photography and the client briefs that go with them. Software is one part of the project and not all of it. | Your answer 1 |
+| `<AGENT_BOUNDARIES>` | Visible text: no work is currently forbidden in this project; an assistant meeting something that looks outside the project asks before starting it. Section kept. | Your answer 2 |
+| `<PROJECT_PRINCIPLES>` | Validate ideas through practical use whenever possible. / Avoid speculative additions. | Your answer 3 — both offered defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/millbrook` | Settled from the folder's own location: it sits at `OneDrive/Projects/millbrook`, which is the synced-store rule in `interview.md`. Not a git working copy, so the remote rule does not fire. |
+| `<PROJECT_LOCAL_PATH>` | **Unresolved — your call.** `~/OneDrive/Projects/millbrook` does not exist on this machine, so I will not write it. Two ways out: (a) you confirm that is where the folder lives on your everyday machine and I write it, or (b) I delete the line, which the blueprint permits, and the address alone carries the scope. | Step 2, item 5 |
+| `<PATH_NOTE>` | Conditional on the row above. If you take (a): `~/OneDrive` is a symlink to the Windows OneDrive folder, which is what makes the local path true; recreate with `ln -s /mnt/c/Users/kostr/OneDrive ~/OneDrive`. If (b): deleted with the path. | Settled from the live symlink `/home/kostritsaalex/OneDrive → /mnt/c/Users/kostr/OneDrive` |
+| `<SESSION_NOTE>` | Deleted. No component sits across a boundary because there are no components; adding one elsewhere brings the line back. | Your answer 4 |
+| `<COMPONENTS>` | Visible text: the registry is empty — this project currently works in one folder and no component has been declared or wired. | Your answer 4, taken as complete |
+| `.docs/` and `.docs/decisions/` | Visible line saying neither folder exists yet. | Looked — the root holds no files and no `.docs` |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.13.0` | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | `2026-09-03` | Today |
+
+Files this would produce, all three in the scope root: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md`. None exists, so nothing would be overwritten.
+
+Stopping here as instructed — no file written. The one row that genuinely blocks writing is `<PROJECT_LOCAL_PATH>`; every other row can be overturned in a sentence.

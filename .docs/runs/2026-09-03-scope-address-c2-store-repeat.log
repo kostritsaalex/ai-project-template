@@ -1,0 +1,67 @@
+## Step 1. Access
+
+Both addresses are reachable.
+
+- Framework: `…/scratchpad/fw` — readable, blueprint library present (`blueprints/{project,component,repository,assets,checks,setup}`).
+- Project scope target: `…/scratchpad/OneDrive/Projects/millbrook` — exists and is readable.
+
+Nothing to name as unreachable. This is a project scope, so there is no parent scope that has to exist first.
+
+## Step 2. Look
+
+1. **`PROJECT.md` already here?** No.
+2. **Sent to attach a component into a project scope?** N/A — this is the project-scope prompt.
+3. **Other AI instruction files present, this framework's or another's?** None. No `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, or equivalent anywhere in the folder. Nothing will be overwritten.
+4. **Does the folder already claim a parent?** No. No stubs, no address of any kind.
+5. **Does the local path resolve in the form I mean to write it?** This is the one that needs care.
+   - `~/OneDrive/Projects/millbrook` — **does not resolve.** `~/OneDrive` is real (a symlink to `/mnt/c/Users/kostr/OneDrive`, the Windows OneDrive store), and `~/OneDrive/Projects/` is real, but it holds no `millbrook`. So that form is false on this machine and I will not write it.
+   - The form that does resolve is the absolute path I was given: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/OneDrive/Projects/millbrook`. `namei` shows no symlink and no mount anywhere in that chain — it is plain directories on the WSL filesystem — so the path holds on its own and needs no path note.
+6. **Platform or framework code in the folder?** N/A, component-only question.
+
+## Step 3. Blueprint read
+
+Read `blueprints/project/README.md` (Blueprint Version 0.13.0, Framework Version 0.17.0) and `blueprints/project/PROJECT.md` with its comments, plus `blueprints/setup/interview.md` (0.13.0).
+
+## Step 4. Ask
+
+> 1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+>
+> 2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+>
+> 3. **Principles.** The rules that hold across the whole project. Two are offered:
+>
+>    - Validate ideas through practical use whenever possible.
+>    - Avoid speculative additions.
+>
+>    Keep both, keep one, replace them with your own, or say none.
+>
+> 4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.
+
+---
+
+Taking your four answers as given, here is Step 5.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Where it came from |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `Millbrook` | Folder name, offered as a draft. Say the word and it becomes `Millbrook Ceramics`. |
+| `<PROJECT_PURPOSE>` | Millbrook is a small ceramics business. It sells finished pieces, runs two exhibitions a year, and keeps the photography and the client briefs that go with them. Software is one part of the project and not all of it. | Your answer 1. The last sentence is derived from it, as the blueprint requires. |
+| `<AGENT_BOUNDARIES>` | Visible text: nothing is currently forbidden; an assistant that meets something which looks outside the project asks before starting it. Section kept. | Your answer 2, written in the form `interview.md` prescribes for "nothing". |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 — both offered principles kept. |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/millbrook` | Derived from the folder's position under an `OneDrive/Projects/` store root. **Read the note below before confirming this row.** |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/OneDrive/Projects/millbrook` | Step 2, the only form that actually resolves. `~/OneDrive/Projects/millbrook` does not exist on this machine, so it is not written. |
+| `<PATH_NOTE>` | Deleted. | `namei` on the full chain: no symlink, no mount. The path holds on its own. |
+| `<SESSION_NOTE>` | Deleted, with a visible line saying that adding a component elsewhere brings it back. | Your answer 4 — no components, so no mount boundary to name. |
+| `<COMPONENTS>` | Visible text: the registry is empty, this project currently works in one folder, and no component has been declared or wired. | Your answer 4, taken as complete. |
+| Posture per component | None to settle. | Follows from an empty registry. |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.13.0` | `blueprints/project/README.md`. |
+| `<YYYY-MM-DD>` | `2026-09-03` | Today. |
+| `.docs/` and `.docs/decisions/` | Visible line saying neither exists yet. | The folder. |
+| Files to write | `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` in the scope root. | Blueprint's Files table. None of the three exists, so nothing gets overwritten. |
+
+**The address row is the one I want overturned or confirmed explicitly.** The rule derives an address from a synced store, and what I can verify is that this folder sits under a directory named `OneDrive` with the store-relative shape `Projects/millbrook`. What I can also verify is that this particular `OneDrive` is a plain directory inside a per-session sandbox under `/tmp`, not your actual store at `/mnt/c/Users/kostr/OneDrive`, and that no `millbrook` exists in the real store. So `OneDrive, Projects/millbrook` is the address that will be true once the folder lives in the store, and it is not true of the folder I am looking at. If this sandbox is standing in for the real location, the row is right as written; if the folder is going to live somewhere else, tell me where and I will rewrite both it and the local path.
+
+One defect to report against `interview.md`, as Step 4 requires it be reported rather than patched into the question message: its two address rules test the folder's *position*, and neither says how to tell a synced store from a directory that merely looks like one. That gap is exactly what produced the caveat above.
+
+Stopping here as instructed. No files written. Confirm the table — or overturn any row in a sentence — and I will continue to Step 6.

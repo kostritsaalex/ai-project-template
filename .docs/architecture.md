@@ -73,12 +73,16 @@ Four forms qualify:
   nothing here, and only a remote, a synced store, or a containing folder that travels makes one of
   the first three possible.
 
-A location on one person's machine is not an address in any of these senses. Write the fourth form
-instead, and put the local path on its own line beneath. See
+A location on one person's machine is not an address in any of these senses. **For a component,**
+write the fourth form instead, and put the local path on its own line beneath. A project scope has no
+such option: it is what every component's stubs point at, so it takes one of the first three, and
+setup asks for one rather than writing the fourth. See
 [decision 0001](decisions/0001-project-scope-need-not-be-a-repository.md) for what this constrains
-about where a project scope may live, and
+about where a project scope may live,
 [decision 0007](decisions/0007-a-component-with-no-address-says-so.md) for why the fourth form
-exists.
+exists, and
+[decision 0023](decisions/0023-a-project-scope-address-is-required.md) for why it stops at the
+component.
 
 The fourth form is what a component that exists on one machine only carries. `structure-check` 11
 requires one of the four, and the case it exists to catch is a bare local path written into the

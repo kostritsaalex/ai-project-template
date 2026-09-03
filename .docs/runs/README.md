@@ -78,6 +78,12 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-08-30-registry-check-19-artglina-attached.log` | `registry-check.md` at `0.16.0`, pasted as text | **The first ArtGlina run with the components attached.** Rows 3 and 4 return a verdict rather than the `declared, not attached` n/a that logs 10, 13, 16, 17 and 18 all gave them | `Artglina`, real and unmodified, both components attached earlier the same hour | 2026-08-30 |
 | `2026-08-30-cold-start-1-artglina-sandbox.log` | `cold-start-check.md` at `0.16.0`, component prompt | **The first cold start against a real adopted project, and the first log of the component prompt** — the four `boundaries-coldstart` arms above are the project prompt against hand-written scratch scopes. **Contaminated twice over:** the operator pasted the whole check document rather than its prompt block, and the prompt's own question 2 names `PROJECT.md`. The run says so itself in its first line | `Artglina Sandbox`, real, fresh session | 2026-08-30 |
 | `2026-08-30-core-rule-live-artglina-sandbox.log` | No prompt. An ordinary task, no mention of the framework | **Not a check.** "Add a filter to wp-includes/functions.php that changes the excerpt length to 40 words." The core rule measured on a live site instead of a scratch tree. **No control was run** | `Artglina Sandbox`, real, working tree left modified | 2026-08-30 |
+| `2026-09-03-scope-address-a1-1.log` | `interview.md` at `0.18.0`, the replaced address sub-bullet | **Arm A1**, the registered arm. Neither derivation rule fires | **S-N**, a scratch scope: five folders of material, no git anywhere above it, not in any store. `5774a582be703fd15a58780f60220a79` | 2026-09-03 |
+| `2026-09-03-scope-address-a1-2.log` | Same | **A1 repeat**, because two of its three criteria are absences | Same scope, unchanged | 2026-09-03 |
+| `2026-09-03-scope-address-c1-both-rules.log` | Same | **Control C1**, not derived from the hypothesis: both derivation rules apparently fire and no line says which wins | **S-BOTH**, three folders, inside the simulated store *and* a git working copy with an SSH remote | 2026-09-03 |
+| `2026-09-03-scope-address-c2-store.log` | Same | **Control C2**, the unaffected majority: the path this change must not touch | **S-STORE**, three folders, inside the simulated store and nothing else. `6db3556bc712b66ada2058f6702a1195` | 2026-09-03 |
+| `2026-09-03-scope-address-c2-store-repeat.log` | Same | **C2 repeat.** Added because C2's first run carried one of three registered words and one pair is not a frequency | Same scope, unchanged | 2026-09-03 |
+| `2026-09-03-scope-address-c2-store-before.log` | **`interview.md` at `0.17.0`, the defective sub-bullet**, from a pristine `git archive` of `HEAD` | **The before, and not pre-registered.** Added after C2's first run, to ask whether the after-text caused a word the before-text would not have produced | Same scope, unchanged | 2026-09-03 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -209,6 +215,12 @@ be18cd947b8ce2fd23f7917156207220  2026-08-30-boundaries-interview-x1.log
 7324890a9a64e96571ef3736397ea75c  2026-08-30-boundaries-interview-x2.log
 0a3895d3c22a6861344cbd199c7f73ea  2026-08-30-boundaries-interview-x3.log
 5d3badf6156ea0285a1051254da274f9  2026-08-30-boundaries-interview-x4.log
+9f11018922b6fb5fdc119c0cf7b92846  2026-09-03-scope-address-a1-1.log
+2a4350d93925edc0beb6b126c5e066cf  2026-09-03-scope-address-a1-2.log
+f206d9a0b7a65b5b8949a0af36669233  2026-09-03-scope-address-c1-both-rules.log
+6ad7a804f8eadcf87cb8f1267807f80c  2026-09-03-scope-address-c2-store-before.log
+2a0d88b17adbb3305b586dbd5181feb3  2026-09-03-scope-address-c2-store-repeat.log
+0ea67bcd18f9f9f00c7a09955fb54461  2026-09-03-scope-address-c2-store.log
 ```
 
 ## What they are evidence for
@@ -297,3 +309,69 @@ Predictions for all three arms were written before the edit existed, in
 [`../predictions/registry-check-declared-not-attached.md`](../predictions/registry-check-declared-not-attached.md),
 and every one held. Two arms were run twice for the reasons the index gives, and in both pairs the
 verdicts agree; what differs is the quality of the evidence, not the result.
+
+---
+
+## The six `2026-09-03-scope-address` logs
+
+**They are the `0.18.0` change**, pre-registered before the edit existed in
+[`../predictions/the-scope-address-is-required.md`](../predictions/the-scope-address-is-required.md).
+Six runs: A1 twice, C1 once, C2 twice, and one unregistered before-run added mid-experiment and
+labelled as such.
+
+**The shared prompt, md5 `9f594d473137c38e518fc123eadab8e8`.** Identical in every run but for the two
+paths substituted into it, so the arms differ by the scope and by the framework copy and by nothing
+else. It is the `new-project.md` prompt with the four answers supplied and two run instructions
+added — put the question message to the person and do not skip it, then go as far as the Step 5
+summary table and write no file. `claude -p`, `--model opus`, a fresh session each,
+`Write`/`Edit`/`NotebookEdit` disabled, run against a scratch `git archive` copy of the framework so
+that the repository is never the subject. **The second run instruction is what A1 then collided
+with**, which is recorded below rather than smoothed over.
+
+**Nothing was written into any scope.** S-N and S-STORE hash after all six runs exactly as they
+hashed at build. S-BOTH holds its three built files and nothing else; its checksum is quoted
+excluding `.git`, because `git status` rewrites files under it and the earlier figure included them.
+
+**A1, both runs.** The address is asked for rather than proposed. The fourth form's word appears in
+neither run as a value the address could take — every `none` in both logs is Step 2 reporting no
+parent claim, or question 3's own verbatim *"or say none"*. Both messages name all three required
+parts: what qualifies, that `git init` alone does not, and that setup stops. No local path reaches
+the address slot.
+
+**A1's two runs diverge on the stop, and the cause is the prompt rather than the file.** Run 1
+honoured `interview.md` and did not reach the Step 5 table, saying so and why. Run 2 produced the
+table with the address row reading *"unknown — setup stops here"*, saying it was choosing the
+operator's instruction over the file. **Both named the conflict rather than resolving it silently**,
+which is the behaviour worth having; but the stop was therefore tested against a competing
+instruction rather than in isolation, and that is a limit of this evidence and not a property of the
+text.
+
+**C2 is the arm that carried the release, and it did it through its before-run.** All three
+C2-family runs propose the same `OneDrive, Projects/millbrook`, none asks about the address, and
+`git init` and *setup stops* reach the person in none of them. Four questions in every run, never
+five — the only `5.` heading in any of the six logs is Step 2's Look item about the local path. What
+separates before from after is the caveat each attaches: **the `0.17.0` run offers the fourth form
+outright** — *"If it lives nowhere off this machine, the correct value is `0007`'s fourth form —
+`none`, with the reason"* — on a project scope, unprompted, on the arm this change was not aimed at.
+Neither `0.18.0` run offers it. That is the defect reproduced in the wild and then absent.
+
+**The one registered word that did reach the person, reported rather than buried.** C2's first run
+wrote *"Not a git working copy, so the remote rule does not fire"* in the address row's source
+column. One instance in three C2-family runs; the repeat and the before-run both carry zero. It sits
+in a clause naming which derivation rule fired, which `interview.md` requires of every proposal, and
+those two rules are untouched by this release. At this count it is not distinguishable from the
+run-to-run variance this index already records twice, and no rate is claimed.
+
+**C1 did not test what it was registered to test, and the reason is a finding.** It was built so that
+both derivation rules fire at once, a case no line settles. The session refused the premise: it
+checked the machine's real `~/OneDrive`, found the folder is not inside it, ruled the synced-store
+rule had not fired, and derived from the git remote alone — *"normalised to a URL with its scheme per
+decision 0007"*. So the precedence question was never reached. **What C1 does establish is the thing
+it was watching for:** the new ask branch did not leak into a case where a rule fires. Nothing about
+precedence is repaired in this release.
+
+**Three runs found the same defect in rules 1 and 2, independently, and it is older than this
+change.** Both `0.18.0` C2 runs and the `0.17.0` before-run each reported that the two derivation
+rules test the shape or position of a path and never require that the store actually resolve, so a
+directory merely named `OneDrive` satisfies rule 1. The before-run raising it proves the defect
+predates the edit. It is recorded in the backlog and repaired nowhere here.

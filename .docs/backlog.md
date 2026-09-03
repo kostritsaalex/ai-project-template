@@ -200,9 +200,9 @@ is not found later as a surprise.
 ### Nine defects in the attach procedure, none of them previously in this file
 
 Seven were found by reading the procedure before either attach ran, in a read-only session that wrote
-nothing. Two could only come from running it. **All nine are recorded and one is repaired**, number
-8, in `0.17.0` and [`0022`](decisions/0022-the-attach-commits-what-it-wrote.md). The other eight
-stand.
+nothing. Two could only come from running it. **All nine were recorded, one is repaired**, number 8,
+in `0.17.0` and [`0022`](decisions/0022-the-attach-commits-what-it-wrote.md), **and number 6 is void**,
+deleted in `0.18.0` because the repair landed upstream of it. Seven stand.
 
 1. **No attach has ever been logged.** The run-log discipline covers every other prompt in the
    framework; the one prompt that writes into a real project has no artefact behind it, and the only
@@ -221,10 +221,9 @@ stand.
    placeholders have nowhere to carry it, so a stub writes a path that is simply false on a machine
    without the symlink, with no signal. That is the failure `0007` wrote the path note to prevent, on
    the one line every component actually carries.
-6. **The stub address rule is missing `0007`'s fourth form.** `structure-check` row 8 admits three
-   forms for the parent address and fails a bare local path; row 11 admits four for the registry. A
-   scope with no copy off the machine can write a valid registry and cannot give its components a
-   stub address that passes row 8.
+6. **Void, deleted in `0.18.0`.** Its premise was that row 8 is too narrow; the repair was upstream
+   of it and row 8 was right. The number is held rather than reused, because `0022`, the `0.17.0`
+   changelog entry and two predictions all cite these defects by number.
 7. **Step 7's registry example carries no `Local path:` line.** The `Northwind Brand Assets` block
    shows name, posture and address only, while `registry-check` row 1 locates a folder by the local
    path whenever the address is a URL — which is both ArtGlina blocks. The example teaches a block the
@@ -256,8 +255,9 @@ its place: every claim above about a run is now checkable against the run.
 **Next, in order.** `structure-check` 6, which now has the reproduction it was waiting for. Then the
 stale first line of `registry-check.md` and `checks/README.md`, deferred five times. Then the
 subtraction pass over the check prompts, four releases overdue. The nine above are the attach
-procedure's own queue; number 8 has now been weighed against `0008` and repaired in `0.17.0`, and the
-other eight have not been weighed at all.
+procedure's own queue; number 8 has now been weighed against `0008` and repaired in `0.17.0`, number
+6 was voided by `0.18.0` without ever being weighed, and the other seven have not been weighed at
+all.
 
 ---
 
@@ -293,7 +293,19 @@ under [`runs/`](runs/). What existed in none of those is under `Recorded, not ta
 
 ## Now
 
-Empty. `registry-check` check 6 closed in `0.9.0`, the address question in `0.7.0` by
+**The summary table shows the address without saying what confirming it commits to.** Filed
+2026-09-03, not scheduled, and the owner's decision rather than a session's. A person whose address
+*is* derivable meets it as one row of Step 5's table with its source beside it, and confirms it in
+the same breath as the project's name and the date. What the row does not say is that this is the
+value every component will copy, and that changing it later is not an edit to one line: `procedure.md`
+Step 7 ends *"When it changes, walk the registry and rewrite that line in each set of stubs. A stale
+address passes both checks in `../checks/` and fails only when somebody follows it."* The candidate
+repair is **one clause beside that row, not a question** — `0014` cut the address from the question
+set on the razor, and a fifth question would undo that and falsify its *"four questions, never five"*.
+`0.18.0` reached the branch where the address cannot be derived and deliberately did not touch the
+branch where it can.
+
+Otherwise empty. `registry-check` check 6 closed in `0.9.0`, the address question in `0.7.0` by
 [`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
 is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
 
@@ -1006,6 +1018,43 @@ settled text. If a wrong verdict ever rests on evidence of this kind, it moves t
 ---
 
 ## Recorded, not tasks
+
+**Two checks would return opposite verdicts on the same pair of files, and after `0.18.0` the state
+is reachable only by hand.** `structure-check` row 8 admits three forms for a stub's parent address
+and ends: *"A full URL including the scheme, an account-relative location in a synced store such as
+'OneDrive, Projects/Northwind', and a relative path to a containing folder all pass. A bare local
+path fails."* `registry-check` row 4 never asks what form that value takes. It says: *"Any other
+address, a URL or a location in a synced store, is compared as text against the `Address:` line under
+where the project lives, character for character."* So a scope whose own address line carried
+`0007`'s fourth form, copied faithfully into both stubs, passes row 4 on the character-for-character
+match and fails row 8 on the form — two checks, opposite verdicts, one pair of files. Recorded rather
+than repaired: the interview no longer produces that scope, so reaching the state now takes a hand
+edit of `PROJECT.md`. Row 4 is doing its own job correctly, which is catching a scope that moved and
+left its components pointing at where it used to be, and it is not a form check.
+
+**Nothing validates a project scope's own `Address:` line, and `0.18.0` did not change that.** Row 4
+above reads that line, but only as a comparison target; no row anywhere judges it against the address
+forms. The stop that `0.18.0` writes into `interview.md` therefore rests on the interview text alone.
+A session that ignores it is caught by nothing until a component is attached, and then by
+`structure-check` row 8 on the stub. That is the consequence row 8 still catches, and the reason row 8
+was not touched.
+
+**The two derivation rules test the shape of a path, not whether the store resolves.** Found by three
+of the six `2026-09-03-scope-address` runs, independently, and **raised by the `0.17.0` before-run
+too, so it predates `0.18.0`.** `interview.md` rule 1 fires on *"If the local path resolves inside a
+synced store"*, and a session reading it will accept any directory named `OneDrive` on the path: in
+the C1 run the session went further than the rule and checked the machine's real `~/OneDrive`, ruled
+the rule had not fired, and derived from the git remote instead. So the rule as written and the rule
+as applied are different rules. Recorded, not repaired: `0.18.0` changed only the branch where
+neither rule fires, and the runs that found this were controls for that branch rather than tests of
+these two.
+
+**Which derivation rule wins when both fire is unsettled, and control C1 could not reach the
+question.** No line in `interview.md` orders rules 1 and 2. C1 was built to exercise it — a folder
+both inside a store and a git working copy with a remote — and the session dissolved the premise by
+rejecting the simulated store, so the case went untested. What C1 did establish is what it was
+watching for: `0.18.0`'s new ask branch did not leak into a case where a rule fires. Testing the
+precedence question needs a folder in a real synced store that is also a working copy with a remote.
 
 **Measured before and after, on the project boundary.** With the boundary written as "not decided
 yet", two tools independently answered the boundary question by quoting a sentence about a component

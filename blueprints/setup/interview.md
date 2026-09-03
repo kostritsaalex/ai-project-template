@@ -30,8 +30,30 @@ it. Each proposal names where it comes from, and a proposal with no named source
   - If the scope is a git working copy with a remote, the address is that remote **normalised to a
     URL with its scheme**. If it cannot be normalised to one of the four forms in `0007`, do not
     write it — ask.
-  - If there is no copy of this folder anywhere off this machine, the address is `0007`'s fourth
-    form: `none`, with the reason. Never a blank, and never a local path in the address slot.
+  - If neither rule fires, there is no copy of this folder off this machine and nothing to derive.
+    **`0007`'s fourth form is not available here.** It belongs to a component block in a registry,
+    and a project scope is what every component's stubs point at, so its address is the one that has
+    to resolve. Never a blank either, and never a local path in the address slot. Ask instead, in
+    these words or in words that keep every part of them:
+
+    > This folder has no address yet, and a project needs one before I can set it up. Every folder
+    > you later add to this project keeps its own copy of this address, and that copy is how anyone
+    > working in one of those folders finds their way back here. So it has to be something that
+    > works from a different machine, rather than a path on this one.
+    >
+    > Two things count. A git remote you have pushed to, which gives an address like
+    > `https://github.com/you/northwind`. Or a folder inside a synced store — OneDrive, Google
+    > Drive, Dropbox — which gives one like `OneDrive, Projects/northwind`.
+    >
+    > `git init` on its own does not count. It gives this folder a history and leaves it in exactly
+    > one place, and what is being asked for is a second place.
+    >
+    > Set one of those up, or move the folder into one, and tell me when it is done. I will read the
+    > address from the folder rather than from your description. Until then there is nothing I can
+    > write, so setup stops here.
+
+    Then stop, and write nothing. This is the one value that ends the setup rather than reaching the
+    summary table as unknown.
 - **The local path**, in the form you resolved in Step 2.
 - **The path note**, naming the arrangement that makes that path true and the command that recreates
   it.

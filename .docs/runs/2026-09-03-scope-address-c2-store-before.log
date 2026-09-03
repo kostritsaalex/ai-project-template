@@ -1,0 +1,76 @@
+## Step 1. Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw-before` — readable; `blueprints/` holds `assets/ checks/ component/ project/ repository/ setup/`.
+- Project scope: `…/scratchpad/OneDrive/Projects/millbrook` — exists and is writable.
+
+Nothing unreachable, nothing reconstructed from memory.
+
+## Step 2. Look
+
+1. **`PROJECT.md` here?** No.
+2. **Sent to attach a component into a project scope?** Not applicable — this is `new-project.md`.
+3. **Other AI instruction files?** None. No `AGENTS.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md` or anything of another framework, at the root or below. Nothing to overwrite.
+4. **Does the folder claim a parent?** No.
+5. **Does the local path resolve, in the form I intend to write?** The absolute form resolves exactly as given: `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/OneDrive/Projects/millbrook`. `namei -l` shows plain directories the whole way down — no symlink and no mount arrangement holding it up, other than `/tmp` itself being tmpfs. **The home-relative form the blueprint prefers is false here:** `~/OneDrive` *is* a symlink on this machine (`/home/kostritsaalex/OneDrive → /mnt/c/Users/kostr/OneDrive`), but `~/OneDrive/Projects/millbrook` does not exist. The `OneDrive` in your path is a different, ordinary directory inside this session's scratchpad. So I will not write `~/OneDrive/Projects/millbrook`.
+6. Component-only check — not applicable.
+
+Not a git working copy (`git rev-parse` fails, no `.git` at or above the folder).
+
+## Step 3. Read the blueprint
+
+Read `blueprints/project/README.md` and `blueprints/project/PROJECT.md`, comments included — **Blueprint Version 0.13.0** (framework 0.17.0 per that README). Also `blueprints/setup/interview.md`, blueprint version 0.13.0.
+
+---
+
+## Step 4. Ask
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.
+
+---
+
+Taking your answers as given.
+
+Answer 4 is complete: the registry is empty. `catalogue-photos/`, `storefront/` and `supplier-notes/` are therefore not components — they are files inside this project scope and take no posture of their own. I am not offering them as candidates and there is no posture row in the table below, because there is no component to give one to.
+
+With no component anywhere, the session note goes: everything sits on this folder's side of every boundary. Adding a component elsewhere brings that line back.
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Where it came from |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `Millbrook` | Settled from the folder name `millbrook`, as a draft — correct it if the business has a fuller name |
+| `<PROJECT_PURPOSE>` | "Millbrook is a small ceramics business. It sells finished pieces, runs two exhibitions a year, and keeps the photography and the client briefs that go with them. Software is one part of it and not all of it." | Your answer 1 |
+| `<AGENT_BOUNDARIES>` | Visible text: no work is currently forbidden in this project, and an assistant meeting something which looks outside the project asks before starting it. Section kept. | Your answer 2, written in the form `interview.md` requires for "nothing" |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 — both offered principles kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `OneDrive, Projects/millbrook` | My proposal, from the shape of the local path. **The weakest row here — see the note below** |
+| `<PROJECT_LOCAL_PATH>` | `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/OneDrive/Projects/millbrook` | Resolved in Step 2, in this exact form. Absolute rather than `~/`-relative because the folder is not under the home directory |
+| `<PATH_NOTE>` | Deleted | Settled from `namei -l`: the path holds on its own, with no symlink or mount arrangement to name |
+| `<SESSION_NOTE>` | Deleted, with one visible line saying that adding a component elsewhere brings it back | Settled from your answer 4 — no components, so nothing has to resolve from a second side |
+| `<COMPONENTS>` | Visible text: the registry is empty; this project currently works in one folder and no component has been declared or wired | Your answer 4 |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.13.0` | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | `2026-09-03` | Today's date |
+| `.docs/` line | Visible text: neither `.docs/` nor `.docs/decisions/` exists yet | Settled from the folder contents |
+
+Files this would write: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` at the scope root, and nothing else.
+
+**The one row worth your attention.** The address rule in `interview.md` fires on "the local path resolves inside a synced store", and the path *looks* like it does — but the `OneDrive` directory in it is an ordinary folder inside this session's scratchpad on tmpfs, not the synced store on this machine, which is `~/OneDrive → /mnt/c/Users/kostr/OneDrive` and contains no `Projects/millbrook`. So `OneDrive, Projects/millbrook` is a proposal from the path's shape, not a verified store location. If this folder is a working copy that really does live in your OneDrive at `Projects/millbrook`, the row is right as written. If it lives nowhere off this machine, the correct value is `0007`'s fourth form — `none`, with the reason. One sentence settles it.
+
+Two defects to report against `blueprints/setup/interview.md` 0.13.0, since Step 4 says they are reported rather than patched into the question message:
+
+- The address derivation has no rule for a path that *contains* a store's name without being in that store. Rule 1 reads as satisfied by the path string alone; it needs to require that the store resolve.
+- The local path placeholder is specified as home-relative ("Relative to the home folder, no username after the tilde"), with no stated form for a scope that resolves only as an absolute path outside `~`. I used the absolute form because Step 2 forbids writing a path I have not resolved.
+
+Stopping here as instructed. No file written.

@@ -1,0 +1,67 @@
+## Step 1. Access
+
+| Address | Reachable |
+| --- | --- |
+| Framework — `…/scratchpad/fw` | Yes |
+| Project scope — `…/scratchpad/OneDrive/Projects/harbourline` | Yes |
+
+Nothing unreachable.
+
+## Step 2. Look
+
+1. **`PROJECT.md` here?** No.
+2. **Sent to attach a component?** No — this is a project scope, so the clause does not apply.
+3. **Other AI instruction files?** None. No `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.cursorrules` or `COMPONENT.md` anywhere in the folder. Nothing will be overwritten.
+4. **Does the folder claim a parent?** No. It claims nothing; there was no parent given to match.
+5. **Does the local path resolve in the form I would write?** **No.** The blueprint form for this scope would be `~/OneDrive/Projects/harbourline`. `~/OneDrive` exists on this machine as a symlink to `/mnt/c/Users/kostr/OneDrive`, but `~/OneDrive/Projects/harbourline` does not exist. The folder resolves only at the session path `…/scratchpad/OneDrive/Projects/harbourline`, which is machine-local and temporary. Per Step 2 I will not write a path I have not resolved, so this goes to the table for you to settle.
+6. **Platform or framework code?** Not applicable — component question only.
+
+The folder is a git working copy with a remote: `git@github.com:example-org/harbourline.git`.
+
+## Step 3. Blueprint
+
+Read `blueprints/project/README.md`, Blueprint Version **0.13.0** (Framework 0.17.0), and `blueprints/project/PROJECT.md` with its comments, plus `blueprints/setup/interview.md`.
+
+## Step 4. The interview
+
+---
+
+1. **What it is.** What is this project about? What business does it represent, or what business tasks does it solve?
+
+2. **Agent boundaries.** Is there anything an agent should never do in this project? For example: never set up deployment, never spend money on my behalf, never publish anything publicly. **If there is nothing, say so** — that is a complete answer and I will write it down as such.
+
+3. **Principles.** The rules that hold across the whole project. Two are offered:
+
+   - Validate ideas through practical use whenever possible.
+   - Avoid speculative additions.
+
+   Keep both, keep one, replace them with your own, or say none.
+
+4. **Components.** Which additional folders and repositories belong to this project? Main project directory doesn't count. Naming one now does not set it up now — each is attached later with its own prompt, when you are ready.
+
+---
+
+*Taking your answers as given: a small ceramics business with software as one part; nothing forbidden; both principles kept; no components.*
+
+## Step 5. Summary
+
+| Placeholder | Value I will write | Source |
+| --- | --- | --- |
+| `<PROJECT_NAME>` | `Harbourline` | Folder name, capitalised. Draft — correct it if the business name differs or carries spaces. |
+| `<PROJECT_PURPOSE>` | Harbourline is a small ceramics business. It sells finished pieces, runs two exhibitions a year, and keeps the photography and the client briefs that go with them. Software is one part of it and not all of it. | Your answer 1 |
+| `<AGENT_BOUNDARIES>` | Visible text: no work is currently forbidden; an assistant meeting something that looks outside the project asks before starting it. Section kept. | Your answer 2, written per `interview.md` and decision 0015 |
+| `<PROJECT_PRINCIPLES>` | 1. Validate ideas through practical use whenever possible. 2. Avoid speculative additions. | Your answer 3 — both offered defaults kept |
+| `<PROJECT_SCOPE_ADDRESS>` | `https://github.com/example-org/harbourline` | Settled from the git remote `git@github.com:example-org/harbourline.git`, normalised to a URL with its scheme per decision 0007. The path segment `OneDrive/Projects/harbourline` is *not* the real synced store (`~/OneDrive` → `/mnt/c/Users/kostr/OneDrive`, which does not contain this folder), so the synced-store rule did not fire. |
+| `<PROJECT_LOCAL_PATH>` | **Line deleted.** | Settled from Step 2: `~/OneDrive/Projects/harbourline` does not resolve on this machine, and the path that does resolve is a temporary session path. One sentence from you puts a real path back. |
+| `<PATH_NOTE>` | **Line deleted.** | Nothing to hold up once the local path is gone. |
+| `<SESSION_NOTE>` | **Line deleted.** | No components, so nothing sits across a boundary. Adding a component elsewhere brings this line back. |
+| `<COMPONENTS>` | Visible text: this project has no components; everything lives in this one folder. | Your answer 4, taken as complete |
+| `.docs/` note | Visible text: neither `.docs/` nor `.docs/decisions/` exists yet. | Read from the folder |
+| `<PROJECT_BLUEPRINT_VERSION>` | `0.13.0` | `blueprints/project/README.md` |
+| `<YYYY-MM-DD>` | `2026-09-03` | Today |
+
+Files this would write, all in the scope root: `PROJECT.md`, `AGENTS.md`, `CLAUDE.md`. None of the three exists, so nothing is overwritten. `contracts/`, `photos/` and `site/` are files inside this scope, not components, and nothing is written into them.
+
+Two rows are worth a look before you confirm: the **name**, which is only a draft off the folder, and the **local path**, which I dropped rather than write something false.
+
+Stopping here as instructed — no files written.
