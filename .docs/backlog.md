@@ -2,8 +2,34 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-08-30, after the framework was used end to end on a live project for the first
-time.
+Last updated 2026-09-03, after `0.18.0` and the `.docs/` pass that followed it.
+
+---
+
+## Where we are, 2026-09-03
+
+**`0.18.0` made a project scope's address required.** The interview had written `0007`'s fourth form
+whenever neither derivation rule fired, and `0007` is about components: a scope adopted that way could
+give its components no stub address that `structure-check` row 8 accepts.
+[`0023`](decisions/0023-a-project-scope-address-is-required.md). Six runs, five pre-registered. **The
+control carried it** — the same store scope run against `0.17.0` offered the fourth form on a project
+scope unprompted, and neither `0.18.0` run does.
+
+**Then a `.docs/`-only pass, no release, closing what `0.18.0` disclosed about itself.** Three items:
+
+- **The stop had never been run in isolation.** `0.18.0`'s shared prompt told every session to reach
+  the Step 5 table, so A1's two runs split on which instruction to obey and *"wrote nothing"* was true
+  by construction. Re-run against `v0.18.0` unmodified with that instruction gone and **`Write`
+  enabled**: neither run wrote anything, both stopped at the address of their own accord, and neither
+  reached a summary table. [`predictions/the-stop-run-in-isolation.md`](predictions/the-stop-run-in-isolation.md),
+  two logs.
+- **`0014` carried the displaced rule with no mark.** Its Decision still ended *"with neither, the
+  answer is `0007`'s fourth form"*. Marked at the clause rather than at the Status line, because only
+  the clause moved. `handover.md`: superseded records are marked rather than deleted.
+- **Three drafts still carry the removed sub-bullet** — `interview-v2.md`,
+  `interview-v2-as-installed.md`, `interview-v3.md` — and a session drawing wording from one would
+  reinstate the defect. One superseded note at the top of each. **Whether `drafts/` is maintained at
+  all is not answered**, and the folder holds five more files nobody has audited against anything.
 
 ---
 
@@ -292,6 +318,16 @@ under [`runs/`](runs/). What existed in none of those is under `Recorded, not ta
 ---
 
 ## Now
+
+**Is `.docs/drafts/` maintained, and by what rule?** Raised 2026-09-03 and not answered. Three of its
+files carried a rule `0.18.0` removed, unmarked, in a folder a session may draw wording from; they now
+carry a note. The folder holds five more — `interview.md`, `interview-as-installed.md`,
+`new-project-sharpened-posture.md` and two `.diff` files — audited against nothing. Two readings are
+open and they pull opposite ways: drafts are **evidence**, so a run against a tree nobody can
+reconstruct is not evidence and the files should never be edited; or drafts are **text a session might
+copy**, so a stale rule in one is a live hazard. `interview-v2-as-installed.md` is both at once, and
+its note says so. The candidate answers are a `README.md` in the folder stating which it is, or
+deleting what no prediction cites. Owner's decision, not scheduled.
 
 **The summary table shows the address without saying what confirming it commits to.** Filed
 2026-09-03, not scheduled, and the owner's decision rather than a session's. A person whose address

@@ -1,0 +1,41 @@
+## Step 1 — Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw` — read.
+- Project scope: `…/scratchpad/plain/pinewood-ceramics` — read, writable.
+
+## Step 2 — Look
+
+1. **`PROJECT.md` present?** No.
+2. **Component/project collision?** Not applicable — this is a project scope.
+3. **Other AI instruction files?** None. No `AGENTS.md`, `CLAUDE.md`, or files of any other framework. Nothing would be overwritten.
+4. **Existing parent claim?** None. No file in the folder claims a parent, and none was given.
+5. **Local path resolution.** The folder resolves at `/tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/plain/pinewood-ceramics`, on a `tmpfs` mounted at `/tmp`. It is not under the home folder, so there is no `~/` form of it, and `tmpfs` is memory-backed rather than a synced store.
+6. Component posture check — not applicable to a project scope.
+
+The folder holds five subfolders (`archive-2025`, `client-briefs`, `exhibition-prints`, `glaze-tests`, `supplier-notes`), each with one file. I looked only far enough to answer the six questions above; none of it goes in a document, and per your answer to question 4 none of it is a component.
+
+## Step 3 — Blueprint read
+
+`blueprints/project/README.md`, Blueprint Version **0.13.0**, Framework Version **0.18.0**, plus `PROJECT.md`, `AGENTS.md`, `CLAUDE.md` from the same folder and `blueprints/setup/interview.md` (0.13.0).
+
+## Step 4 — Your answers
+
+Received and taken as complete; nothing is missing from the four questions, so there is no defect to report. Software is one part of the business, not all of it. Nothing forbidden. Both default principles kept. No components.
+
+## Where this stops
+
+The address cannot be derived, and that ends the setup before the summary table. Neither rule fires: the folder is not a git working copy (no `.git` anywhere up to the mount point, so no remote), and it is not inside a synced store (`tmpfs` on `/tmp`). Per decision 0023, a project scope's address is required — `0007`'s fourth form, `Address: none`, is for component blocks only, and a scope adopted with it hands every future component a stub address that cannot pass the checks.
+
+So, in the framework's words:
+
+> This folder has no address yet, and a project needs one before I can set it up. Every folder you later add to this project keeps its own copy of this address, and that copy is how anyone working in one of those folders finds their way back here. So it has to be something that works from a different machine, rather than a path on this one.
+>
+> Two things count. A git remote you have pushed to, which gives an address like `https://github.com/you/northwind`. Or a folder inside a synced store — OneDrive, Google Drive, Dropbox — which gives one like `OneDrive, Projects/pinewood-ceramics`.
+>
+> `git init` on its own does not count. It gives this folder a history and leaves it in exactly one place, and what is being asked for is a second place.
+>
+> Set one of those up, or move the folder into one, and tell me when it is done. I will read the address from the folder rather than from your description. Until then there is nothing I can write, so setup stops here.
+
+**No files written or changed.** Your four answers are recorded above; when the folder has an address, setup resumes at the summary table and does not need the interview again.

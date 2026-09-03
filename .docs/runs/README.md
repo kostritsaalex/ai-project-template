@@ -84,6 +84,8 @@ A paraphrase of a run is not the run. If a log and a summary disagree, the log i
 | `2026-09-03-scope-address-c2-store.log` | Same | **Control C2**, the unaffected majority: the path this change must not touch | **S-STORE**, three folders, inside the simulated store and nothing else. `6db3556bc712b66ada2058f6702a1195` | 2026-09-03 |
 | `2026-09-03-scope-address-c2-store-repeat.log` | Same | **C2 repeat.** Added because C2's first run carried one of three registered words and one pair is not a frequency | Same scope, unchanged | 2026-09-03 |
 | `2026-09-03-scope-address-c2-store-before.log` | **`interview.md` at `0.17.0`, the defective sub-bullet**, from a pristine `git archive` of `HEAD` | **The before, and not pre-registered.** Added after C2's first run, to ask whether the after-text caused a word the before-text would not have produced | Same scope, unchanged | 2026-09-03 |
+| `2026-09-03-scope-address-stop-isolated-1.log` | `interview.md` as shipped at **`v0.18.0`**, unmodified | **The stop with nothing pulling against it.** No instruction about Step 5, about stopping, or about writing, and **`Write`/`Edit` enabled**, so "wrote nothing" can fail | **S-N** rebuilt identical to the arm above, `5774a582be703fd15a58780f60220a79` | 2026-09-03 |
+| `2026-09-03-scope-address-stop-isolated-2.log` | Same | **Repeat.** The evidence is an absence, and this index already records that one run proves little | Same scope, unchanged | 2026-09-03 |
 
 Fifteen of these ran against the `WordPress 7` scope at `OneDrive, Projects/Development/WordPress-7`, from
 inside WSL, with the Engine's folder granted to the session because it sits outside the scope's
@@ -221,6 +223,8 @@ f206d9a0b7a65b5b8949a0af36669233  2026-09-03-scope-address-c1-both-rules.log
 6ad7a804f8eadcf87cb8f1267807f80c  2026-09-03-scope-address-c2-store-before.log
 2a0d88b17adbb3305b586dbd5181feb3  2026-09-03-scope-address-c2-store-repeat.log
 0ea67bcd18f9f9f00c7a09955fb54461  2026-09-03-scope-address-c2-store.log
+3a33fb11d5ee1b13235b7ffbdf1c051e  2026-09-03-scope-address-stop-isolated-1.log
+d9bbd32bb80115803f29a64870f7d0ef  2026-09-03-scope-address-stop-isolated-2.log
 ```
 
 ## What they are evidence for
@@ -375,3 +379,51 @@ change.** Both `0.18.0` C2 runs and the `0.17.0` before-run each reported that t
 rules test the shape or position of a path and never require that the store actually resolve, so a
 directory merely named `OneDrive` satisfies rule 1. The before-run raising it proves the defect
 predates the edit. It is recorded in the backlog and repaired nowhere here.
+
+---
+
+## The two `stop-isolated` logs
+
+**They close a gap `0.18.0` disclosed about itself**, and they change no text: the framework is
+`v0.18.0` unmodified, read from a scratch `git archive` of the tag. Pre-registered in
+[`../predictions/the-stop-run-in-isolation.md`](../predictions/the-stop-run-in-isolation.md).
+
+**What the six `0.18.0` runs could not measure.** Their shared prompt ended *"Then go as far as the
+Step 5 summary table and stop there. Write no file"*, so A1's two runs split on which instruction to
+obey, and *"no file was written"* was true of every arm by construction. Here both clauses are gone,
+`Write` and `Edit` are **enabled**, and the prompt — md5 `ed88527b03e727862caea1f82069a766` — mentions
+Step 5, stopping and writing nowhere. Only the four answers are supplied, because a session without
+them stops at Step 4 and never reaches the address.
+
+**P1 holds, and it is the one that could have failed.** Neither run wrote anything. The scope hashes
+after both runs exactly as at build, `5774a582be703fd15a58780f60220a79`, and its root still holds
+five folders and no file.
+
+**P2 holds in both.** Each run stops at the address of its own accord, under its own heading —
+*"Setup stops here, on one value: the address"* and *"Where this stops"*. **Neither reaches a summary
+table**, and neither carries the address forward as unknown. That is A1 run 2's behaviour not
+recurring once the competing instruction is gone.
+
+**P3 holds in both.** Each names a git remote that has been pushed to and a synced store, that
+`git init` alone does not count, and that setup stops.
+
+**P4 holds, with one occurrence reported rather than buried.** Run 2 wrote *"`0007`'s fourth form,
+`Address: none`, is for component blocks only"* — the literal string, in a clause ruling it out. The
+registration allowed exactly this: saying it is unavailable is not a failure, offering it is. Run 1
+does not name it at all. **Neither run offers it as a value**, and no local path reaches the address
+slot in either.
+
+**P5 is not exhibited by these runs, and is recorded as not exhibited rather than as passed.** Both
+sessions were given the four answers up front and neither re-asked them, so a question count of four
+is not observable here. It was observed in all six `0.18.0` runs. A row can pass while its evidence
+does not exhibit its criterion, and this is that case declared.
+
+**Two things worth keeping.** Run 2 cited `0023` unprompted, having read the decision record rather
+than only the blueprint — *"Per decision 0023, a project scope's address is required"*. And the two
+runs differ in one example inside the quoted block: run 1 adapted `https://github.com/you/northwind`
+to the folder's own name, run 2 left it verbatim while adapting the OneDrive example beside it. The
+message's three required parts are intact in both; the variation is in an illustration.
+
+**What they still do not settle.** No person answers these runs, no address is ever supplied, and no
+`PROJECT.md` is produced for a check to read, so the message's effect on a real adoption remains
+unmeasured. Precedence between the two derivation rules is untouched.

@@ -1,0 +1,54 @@
+## Step 1 — Access
+
+Both addresses reachable.
+
+- Framework: `…/scratchpad/fw` — read.
+- Project scope target: `…/scratchpad/plain/pinewood-ceramics` — read and writable.
+
+## Step 2 — What the folder shows
+
+1. **`PROJECT.md` already here?** No.
+2. **Sent to attach a component into a project scope?** No — this is a project scope, so the clash rule does not apply.
+3. **Other AI instruction files, this framework's or another's?** None. Nothing would be overwritten.
+4. **Does the folder claim a parent?** No. There is no claim to match or contradict.
+5. **Does the local path resolve in the exact form I would write it?** Yes:
+
+   ```text
+   /tmp/claude-1000/-home-kostritsaalex-Projects-Frameworks-ai-project-template/69e49674-1912-4b21-b875-255c577d6509/scratchpad/plain/pinewood-ceramics
+   ```
+
+   No symlink and no mount is holding it up — every segment is a real directory on the `/tmp` filesystem. So it needs no path note. It is also not under the home folder, so there is no `~/` form of it.
+6. **Platform or framework code present?** Not applicable — that item is for a component.
+
+## Step 3 — Blueprint read
+
+Read `blueprints/project/README.md` and `blueprints/project/PROJECT.md` with comments, plus the two adapters. **Project Blueprint 0.13.0** (framework 0.18.0), and `blueprints/setup/interview.md` 0.13.0 for the questions.
+
+## Step 4 — Interview
+
+You answered all four ahead of time, so I am not re-asking them. Recorded as:
+
+1. **What it is** — a small ceramics business: finished pieces sold, two exhibitions a year, photography and client briefs kept alongside. Software is one part of it and not all of it.
+2. **Agent boundaries** — nothing forbidden. (Written as visible text, section kept.)
+3. **Principles** — both offered principles kept.
+4. **Components** — none. The registry stays empty and says so.
+
+That is the blueprint's second state — **this scope alone** — which is a finished setup, not half of one. It also settles the rest: no session note, no path note, empty registry.
+
+---
+
+## Setup stops here, on one value: the address
+
+Everything above is settled. One thing is not, and it is the one thing the framework will not let me guess or leave blank, because it is the value every future component copies.
+
+Neither rule that derives an address fires here. This folder is not a git working copy and has no remote, and it does not sit inside a synced store — it is on `/tmp`. So, in the framework's words:
+
+> This folder has no address yet, and a project needs one before I can set it up. Every folder you later add to this project keeps its own copy of this address, and that copy is how anyone working in one of those folders finds their way back here. So it has to be something that works from a different machine, rather than a path on this one.
+>
+> Two things count. A git remote you have pushed to, which gives an address like `https://github.com/you/pinewood-ceramics`. Or a folder inside a synced store — OneDrive, Google Drive, Dropbox — which gives one like `OneDrive, Projects/pinewood-ceramics`.
+>
+> `git init` on its own does not count. It gives this folder a history and leaves it in exactly one place, and what is being asked for is a second place.
+>
+> Set one of those up, or move the folder into one, and tell me when it is done. I will read the address from the folder rather than from your description. Until then there is nothing I can write, so setup stops here.
+
+I have written no files. When the address exists, say so and I will re-resolve the path, put the summary table in front of you, and write `PROJECT.md`, `AGENTS.md` and `CLAUDE.md` — nothing else is outstanding.

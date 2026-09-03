@@ -1,5 +1,18 @@
 # The Interview
 
+> **SUPERSEDED IN PART, 2026-09-03.** The third sub-bullet under "The address" instructs `0007`'s
+> fourth form for a project scope. That is wrong and `0.18.0` removed it: a project scope's address is
+> required, the fourth form is for component blocks only, and where neither derivation rule fires the
+> interview asks. See [`../decisions/0023-a-project-scope-address-is-required.md`](../decisions/0023-a-project-scope-address-is-required.md).
+> **Do not take wording for the address rules from this file.** It is kept as the record of what was
+> drafted on its date, not as a source.
+>
+> **This note is the only edit ever made to this file, and it is one this file's job argues against.**
+> The file records the text *as installed* for a past experiment, so a reader reconstructing that run
+> wants it byte-exact. The byte-exact text is every commit of it up to and including `v0.18.0`; the
+> note is here because a defective address rule sitting unmarked in a folder a session may draw
+> wording from was judged the larger risk.
+
 **Blueprint Version:** 0.12.0  
 **Framework Version:** 0.12.0
 

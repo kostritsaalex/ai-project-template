@@ -47,6 +47,12 @@ remote **normalised to a URL with its scheme**, and if it cannot be normalised t
 four forms the assistant asks instead of writing it; with neither, the answer is `0007`'s fourth
 form, `none` with the reason, never a blank and never a local path in the address slot.
 
+**The last clause no longer holds. Superseded by [`0023`](0023-a-project-scope-address-is-required.md),
+2026-09-03:** a project scope's address is required, the fourth form is for components only, and where
+neither rule fires the interview asks. **Only that clause moves.** The rest of this paragraph is the
+rule as it stands, and so is the rest of this record: the razor, the four questions and the cut are
+untouched, and `0023` was decided by the method this record established.
+
 **`<DOCUMENT_OWNER>` is cut, and this is a reasoned cut recorded as reasoned rather than measured.**
 `0008` asks whether an assistant does anything differently for knowing a line. `Document Owner` names
 a person to ask when the document is ambiguous, which is a convenience for a human reader; an
