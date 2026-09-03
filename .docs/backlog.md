@@ -314,9 +314,42 @@ under [`runs/`](runs/). What existed in none of those is under `Recorded, not ta
 
 ## Now
 
-**Empty.** Both items that stood here moved to `Release` on 2026-09-03. Each says in its own text that
-it needs the owner, and this section is what needs no decision. `registry-check` check 6 closed in
-`0.9.0`, the address question in `0.7.0` by
+**From `predictions/` you cannot tell which pre-registration was ever run.** Twenty-nine files, no
+`README.md`. The convention exists and is nearly universal — **twenty-three carry a verdict-shaped
+heading**, `# Outcome` in thirteen of them and `# Result`, `# Results` or a `scored` heading in the
+other ten. **Six carry none, and five of those six were run:**
+[`release-v1-v2-positive-output.md`](predictions/release-v1-v2-positive-output.md), scored in
+[`0021`](decisions/0021-a-row-states-what-it-examined.md);
+[`release-v4-tracked-logs.md`](predictions/release-v4-tracked-logs.md), in
+[`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md);
+[`the-scope-address-is-required.md`](predictions/the-scope-address-is-required.md), in
+[`0023`](decisions/0023-a-project-scope-address-is-required.md);
+[`the-stop-run-in-isolation.md`](predictions/the-stop-run-in-isolation.md), at
+`runs/README.md:385-429`; and [`release-v3-comparison.md`](predictions/release-v3-comparison.md),
+**which nothing in this repository references at all** — its verdict is in no decision, in no run
+index, and in no backlog line. Not one of the five says where its verdict is, and
+`the-stop-run-in-isolation.md` ends on *"What this cannot settle"* with its five predictions scored
+somewhere it never names.
+
+**The sixth is the model for the repair.**
+[`attach-commits-what-it-wrote.md`](predictions/attach-commits-what-it-wrote.md) is the only file in
+the folder that answers the question in its own text, under `## Not yet run, and this is disclosed
+rather than deferred quietly` at its line 113. One heading, and a reader knows.
+
+That is `0014`'s *"an audit skipped is not an audit failed, and nothing in the release recorded that
+it had not happened"* applied to the folder that exists to prevent it. Two candidate repairs, and the
+second closes all twenty-nine at once: a scored prediction gains a line naming where its verdict is,
+or `predictions/README.md` states that verdicts live in the decision record and in `runs/README.md`.
+
+**Filed 2026-09-03 with the census corrected.** The item as raised put the scored count at five, from
+a grep over four heading forms, and called that a floor rather than a count. It was: the floor sat
+below the true figure rather than above the problem. `# Results` alone matches six files, `# Result`
+or `# Results` nine, and any verdict-shaped heading twenty-three of twenty-nine. **The gap is six
+files, not twenty-four**, and one of the six is an orphan no document points at.
+
+**Otherwise empty.** The two items that stood here before moved to `Release` on 2026-09-03, each
+saying in its own text that it needs the owner, which this section does not. `registry-check` check 6
+closed in `0.9.0`, the address question in `0.7.0` by
 [`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
 is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
 
