@@ -2,7 +2,8 @@
 
 Working backlog for `ai-project-template`.
 
-Last updated 2026-09-03, after `0.18.0` and the three `.docs/` passes that followed it.
+Last updated 2026-09-05, after decision records `0024` to `0026`, which are `.docs/`-only and
+therefore not a release.
 
 **The backlog has three sections and they mean different things.** `Now` is what has a quote behind
 it and needs no decision. `Release` needs a decision or an experiment. `Recorded, not tasks` is
@@ -275,6 +276,26 @@ One line per release day, newest first. The detail is in [`../CHANGELOG.md`](../
 is ordered by version rather than by day, in the decision each release names, and in the run logs
 under [`runs/`](runs/). What existed in none of those is under `Recorded, not tasks`.
 
+- **2026-09-05.** Three `.docs/`-only records, none of them a release. The record format gains an
+  options table and a revisit trigger, and three `wp-adr` fields are named as not adopted,
+  [`0024`](decisions/0024-a-decision-record-names-its-options-and-its-revisit-trigger.md). A decisions
+  folder belongs to a declared component, and the lazy path that makes the rule payable is named,
+  [`0025`](decisions/0025-a-decisions-folder-belongs-to-a-declared-component.md). A record carries its
+  subject in its filename only when the folder cannot,
+  [`0026`](decisions/0026-a-record-carries-its-subject-only-when-the-folder-cannot.md). **All three
+  ship unenforced**, and what each owes is under `Now` and `Release`.
+- **2026-09-05, later the same day.** A cross-agent review of the record format, conducted with
+  the advisory agent on the `wordpress-architect` plugin and relayed by the owner, and **the
+  first arm pair this repository has run on a record format**. Two more `.docs/`-only records,
+  neither a release. The parts of a record are named rather than counted, `Status` becomes one
+  of them with a closed token set, a stated absence fills any part, the options test moves off
+  the count, and shared meaning replaces shared shape,
+  [`0027`](decisions/0027-the-parts-are-named-rather-than-counted.md). The measurement condition
+  is rewritten because the one in `0024` specified a confounded design and a live registration
+  reproduced it faithfully before anyone noticed,
+  [`0028`](decisions/0028-an-arm-pair-differs-by-one-variable.md). The pair's three predictions
+  held and its most useful result was one nobody predicted; the next pair is pre-registered in
+  [`predictions/next-pair-evaluation-not-naming.md`](predictions/next-pair-evaluation-not-naming.md).
 - **2026-09-03, after `0.18.0`.** Three `.docs/`-only passes, none of them a release. The first ran
   the stop in isolation — `Write` enabled, no competing instruction, neither run writing anything or
   reaching a summary table — and marked `0014` at the clause `0023` displaced.
@@ -353,9 +374,167 @@ closed in `0.9.0`, the address question in `0.7.0` by
 [`0007`](decisions/0007-a-component-with-no-address-says-so.md); the both-ways-round run behind it
 is under `Recorded, not tasks`. The queue is the `Next, in order` line above.
 
+*`Otherwise empty` above stopped being true on 2026-09-05. It is left standing rather than edited,
+because it is a correct account of 2026-09-03 and the three items below are dated after it.*
+
+**The agreement lives in a file outside this repository, and the records carrying it are
+uncommitted.** Filed 2026-09-05. The record format agreed with the `wordpress-architect` side is
+written in full at `adr-standard.md`, in the framework's OneDrive folder, which is not under
+version control and not in this repository. Records `0024` through `0028` carry it here and all
+five are **written to disk and not committed**, along with an edit to this file. **What it
+breaks:** for as long as that holds, the repository states one thing and the standard both sides
+work to states another, and the only copy of the agreement sits in a folder no check reaches and
+no history records. The repair is a commit; the open question is whether `adr-standard.md`
+belongs in this repository at all, which is the owner's and is not answered by committing the
+records.
+
+**`cold-start-check` has no decisions question for a component.** Filed 2026-09-05, owed by
+[`0025`](decisions/0025-a-decisions-folder-belongs-to-a-declared-component.md). The project scope
+prompt asks it as question 4, *"Names the project decisions folder, or repeats the visible statement
+that it does not exist yet and says where decisions go meanwhile."* The component prompt has no
+counterpart. **What it breaks:** a component may carry `.docs/decisions/` that no reader is ever asked
+to find, and `structure-check` will not catch it either, because row 13 checks only the locations a
+folder's documents point to and a component whose two stubs say nothing points at nothing. The repair
+is that question in the component prompt plus its row in the reading table beside it. Until it exists
+`0025` is a rule nothing enforces, which is what its `Status` line says.
+
+**`handover.md:90` will disagree with `0026` the first time a folder holds two subjects.** Filed
+2026-09-05. The line reads *"`decisions/` is newest last, one file per decision, and superseded records
+are marked rather than deleted."* After
+[`0026`](decisions/0026-a-record-carries-its-subject-only-when-the-folder-cannot.md) newest-last is
+true inside a sequence and false for the folder, because names sort before positions. **What it
+breaks:** whoever trusts the line reads the last file in a listing as the newest record and is wrong.
+One clause, mechanical, and it is not done.
+
+**`wp-adr` has no target yet, and it is not this repository's file.** Filed 2026-09-05. The command
+lives in the `wordpress-architect` plugin, drafts to its own template, and names no path, so a record
+it produces lands nowhere unless a person says where.
+[`0024`](decisions/0024-a-decision-record-names-its-options-and-its-revisit-trigger.md) was written to
+give the alignment a target and the alignment itself is not done: its template carries `Owner`,
+`Evidence and links` and `Delivery and recovery`, which `0024` does not adopt, and lacks `Origin` and
+the revisit trigger, which `0024` requires. **What it breaks:** two tools in one person's hands
+produce records that cannot be filed together, which is the problem `0024` was opened on. Recorded
+here because it was found here; the edit belongs in the plugin repository.
+
+*Updated 2026-09-05, and it is not closed. The target now exists: a shared record format was
+agreed with that side across four rounds of review, and that side has adopted it, dropped its
+`ADR-00NN:` title form, and declared two added header fields under the addition rule in
+[`0027`](decisions/0027-the-parts-are-named-rather-than-counted.md). What remains unchanged is
+that no edit has been made in the plugin repository, and that repository is not readable from
+here. The original text above stands because the work it names is still undone.*
+
+---
+
+*The five items below come from `External-Reviewer.md`, an external review of 2026-08-31 read at
+commit `f9d1b8c` by an assistant with no prior knowledge of the project. All six of its findings
+were verified against the files on 2026-09-02. **F5 shipped as `0.18.0` and `0023`; F6 was settled,
+the working window tags and pushes and `release.md:172` stands.** The other four were decided and
+not done, and were never filed here: the review lived as an untracked file at the repository root
+and its findings travelled inline in prompts. **Each was re-verified against HEAD on 2026-09-05 and
+each still holds verbatim.** The file was deleted after these were filed, so every quote below is
+reproduced rather than referenced.*
+
+**`interview.md` carries `Framework Version: 0.13.0` and nothing reads it.** Filed 2026-09-05,
+decided 2026-09-02 and not done. `blueprints/setup/interview.md:4` reads `**Framework Version:**
+0.13.0` while all six blueprint READMEs read `0.18.0`. `release.md` step 2 bumps the field "in all
+four blueprint READMEs" and step 7's V2 and V3 build their file set from `ls blueprints/*/README.md`,
+so this file's copy has no reader in the release procedure at all. **What it breaks:** it is shipped
+text a person is asked from, and `procedure.md` Step 3 makes the adopting session "say in one line
+which file and which version you read", so a setup run reports 0.13.0 as fact. **Decided: delete the
+line.** The `Blueprint Version` line stays and already says when the file last moved.
+
+**`release.md` steps 1 and 2 say "four" blueprint READMEs; six carry the version pair.** Filed
+2026-09-05. `release.md:22` "which of the four actually changed" and `:25` "Bump `Framework Version`
+in all four blueprint READMEs", against `ls blueprints/*/README.md | wc -l` returning 6. The count
+was true when written and stopped being true when `checks/` and `setup/` gained version blocks.
+**What it breaks:** a releasing session follows the prose, bumps four, leaves `checks/` and `setup/`
+stale, and V2 catches it only after the commit, which costs an amend. The prose and the command
+disagree about the same set. The repair is one word in two places: drop the count, or name the set
+V2 already computes.
+
+**Four `Status:` counters are stale and two contradict this repository's own record.** Filed
+2026-09-05, decided 2026-09-02 and not done. `blueprints/repository/README.md:7` "in use in two
+components" against this backlog's own "no component in any registry has carried an override since"
+`0.10.0`; `blueprints/assets/README.md:7` "in use in one project" against `handover.md:123` "The
+assets override, `ASSETS.md`, has never been used at all"; `blueprints/project/README.md:7` "in use
+in two projects" and `README.md:159` "in use in two real projects", both undercounting after the
+NorsePath adoption. **What it breaks:** these lines are what an adopter reads to judge maturity, and
+two of them claim field use for override files the record says have none. No step re-derives any of
+them, and the true count lives inside other people's projects, which no step run here can read.
+**Decided: reword to claims that cannot rot**, model at `blueprints/component/README.md:8`, "new in
+`0.5.0`. Replaces the default use of the Repository and Assets blueprints."
+
+**Deleting `handover.md` would take the `Origin` convention with it, and nothing else states it.**
+Filed 2026-09-05. Measured rather than asserted: `grep -ril "names the channel"` across the
+repository returns `handover.md` and nothing else. The rule it carries is that a record's `Origin`
+section names the channel a decision arrived through and not its author, because from inside a
+session a message may be the owner's own words or a review relayed through him and nothing
+distinguishes them. **Nineteen of the first twenty-three records follow it.** **What it breaks:** the
+file is due for deletion, and on the day it goes every record keeps a section whose rule exists
+nowhere. Other rules in the same file are cited elsewhere without being stated there: the
+unregistered-control rule is cited in [`0020`](decisions/0020-a-check-that-cannot-fail-is-not-a-check.md)
+and [`0021`](decisions/0021-a-row-states-what-it-examined.md) and stated only in `handover.md`, and
+"judge by the artefact, not the report" appears in one prediction file as a usage. The section
+semantics were already rescued into this file on 2026-09-03; the method rules were not. Deciding what
+survives is a pass over that file, not a line.
+
 ---
 
 ## Release
+
+**Does an ADR template change what a person writes, or only what ships?** Filed 2026-09-05, held open
+by [`0024`](decisions/0024-a-decision-record-names-its-options-and-its-revisit-trigger.md), which
+accepts six fields for this repository's own records and leaves the blueprint half unshipped. The
+constraint is `0.8.0`: a 50-line fragment pasted into every adopted WordPress component was deleted
+because measured against a control its rules changed no work,
+[`0008`](decisions/0008-a-rule-earns-a-document-only-if-it-changes-behaviour.md). A template is
+plausibly a different object, a form a person fills rather than a rule sheet an agent reads, and that
+difference has never been measured here. **The experiment:** one real decision, two records, one
+written to `0024`'s six fields and one to the shape the 23 use, judged by the work each produces and
+not by which reads better. The control matters more than the treatment, because the treatment is the
+thing being sold, and a single run proves nothing. Until it runs, an adopted project gets
+`.docs/decisions/` and the sentence already in `PROJECT.md`, unchanged. Owner's call to schedule.
+
+*Updated 2026-09-05. **One pair has run**, on a WordPress subject, under the corrected design
+now recorded as [`0028`](decisions/0028-an-arm-pair-differs-by-one-variable.md). It does not
+close this item: its subject came from one domain, and this item's own text and the pair's own
+registration both say one pair settles nothing. **What it changed is the question.** The
+difference between the arms was mostly not which alternatives were named but whether they were
+evaluated, which no prediction had claimed, so a naming prediction cannot see the effect. The
+next pair is pre-registered at
+[`predictions/next-pair-evaluation-not-naming.md`](predictions/next-pair-evaluation-not-naming.md)
+and needs a subject from outside WordPress. The condition above is otherwise unchanged.*
+
+**`structure-check` row 2's placeholder definition excludes the one shipped placeholder that has a
+hyphen.** Filed 2026-09-05 from the external review, verified against HEAD, and needing a run before
+any repair counts. `blueprints/checks/structure-check.md:63-64`: "A placeholder is a run of capital
+letters and underscores wrapped in angle brackets." Measured with
+`grep -rhoE '<[A-Z][A-Z0-9_-]*>' blueprints/`: of the shipped placeholders, `<YYYY-MM-DD>` is the
+only one that rule excludes, and it sits in the `Last Updated` header of all three fillable
+templates. **What it breaks:** an adopted `PROJECT.md` still reading `<YYYY-MM-DD>` passes row 2 under
+a literal reading, and no other row looks at it; the adoption README's broader search does catch it,
+but that search runs in the session that performed the adoption and the check exists to be
+independent of that session. **This also corrects one row of an audit:**
+`audits/structure-check-rows.md` row 2 says "The definition is tight" and marks it settled by
+reading, which is true and misses that it excludes a shipped placeholder. Whether a real run would
+skip it is **unmeasured and labelled a hypothesis**; the ground for taking it seriously is this
+repository's own record that an under-specified row gets its missing rule supplied differently on
+different runs. The repair is three words, and by the house method it does not count until the row is
+run against a planted `<YYYY-MM-DD>`, both ways round.
+
+**The C2 arm cannot produce the outcome its own retraction criterion names.** Filed 2026-09-05 from
+the external review, needing an arm rather than a decision.
+[`predictions/attach-commits-what-it-wrote.md`](predictions/attach-commits-what-it-wrote.md) C2
+plants unrelated **modified** files and tests "and only those". A partially staged index is the
+sharper case: unstaged modifications never enter a pathless `git commit` and pre-staged ones always
+do. A session running `git add AGENTS.md CLAUDE.md && git commit` in a folder where the person had
+staged work in progress commits that work, violating "and only those" while doing everything the
+instruction says. **What it breaks:** the registered C2 arm cannot produce that outcome, so the
+prediction's retraction criterion, "C2 producing a commit that contains a file the session did not
+write", can never fire from it. The repair is one line in the prediction file the next time those
+arms run, adding a C2b that stages an unrelated file before the attach. The instruction itself may
+need no change, since what a session does to a partially staged index is exactly the unspecified
+part.
 
 **Is `.docs/drafts/` maintained, and by what rule?** Raised 2026-09-03 and not answered. Three of its
 files carried a rule `0.18.0` removed, unmarked, in a folder a session may draw wording from; they now
@@ -1104,6 +1283,16 @@ settled text. If a wrong verdict ever rests on evidence of this kind, it moves t
 ---
 
 ## Recorded, not tasks
+
+**The addition rule can drift and nothing here stops it.** Recorded 2026-09-05 from
+[`0027`](decisions/0027-the-parts-are-named-rather-than-counted.md). A side adopting the record
+format may carry an extra header field where a written rule of its own domain requires a fact no
+shared part holds. The only brake is that requirement, which the adding side cites and this side
+cannot verify: the plugin repository is not readable from here, and both citations taken from it
+so far were accepted as cited rather than confirmed. A side that stops citing, or that writes a
+domain rule in order to justify a field, defeats the rule. No mechanism is proposed because every
+one considered costs more than the drift. Nobody has to act on this; it is here so the next
+person to see two shapes diverge knows it was foreseen.
 
 **Two checks would return opposite verdicts on the same pair of files, and after `0.18.0` the state
 is reachable only by hand.** `structure-check` row 8 admits three forms for a stub's parent address
